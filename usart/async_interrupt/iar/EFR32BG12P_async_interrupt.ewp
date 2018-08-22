@@ -1920,10 +1920,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_A.c</name>
+      <name>$PROJ_DIR$\..\src\main_s1_xg12.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme.txt</name>
+      <name>$PROJ_DIR$\..\readme_xg12.txt</name>
     </file>
   </group>
 

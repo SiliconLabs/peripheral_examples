@@ -1633,7 +1633,7 @@
       <name>$PROJ_DIR$\..\readme_RESETn.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_RESETn.c</name>
+      <name>$PROJ_DIR$\..\src\main_resetn.c</name>
     </file>
   </group>
 

@@ -3,8 +3,6 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
-  <includePath uri="src" />
-  <includePath uri="." />
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -27,8 +25,8 @@
   </module>
   <macroDefinition name="RETARGET_VCOM" />
   <folder name="src">
-    <file name="main_Series0.c" uri="src/main_Series0.c" />
-    <file name="readme.txt" uri="readme.txt" />
+    <file name="main_s0.c" uri="src/main_s0.c" />
+    <file name="readme_s0.txt" uri="readme_s0.txt" />
   </folder>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
 </project>

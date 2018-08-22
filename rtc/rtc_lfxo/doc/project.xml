@@ -31,9 +31,7 @@
     <source>##em-path-emlib##\src\em_core.c</source>
     <source>##em-path-emlib##\src\em_cmu.c</source>
     <source>##em-path-emlib##\src\em_emu.c</source>
-    <source>##em-path-emlib##\src\em_rtcc.c</source>
     <source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_rmu.c</source>
     <source>##em-path-emlib##\src\em_rtc.c</source>
 </group>
   <group name="Source">
@@ -77,9 +75,7 @@
     <source>##em-path-emlib##\src\em_core.c</source>
     <source>##em-path-emlib##\src\em_cmu.c</source>
     <source>##em-path-emlib##\src\em_emu.c</source>
-    <source>##em-path-emlib##\src\em_rtcc.c</source>
     <source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_rmu.c</source>
     <source>##em-path-emlib##\src\em_rtc.c</source>
 </group>
   <group name="Source">
@@ -123,9 +119,7 @@
     <source>##em-path-emlib##\src\em_core.c</source>
     <source>##em-path-emlib##\src\em_cmu.c</source>
     <source>##em-path-emlib##\src\em_emu.c</source>
-    <source>##em-path-emlib##\src\em_rtcc.c</source>
     <source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_rmu.c</source>
     <source>##em-path-emlib##\src\em_rtc.c</source>
 </group>
   <group name="Source">
@@ -169,9 +163,7 @@
     <source>##em-path-emlib##\src\em_core.c</source>
     <source>##em-path-emlib##\src\em_cmu.c</source>
     <source>##em-path-emlib##\src\em_emu.c</source>
-    <source>##em-path-emlib##\src\em_rtcc.c</source>
     <source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_rmu.c</source>
     <source>##em-path-emlib##\src\em_rtc.c</source>
 </group>
   <group name="Source">
@@ -215,9 +207,7 @@
     <source>##em-path-emlib##\src\em_core.c</source>
     <source>##em-path-emlib##\src\em_cmu.c</source>
     <source>##em-path-emlib##\src\em_emu.c</source>
-    <source>##em-path-emlib##\src\em_rtcc.c</source>
     <source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_rmu.c</source>
     <source>##em-path-emlib##\src\em_rtc.c</source>
 </group>
   <group name="Source">
@@ -228,5 +218,89 @@
     <define>RETARGET_VCOM</define>
   </cflags>
 
+  </project>
+  <project name="EFM32TG_rtc_lfxo" device="EFM32TG840F32">
+    <targets>
+      <name>slsproj</name>
+	  <name>iar</name>
+    </targets>
+    <directories>
+	  <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32TG_STK3300\config</kitconfig>
+    </directories>
+	<includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32TG\Include</path>
+      <path>##em-path-emlib##\inc</path>
+	  <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+	  <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32TG\Source\$IDE$\startup_efm32tg.s</source>
+      <source>##em-path-device##\EFM32TG\Source\system_efm32tg.c</source>
+    </group>
+	<group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+    <source>##em-path-emlib##\src\em_rtc.c</source>
+    </group>
+	<group name="Source">
+	  <source>$PROJ_DIR$\readme.txt</source>
+      <source>$PROJ_DIR$\..\src\main.c</source>
+    </group>
+	<cflags>
+	</cflags>
+  </project>
+  <project name="EFM32G_rtc_lfxo" device="EFM32G890F128">
+    <targets>
+      <name>slsproj</name>
+	  <name>iar</name>
+    </targets>
+    <directories>
+	  <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32_Gxxx_STK\config</kitconfig>
+    </directories>
+	<includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32G\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32G\Source\$IDE$\startup_efm32g.s</source>
+      <source>##em-path-device##\EFM32G\Source\system_efm32g.c</source>
+    </group>
+	<group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+    <source>##em-path-emlib##\src\em_rtc.c</source>
+    </group>
+    <group name="Source">
+        <source>$PROJ_DIR$\readme.txt</source>
+        <source>$PROJ_DIR$\..\src\main.c</source>
+    </group>
+	<cflags>
+	</cflags>
   </project>
 </workspace>

@@ -1643,10 +1643,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_GGWGLG.c</name>
+      <name>$PROJ_DIR$\..\src\main_gg_wg_lg.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme.txt</name>
+      <name>$PROJ_DIR$\..\readme_gg_wg_lg.txt</name>
     </file>
   </group>
 

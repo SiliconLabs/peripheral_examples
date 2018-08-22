@@ -147,7 +147,7 @@
         <option>
           <name>CCDefines</name>
           <state>EFM32HG322F64</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -388,7 +388,7 @@
         <option>
           <name>ADefines</name>
           <state>EFM32HG322F64</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -950,7 +950,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>EFM32HG322F64</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1191,7 +1191,7 @@
         <option>
           <name>ADefines</name>
           <state>EFM32HG322F64</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1643,7 +1643,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\mainS0.c</name>
+      <name>$PROJ_DIR$\..\src\main_s0.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

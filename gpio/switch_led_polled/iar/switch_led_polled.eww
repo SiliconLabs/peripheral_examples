@@ -43,6 +43,33 @@
   <project>
     <path>$WS_DIR$\EFM32ZG_switch_led_polled.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14_switch_led_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14_switch_led_polled.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

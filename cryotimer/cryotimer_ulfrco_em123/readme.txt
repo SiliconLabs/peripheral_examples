@@ -1,63 +1,44 @@
-cryotimer_ulfrco_em123
 
-This project demonstrates use of the CRYOTIMER with the ultra-low
-frequency RC oscillator (ULFRCO) as its clock in EM3.
+================================================================================
 
-After chip and DC-DC initialization, the LED0 pin is configured as an
-output and driven high, turning on LED0.
+This project shows how to use the Cryotimer with the ULFRCO in EM3. The project
+idles in EM3 while waiting for the interrupt handler to toggle LED0. An
+interrupt occurs every 2048 ULFRCO clock cycles (about 2.05 seconds) by
+default.
 
-The CRYOTIMER is configured to time out after 2K (2048) ULFRCO clock periods,
-which is nominally around 2.05 seconds, and request an interrupt.  After this,
-the code places the device in EM3 and waits for CRYOTIMER interrupt.
-
-Upon time out, the CRYOTIMER interrupt is requested, waking the device from
-EM3.  The interrupt handler clears the CRYOTIMER_IF_PERIOD flag, flushes the
-processor core pipeline to make sure the interrupt is not re-requested (the
-CRYOTIMER resides in its own, asynchronous clock domains), toggles LED0, and
-exits back to the main loop where the sequence repeats.
-
-How To Test:
-1. Build the project and download to the Starter Kit
-2. LED0 will repeatedly turn on for about 2 seconds (count 1-one thousand,
-   2-one thousand to verify) and then turn off for the same amount of time.
-3. If desired, observe the change in current draw in Simplicity Studio's
-   Energy Profiler.
-
-Note that the program is easily modified to run in either EM1 or EM2 by
-replacing the EMU_EnterEM3(false) call in this section...
-
-	// Go into EM3 and let the CRYOTIMER IRQ handler take over
-	while(1) EMU_EnterEM3(false);
-
-...with...
-
-	// Go into EM2 and let the CRYOTIMER IRQ handler take over
-	while(1) EMU_EnterEM2(false);
-
-...for EM2 or...
-
-	// Go into EM1 and let the CRYOTIMER IRQ handler take over
-	while(1) EMU_EnterEM1();
-
-...for EM1.
-
-The code can also be changed to use the low-frequency crystal oscillator (LFXO)
+This project can be changed to use the low-frequency crystal oscillator (LFXO)
 or low-frequency RC oscillator (LFRCO) but must be limited to running in EM1 or
 EM2 because these oscillators are disabled in EM3.
 
-Modules Used:
-CPU core
-GPIO
-HFRCO @ 19 MHz (CPU core and GPIO)
-ULFRCO
+The duration between Cryotimer wakeup events is defined to be the following 
+(in units of seconds):
+  Time_Wakeup = (2 ^ PRESC) * (2 ^ PERIODSEL) / (F_CRYOCLK)
+  F_CRYOCLK = 1000 Hz for ULFRCO
+  F_CRYOCLK = 32768 Hz for LFXO and LFRCO
+
+================================================================================
+
+Peripherals Used:
+ULFRCO - 1000 Hz
 CRYOTIMER
 
-Board:  Silicon Labs EFM32PG12 Starter Kit (SLSTK3402A)
-Device: EFM32PG12B500F1024GL125
-Pins Used: PF4 - LED0
+================================================================================
+
+How To Test:
+1. Build the project and download it to the Starter Kit
+2. LED0 will be on for 2 seconds and then off for 2 seconds. This cycle will
+   repeat indefinitely.
+
+================================================================================
+
+Listed below are the port and pin mappings for working with this example.
 
 Board:  Silicon Labs EFM32PG1 Starter Kit (SLSTK3401A)
 Device: EFM32PG1B200F256GM48
+PF4 - LED0
+
+Board:  Silicon Labs EFM32PG12 Starter Kit (SLSTK3402A)
+Device: EFM32PG12B500F1024GL125
 PF4 - LED0
 
 Board:  Silicon Labs EFR32BG1P Starter Kit (BRD4100A)
@@ -68,12 +49,28 @@ Board:  Silicon Labs EFR32BG12P Starter Kit (BRD4103A)
 Device: EFR32BG12P332F1024GL125
 PF4 - LED0
 
+Board:  Silicon Labs EFR32BG13 Starter Kit (BRD4104A)
+Device: EFR32BG13P632F512GM48
+PF4 - LED0
+
+Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
+Device: EFR32BG14P732F256GM48
+PF4 - LED0
+
 Board:  Silicon Labs EFR32FG1P Starter Kit (BRD4250A)
 Device: EFR32FG1P133F256GM48
 PF4 - LED0
 
 Board:  Silicon Labs EFR32FG12P Starter Kit (BRD4253A)
 Device: EFR32FG12P433F1024GL125
+PF4 - LED0
+
+Board:  Silicon Labs EFR32FG13 Starter Kit (BRD4256A)
+Device: EFR32FG13P233F512GM48
+PF4 - LED0
+
+Board:  Silicon Labs EFR32FG14 Starter Kit (BRD4257A)
+Device: EFR32FG14P233F256GM48
 PF4 - LED0
 
 Board:  Silicon Labs EFR32MG1P Starter Kit (BRD4151A)
@@ -83,3 +80,20 @@ PF4 - LED0
 Board:  Silicon Labs EFR32MG12P Starter Kit (BRD4161A)
 Device: EFR32MG1P432F1024GL125
 PF4 - LED0
+
+Board:  Silicon Labs EFR32MG13P Starter Kit (BRD4159A)
+Device: EFR32MG13P632F512GM48
+PF4 - LED0
+
+Board:  Silicon Labs EFR32MG14 Starter Kit (BRD4169B)
+Device: EFR32MG14P733F256GM48
+PF4 - LED0
+
+Board:  Silicon Labs EFM32GG11 Starter Kit (SLSTK3701A)
+Device: EFM32GG11B820F2048GL192
+PH10 - LED0 (Red)
+
+Board:  Silicon Labs EFM32TG11 Starter Kit (SLSTK3301A)
+Device: EFM32TG11B520F128GM80
+PD2 - LED0
+

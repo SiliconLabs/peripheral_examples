@@ -147,7 +147,7 @@
         <option>
           <name>CCDefines</name>
           <state>EFM32ZG222F32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -388,7 +388,7 @@
         <option>
           <name>ADefines</name>
           <state>EFM32ZG222F32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -950,7 +950,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>EFM32ZG222F32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1191,7 +1191,7 @@
         <option>
           <name>ADefines</name>
           <state>EFM32ZG222F32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1609,12 +1609,6 @@
   </configuration>
   <group>
     <name>Drivers</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetserial.c</name>
-    </file>
   </group>
   <group>
     <name>CMSIS</name>
@@ -1637,25 +1631,16 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_adc.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_leuart.c</name>
     </file>
   </group>
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\readme_Series0.txt</name>
+      <name>$PROJ_DIR$\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_Series0.c</name>
+      <name>$PROJ_DIR$\..\src\main_s0.c</name>
     </file>
   </group>
 

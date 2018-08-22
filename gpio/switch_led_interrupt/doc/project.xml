@@ -34,7 +34,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -77,7 +77,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -85,6 +85,100 @@
   </cflags>
 
   </project>
+
+  <project name="EFR32BG13P_switch_led_interrupt" device="EFR32BG13P632F512GM48">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32BG13_BRD4104A\config</kitconfig>
+      <kitconfig2>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32BG13_BRD4104A\config</kitconfig2>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32BG13P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-kitconfig2##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32BG13P\Source\$IDE$\startup_efr32bg13p.s</source>
+      <source>##em-path-device##\EFR32BG13P\Source\system_efr32bg13p.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+
+  <project name="EFR32BG14P_switch_led_interrupt" device="EFR32BG14P732F256GM48">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32BG14_BRD4105A\config</kitconfig>
+      <kitconfig2>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32BG14_BRD4105A\config</kitconfig2>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32BG14P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-kitconfig2##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32BG14P\Source\$IDE$\startup_efr32bg14p.s</source>
+      <source>##em-path-device##\EFR32BG14P\Source\system_efr32bg14p.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+ 
+ 
   <project name="EFR32FG1P_switch_led_interrupt" device="EFR32FG1P133F256GM48">
     <targets>
     <name>slsproj</name>
@@ -120,7 +214,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -163,7 +257,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -171,6 +265,101 @@
   </cflags>
 
   </project>
+
+  <project name="EFR32FG13P_switch_led_interrupt" device="EFR32FG13P233F512GM48">
+    <targets> 
+
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG13_BRD4256A\config</kitconfig>
+      <kitconfig2>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG13_BRD4256A\config</kitconfig2>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32FG13P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-kitconfig2##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32FG13P\Source\$IDE$\startup_efr32fg13p.s</source>
+      <source>##em-path-device##\EFR32FG13P\Source\system_efr32fg13p.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+ 
+
+  </project>
+
+   <project name="EFR32FG14P_switch_led_interrupt" device="EFR32FG14P233F256GM48">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG14_BRD4257A\config</kitconfig>
+      <kitconfig2>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG14_BRD4257A\config</kitconfig2>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32FG14P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-kitconfig2##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32FG14P\Source\$IDE$\startup_efr32fg14p.s</source>
+      <source>##em-path-device##\EFR32FG14P\Source\system_efr32fg14p.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+ 
   <project name="EFM32G_switch_led_interrupt" device="EFM32G890F128">
     <targets>
     <name>slsproj</name>
@@ -206,7 +395,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -249,7 +438,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group2.c</source>
+    <source>$PROJ_DIR$\..\src\main_s0.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -257,6 +446,139 @@
   </cflags>
 
   </project>
+
+  <project name="EFM32GG11_switch_led_interrupt" device="EFM32GG11B820F2048GL192">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</kitconfig>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32GG11\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32GG11\Source\$IDE$\startup_efm32gg11.s</source>
+      <source>##em-path-device##\EFM32GG11\Source\system_efm32gg11.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+
+   <project name="EFM32TG11_switch_led_interrupt" device="EFM32TG11B520F128GM80">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32TG11\config</kitconfig>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32TG11\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32TG11\Source\$IDE$\startup_efm32tg.s</source>
+      <source>##em-path-device##\EFM32TG11\Source\system_efm32tg.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_tg11.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+
+   <project name="EFM32TG_switch_led_interrupt" device="EFM32TG840F32">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32TG_STK3300\config</kitconfig>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32TG\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32TG\Source\$IDE$\startup_efm32tg.s</source>
+      <source>##em-path-device##\EFM32TG\Source\system_efm32tg.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_tg.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+ 
   <project name="EFM32HG_switch_led_interrupt" device="EFM32HG322F64">
     <targets>
     <name>slsproj</name>
@@ -292,7 +614,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group2.c</source>
+    <source>$PROJ_DIR$\..\src\main_s0.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -335,7 +657,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group2.c</source>
+    <source>$PROJ_DIR$\..\src\main_s0.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -378,7 +700,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -421,7 +743,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -429,6 +751,100 @@
   </cflags>
 
   </project>
+
+  <project name="EFR32MG13P_switch_led_interrupt" device="EFR32MG13P632F512GM48">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG13_BRD4159A\config</kitconfig>
+      <kitconfig2>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG13_BRD4159A\config</kitconfig2>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32MG13P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-kitconfig2##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32MG13P\Source\$IDE$\startup_efr32mg13p.s</source>
+      <source>##em-path-device##\EFR32MG13P\Source\system_efr32mg13p.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+
+   <project name="EFR32MG14P_switch_led_interrupt" device="EFR32MG14P733F256GM48">
+    <targets>
+    <name>slsproj</name>
+    <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG14_4169B\config</kitconfig>
+      <kitconfig2>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG14_4169B\config</kitconfig2>
+    </directories>
+  <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32MG14P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-kitconfig2##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="Drivers">
+    </group>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32MG14P\Source\$IDE$\startup_efr32mg14p.s</source>
+      <source>##em-path-device##\EFR32MG14P\Source\system_efr32mg14p.c</source>
+    </group>
+  <group name="emlib">
+    <source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_core.c</source>
+    <source>##em-path-emlib##\src\em_cmu.c</source>
+    <source>##em-path-emlib##\src\em_emu.c</source>
+    <source>##em-path-emlib##\src\em_gpio.c</source>
+</group>
+  <group name="Source">
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
+    <source>$PROJ_DIR$\..\readme.txt</source>
+  </group>
+  <cflags>
+    <define>RETARGET_VCOM</define>
+  </cflags>
+
+  </project>
+  
+ 
   <project name="EFM32PG1B_switch_led_interrupt" device="EFM32PG1B200F256GM48">
     <targets>
     <name>slsproj</name>
@@ -464,7 +880,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -507,7 +923,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -550,7 +966,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group2.c</source>
+    <source>$PROJ_DIR$\..\src\main_s0.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>
@@ -593,7 +1009,7 @@
     <source>##em-path-emlib##\src\em_gpio.c</source>
 </group>
   <group name="Source">
-    <source>$PROJ_DIR$\..\src\main_group1.c</source>
+    <source>$PROJ_DIR$\..\src\main_s1.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
   <cflags>

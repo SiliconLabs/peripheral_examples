@@ -1923,10 +1923,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_PG.c</name>
+      <name>$PROJ_DIR$\..\src\main_pgxx.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme_PG.txt</name>
+      <name>$PROJ_DIR$\..\readme_pgxx.txt</name>
     </file>
   </group>
 

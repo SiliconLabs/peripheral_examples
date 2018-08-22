@@ -1923,10 +1923,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_BGFG.c</name>
+      <name>$PROJ_DIR$\..\src\main_efr.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme_BGFG.txt</name>
+      <name>$PROJ_DIR$\..\readme_efr.txt</name>
     </file>
   </group>
 

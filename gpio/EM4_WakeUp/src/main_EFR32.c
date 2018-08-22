@@ -5,7 +5,7 @@
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -43,9 +43,6 @@ void initGPIO(void)
   GPIO_PinModeSet(EM4WU_PORT, EM4WU_PIN, gpioModeInputPullFilter, 1);
   GPIO_EM4EnablePinWakeup(EM4WU_EM4WUEN_MASK << _GPIO_EM4WUEN_EM4WUEN_SHIFT, 0);
 
-  // Configure PD15 as an output
-  GPIO_PinModeSet(gpioPortD, 15, gpioModePushPull, 0);
-
   // Configure LED0 and LED1 as output
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
   GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, 0);
@@ -79,9 +76,6 @@ int main(void)
   // Get the last Reset Cause
   uint32_t rstCause = RMU_ResetCauseGet();
   RMU_ResetCauseClear();
-
-  // Set DISP_ENABLE(PD15) low to clear LCD
-  GPIO_PinOutClear(gpioPortD, 15);
 
   // Put Serial Flash into Deep Power Down Mode
   MX25_init() ;

@@ -16,6 +16,12 @@
   <project>
     <path>$WS_DIR$\EFM32ZG_rtc_lfxo.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_rtc_lfxo.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_rtc_lfxo.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

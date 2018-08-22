@@ -1,0 +1,114 @@
+/**************************************************************************//**
+ * @main_series0.c
+ * @brief This project uses the OFB (Output Feedback) mode of AES
+ * encryption to encrypt the user's input data and then decrypt it.
+ * @version 0.0.1
+ ******************************************************************************
+ * @section License
+ * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ *******************************************************************************
+ *
+ * This file is licensed under the Silabs License Agreement. See the file
+ * "Silabs_License_Agreement.txt" for details. Before using this software for
+ * any purpose, you must agree to the terms of that agreement.
+ *
+ ******************************************************************************/
+
+#include "em_device.h"
+#include "em_cmu.h"
+#include "em_chip.h"
+#include "em_emu.h"
+#include "em_aes.h"
+
+// Note: change this to change the number of bytes to encrypt
+//       (must be a multiple of 16)
+#define DATA_SIZE 64
+
+// Note: change this to change the data to encrypt
+const static uint8_t originalData[DATA_SIZE] = {
+  0x6B, 0xC1, 0xBE, 0xE2, 0x2E, 0x40, 0x9F, 0x96,
+  0xE9, 0x3D, 0x7E, 0x11, 0x73, 0x93, 0x17, 0x2A,
+  0xAE, 0x2D, 0x8A, 0x57, 0x1E, 0x03, 0xAC, 0x9C,
+  0x9E, 0xB7, 0x6F, 0xAC, 0x45, 0xAF, 0x8E, 0x51,
+  0x30, 0xC8, 0x1C, 0x46, 0xA3, 0x5C, 0xE4, 0x11,
+  0xE5, 0xFB, 0xC1, 0x19, 0x1A, 0x0A, 0x52, 0xEF,
+  0xF6, 0x9F, 0x24, 0x45, 0xDF, 0x4F, 0x9B, 0x17,
+  0xAD, 0x2B, 0x41, 0x7B, 0xE6, 0x6C, 0x37, 0x10,
+};
+
+// A buffer to hold the encrypted data
+static uint8_t encryptedData[DATA_SIZE];
+
+// A buffer to hold the decrypted data
+static uint8_t decryptedData[DATA_SIZE];
+
+// Number of bytes to make up a 256 bit key (32 * 8 = 256)
+#define KEY_SIZE 32
+
+// Note: change this to change the key
+// Note: must be 256 bits
+// Note: the same key is used for encryption and decryption in CFB mode
+const static uint8_t key[KEY_SIZE] = {
+  0x60, 0x3D, 0xEB, 0x10, 0x15, 0xCA, 0x71, 0xBE,
+  0x2B, 0x73, 0xAE, 0xF0, 0x85, 0x7D, 0x77, 0x81,
+  0x1F, 0x35, 0x2C, 0x07, 0x3B, 0x61, 0x08, 0xD7,
+  0x2D, 0x98, 0x10, 0xA3, 0x09, 0x14, 0xDF, 0xF4
+};
+
+// Number of bytes to make up a 128 bit initialization vector (16 * 8 = 128)
+#define INIT_VECTOR_SIZE 16
+
+// Note: change this to change the initialization vector used for Cipher Feedback Mode
+// Note: must be 128 bits
+const static uint8_t initVector[INIT_VECTOR_SIZE] = {
+  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+  0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F
+};
+
+// A flag indicating whether the encryption/decryption process succeeded
+// Note: This is only volatile to ensure that it doesn't get optimized out by
+// the compiler before the user checks its value. It's not actually necessary.
+static volatile bool isError;
+
+/**************************************************************************//**
+ * @brief
+ *    Main function
+ *****************************************************************************/
+int main(void)
+{
+  // Chip errata
+  CHIP_Init();
+
+  // Enable AES clock
+  CMU_ClockEnable(cmuClock_AES, true);
+
+  // Encrypt data using AES-256 OFB
+  // Note: the encryption and decryption operations are identical in OFB mode
+  AES_OFB256(encryptedData, // Pointer to buffer where encrypted/decrypted data will be put
+             originalData,  // Pointer to buffer holding data to encrypt/decrypt
+             DATA_SIZE,     // Number of bytes to encrypt (must be a multiple of 16)
+             key,           // A 256 bit encryption/decryption key
+             initVector);   // A 128 bit initialization vector
+
+  // Decrypt data using AES-256 OFB
+  // Note: the encryption and decryption operations are identical in OFB mode
+  AES_OFB256(decryptedData, // Pointer to buffer where encrypted/decrypted data will be put
+             encryptedData, // Pointer to buffer holding data to encrypt/decrypt
+             DATA_SIZE,     // Number of bytes to encrypt (must be a multiple of 16)
+             key,           // A 256 bit encryption/decryption key
+             initVector);   // A 128 bit initialization vector
+
+  // Check whether decrypted result is identical to the original data
+  isError = false;
+  for (uint32_t i = 0; i < DATA_SIZE; i++) {
+    if (decryptedData[i] != originalData[i]) {
+      isError = true;
+    }
+  }
+
+  // Pause the debugger here to check if the isError variable is true/false
+  while (1) {
+    EMU_EnterEM1();
+  }
+}
+

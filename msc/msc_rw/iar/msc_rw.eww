@@ -8,10 +8,22 @@
     <path>$WS_DIR$\EFR32BG12P_msc_rw.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32BG13P_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_msc_rw.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG1P_msc_rw.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32FG12P_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_msc_rw.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFM32G_msc_rw.ewp</path>
@@ -32,6 +44,12 @@
     <path>$WS_DIR$\EFR32MG12P_msc_rw.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG13P_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_msc_rw.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFM32PG1B_msc_rw.ewp</path>
   </project>
   <project>
@@ -42,6 +60,15 @@
   </project>
   <project>
     <path>$WS_DIR$\EFM32ZG_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_msc_rw.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_msc_rw.ewp</path>
   </project>
 
   <batchBuild/>

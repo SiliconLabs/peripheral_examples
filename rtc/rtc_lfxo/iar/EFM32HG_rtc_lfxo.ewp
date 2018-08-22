@@ -1634,13 +1634,7 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rtcc.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rmu.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rtc.c</name>

@@ -12,7 +12,7 @@
       <name>General</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>24</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -28,13 +28,18 @@
           <state>EFM32LG_async_polled\Debug\List</state>
         </option>
         <option>
+          <name>Variant</name>
+          <version>13</version>
+          <state>36</state>
+        </option>
+        <option>
           <name>GEndianMode</name>
           <state>0</state>
         </option>
         <option>
           <name>Input variant</name>
-          <version>3</version>
-          <state>1</state>
+          <version>1</version>
+          <state>0</state>
         </option>
         <option>
           <name>Input description</name>
@@ -42,8 +47,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>1</state>
+          <version>0</version>
+          <state>0</state>
         </option>
         <option>
           <name>Output description</name>
@@ -51,6 +56,11 @@
         </option>
         <option>
           <name>GOutputBinary</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>FPU</name>
+          <version>0</version>
           <state>0</state>
         </option>
         <option>
@@ -72,12 +82,16 @@
           <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
+          <name>RTConfigPath</name>
+          <state>$TOOLKIT_DIR$\INC\DLib_Config_Normal.h</state>
+        </option>
+        <option>
           <name>OGProductVersion</name>
           <state>5.40.2.51615</state>
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.80.3.12143</state>
+          <state>5.40.2.51615</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -121,62 +135,13 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
-        </option>
-        <option>
-          <name>GBECoreSlave</name>
-          <version>24</version>
-          <state>38</state>
-        </option>
-        <option>
-          <name>OGUseCmsis</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OGUseCmsisDspLib</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>GRuntimeLibThreads</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CoreVariant</name>
-          <version>24</version>
-          <state>38</state>
-        </option>
-        <option>
-          <name>GFPUDeviceSlave</name>
-          <state>EFM32LG990F256	SiliconLaboratories EFM32LG990F256</state>
-        </option>
-        <option>
-          <name>FPU2</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>NrRegs</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>NEON</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>GFPUCoreSlave2</name>
-          <version>24</version>
-          <state>38</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>ICCARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>31</version>
+        <version>21</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -243,7 +208,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>00000000</state>
+          <state>0000000</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -263,7 +228,7 @@
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -283,7 +248,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -296,6 +261,10 @@
         <option>
           <name>OutputFile</name>
           <state>$FILE_BNAME$.o</state>
+        </option>
+        <option>
+          <name>CCLangSelect</name>
+          <state>0</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -317,10 +286,15 @@
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32LG_STK3600\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
+
         </option>
         <option>
           <name>CCStdIncCheck</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>CCStdIncludePath</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
         </option>
         <option>
           <name>CCCodeSection</name>
@@ -357,82 +331,13 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>CCPosIndRopi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndRwpi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndNoDynInit</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccLang</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccAllowVLA</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCppDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccExceptions</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccRTTI</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccStaticDestr</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCppInlineSemantics</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccFloatSemantics</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCNoLiteralPool</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCOptStrategySlave</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCGuardCalls</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>AARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>9</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -578,6 +483,10 @@
           <state>0</state>
         </option>
         <option>
+          <name>AStdIncludes</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
+        </option>
+        <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32LG\Include</state>
@@ -585,6 +494,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32LG_STK3600\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
+
         </option>
         <option>
           <name>AExtraOptionsCheckV2</name>
@@ -593,10 +503,6 @@
         <option>
           <name>AExtraOptionsV2</name>
           <state></state>
-        </option>
-        <option>
-          <name>AsmNoLiteralPool</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -609,8 +515,8 @@
         <debug>1</debug>
         <option>
           <name>OOCOutputFormat</name>
-          <version>3</version>
-          <state>3</state>
+          <version>2</version>
+          <state>2</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
@@ -636,7 +542,6 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
-        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -656,7 +561,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>18</version>
+        <version>8</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -773,7 +678,7 @@
         </option>
         <option>
           <name>IlinkExtraOptions</name>
-          <state></state>
+          
         </option>
         <option>
           <name>IlinkLowLevelInterfaceSlave</name>
@@ -825,6 +730,10 @@
           <state>1</state>
         </option>
         <option>
+          <name>CrcAlgo</name>
+          <state>1</state>
+        </option>
+        <option>
           <name>CrcPoly</name>
           <state>0x11021</state>
         </option>
@@ -866,88 +775,6 @@
           <name>IlinkIElfToolPostProcess</name>
           <state>0</state>
         </option>
-        <option>
-          <name>IlinkLogAutoLibSelect</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogRedirSymbols</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogUnusedFragments</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcReverseByteOrder</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcUseAsInput</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptInline</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsAllow</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsForce</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptMergeDuplSections</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkOptUseVfe</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptForceVfe</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackAnalysisEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackControlFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>IlinkStackCallGraphFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>CrcAlgorithm</name>
-          <version>1</version>
-          <state>1</state>
-        </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkThreadsSlave</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkLogCallGraph</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkIcfFile_AltDefault</name>
-          <state></state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -987,7 +814,7 @@
       <name>General</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>24</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1003,13 +830,18 @@
           <state>EFM32LG_async_polled\Release\List</state>
         </option>
         <option>
+          <name>Variant</name>
+          <version>13</version>
+          <state>36</state>
+        </option>
+        <option>
           <name>GEndianMode</name>
           <state>0</state>
         </option>
         <option>
           <name>Input variant</name>
-          <version>3</version>
-          <state>1</state>
+          <version>1</version>
+          <state>0</state>
         </option>
         <option>
           <name>Input description</name>
@@ -1017,8 +849,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>1</state>
+          <version>0</version>
+          <state>0</state>
         </option>
         <option>
           <name>Output description</name>
@@ -1026,6 +858,11 @@
         </option>
         <option>
           <name>GOutputBinary</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>FPU</name>
+          <version>0</version>
           <state>0</state>
         </option>
         <option>
@@ -1047,12 +884,16 @@
           <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
+          <name>RTConfigPath</name>
+          <state>$TOOLKIT_DIR$\INC\DLib_Config_Normal.h</state>
+        </option>
+        <option>
           <name>OGProductVersion</name>
           <state>5.40.2.51615</state>
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.80.3.12143</state>
+          <state>5.40.2.51615</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -1096,62 +937,13 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
-        </option>
-        <option>
-          <name>GBECoreSlave</name>
-          <version>24</version>
-          <state>38</state>
-        </option>
-        <option>
-          <name>OGUseCmsis</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OGUseCmsisDspLib</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>GRuntimeLibThreads</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CoreVariant</name>
-          <version>24</version>
-          <state>38</state>
-        </option>
-        <option>
-          <name>GFPUDeviceSlave</name>
-          <state>EFM32LG990F256	SiliconLaboratories EFM32LG990F256</state>
-        </option>
-        <option>
-          <name>FPU2</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>NrRegs</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>NEON</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>GFPUCoreSlave2</name>
-          <version>24</version>
-          <state>38</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>ICCARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>31</version>
+        <version>21</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1219,7 +1011,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>11111110</state>
+          <state>1111111</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -1239,7 +1031,7 @@
         </option>
         <option>
           <name>IExtraOptions</name>
-          <state></state>
+          
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -1259,7 +1051,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1272,6 +1064,10 @@
         <option>
           <name>OutputFile</name>
           <state>$FILE_BNAME$.o</state>
+        </option>
+        <option>
+          <name>CCLangSelect</name>
+          <state>0</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1293,10 +1089,15 @@
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32LG_STK3600\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
+
         </option>
         <option>
           <name>CCStdIncCheck</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>CCStdIncludePath</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
         </option>
         <option>
           <name>CCCodeSection</name>
@@ -1333,82 +1134,13 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>CCPosIndRopi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndRwpi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndNoDynInit</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccLang</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccAllowVLA</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCppDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccExceptions</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccRTTI</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccStaticDestr</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCppInlineSemantics</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccFloatSemantics</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCNoLiteralPool</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCOptStrategySlave</name>
-          <version>0</version>
-          <state>1</state>
-        </option>
-        <option>
-          <name>CCGuardCalls</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>AARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>9</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1554,6 +1286,10 @@
           <state>0</state>
         </option>
         <option>
+          <name>AStdIncludes</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
+        </option>
+        <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32LG\Include</state>
@@ -1561,6 +1297,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32LG_STK3600\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
+
         </option>
         <option>
           <name>AExtraOptionsCheckV2</name>
@@ -1569,10 +1306,6 @@
         <option>
           <name>AExtraOptionsV2</name>
           <state></state>
-        </option>
-        <option>
-          <name>AsmNoLiteralPool</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -1585,8 +1318,8 @@
         <debug>0</debug>
         <option>
           <name>OOCOutputFormat</name>
-          <version>3</version>
-          <state>3</state>
+          <version>2</version>
+          <state>2</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
@@ -1612,7 +1345,6 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
-        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -1632,7 +1364,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>18</version>
+        <version>8</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1749,7 +1481,7 @@
         </option>
         <option>
           <name>IlinkExtraOptions</name>
-          <state></state>
+          
         </option>
         <option>
           <name>IlinkLowLevelInterfaceSlave</name>
@@ -1801,6 +1533,10 @@
           <state>1</state>
         </option>
         <option>
+          <name>CrcAlgo</name>
+          <state>1</state>
+        </option>
+        <option>
           <name>CrcPoly</name>
           <state>0x11021</state>
         </option>
@@ -1842,88 +1578,6 @@
           <name>IlinkIElfToolPostProcess</name>
           <state>0</state>
         </option>
-        <option>
-          <name>IlinkLogAutoLibSelect</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogRedirSymbols</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogUnusedFragments</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcReverseByteOrder</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcUseAsInput</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptInline</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsAllow</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsForce</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptMergeDuplSections</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkOptUseVfe</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptForceVfe</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackAnalysisEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackControlFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>IlinkStackCallGraphFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>CrcAlgorithm</name>
-          <version>1</version>
-          <state>1</state>
-        </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkThreadsSlave</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkLogCallGraph</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkIcfFile_AltDefault</name>
-          <state></state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -1954,6 +1608,9 @@
     </settings>
   </configuration>
   <group>
+    <name>Drivers</name>
+  </group>
+  <group>
     <name>CMSIS</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32LG\Source\IAR\startup_efm32lg.s</name>
@@ -1963,21 +1620,18 @@
     </file>
   </group>
   <group>
-    <name>Drivers</name>
-  </group>
-  <group>
     <name>emlib</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
@@ -1986,12 +1640,13 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_Series0.c</name>
+      <name>$PROJ_DIR$\..\src\main_s0.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme.txt</name>
+      <name>$PROJ_DIR$\..\readme_s0.txt</name>
     </file>
   </group>
+
 </project>
 
 

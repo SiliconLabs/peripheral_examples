@@ -302,6 +302,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -561,6 +562,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
@@ -1249,6 +1251,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -1504,6 +1507,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
@@ -1929,10 +1933,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_EFR32.c</name>
+      <name>$PROJ_DIR$\..\src\main_efr32.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme.txt</name>
+      <name>$PROJ_DIR$\..\readme_s1_zg.txt</name>
     </file>
   </group>
 

@@ -3,16 +3,8 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
-  <includePath uri="src" />
-  <includePath uri="." />
   <module id="com.silabs.sdk.exx32.common.CMSIS">
-    <include pattern="DSP/arm_cmplx_mag_f32.c" />
-    <include pattern="DSP/arm_common_tables.c" />
-    <include pattern="DSP/arm_rfft_f32.c" />
-    <include pattern="DSP/arm_rfft_init_f32.c" />
-    <include pattern="DSP/arm_bitreversal.c" />
-    <include pattern="DSP/arm_cfft_radix4_f32.c" />
-    <include pattern="DSP/arm_cfft_radix4_init_f32.c" />
+    <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
     <include pattern="emlib/em_system.c" />
@@ -35,9 +27,20 @@
   <macroDefinition name="RETARGET_VCOM" />
   <macroDefinition name="__FPU_PRESENT" />
   <macroDefinition name="ARM_MATH_CM4" />
+  <folder name="DSP">
+    <file name="arm_cmplx_mag_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c" />
+    <file name="arm_common_tables.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c" />
+    <file name="arm_rfft_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c" />
+    <file name="arm_rfft_init_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c" />
+    <file name="arm_bitreversal.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c" />
+    <file name="arm_cfft_radix4_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c" />
+    <file name="arm_cfft_radix4_init_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c" />
+  </folder>
   <folder name="src">
     <file name="main.c" uri="src/main.c" />
     <file name="readme.txt" uri="readme.txt" />
   </folder>
+  <libraryFile name="m " toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryPath uri="" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
 </project>

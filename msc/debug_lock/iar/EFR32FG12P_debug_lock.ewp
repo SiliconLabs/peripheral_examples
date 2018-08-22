@@ -1916,7 +1916,7 @@
       <name>$PROJ_DIR$\..\readme_SYSRESETREQ.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_SYSRESETREQ.c</name>
+      <name>$PROJ_DIR$\..\src\main_sysresetreq.c</name>
     </file>
   </group>
 

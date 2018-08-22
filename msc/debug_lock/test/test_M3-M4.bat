@@ -1,5 +1,5 @@
 rem Change path to SEGGER JLink install location if necessary
-"C:\Program Files (x86)\SEGGER\JLink_V616c\JLink.exe" ^
+"C:\Program Files (x86)\SEGGER\JLink_V632g\JLink.exe" ^
  ^
  ^
  ^

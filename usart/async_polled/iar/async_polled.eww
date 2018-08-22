@@ -43,6 +43,30 @@
   <project>
     <path>$WS_DIR$\EFM32ZG_async_polled.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14_async_polled.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

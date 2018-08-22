@@ -169,7 +169,7 @@
         <option>
           <name>CCDefines</name>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -462,7 +462,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1116,7 +1116,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1405,7 +1405,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1889,9 +1889,6 @@
   </configuration>
   <group>
     <name>Drivers</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\mx25flash_spi.c</name>
-    </file>
   </group>
   <group>
     <name>CMSIS</name>
@@ -1911,13 +1908,7 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cryotimer.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
@@ -1925,11 +1916,14 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cryotimer.c</name>
+    </file>
   </group>
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_cryo_blink_em3_EFR32.c</name>
+      <name>$PROJ_DIR$\..\src\main.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

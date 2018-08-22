@@ -1643,10 +1643,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_ZGHG.c</name>
+      <name>$PROJ_DIR$\..\src\main_zg_hg.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme_ZGHG.txt</name>
+      <name>$PROJ_DIR$\..\readme_zg_hg.txt</name>
     </file>
   </group>
 

@@ -20,7 +20,7 @@ How To Test:
 	or test/test_M3-M4.bat (for all other boards) to point to the install
 	location of JLink.exe.
 5. Run test/test_M0.bat (for EFM32ZG and EFM32HG) or test/test_M3-M4.bat 
-	(for all other boards).
+	(for all other boards) from the command prompt.
 6. The output should display "Read DP register 3 = 0x16E60001" if the device
 	is locked.
 	
@@ -55,3 +55,6 @@ Device: EFM32LG990F256
 
 Board: Silicon Labs EFM32WG Starter Kit (STK3800)
 Device: EFM32WG990F256
+
+Board: Silicon Labs EFM32TG Starter Kit (STK3300)
+Device: EFM32TG840F32

@@ -17,10 +17,10 @@
     <path>$WS_DIR$\EFM32G_pulse_width_modulation.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFM32GG_pulse_width_modulation.ewp</path>
+    <path>$WS_DIR$\EFM32TG_pulse_width_modulation.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFM32HG_pulse_width_modulation.ewp</path>
+    <path>$WS_DIR$\EFM32GG_pulse_width_modulation.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFM32LG_pulse_width_modulation.ewp</path>
@@ -41,7 +41,28 @@
     <path>$WS_DIR$\EFM32WG_pulse_width_modulation.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFM32ZG_pulse_width_modulation.ewp</path>
+    <path>$WS_DIR$\EFM32GG11B_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11B_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_pulse_width_modulation.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_pulse_width_modulation.ewp</path>
   </project>
 
   <batchBuild/>

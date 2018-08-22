@@ -5,7 +5,7 @@
  * time.
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -24,8 +24,9 @@
 #include "retargetserial.h"
 #include "retargetserialconfig.h"
 
+
 uint32_t rtccFlag;
-int start=-1;
+int start = -1;
 int strtol(char*,char **,int);
 
 /**************************************************************************//**
@@ -34,10 +35,9 @@ int strtol(char*,char **,int);
 void RTCC_IRQHandler(void)
 {
   // Read the interrupt source
-  rtccFlag = RTCC->IF;
+  rtccFlag = RTCC_IntGet();
 
-  // Toggle LED to turn it on
-  GPIO_PinOutSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN);
+  GPIO_PinOutSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN); // Toggle LED to turn it on
 }
 
 /**************************************************************************//**
@@ -61,17 +61,17 @@ char* setCurrentTime(char hour[])
   printf("\nPlease enter the current time in the format hhmmss:\n ");
 
   // Receive the input from the VCOM and store as a string
-  for(int i = 0; i <6;i++)
+  for(int i = 0; i < 6;i++)
   {
-	while(start == -1)
-	{
-	  scanf("%d", &start);
-	  if(start != -1)
-	  {
-	  start = start + '0';
-	  hour[i+2] = start;
-	  }
-	}
+    while(start == -1)
+    {
+      scanf("%d", &start);
+      if(start != -1)
+      {
+        start = start + '0';
+        hour[i+2] = start;
+      }
+    }
     start = -1;
   }
   return hour;
@@ -83,17 +83,17 @@ char* setCurrentDate(char date[])
   printf("Please enter the current date in the format yymmdd:\n ");
 
   // Receive the input from the VCOM and store as a string
-  for(int i = 0; i <6;i++)
+  for(int i = 0; i < 6;i++)
   {
     while(start == -1)
-	{
-	  scanf("%d", &start);
-	  if(start != -1)
-	  {
-	  start = start + '0';
-	  date[i+2] = start;
-	  }
-	}
+    {
+      scanf("%d", &start);
+      if(start != -1)
+      {
+        start = start + '0';
+        date[i+2] = start;
+      }
+    }
     start = -1;
   }
   return date;
@@ -105,17 +105,17 @@ char* setAlarmTime(char alarmh[])
   printf("\nPlease enter the time for the alarm in the format hhmmss:\n ");
 
   // Receive the input from the VCOM and store as a string
-  for(int i = 0; i <6;i++)
+  for(int i = 0; i < 6;i++)
   {
-	while(start == -1)
-	{
-	  scanf("%d", &start);
-	  if(start != -1)
-	  {
-	  start = start + '0';
-	  alarmh[i+2] = start;
-	  }
-	}
+    while(start == -1)
+    {
+      scanf("%d", &start);
+      if(start != -1)
+      {
+        start = start + '0';
+        alarmh[i+2] = start;
+      }
+    }
     start = -1;
   }
   return alarmh;
@@ -129,15 +129,15 @@ char* setAlarmDate(char alarmd[])
   // Receive the input from the VCOM and store as a string
   for(int i = 0; i <6;i++)
   {
-	while(start == -1)
-	{
-	  scanf("%d", &start);
-	  if(start != -1)
-	  {
-	  start = start + '0';
-	  alarmd[i+2] = start;
-	  }
-	}
+    while(start == -1)
+    {
+      scanf("%d", &start);
+      if(start != -1)
+      {
+        start = start + '0';
+        alarmd[i+2] = start;
+      }
+    }
     start = -1;
   }
   return alarmd;
@@ -159,7 +159,7 @@ void rtccSetup(int start_time, int start_date, int alarmh_start, int alarmd_star
   RTCC_CCChConf_TypeDef compare = RTCC_CH_INIT_COMPARE_DEFAULT;
 
   // Turn on the clock for the RTCC
-  CMU_ClockEnable(cmuClock_CORELE, true);
+  CMU_ClockEnable(cmuClock_HFLE, true);
   CMU_ClockSelectSet(cmuClock_LFE, cmuSelect_LFXO);
   CMU_ClockEnable(cmuClock_RTCC, true);
 
@@ -229,5 +229,4 @@ int main(void)
   {
     EMU_EnterEM1();
   }
-
 }

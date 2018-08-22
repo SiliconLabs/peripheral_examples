@@ -1,56 +1,156 @@
-cryotimer_lfxo_em4_no_ret
 
-This project demonstrates use of the CRYOTIMER with the low frequency
-crystal oscillator (LFXO) as its clock in EM4 without GPIO retention.
+================================================================================
 
-After chip and DC-DC initialization, the source of the previous reset is
-determined by checking the flags in the RMU_RSTCAUSE register.  If a reset
-due to EM4 wake-up is detected, LED1 is turned on. LED0 then turns on to
-indicate that the program is running.
+This project shows how to use the Cryotimer in EM4 with the LFXO and no GPIO
+retention. This project does so by using LEDs.
 
-Next, EM4 shutdown entry is configured so that the LFXO is kept active,
-and GPIO is retention is disabled (GPIOs immediately reset upon EM4
-entry).  The CRYOTIMER is configured to time out after 64K (65536) LFXO
-clock periods, which is 2 seconds, cause wake-up from EM4, and request an
-interrupt in all other energy modes.
+The following is what you should see upon flashing the project to the board:
+1. LED0 will be turned on for 3 seconds
+2. Both LEDs will be turned off for 2 seconds
+3. Both LEDs will be turned on for 2 seconds
+4. Until a reset is triggered, go back to step 2
 
-With all setup tasks completed, the device enters EM2 and waits for the
-CRYOTIMER interrupt.  Any LEDs that were previously turned on remain lit.
-Upon time out, the CRYOTIMER interrupt is requested, waking the device
-from EM2.  The interrupt handler clears the CRYOTIMER_IF_PERIOD flag and
-flushes the processor core pipeline to make sure the interrupt is not
-re-requested (the CRYOTIMER resides in its own, asynchronous clock
-domains), and exits back to main().
+The following is the program flow corresponding to the LEDs:
+1. Upon reset, the code will always turn LED0 on. Since the board was reset
+   through powering on the board (POR), hitting the reset button (external
+   reset pin), or requesting a system reset (through the debugger), LED1 will be
+   turned off. Then, the board will enable the LFXO oscillator (which will take
+   about 1 second). Next, the board will enter EM2 and wait for the Cryotimer
+   interrupt to go off in 2 more seconds. This means LED0 will be on for 3
+   seconds total.
+2. After the Cryotimer wakes us up from EM3, the board goes into EM4. Since
+   there is no GPIO retention, the state of the GPIO pins for the LEDs will be
+   reset to 0, thus turning both LEDs off. Then, the board waits for the
+   Cryotimer interrupt to go off in 2 seconds.
+3. After the Cryotimer wakes us up from EM4, the reset pin will be asserted and
+   cause the program to restart. This time, however, the reset cause will come
+   from waking up from EM4 and thus LED1 will be turned on in addition to LED0
+   being turned on. Additionally, we will shorten the LFXO startup delay so that
+   enabling the LFXO does not take a full second (instead it only takes a couple
+   cycles). We will also unlatch the registers that were latched upon entering
+   EM4 just to be safe. The board then enters EM2 and waits for the Cryotimer
+   interrupt to go off in 2 seconds.
+4. Until a reset is triggered, go back to step 2
 
-Once back in main(), the device enters EM4.  Because GPIO retention is
-disabled, the pins for LED0 and LED1 return to the disabled reset state,
-turning off both LEDs.  After 64K (65536) LFXO periods, wake-up from EM4
-is triggered, causing a restart of the processor in the same way as
-power-on reset or assertion of the reset pin
+Note: the 2 second wait mentioned above is the setting by default and is
+dependent on the values of the CRYOTIMER_PERIOD and CRYOTIMER_PRESCALE macros
+defined in the source code. These two macros are used together to define the
+duration between Cryotimer wakeup events (see the equation below).
 
-How To Test:
-1. Build the project and download to the Starter Kit.
-2. Initially, only LED0 will turn on.
-3. After 2 seconds, LED0 will turn off.
-4. After another 2 seconds, if you do nothing, both LED0, indicating that
-   main() has been entered, and LED1, meaning that the source of reset was
-   wake-up from EM4, will be lit.
-5. Both LEDs will then turn off after 2 seconds.
-6. To prevent the CRYOTIMER from causing EM4 wake-up, press the RESET
-   button, and you will return to step 2 above.
+The duration between Cryotimer wakeup events is defined to be the following
+(in units of seconds):
+  Time_Wakeup = (2 ^ PRESC) * (2 ^ PERIODSEL) / (F_CRYOCLK)
+  F_CRYOCLK = 1000 Hz for ULFRCO
+  F_CRYOCLK = 32768 Hz for LFXO and LFRCO
 
-If desired, observe the change in current draw in Simplicity Studio's
-Energy Profiler.
+================================================================================
 
-Modules Used:
-CPU core
-GPIO
-HFRCO @ 19 MHz (CPU core and GPIO)
-LFXO
+Note: Since this project goes into EM4, it is important to know how to unlock
+the board if it ever gets stuck in EM4 and you can no longer flash the board.
+
+One way to do this is to use the Flash Programmer tool that comes with
+Simplicity Studio. Simply click "Erase" before clicking "Program"
+
+Another way to do this is to download Simplicity Commander and then (after
+connecting to the board) click "Unlock debug access" under the Flash options.
+
+================================================================================
+
+Peripherals Used:
+LFXO - 32768 Hz
 CRYOTIMER
 RMU
 
+================================================================================
+
+How To Test:
+0. Build the project and download it to the Starter Kit
+1. LED0 will be turned on for 3 seconds
+2. Both LEDs will be turned off for 2 seconds
+3. Both LEDs will be turned on for 2 seconds
+4. Until a reset is triggered, go back to step 2
+
+================================================================================
+
+Listed below are the port and pin mappings for working with this example.
+
+Board:  Silicon Labs EFM32PG1 Starter Kit (SLSTK3401A)
+Device: EFM32PG1B200F256GM48
+PF4 - LED0
+PF5 - LED1
+
 Board:  Silicon Labs EFM32PG12 Starter Kit (SLSTK3402A)
 Device: EFM32PG12B500F1024GL125
-Pins Used: PF4 - LED0
-           PF5 - LED1
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32BG1P Starter Kit (BRD4100A)
+Device: EFR32BG1P232F256GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32BG12P Starter Kit (BRD4103A)
+Device: EFR32BG12P332F1024GL125
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32BG13 Starter Kit (BRD4104A)
+Device: EFR32BG13P632F512GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
+Device: EFR32BG14P732F256GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32FG1P Starter Kit (BRD4250A)
+Device: EFR32FG1P133F256GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32FG12P Starter Kit (BRD4253A)
+Device: EFR32FG12P433F1024GL125
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32FG13 Starter Kit (BRD4256A)
+Device: EFR32FG13P233F512GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32FG14 Starter Kit (BRD4257A)
+Device: EFR32FG14P233F256GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32MG1P Starter Kit (BRD4151A)
+Device: EFR32MG1P232F256GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32MG12P Starter Kit (BRD4161A)
+Device: EFR32MG1P432F1024GL125
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32MG13P Starter Kit (BRD4159A)
+Device: EFR32MG13P632F512GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFR32MG14 Starter Kit (BRD4169B)
+Device: EFR32MG14P733F256GM48
+PF4 - LED0
+PF5 - LED1
+
+Board:  Silicon Labs EFM32GG11 Starter Kit (SLSTK3701A)
+Device: EFM32GG11B820F2048GL192
+PH10 - LED0 (Red)
+PH13 - LED1 (Red)
+
+Board:  Silicon Labs EFM32TG11 Starter Kit (SLSTK3301A)
+Device: EFM32TG11B520F128GM80
+PD2 - LED0
+PC2 - LED1
+

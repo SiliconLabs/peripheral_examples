@@ -3,8 +3,6 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
-  <includePath uri="src" />
-  <includePath uri="." />
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -13,9 +11,7 @@
     <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_cmu.c" />
     <include pattern="emlib/em_emu.c" />
-    <include pattern="emlib/em_rtcc.c" />
     <include pattern="emlib/em_gpio.c" />
-    <include pattern="emlib/em_rmu.c" />
     <include pattern="emlib/em_rtc.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">

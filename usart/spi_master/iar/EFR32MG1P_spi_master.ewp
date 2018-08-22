@@ -1920,10 +1920,10 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_series1.c</name>
+      <name>$PROJ_DIR$\..\src\main_s1_pg1_efr.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme.txt</name>
+      <name>$PROJ_DIR$\..\readme_pg1_efr.txt</name>
     </file>
   </group>
 

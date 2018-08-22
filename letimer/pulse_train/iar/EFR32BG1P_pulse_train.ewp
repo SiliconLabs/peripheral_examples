@@ -169,7 +169,7 @@
         <option>
           <name>CCDefines</name>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -462,7 +462,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1116,7 +1116,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1405,7 +1405,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32BG1P232F256GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1923,7 +1923,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\mainS1.c</name>
+      <name>$PROJ_DIR$\..\src\main_s1.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

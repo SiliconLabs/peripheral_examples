@@ -1640,7 +1640,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_group1.c</name>
+      <name>$PROJ_DIR$\..\src\main_s1.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

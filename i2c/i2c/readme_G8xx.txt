@@ -7,7 +7,7 @@ and receive (slave mode).
 
 How To Test:
 1. Build the project(s) and download to both Starter Kits
-2. Connect the SDA, SCL, and GND lines between the two kits via the EXP	
+2. Connect the SDA and SCL lines between the two kits via the EXP	
    header
 3. Press BTN0 of a kit to send data from the respective kit to the other
 4. Observe the receive buffer in the IDE variables window to ensure the 

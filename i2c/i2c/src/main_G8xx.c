@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @file main.c
+ * @file main_g8xx.c
  * @brief This project demonstrates both master and slave configurations of the
  * EFM32 I2C peripheral. Two EFM32 I2C modules are connected and set up
  * to both transmit (master mode) and receive (slave mode) between each
@@ -7,7 +7,7 @@
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -48,7 +48,7 @@ void initCMU(void)
   // Enabling clock to the I2C, GPIO, LE
   CMU_ClockEnable(cmuClock_I2C0, true);
   CMU_ClockEnable(cmuClock_GPIO, true);
-  CMU_ClockEnable(cmuClock_CORELE, true);
+  CMU_ClockEnable(cmuClock_HFLE, true);
 
   // Starting LFXO and waiting until it is stable
   CMU_OscillatorEnable(cmuOsc_LFXO, true, true);
