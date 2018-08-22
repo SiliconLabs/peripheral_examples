@@ -1,0 +1,1 @@
+"C:\Python27\python.exe" "C:\git\mcu32\s026_utils\bin\genproject.py" "C:\SiliconLabs\SimplicityStudio\v4\developer\sdks\gecko_sdk_suite\v1.1\app\mcu_peripheral_examples\usart\spi_master\doc\project.xml"

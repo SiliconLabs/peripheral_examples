@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\..\..\..\gpio\switch_led_interrupt\iar\EFM32G_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_leuart_echo.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

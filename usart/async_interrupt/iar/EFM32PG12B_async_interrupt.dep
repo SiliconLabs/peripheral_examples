@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1140839351</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32PG12B\Source\system_efm32pg12b.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</file>
+      <file>$PROJ_DIR$\..\src\main_A.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32PG12B\Source\IAR\startup_efm32pg12b.s</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</file>
+      <file>$PROJ_DIR$\..\readme.txt</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_system.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\system_efm32pg12b.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_cmu.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Exe\EFM32PG12B_async_interrupt.out</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_core.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_gpio.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_usart.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_core.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_gpio.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\startup_efm32pg12b.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_cmu.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\system_efm32pg12b.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\main_A.o</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_system.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\em_usart.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Exe\EFM32PG12B_async_interrupt.bin</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\main_A.pbi</file>
+      <file>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Obj\EFM32PG12B_async_interrupt.pbd</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32PG12B\Source\system_efm32pg12b.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\src\main_A.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32PG12B\Source\IAR\startup_efm32pg12b.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\EFM32PG12B_async_interrupt\Debug\Exe\EFM32PG12B_async_interrupt.out</name>
+      <outputs>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

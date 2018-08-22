@@ -1,0 +1,1 @@
+"C:\Python27\python.exe" "C:\SiliconLabs\SimplicityStudio\v4\developer\sdks\gecko_sdk_suite\v1.0\app\mcu_peripheral_examples\_template\template_project\doc" "C:\git\mcu_peripheral_examples\_template_project\doc\project.xml"
