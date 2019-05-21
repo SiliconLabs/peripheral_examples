@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11B_usbd_cdc_uart_bridge.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

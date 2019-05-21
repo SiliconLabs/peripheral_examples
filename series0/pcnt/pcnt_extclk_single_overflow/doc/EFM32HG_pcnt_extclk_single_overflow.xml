@@ -1,0 +1,48 @@
+<workspace name="pcnt_extclk_single_overflow">
+  <project device="EFM32HG322F64"
+           name="EFM32HG_pcnt_extclk_single_overflow">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3400A_EFM32HG\config</kitconfig>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32HG\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32HG\Source\$IDE$\startup_efm32hg.s</source>
+      <source>##em-path-device##\EFM32HG\Source\system_efm32hg.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_pcnt.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_prs.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+    </group>
+    <group name="BSP">
+      <source>##em-path-bsp##\bsp_stk_leds.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main_gg_hg_wg_lg.c</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
+    </group>
+    <cflags>
+      <define>RETARGET_VCOM</define>
+    </cflags>
+  </project>
+</workspace>

@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_debug_lock.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_debug_lock.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_debug_lock.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_debug_lock.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_debug_lock.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_debug_lock.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_debug_lock.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_acmp_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_acmp_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_acmp_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_acmp_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_acmp_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_acmp_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_acmp_interrupt.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

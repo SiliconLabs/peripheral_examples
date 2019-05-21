@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_dma_ping_pong.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_dma_ping_pong.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_dma_ping_pong.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_dma_ping_pong.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_dma_ping_pong.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_dma_ping_pong.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_dma_ping_pong.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

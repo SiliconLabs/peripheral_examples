@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32xG21_usart_async_interrupt.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

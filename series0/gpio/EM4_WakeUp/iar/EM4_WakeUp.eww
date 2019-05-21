@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_EM4_WakeUp.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_EM4_WakeUp.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_EM4_WakeUp.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_EM4_WakeUp.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_EM4_WakeUp.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_EM4_WakeUp.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_EM4_WakeUp.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

@@ -28,6 +28,10 @@ This repo contains simple peripheral examples based on emlib for Series 0 and Se
 - EFM32GG11
 - EFM32TG11
 
+## Supported Series 2 Devices ##
+- EFR32BG21
+- EFR32MG21
+
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
 2. Gecko SDK Suite, available via Simplicity Studio
@@ -43,3 +47,10 @@ This repo contains simple peripheral examples based on emlib for Series 0 and Se
 
 ## How to import to IAR Embedded Workbench IDE ##
 1. Navigate to the desired .eww file and double click
+
+
+## Reporting Bugs/Issues and Posting Questions and Comments ##
+
+To report bugs in the peripheral example projects, please create a new "Issue" in the "Issues" section of this repo.  Please reference the board, project, and source files associated with the bug, and reference line numbers.  If you are proposing a fix, also include information on the proposed fix.  Silicon Labs engineers will address bugs and push them to the public repository periodically.
+
+Questions and comments related to the peripheral examples should be made by creating a new "Issue" in the "Issues" section of this repo.

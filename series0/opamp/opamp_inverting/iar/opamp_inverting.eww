@@ -1,0 +1,18 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_opamp_inverting.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_opamp_inverting.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_opamp_inverting.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_opamp_inverting.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

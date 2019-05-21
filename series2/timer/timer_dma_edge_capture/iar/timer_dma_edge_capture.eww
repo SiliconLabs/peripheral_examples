@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32xG21_timer_dma_edge_capture.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

@@ -1,0 +1,16 @@
+ // Initialize SWD interface
+ SWDSelect
+ 
+ // First Write 0x000000F0 to SELECT to select
+ // the last register bank of AP #0.
+ SWDWriteDP 2 0x000000F0
+
+ // Dummy-read the fourth register in this
+ // bank (A[3:2] == 0b11), this is the IDR register.
+ SWDReadAP 3
+
+ // Read the RDBUFF register to get the
+ // actual contents of IDR
+ SWDReadDP 3
+
+ exit

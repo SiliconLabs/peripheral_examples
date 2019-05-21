@@ -1,0 +1,24 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_i2c.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_i2c.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_i2c.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_i2c.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_i2c.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_i2c.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

@@ -1,0 +1,21 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_one_shot_output_compare.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_one_shot_output_compare.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_one_shot_output_compare.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_one_shot_output_compare.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_one_shot_output_compare.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

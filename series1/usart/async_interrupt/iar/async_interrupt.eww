@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14_async_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_async_interrupt.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

@@ -1,0 +1,21 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_vdac_continuous.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

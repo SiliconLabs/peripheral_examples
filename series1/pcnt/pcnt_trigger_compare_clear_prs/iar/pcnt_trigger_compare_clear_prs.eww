@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_pcnt_trigger_compare_clear_prs.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

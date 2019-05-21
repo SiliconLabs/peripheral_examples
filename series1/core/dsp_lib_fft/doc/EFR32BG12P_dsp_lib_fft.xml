@@ -1,0 +1,60 @@
+<workspace name="dsp_lib_fft">
+  <project device="EFR32BG12P332F1024GL125"
+           name="EFR32BG12P_dsp_lib_fft">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32BG12_BRD4103A\config</kitconfig>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32BG12P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+      <path>##em-path-cmsis##/CMSIS/DSP_Lib/Source</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32BG12P\Source\$IDE$\startup_efr32bg12p.s</source>
+      <source>##em-path-device##\EFR32BG12P\Source\system_efr32bg12p.c</source>
+    </group>
+    <group name="DSP">
+      <source>##em-path-cmsis##\DSP_Lib\Source\ComplexMathFunctions\arm_cmplx_mag_f32.c</source>
+      <source>##em-path-cmsis##\DSP_Lib\Source\CommonTables\arm_common_tables.c</source>
+      <source>##em-path-cmsis##\DSP_Lib\Source\TransformFunctions\arm_rfft_f32.c</source>
+      <source>##em-path-cmsis##\DSP_Lib\Source\TransformFunctions\arm_rfft_init_f32.c</source>
+      <source>##em-path-cmsis##\DSP_Lib\Source\TransformFunctions\arm_bitreversal.c</source>
+      <source>##em-path-cmsis##\DSP_Lib\Source\TransformFunctions\arm_cfft_radix4_f32.c</source>
+      <source>##em-path-cmsis##\DSP_Lib\Source\TransformFunctions\arm_cfft_radix4_init_f32.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_adc.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main.c</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
+    </group>
+    <libs>
+      <lib except_ide="iar">m</lib>
+    </libs>
+    <cflags>
+      <define>RETARGET_VCOM</define>
+      <define>__FPU_PRESENT</define>
+      <flag only_ide="slsproj">-Wp,-w</flag>
+      <define>ARM_MATH_CM4</define>
+    </cflags>
+  </project>
+</workspace>

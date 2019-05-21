@@ -1,0 +1,39 @@
+<workspace name="debug_lock">
+  <project device="EFR32FG12P433F1024GL125"
+           name="EFR32FG12P_debug_lock">
+    <targets>
+      <name>iar</name>
+      <name>slsproj</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG12_BRD4253A\config</kitconfig>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32FG12P\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32FG12P\Source\$IDE$\startup_efr32fg12p.s</source>
+      <source>##em-path-device##\EFR32FG12P\Source\system_efr32fg12p.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_rmu.c</source>
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_msc.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\readme_SYSRESETREQ.txt</source>
+      <source>$PROJ_DIR$\..\src\main_sysresetreq.c</source>
+    </group>
+  </project>
+</workspace>

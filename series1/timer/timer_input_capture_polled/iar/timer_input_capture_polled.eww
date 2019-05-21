@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11B_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11B_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_timer_input_capture_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_timer_input_capture_polled.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
