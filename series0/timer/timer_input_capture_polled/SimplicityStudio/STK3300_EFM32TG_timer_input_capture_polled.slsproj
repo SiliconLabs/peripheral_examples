@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3300_EFM32TG_timer_input_capture_polled" boardCompatibility="brd2100a" partCompatibility=".*efm32tg840f32.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_prs.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <includePath uri="../../../../hardware/kit/EFM32TG_STK3300/config" />
+  <folder name="src">
+    <file name="main.c" uri="src/main.c" />
+    <file name="readme.txt" uri="readme.txt" />
+  </folder>
+</project>

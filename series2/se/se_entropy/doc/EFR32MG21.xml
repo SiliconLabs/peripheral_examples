@@ -1,0 +1,77 @@
+<workspace name="se_entropy">
+  <project name="se_entropy"
+           device="EFR32MG21A010F1024IM32">
+    <targets>
+      <name>iar</name>
+      <name>slsproj</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <mbedtls>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls</mbedtls>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</kitconfig>
+    </directories>
+    <cflags>
+      <optimize>speed</optimize>
+      <define>DEBUG_EFM</define>
+      <define>RETARGET_VCOM</define>
+      <define>MBEDTLS_ENTROPY_FORCE_SHA256</define>
+      <define>MBEDTLS_CONFIG_FILE="config-sl-crypto-all-acceleration.h"</define>
+      <flag only_ide="slsproj">-fomit-frame-pointer</flag>
+      <debug-linkerfile only_ide="iar">$PROJ_DIR$\..\src\se_entropy.icf</debug-linkerfile>
+      <release-linkerfile only_ide="iar">$PROJ_DIR$\..\src\se_entropy.icf</release-linkerfile>
+      <diagsuppress only_ide="iar">Pa050</diagsuppress>
+    </cflags>
+    <patches>
+      <patch only_ide="slsproj"
+             match='value=""config-sl-crypto-all-acceleration.h""'>value='"config-sl-crypto-all-acceleration.h"'</patch>
+    </patches>
+    <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFR32MG21\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-mbedtls##\configs</path>
+      <path>##em-path-mbedtls##\include</path>
+      <path>##em-path-mbedtls##\include\mbedtls</path>
+      <path>##em-path-mbedtls##\sl_crypto\include</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+      <path>##em-path-kitconfig##</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32MG21\Source\$IDE$\startup_efr32mg21.s</source>
+      <source>##em-path-device##\EFR32MG21\Source\system_efr32mg21.c</source>
+    </group>
+    <group name="mbedtls">
+      <source>##em-path-mbedtls##\library\entropy.c</source>
+      <source>##em-path-mbedtls##\library\sha256.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_assert.c</source>
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_se.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_usart.c</source>
+    </group>
+    <group name="sl_crypto">
+      <source>##em-path-mbedtls##\sl_crypto\src\se_management.c</source>
+      <source>##em-path-mbedtls##\sl_crypto\src\se_sha.c</source>
+      <source>##em-path-mbedtls##\sl_crypto\src\se_trng.c</source>
+      <source>##em-path-mbedtls##\sl_crypto\src\shax.c</source>
+    </group>
+    <group name="Drivers">
+      <source>##em-path-drivers##\retargetio.c</source>
+      <source>##em-path-drivers##\retargetserial.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\readme.txt</source>
+      <source>$PROJ_DIR$\..\src\main.c</source>
+    </group>
+  </project>
+</workspace>

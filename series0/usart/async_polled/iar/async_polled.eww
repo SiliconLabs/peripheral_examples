@@ -1,0 +1,24 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_async_polled.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

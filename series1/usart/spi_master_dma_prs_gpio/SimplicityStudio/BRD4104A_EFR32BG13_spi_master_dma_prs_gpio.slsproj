@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BRD4104A_EFR32BG13_spi_master_dma_prs_gpio" boardCompatibility="brd4104a" partCompatibility=".*efr32bg13p632f512gm48.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_ldma.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_timer.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <folder name="src">
+    <file name="main_s1_pg1_efr.c" uri="src/main_s1_pg1_efr.c" />
+    <file name="readme_pg1_efr.txt" uri="readme_pg1_efr.txt" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

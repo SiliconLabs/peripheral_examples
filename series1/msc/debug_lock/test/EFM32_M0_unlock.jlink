@@ -1,0 +1,19 @@
+ // Initialize the SWD interface
+ SWDSelect
+ 
+ // First Write 0x00000000 to SELECT to select
+ // the first register bank of AP #0 (AHB-AP)
+ SWDWriteDP 2 0x00000000
+
+ // Write address of AAP_IDR to the TAR register
+ SWDWriteAP 1 0xF0E000FC
+
+ // Dummy read the DRW register. This will
+ // generate a memory access to read IDR
+ SWDReadAP 3
+
+ // Read the RDBUFF register to get the
+ // actual contents of IDR
+ SWDReadDP 3
+
+ exit

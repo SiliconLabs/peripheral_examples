@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_timer_pulse_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_timer_pulse_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_timer_pulse_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_timer_pulse_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_timer_pulse_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_timer_pulse_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_timer_pulse_capture.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

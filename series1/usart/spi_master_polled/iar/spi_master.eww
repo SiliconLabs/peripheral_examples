@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14_spi_master_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_spi_master_polled.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

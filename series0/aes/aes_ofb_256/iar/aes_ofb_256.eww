@@ -1,0 +1,21 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_aes_ofb_256.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_aes_ofb_256.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_aes_ofb_256.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_aes_ofb_256.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_aes_ofb_256.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

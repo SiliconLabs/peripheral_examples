@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_switch_led_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_switch_led_interrupt.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

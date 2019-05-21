@@ -1,0 +1,40 @@
+<workspace name="spi_slave">
+  <project device="EFM32LG990F256"
+           name="EFM32LG_spi_slave_polled">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32LG_STK3600\config</kitconfig>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-device##\EFM32LG\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+      <path>##em-path-drivers##</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFM32LG\Source\$IDE$\startup_efm32lg.s</source>
+      <source>##em-path-device##\EFM32LG\Source\system_efm32lg.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_usart.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main_s0_g_gg_wg_lg.c</source>
+      <source>$PROJ_DIR$\..\readme_g_gg_wg_lg.txt</source>
+    </group>
+  </project>
+</workspace>

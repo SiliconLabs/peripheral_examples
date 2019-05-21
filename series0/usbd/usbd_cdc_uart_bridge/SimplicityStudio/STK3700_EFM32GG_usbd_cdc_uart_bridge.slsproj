@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3700_EFM32GG_usbd_cdc_uart_bridge" boardCompatibility="brd2200a" partCompatibility=".*efm32gg990f1024.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_dma.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/dmactrl.c" />
+    <include pattern="Drivers/cdc.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <includePath uri="inc/inc_series0" />
+  <includePath uri="inc" />
+  <includePath uri="../../../../platform/middleware/usb_gecko/inc" />
+  <folder name="emusb">
+    <file name="em_usbd.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbd.c" />
+    <file name="em_usbdch9.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbdch9.c" />
+    <file name="em_usbdep.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbdep.c" />
+    <file name="em_usbdint.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbdint.c" />
+    <file name="em_usbhal.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbhal.c" />
+    <file name="em_usbtimer.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbtimer.c" />
+  </folder>
+  <folder name="inc">
+    <file name="usbconfig.h" uri="inc/inc_series0/usbconfig.h" />
+    <file name="descriptors.h" uri="inc/descriptors.h" />
+  </folder>
+  <folder name="src">
+    <file name="main_s0.c" uri="src/main_s0.c" />
+    <file name="descriptors.c" uri="src/descriptors.c" />
+    <file name="readme.txt" uri="readme.txt" />
+  </folder>
+</project>

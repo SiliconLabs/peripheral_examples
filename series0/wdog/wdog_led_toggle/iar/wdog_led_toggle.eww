@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_wdog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_wdog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_wdog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_wdog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_wdog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_wdog.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32ZG_wdog.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

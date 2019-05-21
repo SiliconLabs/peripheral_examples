@@ -1,0 +1,42 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11B_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11B_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_wtimer_single_pulse_generation_dma.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

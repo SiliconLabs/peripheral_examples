@@ -1,0 +1,18 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG_dac_voltage.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_dac_voltage.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_dac_voltage.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_dac_voltage.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
