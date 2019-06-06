@@ -1911,6 +1911,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_prs.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
     </file>
   </group>
@@ -1921,9 +1924,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\src\main.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\src\em_prs.c</name>
     </file>
   </group>
 

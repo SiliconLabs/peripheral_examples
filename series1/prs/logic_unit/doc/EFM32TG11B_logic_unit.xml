@@ -30,12 +30,12 @@
       <source>##em-path-emlib##\src\em_cmu.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
+	  <source>##em-path-emlib##\src\em_prs.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\readme.txt</source>
       <source>$PROJ_DIR$\..\src\main_tg11.c</source>
-      <source>$PROJ_DIR$\..\src\em_prs.c</source>
     </group>
   </project>
 </workspace>
