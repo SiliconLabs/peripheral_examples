@@ -57,6 +57,10 @@ void initLETIMER(void)
   letimerInit.comp0Top = true;
   letimerInit.ufoa0 = letimerUFOAPwm;
   letimerInit.repMode = letimerRepeatFree;
+  letimerInit.enable = false;
+
+  // Initialize LETIMER
+  LETIMER_Init(LETIMER0, &letimerInit);
 
   // Need REP0 != 0 to run PWM
   LETIMER_RepeatSet(LETIMER0, 0, 1);
@@ -73,9 +77,8 @@ void initLETIMER(void)
   LETIMER0->ROUTEPEN |=  LETIMER_ROUTEPEN_OUT0PEN;
   LETIMER0->ROUTELOC0 |= LETIMER_ROUTELOC0_OUT0LOC_LOC28;
 
-
-  // Initialize and enable LETIMER
-  LETIMER_Init(LETIMER0, &letimerInit );
+  // Enable LETIMER0
+  LETIMER0->CMD = LETIMER_CMD_START;
 }
 
 /**************************************************************************//**
