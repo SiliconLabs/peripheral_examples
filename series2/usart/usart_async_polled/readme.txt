@@ -1,5 +1,5 @@
 This project demonstrates polled operation of the USART in asynchronous
-mode.  USART0 is configured for asynchronous operation at 115200 baud
+mode.  USART1 is configured for asynchronous operation at 115200 baud
 with 8 data bits, no parity, and one stop bit (115200N81).  The main loop
 waits until 80 characters or a carriage return are received and then echos
 these back to the user.
@@ -9,7 +9,7 @@ these back to the user.
 Peripherals Used:
 
 GPIO
-USART0
+USART1
 
 The CMU is used indirectly via the USART_InitAsync() function to calculate the
 divisor necessary to derive the desired baud rate.
@@ -38,5 +38,5 @@ Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A)
 Device: EFR32MG21A010F1024IM32 (this code will run unchanged on any
 EFR32MG21 or EFR32BG211 variant so long as the pins used as present).
 
-PA5 - USART0_RX (Expansion Header Pin 14)
-PA5 - USART0_TX (Expansion Header Pin 12)
+PA5 - USART1_RX (Expansion Header Pin 12)
+PA6 - USART1_TX (Expansion Header Pin 14)
