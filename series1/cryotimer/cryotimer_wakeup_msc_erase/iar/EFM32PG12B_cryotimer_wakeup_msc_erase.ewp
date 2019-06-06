@@ -1928,6 +1928,9 @@
     <file>
       <name>$PROJ_DIR$\..\src\main.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\readme.txt</name>
+    </file>
   </group>
 
 </project>

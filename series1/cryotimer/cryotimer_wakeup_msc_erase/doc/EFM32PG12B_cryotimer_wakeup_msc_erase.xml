@@ -37,6 +37,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main.c</source>
+	  <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
   </project>
 </workspace>
