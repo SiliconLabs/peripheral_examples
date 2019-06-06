@@ -17,7 +17,7 @@ How to Test:
    exist from EM4
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 Board: Silicon Labs EFM32TG Starter Kit (EFM32TG_STK3300)
 Device: EFM32TG840F32

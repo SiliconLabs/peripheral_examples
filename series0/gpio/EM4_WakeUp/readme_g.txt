@@ -16,7 +16,7 @@ How To Test:
     exit from EM4.
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 Board:  Silicon Labs EFM32G Starter Kit (Gxxx_STK)
 Device: EFM32G890F128
