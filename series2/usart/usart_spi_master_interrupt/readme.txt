@@ -88,5 +88,5 @@ Device: EFR32MG21A010F1024IM32
 
 PA6 - USART0_TX (MOSI)  - Expansion Header pin 14
 PA5 - USART0_RX (MISO)  - Expansion Header pin 12
-PA3 - USART0_CLK (SCLK) - Expansion Header pin 10
-PA1 - USART0_CS (SSn)   - Expansion Header pin 6
+PC3 - USART0_CLK (SCLK) - Expansion Header pin 10
+PC1 - USART0_CS (SSn)   - Expansion Header pin 6

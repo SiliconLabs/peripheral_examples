@@ -16,7 +16,8 @@ master, the chip select input is configured to detect a falling edge.
 The master device must add setup time after chip select assertion in
 order for the slave device to pre-load the transmit buffer if it is
 expected to shift out a byte of data concurrent with the first incoming
-byte fromt the master (even if this is otherwise ignored).  The provided polled and interrupt-driven SPI master mode examples do this simply by
+byte fromt the master (even if this is otherwise ignored).  The provided 
+polled and interrupt-driven SPI master mode examples do this simply by
 manually both asserting the chip select and loading the first byte of
 data to be transmitted.  The DMA-driven master example includes setup
 time insertion through use of the auto chip select assertion mechanism.
@@ -25,7 +26,8 @@ A single output buffer is populated with 10 bytes (set by BUFLEN) of
 outbound data that will be overwritten by the incoming data.  The device
 polls for the falling edge of the chip select and then clears the
 receive FIFO.  This step is not necessary in a well-behaved SPI system
-configuration, but because this example is intended to run with one of the master mode examples, which constantly transmit data, it is required so
+configuration, but because this example is intended to run with one of the 
+master mode examples, which constantly transmit data, it is required so
 that data is received in the expected order when the master asserts the
 chip select.
 
@@ -81,7 +83,7 @@ Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A)
 
 Device: EFR32MG21A010F1024IM32
 
-PA6 - USART0_TX (MOSI)  - Expansion Header pin 14
-PA5 - USART0_RX (MISO)  - Expansion Header pin 12
-PA3 - USART0_CLK (SCLK) - Expansion Header pin 10
-PA1 - USART0_CS (SSn)   - Expansion Header pin 6
+PA6 - USART0_RX (MOSI)  - Expansion Header pin 14
+PA5 - USART0_TX (MISO)  - Expansion Header pin 12
+PC3 - USART0_CLK (SCLK) - Expansion Header pin 10
+PC1 - USART0_CS (SSn)   - Expansion Header pin 6
