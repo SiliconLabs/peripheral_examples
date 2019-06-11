@@ -186,6 +186,7 @@ void I2C0_IRQHandler(void)
     // Indicating that reception is started
     i2c_rxInProgress = true;
     I2C0->RXDATA;
+    i2c_rxBufferIndex = 0;
 
     I2C_IntClear(I2C0, I2C_IFC_ADDR);
 
