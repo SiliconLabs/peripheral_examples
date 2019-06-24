@@ -1,5 +1,17 @@
-# MCU Peripheral Examples #
-This repo contains simple peripheral examples based on emlib for Series 0 and Series 1 devices.
+<table border="0">
+  <tr>
+    <td align="left" valign="middle">
+	  <h1>EFM32 and EFR32<br/>32-bit MCU Peripheral Examples</h1>
+	</td>
+	<td align="left" valign="middle">
+	  <a href="https://www.silabs.com/products/mcu/32-bit">
+	    <img src="http://pages.silabs.com/rs/634-SLU-379/images/WGX-transparent.png"  title="Silicon Labs Gecko and Wireless Gecko MCUs" alt="EFM32 32-bit Microcontrollers" width="250"/>
+	  </a>
+	</td>
+  </tr>
+</table>
+
+This repo contains simple peripheral examples based on emlib for Series 0, Series 1, and Series 2 devices.
 
 ## Supported Series 0 Devices ##
 - EFM32ZG
