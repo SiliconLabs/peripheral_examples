@@ -27,6 +27,9 @@
 // Duty cycle percentage
 #define DUTY_CYCLE 30
 
+// LETIMER0 frequency
+#define LETIMER0_FREQ CMU_ClockFreqGet(cmuClock_LETIMER0)
+
 /**************************************************************************//**
  * @brief GPIO initialization
  *****************************************************************************/
@@ -58,16 +61,13 @@ void initLETIMER(void)
   letimerInit.ufoa0 = letimerUFOAPwm;
   letimerInit.repMode = letimerRepeatFree;
   letimerInit.enable = false;
+  letimerInit.topValue = LETIMER0_FREQ / OUT_FREQ;
 
   // Initialize LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);
 
   // Need REP0 != 0 to run PWM
   LETIMER_RepeatSet(LETIMER0, 0, 1);
-
-  // Set COMP0 to desired PWM frequency
-  LETIMER_CompareSet(LETIMER0, 0,
-       CMU_ClockFreqGet(cmuClock_LETIMER0) / OUT_FREQ);
 
   // Set COMP1 to control duty cycle
   LETIMER_CompareSet(LETIMER0, 1,
@@ -76,6 +76,7 @@ void initLETIMER(void)
   // Enable LETIMER0 output0 on PF4 (Route 28)
   LETIMER0->ROUTEPEN |=  LETIMER_ROUTEPEN_OUT0PEN;
   LETIMER0->ROUTELOC0 |= LETIMER_ROUTELOC0_OUT0LOC_LOC28;
+  LETIMER0->COMP1 = CMU_ClockFreqGet(cmuClock_LETIMER0) * DUTY_CYCLE / (OUT_FREQ * 100);
 
   // Enable LETIMER0
   LETIMER0->CMD = LETIMER_CMD_START;

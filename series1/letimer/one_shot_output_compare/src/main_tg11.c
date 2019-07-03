@@ -54,6 +54,7 @@ void initLetimer(void)
   letimerInit.ufoa0     = letimerUFOAToggle;
   letimerInit.repMode   = letimerRepeatOneshot;
   letimerInit.enable = false;
+  letimerInit.topValue = 32000;
 
   // Need REP0 != 0 to run until the first event
   LETIMER_RepeatSet(LETIMER0, 0, 1);
@@ -65,8 +66,7 @@ void initLetimer(void)
   // Initialize and enable LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);
 
-    // Compare on wake-up interval count
-  LETIMER_CompareSet(LETIMER0, 0, 32000);
+   // Compare on wake-up interval count
   LETIMER_Enable(LETIMER0,true);
 }
 

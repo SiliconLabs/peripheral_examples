@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file
  * @brief This project demonstrates generating a pulse train using the LETIMER
- * module. Expansion Header Pin 16 or LED0 is configured for output compare
- * and toggles EH Pin 16 or LED0 on each overflow event at a set frequency.
+ * module. Expansion Header Pin PD6 is configured for output compare
+ * and pulses EH Pin PD6 on each overflow event at a set frequency.
  * @version 0.0.1
  ******************************************************************************
  * @section License
@@ -22,6 +22,8 @@
 #include "em_gpio.h"
 #include "em_letimer.h"
 #include "bsp.h"
+
+#define TOP_VALUE 32 // setting TOP_VALUE for the pulse to fire at 1 kHz
 
 /**************************************************************************//**
  * @brief GPIO initialization
@@ -50,10 +52,11 @@ void initLetimer(void)
   CMU_ClockEnable(cmuClock_LETIMER0, true);
 
   // Reload COMP0 on underflow, pulse output, and run in repeat mode
-    letimerInit.comp0Top = true;
-    letimerInit.ufoa0 = letimerUFOAPulse;
-    letimerInit.repMode = letimerRepeatFree;
-    letimerInit.enable = false;
+  letimerInit.comp0Top = true;
+  letimerInit.ufoa0 = letimerUFOAPulse;
+  letimerInit.repMode = letimerRepeatFree;
+  letimerInit.enable = false;
+  letimerInit.topValue = TOP_VALUE;
 
   // Need REP0 != 0 to pulse on underflow
   LETIMER_RepeatSet(LETIMER0, 0, 1);
@@ -63,9 +66,6 @@ void initLetimer(void)
 
   // Initialize and enable LETIMER
   LETIMER_Init(LETIMER0, &letimerInit );
-
-  // Compare on wake-up interval count (1 Hz)
-  LETIMER_CompareSet(LETIMER0, 0, 32000);
   LETIMER_Enable(LETIMER0,true);
 }
 
