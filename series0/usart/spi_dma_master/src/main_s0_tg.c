@@ -82,7 +82,7 @@ void initTransferDma(void)
   // Channel configuration for TX transmission
   DMA_CfgChannel_TypeDef channelConfigTX;
   channelConfigTX.highPri   = false;                // Set high priority for the channel
-  channelConfigTX.enableInt = false;                // Interrupt used to reset the transfer
+  channelConfigTX.enableInt = true;                 // Interrupt used to reset the transfer
   channelConfigTX.select    = DMAREQ_USART1_TXBL;   // Select DMA trigger
   channelConfigTX.cb        = &callbackTX;  	    // Callback to refresh the DMA transfer
   uint32_t channelNumTX     = 1;
@@ -122,7 +122,7 @@ void initReceiveDma(void)
   // Channel configuration for RX transmission
   DMA_CfgChannel_TypeDef channelConfigRX;
   channelConfigRX.highPri   = false;                    // Set high priority for the channel
-  channelConfigRX.enableInt = false;                    // Interrupt used to reset the transfer
+  channelConfigRX.enableInt = true;                     // Interrupt used to reset the transfer
   channelConfigRX.select    = DMAREQ_USART1_RXDATAV;    // Select DMA trigger
   channelConfigRX.cb        = &callbackRX;  	        // Callback to refresh the DMA transfer
   uint32_t channelNumRX     = 0;
