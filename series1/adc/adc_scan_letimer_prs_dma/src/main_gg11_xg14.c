@@ -32,18 +32,16 @@
 
 // Init to max ADC clock for Series 1
 #define ADC_FREQ        16000000
-#define letimerClkFreq  19000000
 
 // Desired letimer interrupt frequency (in Hz)
 #define letimerDesired  1000
-
-#define letimerCompare  letimerClkFreq / letimerDesired
 
 #define LDMA_CHANNEL    0
 #define PRS_CHANNEL     0
 
 // Buffer for ADC single and scan conversion
 uint32_t adcBuffer[ADC_BUFFER_SIZE];
+uint32_t topValue;
 
 LDMA_TransferCfg_t trans;
 LDMA_Descriptor_t descr;
@@ -85,8 +83,11 @@ void initLetimer(void)
   // Need REP0 != 0 to pulse on underflow
   LETIMER_RepeatSet(LETIMER0, 0, 1);
 
+  // calculate the topValue
+  topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / letimerDesired;
+
   // Compare on wake-up interval count
-  LETIMER_CompareSet(LETIMER0, 0, letimerCompare);
+  LETIMER_CompareSet(LETIMER0, 0, topValue);
 
   // Use LETIMER0 as async PRS to trigger ADC in EM2
   CMU_ClockEnable(cmuClock_PRS, true);
