@@ -36,6 +36,9 @@ void RTCC_IRQHandler(void)
   // Read the interrupt source
   rtccFlag = RTCC_IntGet();
 
+  // Clear interrupt flag
+  RTCC_IntClear(rtccFlag);
+
   // Toggle LED to turn it on
   GPIO_PinOutClear(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN); // LEDS active low
 }
