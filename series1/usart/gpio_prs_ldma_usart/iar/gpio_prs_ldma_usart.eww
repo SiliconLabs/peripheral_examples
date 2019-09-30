@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32BG1_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32FG1_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32MG12_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14_gpio_prs_ldma_usart.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_gpio_prs_ldma_usart.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
