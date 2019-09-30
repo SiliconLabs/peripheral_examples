@@ -26,4 +26,10 @@ Device: EFR32MG21A010F1024IM32
 PB00 - red LED on radio board, yellow LED0 on mainboard
 PD02 - push button PB0
 
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG22A224F512IM40
+PB00 - yellow LED0 on mainboard
+PD02 - push button PB0
+
 
