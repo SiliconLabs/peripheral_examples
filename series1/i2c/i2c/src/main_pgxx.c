@@ -66,7 +66,7 @@ void initGPIO(void)
 
   // Configure LED0 and LED1 as output
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
-  GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PORT, gpioModePushPull, 0);
+  GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, 0);
 
 
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
