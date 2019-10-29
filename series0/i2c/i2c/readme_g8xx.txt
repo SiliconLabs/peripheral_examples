@@ -3,7 +3,8 @@ I2C_Master_Slave
 This project demonstrates both master and slave configurations of the 
 EFM32 I2C peripheral. Two EFM32 starter kits are connected via a single I2C
 bus, and each EFM32 I2C peripheral is setup to both transmit (master mode)
-and receive (slave mode).
+and receive (slave mode). This project exists for all series 0 STKs except
+for the Tiny Gecko.
 
 How To Test:
 1. Build the project(s) and download to both Starter Kits
