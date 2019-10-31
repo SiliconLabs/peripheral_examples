@@ -28,4 +28,4 @@ Device: EFM32TG840F32
 PD0 - USART1 MOSI - EXP Header Pin 4
 PD1 - USART1 MISO - EXP Header Pin 6
 PD2 - USART1 CLK  - EXP Header Pin 8
-PD3 -  USART1 CS  - EXP Header Pin 10
+PD3 - USART1 CS   - EXP Header Pin 10
