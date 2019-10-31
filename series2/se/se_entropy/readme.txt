@@ -4,6 +4,16 @@ This example uses the CRYPTO and TRNG module in the EFR32 Series 2 Secure
 Element (SE) to accelerate the mbed TLS entropy funtions for random number
 generation.
 
+Note that mbed TLS APIs used in this project include alternative 
+implementations(plugins) from Silicon Labs for some of the mbed TLS library 
+functions, including AES, CCM, CMAC, ECC (ECP, ECDH, ECDSA, ECJPAKE), SHA1 and 
+SHA256. The plugins use the AES and CRYPTO hardware modules to accelerate the 
+standard mbed TLS library functions which are implemented in C. 
+
+The user is expected to use this example only after installing the latest Gecko
+SDK. Please refer to the mbed TLS section of the Gecko SDK documentation for 
+more information on using mbed TLS on Silicon Labs devices. 
+
 The True Random Number Generator (TRNG) hardware module is used as entropy
 source. The entropy accumulator of mbed TLS will use SHA256 to hash the entropy
 data pool which is filled with data from the entropy sources.

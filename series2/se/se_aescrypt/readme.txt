@@ -3,6 +3,16 @@ se_aescrypt
 This example uses the CRYPTO module in the EFR32 Series 2 Secure Element (SE) to
 accelerate the AES encryption, descryption, and SHA hash functions of mbed TLS.
 
+Note that mbed TLS APIs used in this project include alternative 
+implementations(plugins) from Silicon Labs for some of the mbed TLS library 
+functions, including AES, CCM, CMAC, ECC (ECP, ECDH, ECDSA, ECJPAKE), SHA1 and 
+SHA256. The plugins use the AES and CRYPTO hardware modules to accelerate the 
+standard mbed TLS library functions which are implemented in C. 
+
+The user is expected to use this example only after installing the latest Gecko
+SDK. Please refer to the mbed TLS section of the Gecko SDK documentation for 
+more information on using mbed TLS on Silicon Labs devices. 
+
 The example redirects standard I/O to the virtual serial port (VCOM) of the
 Starter Kit. By default the serial port setting is 115200 bps and 8-N-1
 configuration.
