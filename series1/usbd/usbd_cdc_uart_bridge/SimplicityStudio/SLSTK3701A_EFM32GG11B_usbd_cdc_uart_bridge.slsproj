@@ -26,17 +26,16 @@
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
+  <module id="com.silabs.sdk.exx32.external.USB">
+    <include pattern="emusb/em_usbd.c" />
+    <include pattern="emusb/em_usbdch9.c" />
+    <include pattern="emusb/em_usbdep.c" />
+    <include pattern="emusb/em_usbdint.c" />
+    <include pattern="emusb/em_usbhal.c" />
+    <include pattern="emusb/em_usbtimer.c" />
+  </module>
   <includePath uri="inc/inc_gg11" />
   <includePath uri="inc" />
-  <includePath uri="../../../../platform/middleware/usb_gecko/inc" />
-  <folder name="emusb">
-    <file name="em_usbd.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbd.c" />
-    <file name="em_usbdch9.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbdch9.c" />
-    <file name="em_usbdep.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbdep.c" />
-    <file name="em_usbdint.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbdint.c" />
-    <file name="em_usbhal.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbhal.c" />
-    <file name="em_usbtimer.c" uri="../../../../platform/middleware/usb_gecko/src/em_usbtimer.c" />
-  </folder>
   <folder name="inc">
     <file name="usbconfig.h" uri="inc/inc_gg11/usbconfig.h" />
     <file name="cdc.h" uri="inc/cdc.h" />
