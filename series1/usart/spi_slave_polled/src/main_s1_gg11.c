@@ -26,7 +26,7 @@ uint8_t RxBuffer[RX_BUFFER_SIZE];
 uint8_t RxBufferIndex = 0;
 
 uint8_t TxBuffer[TX_BUFFER_SIZE] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9};
-uint8_t TxBufferIndex = 1;
+uint8_t TxBufferIndex = 0;
 
 /**************************************************************************//**
  * @brief Initialize USART0
@@ -49,6 +49,7 @@ void initUSART0 (void)
   config.msbf      = true;            // send MSB first
   config.enable    = usartDisable;    // making sure to keep USART disabled until we've set everything up
   USART_InitSync(USART0, &config);
+  USART0->CTRL |= USART_CTRL_SSSEARLY;
 
   // Set USART pin locations
   USART0->ROUTELOC0 = (USART_ROUTELOC0_CLKLOC_LOC0) | // US0_CLK       on location 0 = PE12 per datasheet section 6.4 = EXP Header pin 8
@@ -58,9 +59,6 @@ void initUSART0 (void)
 
   // Enable USART pins
   USART0->ROUTEPEN = USART_ROUTEPEN_CLKPEN | USART_ROUTEPEN_CSPEN | USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_RXPEN;
-
-  // Pre-loading our TXDATA register so our slave's echo can be in synch with the master
-  USART0->TXDATA = TxBuffer[0];
 
   // Enable USART0
   USART_Enable(USART0, usartEnable);
@@ -79,10 +77,16 @@ int main(void)
 
   while(1)
   {
-    for(int i = 0; i < RX_BUFFER_SIZE; i++)
+    if (USART0->STATUS & USART_STATUS_TXBL)
     {
-      RxBuffer[RxBufferIndex++] = USART_Rx(USART0);  // Polls the USART0 status registers until it see's the flag for a received message
-      USART_Tx(USART0, TxBuffer[TxBufferIndex++]);   // Waits until our transfer buffer is empty then loads in our TXDATA register
+      USART0->TXDATA = TxBuffer[TxBufferIndex];
+      TxBufferIndex += 1;
+    }
+
+    if (USART0->STATUS & USART_STATUS_RXDATAV)
+    {
+      RxBuffer[RxBufferIndex] = USART0->RXDATA;
+      RxBufferIndex += 1;
     }
 
     if(TxBufferIndex == TX_BUFFER_SIZE)
@@ -92,9 +96,9 @@ int main(void)
 
     if(RxBufferIndex == RX_BUFFER_SIZE)
     {
+      // Put a break point here to view the full RxBuffer,
+      // The RxBuffer should be: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09
       RxBufferIndex = 0;
     }
-    // Put a break point here to view the full RxBuffer,
-    // The RxBuffer should be: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09
   }
 }

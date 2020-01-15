@@ -29,17 +29,32 @@ uint8_t TxBuffer[TX_BUFFER_SIZE] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0x
 uint8_t TxBufferIndex = 1;
 
 /**************************************************************************//**
+ * @brief USART2 TX IRQ Handler
+ *****************************************************************************/
+void USART2_TX_IRQHandler(void)
+{
+  // Send and receive incoming data
+  USART2->TXDATA = (uint32_t)TxBuffer[TxBufferIndex];
+  TxBufferIndex++;
+
+  // Stop sending once we've gone through the whole TxBuffer
+  if (TxBufferIndex == TX_BUFFER_SIZE)
+  {
+    TxBufferIndex = 0;
+  }
+}
+
+/**************************************************************************//**
  * @brief USART2 RX IRQ Handler
  *****************************************************************************/
 void USART2_RX_IRQHandler(void)
 {
   if (USART2->STATUS & USART_STATUS_RXDATAV)
   {
-    // Read data
-    RxBuffer[RxBufferIndex++] = USART_Rx(USART2);
 
-    // Sending data, the USART_Tx function checks that the Tx buffer is clear before sending
-    USART_Tx(USART2, TxBuffer[TxBufferIndex++]);
+    // Read data
+    RxBuffer[RxBufferIndex] = USART_RxDataGet(USART2);
+    RxBufferIndex++;
 
     if (RxBufferIndex == RX_BUFFER_SIZE)
     {
@@ -48,10 +63,6 @@ void USART2_RX_IRQHandler(void)
       RxBufferIndex = 0;
     }
 
-    if(TxBufferIndex == TX_BUFFER_SIZE)
-    {
-      TxBufferIndex = 0;
-    }
   }
 }
 
@@ -76,6 +87,7 @@ void initUSART2 (void)
 	config.msbf      = true;            // send MSB first
         config.enable    = usartDisable;    // making sure to keep USART disabled until we've set everything up
 	USART_InitSync(USART2, &config);
+  USART0->CTRL |= USART_CTRL_SSSEARLY;
 
 	// Set USART pin locations
 	USART2->ROUTELOC0 = (USART_ROUTELOC0_CLKLOC_LOC1) | // US2_CLK       on location 1 = PA8 per datasheet section 6.4 = EXP Header pin 8
@@ -86,14 +98,19 @@ void initUSART2 (void)
 	// Enable USART pins
 	USART2->ROUTEPEN = USART_ROUTEPEN_CLKPEN | USART_ROUTEPEN_CSPEN | USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_RXPEN;
 
+  // Enabling TX interrupts to transfer whenever
+  // there is room in the transmit buffer
+  // This should immediately trigger to load the first byte of our TX buffer
+  USART_IntClear(USART2, USART_IF_TXBL);
+  USART_IntEnable(USART2, USART_IF_TXBL);
+  NVIC_ClearPendingIRQ(USART2_TX_IRQn);
+  NVIC_EnableIRQ(USART2_TX_IRQn);
+  
 	// Enable USART2 RX interrupts
 	USART_IntClear(USART2, USART_IF_RXDATAV);
 	USART_IntEnable(USART2, USART_IF_RXDATAV);
 	NVIC_ClearPendingIRQ(USART2_RX_IRQn);
 	NVIC_EnableIRQ(USART2_RX_IRQn);
-
-	// Pre-loading our TXDATA register so our slave's echo can be in synch with the master
-	USART2->TXDATA = TxBuffer[0];
 
 	// Enable USART2
 	USART_Enable(USART2, usartEnable);

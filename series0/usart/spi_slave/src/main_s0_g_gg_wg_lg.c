@@ -26,32 +26,38 @@ uint8_t RxBuffer[RX_BUFFER_SIZE];
 uint8_t RxBufferIndex = 0;
 
 uint8_t TxBuffer[TX_BUFFER_SIZE] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9};
-uint8_t TxBufferIndex = 1;
+uint8_t TxBufferIndex = 0;
+
+/**************************************************************************//**
+ * @brief USART1 TX IRQ Handler
+ *****************************************************************************/
+void USART1_TX_IRQHandler(void)
+{
+  // Send and receive incoming data
+  USART1->TXDATA = (uint32_t)TxBuffer[TxBufferIndex];
+  TxBufferIndex++;
+
+  // Stop sending once we've gone through the whole TxBuffer
+  if (TxBufferIndex == TX_BUFFER_SIZE)
+  {
+    TxBufferIndex = 0;
+  }
+}
 
 /**************************************************************************//**
  * @brief USART1 RX IRQ Handler
  *****************************************************************************/
 void USART1_RX_IRQHandler(void)
 {
-  if (USART1->STATUS & USART_STATUS_RXDATAV)
+  // Read data
+  RxBuffer[RxBufferIndex] = USART_RxDataGet(USART1);
+  RxBufferIndex++;
+
+  if (RxBufferIndex == RX_BUFFER_SIZE)
   {
-    // Read data
-    RxBuffer[RxBufferIndex++] = USART_Rx(USART1);
-
-    // Sending data, the USART_Tx function checks that the Tx buffer is clear before sending
-    USART_Tx(USART1, TxBuffer[TxBufferIndex++]);
-
-    if (RxBufferIndex == RX_BUFFER_SIZE)
-    {
-      // Putting a break point here to view the full RxBuffer,
-      // The RxBuffer should be: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09
-      RxBufferIndex = 0;
-    }
-
-    if(TxBufferIndex == TX_BUFFER_SIZE)
-    {
-      TxBufferIndex = 0;
-    }
+    // Putting a break point here to view the full RxBuffer,
+    // The RxBuffer should be: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09
+    RxBufferIndex = 0;
   }
 }
 
@@ -83,17 +89,22 @@ void initUSART1 (void)
   // Clear RX buffer and shift register
   USART1->CMD |= USART_CMD_CLEARRX;
 
+  // Enable
+  USART_Enable(USART1, usartEnable);
+
   // Enable USART1 RX interrupts
   USART_IntClear(USART1, USART_IF_RXDATAV);
   USART_IntEnable(USART1, USART_IF_RXDATAV);
   NVIC_ClearPendingIRQ(USART1_RX_IRQn);
   NVIC_EnableIRQ(USART1_RX_IRQn);
 
-  // Pre-loading our TXDATA register so our slave's echo can be in synch with the master
-  USART1->TXDATA = TxBuffer[0];
-
-  // Enable USART1
-  USART_Enable(USART1, usartEnable);
+  // Enabling TX interrupts to transfer whenever
+  // there is room in the transmit buffer
+  // This should immediately trigger to load the first byte of our TX buffer
+  USART_IntClear(USART1, USART_IF_TXBL);
+  USART_IntEnable(USART1, USART_IF_TXBL);
+  NVIC_ClearPendingIRQ(USART1_TX_IRQn);
+  NVIC_EnableIRQ(USART1_TX_IRQn);
 }
 
 /**************************************************************************//**

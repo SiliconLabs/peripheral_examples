@@ -30,8 +30,11 @@
 // Change this to increase or decrease number of samples.
 #define ADC_BUFFER_SIZE   8
 
-#define ADC_DVL           2
-#define ADC_FREQ          16000000
+// Change this to set how many samples get sent at once
+#define ADC_DVL         2
+
+// Init to max ADC clock for Series 1 with AUXHFRCO
+#define ADC_FREQ        4000000
 
 #define LDMA_CHANNEL      0
 #define PRS_CHANNEL       0

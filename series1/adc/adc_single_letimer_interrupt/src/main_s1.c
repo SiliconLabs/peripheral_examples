@@ -25,12 +25,10 @@
 
 // Init to max ADC clock for Series 1
 #define adcFreq         16000000
-#define letimerClkFreq  19000000
 
 // Desired letimer interrupt frequency (in Hz)
 #define letimerDesired  1000
 
-#define letimerCompare  letimerClkFreq / letimerDesired
 
 volatile uint32_t sample;
 volatile uint32_t millivolts;
@@ -57,8 +55,11 @@ void initLETIMER(void)
   // Need REP0 != 0 to pulse on underflow
   LETIMER_RepeatSet(LETIMER0, 0, 1);
 
+  // calculate the topValue
+  uint32_t topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / letimerDesired;
+
   // Compare on wake-up interval count
-  LETIMER_CompareSet(LETIMER0, 0, letimerCompare);
+  LETIMER_CompareSet(LETIMER0, 0, topValue);
 
   // Initialize and enable LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);

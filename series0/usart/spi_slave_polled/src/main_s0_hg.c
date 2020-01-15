@@ -1,6 +1,6 @@
 /**************************************************************************//**
  * @main_series0_HG.c
- * @brief Demonstrates USART1 as SPI slave.
+ * @brief Demonstrates USART0 as SPI slave.
  * @version 0.0.1
  ******************************************************************************
  * @section License
@@ -26,7 +26,7 @@ uint8_t RxBuffer[RX_BUFFER_SIZE];
 uint8_t RxBufferIndex = 0;
 
 uint8_t TxBuffer[TX_BUFFER_SIZE] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9};
-uint8_t TxBufferIndex = 1;
+uint8_t TxBufferIndex = 0;
 
 /**************************************************************************//**
  * @brief Initialize USART0
@@ -53,9 +53,6 @@ void initUSART0 (void)
   // Set USART pin locations
   USART0->ROUTE = USART_ROUTE_CLKPEN | USART_ROUTE_CSPEN | USART_ROUTE_TXPEN | USART_ROUTE_RXPEN | USART_ROUTE_LOCATION_LOC0;
 
-  // Pre-loading our TXDATA register so our slave's echo can be in synch with the master
-  USART0->TXDATA = TxBuffer[0];
-
   // Enable USART0
   USART_Enable(USART0, usartEnable);
 }
@@ -65,8 +62,6 @@ void initUSART0 (void)
  *****************************************************************************/
 int main(void)
 {
-  uint32_t i;
-
   // Initialize chip
   CHIP_Init();
 
@@ -75,22 +70,28 @@ int main(void)
 
   while(1)
   {
-    for(i = 0; i < RX_BUFFER_SIZE; i++)
+    if (USART0->STATUS & USART_STATUS_TXBL)
     {
-      RxBuffer[RxBufferIndex++] = USART_Rx(USART0);  // Polls the USART0 status registers until it see's the flag for a received message
-      USART_Tx(USART0, TxBuffer[TxBufferIndex++]);   // Waits until our transfer buffer is empty then loads in our TXDATA register
-
-      if(TxBufferIndex == TX_BUFFER_SIZE)
-      {
-        TxBufferIndex = 0;
-      }
-
-      if(RxBufferIndex == RX_BUFFER_SIZE)
-      {
-        RxBufferIndex = 0;
-      }
+      USART0->TXDATA = TxBuffer[TxBufferIndex];
+      TxBufferIndex += 1;
     }
-    // Put a break point here to view the full RxBuffer,
-    // The RxBuffer should be: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09
+
+    if (USART0->STATUS & USART_STATUS_RXDATAV)
+    {
+      RxBuffer[RxBufferIndex] = USART0->RXDATA;
+      RxBufferIndex += 1;
+    }
+
+    if(TxBufferIndex == TX_BUFFER_SIZE)
+    {
+      TxBufferIndex = 0;
+    }
+
+    if(RxBufferIndex == RX_BUFFER_SIZE)
+    {
+      // Put a break point here to view the full RxBuffer,
+      // The RxBuffer should be: 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09
+      RxBufferIndex = 0;
+    }
   }
 }

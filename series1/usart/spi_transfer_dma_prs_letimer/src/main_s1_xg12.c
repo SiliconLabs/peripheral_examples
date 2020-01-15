@@ -41,11 +41,8 @@ static LDMA_TransferCfg_t ldmaTXConfig;
 static LDMA_Descriptor_t ldmaRXDescriptor;
 static LDMA_TransferCfg_t ldmaRXConfig;
 
-#define letimerClkFreq  19000000
 // Desired letimer interrupt frequency (in Hz)
 #define letimerDesired  100000
-
-#define letimerCompare  letimerClkFreq / letimerDesired
 
 /**************************************************************************//**
  * @brief LETIMER initialization
@@ -71,8 +68,11 @@ void initLETIMER(void)
   // Need REP0 != 0 to pulse on underflow
   LETIMER_RepeatSet(LETIMER0, 0, 10);
 
+  // calculate the topValue
+  uint32_t topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / letimerDesired;
+
   // Compare on wake-up interval count
-  LETIMER_CompareSet(LETIMER0, 0, letimerCompare);
+  LETIMER_CompareSet(LETIMER0, 0, topValue);
 
   // Initialize and enable LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);
