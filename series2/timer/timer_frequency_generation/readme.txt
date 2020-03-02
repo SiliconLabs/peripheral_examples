@@ -1,6 +1,6 @@
 This project demonstrates frequency generation using the TIMER module.
 TIMER0 is initialized for output compare on Compare/Capture channel 0 which
-is routed to GPIO Pin PC10 (Expansion Header Pin 16). The Top value is set
+is routed to GPIO Pin PA6 (Expansion Header Pin 14). The Top value is set
 such that on each overflow, the output toggles at the desired frequency.
 
 NOTE: The range of frequencies the program can generate is limited. The maximal
@@ -27,4 +27,9 @@ Listed below are the port and pin mappings for working with this example.
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG21A010F1024IM32
+PA6 - TIM0_CC0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)

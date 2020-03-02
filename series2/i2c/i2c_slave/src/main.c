@@ -43,6 +43,18 @@ uint8_t i2c_BufferIndex;
 volatile bool i2c_gotTargetAddress;
 volatile bool i2c_rxInProgress;
 
+extern void disableClocks(void);
+
+/**************************************************************************//**
+ * @brief  Starting oscillators and enabling clocks
+ *****************************************************************************/
+void initCMU(void)
+{
+  // Enabling clock to the I2C and GPIO
+  CMU_ClockEnable(cmuClock_I2C0, true);
+  CMU_ClockEnable(cmuClock_GPIO, true);
+}
+
 /**************************************************************************//**
  * @brief GPIO initialization
  *****************************************************************************/
@@ -207,60 +219,6 @@ void I2C0_IRQHandler(void)
 }
 
 /***************************************************************************//**
- * @brief   Disable high frequency clocks
- ******************************************************************************/
-static void disableHFClocks(void)
-{
-  // Make sure all high frequency peripherals are disabled
-  USART0->EN_CLR = 0x1;
-  USART1->EN_CLR = 0x1;
-  USART2->EN_CLR = 0x1;
-  TIMER0->EN_CLR = 0x1;
-  TIMER1->EN_CLR = 0x1;
-  TIMER2->EN_CLR = 0x1;
-  TIMER3->EN_CLR = 0x1;
-  ACMP0->EN_CLR = 0x1;
-  ACMP1->EN_CLR = 0x1;
-  IADC0->EN_CLR = 0x1;
-  I2C1->EN_CLR = 0x1;
-  GPCRC->EN_CLR = 0x1;
-
-  CMU_ClockSelectSet(cmuClock_SYSCLK, cmuSelect_FSRCO);
-
-  // Check that HFRCODPLL and HFXO are not requested
-  while (((HFRCO0->STATUS & _HFRCO_STATUS_ENS_MASK) != 0U)
-         || ((HFXO0->STATUS & _HFXO_STATUS_ENS_MASK) != 0U));
-}
-
-/***************************************************************************//**
- * @brief   Disable low frequency clocks
- ******************************************************************************/
-static void disableLFClocks(void)
-{
-  // Make sure all low frequency peripherals are disabled
-  RTCC->EN_CLR = 0x1;
-  WDOG0->EN_CLR = 0x1;
-  WDOG1->EN_CLR = 0x1;
-  LETIMER0->EN_CLR = 0x1;
-  BURTC->EN_CLR = 0x1;
-
-  // Check that all low frequency oscillators are stopped
-  while ((LFRCO->STATUS != 0U) && (LFXO->STATUS != 0U));
-}
-
-/***************************************************************************//**
- * @brief   Disable all clocks to achieve lowest current consumption numbers.
- ******************************************************************************/
-static void disableClocks(void)
-{
-  // Disable High Frequency Clocks
-  disableHFClocks();
-
-  // Disable Low Frequency Clocks
-  disableLFClocks();
-}
-
-/***************************************************************************//**
  * @brief
  *   Enter EM2 with RTCC running on a low frequency oscillator.
  *
@@ -292,17 +250,17 @@ void em_EM2_RTCC(CMU_Select_TypeDef osc, bool powerdownRam)
   rtccInit.presc = rtccCntPresc_1;
 
   // Initialize RTCC
+  CMU_ClockEnable(cmuClock_RTCC, true);
   RTCC_Reset();
   RTCC_Init(&rtccInit);
 
-  // Power down all RAM blocks except block 1
-  if (powerdownRam)
-  {
-    EMU_RamPowerDown(SRAM_BASE, 0);
+  // Power down all RAM blocks except block 0
+  if (powerdownRam) {
+	EMU_RamPowerDown(SRAM_BASE, 0);
   }
 
   // Enter EM2.
-  EMU_EnterEM2(false);
+  EMU_EnterEM2(true);
 }
 
 /**************************************************************************//**
@@ -312,6 +270,10 @@ int main(void)
 {
   // Chip errata
   CHIP_Init();
+
+  // Initializations
+  initCMU();
+  initGPIO();
 
   // Setting up i2c
   initI2C();

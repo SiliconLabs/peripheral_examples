@@ -1,12 +1,12 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates polled pulse generation via output compare.
  * The GPIO pin specified in the readme.txt is configured for output and
- * generates a single 1 ms pulse.
+ * generates a single 1 second pulse.
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -43,6 +43,17 @@ void initGpio(void)
 }
 
 /**************************************************************************//**
+ * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+}
+
+/**************************************************************************//**
  * @brief TIMER initialization
  *****************************************************************************/
 void initTimer(void)
@@ -53,6 +64,7 @@ void initTimer(void)
   // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
+  // Configure timer to toggle output upon output compare match
   timerInit.enable = false;
   timerInit.prescale = timerPrescale1024;
   timerCCInit.mode = timerCCModeCompare;
@@ -101,6 +113,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

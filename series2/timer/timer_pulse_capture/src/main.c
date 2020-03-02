@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates high frequency single pulse capture using
  * the TIMER module. A periodic input signal is routed to a Compare/Capture
  * channel, and a single pulse width is captured and stored. Connect a periodic
@@ -8,7 +8,7 @@
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -85,6 +85,17 @@ void initGpio(void)
 
 /**************************************************************************//**
  * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+}
+
+/**************************************************************************//**
+ * @brief
  *    TIMER initialization
  *
  * @details
@@ -138,6 +149,7 @@ int main(void)
   initHFXO();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

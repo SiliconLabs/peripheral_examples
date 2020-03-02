@@ -11,7 +11,7 @@
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -73,6 +73,18 @@ void initGpio(void)
 
 /**************************************************************************//**
  * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO, TIMER0, and PRS
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+  CMU_ClockEnable(cmuClock_PRS, true);
+}
+
+/**************************************************************************//**
+ * @brief
  *    PRS initialization
  *
  * @details
@@ -86,7 +98,7 @@ void initPrs(void)
 {
   // Select GPIO as source and button 0 GPIO pin as signal for PRS channel 0
   PRS_SourceAsyncSignalSet(GPIO_PRS_CHANNEL, PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
-                            PRS_ASYNC_CH_CTRL_SIGSEL_GPIOPIN2);
+                            BSP_GPIO_PB0_PIN);
 
   // Do not apply any logic on the PRS Channel
   PRS_Combine (GPIO_PRS_CHANNEL, GPIO_PRS_CHANNEL, prsLogic_A);
@@ -186,6 +198,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initPrs();
   initTimer();

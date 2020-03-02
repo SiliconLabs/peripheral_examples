@@ -43,6 +43,9 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 ## Supported Series 2 Devices ##
 - EFR32BG21
 - EFR32MG21
+- EFR32BG22
+- EFR32FG22
+- EFR32MG22
 
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
@@ -62,6 +65,8 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 
 
 ## Reporting Bugs/Issues and Posting Questions and Comments ##
+
+All examples in this repo is are considered EVALUATION QUALITY, meaning this code has been minimally tested to ensure that it builds with the specified dependencies and is suitable as a demonstration for evaluation purposes only. This code will be maintained at the sole discretion of Silicon Labs.
 
 To report bugs in the peripheral example projects, please create a new "Issue" in the "Issues" section of this repo.  Please reference the board, project, and source files associated with the bug, and reference line numbers.  If you are proposing a fix, also include information on the proposed fix.  Silicon Labs engineers will address bugs and push them to the public repository periodically.
 

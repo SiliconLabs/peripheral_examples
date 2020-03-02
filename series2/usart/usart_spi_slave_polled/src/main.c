@@ -46,6 +46,9 @@
  *****************************************************************************/
 void initGpio(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
   // Configure MOSI pin as an input
   GPIO_PinModeSet(US0MOSI_PORT, US0MOSI_PIN, gpioModeInput, 0);
 
@@ -71,6 +74,9 @@ void initGpio(void)
  *****************************************************************************/
 void initUsart0(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_USART0, true);
+
   // Default asynchronous initializer (master mode, 1 Mbps, 8-bit data)
   USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 

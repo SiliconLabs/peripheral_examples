@@ -38,5 +38,11 @@ Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A)
 Device: EFR32MG21A010F1024IM32 (this code will run unchanged on any
 EFR32MG21 or EFR32BG211 variant so long as the pins used as present).
 
-PA5 - USART1_RX (Expansion Header Pin 12)
-PA6 - USART1_TX (Expansion Header Pin 14)
+PA5 - USART1_TX (Expansion Header Pin 12)
+PA6 - USART1_RX (Expansion Header Pin 14)
+
+Device: EFR32MG22C224F512IM40 (this code will run unchanged on any
+EFR32MG22 or EFR32BG212 variant so long as the pins used as present).
+
+PA5 - USART1_TX (Expansion Header Pin 12)
+PA6 - USART1_RX (Expansion Header Pin 14)

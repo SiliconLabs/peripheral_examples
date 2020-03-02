@@ -5,7 +5,7 @@
  * @version 0.0.1
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2020 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -18,6 +18,7 @@
 #include "em_device.h"
 #include "em_emu.h"
 #include "em_ldma.h"
+#include "em_cmu.h"
 
 // DMA channel used for the example
 #define LDMA_CHANNEL        0
@@ -44,7 +45,7 @@ uint16_t dst2d[BUFFER_2D_HEIGHT][BUFFER_2D_WIDTH];
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -55,7 +56,8 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
+  if (pending & LDMA_IF_ERROR)
+  {
     // Loop here to enable the debugger to see what has happened
     while (1);
   }
@@ -73,25 +75,34 @@ void initLdma(void)
   uint32_t x, y;
 
   // Initialize buffers for 2D copy
-  for(x = 0; x < BUFFER_2D_HEIGHT; x++){
-    for(y = 0; y < BUFFER_2D_WIDTH; y++){
+  for (x = 0; x < BUFFER_2D_HEIGHT; x++)
+  {
+    for (y = 0; y < BUFFER_2D_WIDTH; y++)
+    {
       src2d[x][y] = x*BUFFER_2D_WIDTH + y;
       dst2d[x][y] = 0;
     }
   }
 
+  // Initialize LDMA clock
+  CMU_ClockEnable(cmuClock_LDMA, true);
+
+  // Initialize LDMA
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 
   // Use looped memory transfer configuration macro
   LDMA_TransferCfg_t memTransfer = LDMA_TRANSFER_CFG_MEMORY_LOOP(
       TRANSFER_HEIGHT-2);
 
+  // First descriptor gets the absolute source and destination address
   descLink[0] = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_M2M_HALF(
       &src2d[SRC_ROW_INDEX][SRC_COL_INDEX],
       &dst2d[DST_ROW_INDEX][DST_COL_INDEX],
       TRANSFER_WIDTH,
       1);
+
+  // Second descriptor uses relative addressing and performs looping
   descLink[1] = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_M2M_HALF(
       (BUFFER_2D_WIDTH - TRANSFER_WIDTH)*2,
       (BUFFER_2D_WIDTH - TRANSFER_WIDTH)*2,

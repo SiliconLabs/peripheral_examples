@@ -1,12 +1,12 @@
 /**************************************************************************//**
- * @file
- * @brief This project demonstrates edge capture with LDMA. The first 512 events
- * captured by TIMER0 CC0 are transferred to a fixed length buffer by the
- * LDMA. For this example both rising and falling edges are captured.
+ * @main.c
+ * @brief This project demonstrates edge capture with LDMA. The first 512
+ * events captured by TIMER0 CC0 are transferred to a fixed length buffer by
+ * the LDMA. For this example both rising and falling edges are captured.
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -78,7 +78,8 @@ void initLDMA(void)
   // Transfer one word per unit
   descLink.xfer.size = ldmaCtrlSizeWord;
   // Do not ignore single requests
-  // IE: When Timer CC0 event occurs, transfer 1 unit then wait for next capture
+  // IE: When Timer CC0 event occurs, transfer 1 unit then wait for next
+  // capture
   descLink.xfer.ignoreSrec = 0;
 
   // Start transfer, LDMA will transfer each edge
@@ -92,6 +93,17 @@ void initGPIO(void)
 {
   // Configure PA6 as Input
   GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
 }
 
 /**************************************************************************//**
@@ -134,6 +146,7 @@ int main(void)
 
   // Initializations
   initLDMA();
+  initCmu();
   initGPIO();
   initTIMER();
 

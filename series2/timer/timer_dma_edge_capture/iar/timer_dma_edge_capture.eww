@@ -4,6 +4,9 @@
   <project>
     <path>$WS_DIR$\EFR32xG21_timer_dma_edge_capture.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32xG22_timer_dma_edge_capture.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

@@ -1,6 +1,6 @@
 <workspace name="burtc_em4_buram">
   <project name="EFR32xG22_burtc_em4_buram"
-           device="EFR32MG22A224F512IM40">
+           device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>
       <name>iar</name>

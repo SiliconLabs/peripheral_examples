@@ -7,7 +7,7 @@ The wake up interval is defined by WAKEUP_INTERVAL_MS, default value is 500ms.
 The RTCC clock source is defined by RTCC_CLOCK, default source is LFXO.
 
 This project also shows how to use the RTCC compare channel PRS output to toggle
-LED1.
+LED1 or Expansion header pin 7.
 
 How To Test:
 1. Build the project and download it to the Starter Kit
@@ -26,3 +26,9 @@ Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A Rev. A00) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
 PB01 - Green LED on radio board, yellow LED1 on mainboard
+
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG22C224F512IM40
+PB00 - Expansion header pin 7
+PB01 - Push button PB1

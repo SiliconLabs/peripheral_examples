@@ -22,6 +22,7 @@
 
 #include "em_device.h"
 #include "em_chip.h"
+#include "em_cmu.h"
 #include "em_emu.h"
 #include "em_gpio.h"
 #include "em_ldma.h"
@@ -67,6 +68,9 @@ bool rx_done;
  *****************************************************************************/
 void initGpio(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
   // Configure RX pin as an input
   GPIO_PinModeSet(US0MISO_PORT, US0MISO_PIN, gpioModeInput, 0);
 
@@ -86,6 +90,9 @@ void initGpio(void)
  *****************************************************************************/
 void initUsart0(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_USART0, true);
+
   // Default asynchronous initializer (master mode, 1 Mbps, 8-bit data)
   USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 

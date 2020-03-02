@@ -1,7 +1,7 @@
 i2c_slave
 
 This project demonstrates the slave configuration of the
-EFx32xG21 I2C peripheral. Two EFx32xG21 modules are connected together, one
+EFx32xG2x I2C peripheral. Two EFx32xG2x modules are connected together, one
 running the master project, the other running the slave project. The master
 reads the slave's current buffer values, increments each value, and writes
 the new values back to the slave device. The master then reads back the slave
@@ -24,12 +24,20 @@ How To Test:
 
 Peripherals Used:
 FSRCO - 20 MHz
-I2C0  - 100000 Hz
+I2C0  - 100 kHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
 PB00 - LED0, Expansion Header Pin 11, WSTK Pin 8
 PB01 - LED1, Expansion Header Pin 13, WSTK Pin 10
+PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
+PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
+
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG22C224F512IM40
+PD02 - LED0, Expansion Header Pin 11, WSTK Pin 8
+PD03 - LED1, Expansion Header Pin 13, WSTK Pin 10
 PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
 PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11

@@ -372,7 +372,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1350,7 +1350,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1998,6 +1998,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\src\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\src\disableClocks_xg21.c</name>
     </file>
   </group>
 

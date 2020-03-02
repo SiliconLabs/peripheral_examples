@@ -5,7 +5,7 @@
  * @version 0.0.1
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2020 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -20,6 +20,7 @@
 #include "em_gpio.h"
 #include "em_ldma.h"
 #include "em_prs.h"
+#include "em_cmu.h"
 #include "bsp.h"
 
 // Constants for inter-channel sync transfer
@@ -49,7 +50,7 @@ uint8_t dstBuffer[BUFFER_SIZE];
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -60,10 +61,21 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
+  if (pending & LDMA_IF_ERROR){
     // Loop here to enable the debugger to see what has happened
     while (1);
   }
+}
+/***************************************************************************//**
+ * @brief
+ *   Clock Initialization.
+ ******************************************************************************/
+static void initCMU(void)
+{
+  // Initialize peripheral clocks
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_LDMA, true);
+  CMU_ClockEnable(cmuClock_PRS, true);
 }
 
 /***************************************************************************//**
@@ -84,9 +96,9 @@ static void gpioPrsSetup(void)
 
   // Select GPIO as PRS source and push buttons as signals for PRS channels
   PRS_SourceAsyncSignalSet(GPIO_PRS_CHANNEL, PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
-                           PRS_ASYNC_CH_CTRL_SIGSEL_GPIOPIN2);
+                           BSP_GPIO_PB0_PIN);
   PRS_SourceAsyncSignalSet(GPIO_PRS_CHANNEL+1, PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
-                           PRS_ASYNC_CH_CTRL_SIGSEL_GPIOPIN3);
+                           BSP_GPIO_PB1_PIN);
 
   // DMA request is high active, invert PRS signals to default low
   PRS_Combine(GPIO_PRS_CHANNEL, GPIO_PRS_CHANNEL, prsLogic_NOT_A);
@@ -107,12 +119,13 @@ void initLdma(void)
   uint32_t i;
 
   // Initialize buffers for memory transfer
-  for (i = 0; i < BUFFER_SIZE; i++){
+  for (i = 0; i < BUFFER_SIZE; i++)
+  {
     dstBuffer[i] = 0;
   }
 
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 
   // Use peripheral transfer configuration macro for DMA channels
   LDMA_TransferCfg_t periTransferPB0 = 
@@ -164,6 +177,9 @@ int main(void)
   EMU_DCDCInit(&dcdcInit);
 #endif
   
+  // Initialize clock
+  initCMU();
+
   // Initialize GPIO for PRS
   gpioPrsSetup();
 

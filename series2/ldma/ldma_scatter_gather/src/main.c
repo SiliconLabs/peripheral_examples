@@ -5,7 +5,7 @@
  * @version 0.0.1
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2020 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -43,7 +43,7 @@ uint16_t dstBuffer[LIST_SIZE][BUFFER_SIZE];
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -54,7 +54,8 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
+  if (pending & LDMA_IF_ERROR)
+  {
     // Loop here to enable the debugger to see what has happened
     while (1);
   }
@@ -70,27 +71,29 @@ void initLdmaScatter(void)
   uint32_t i;
 
   // Fill source buffer and clear destination buffer
-  for (i = 0; i < BUFFER_SIZE * LIST_SIZE; i++){
+  for (i = 0; i < BUFFER_SIZE * LIST_SIZE; i++)
+  {
     srcBuffer[i] = i;
     dstBuffer[i / BUFFER_SIZE][i % BUFFER_SIZE] = 0;
   }
 
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 
   // Use memory transfer configuration macro
   LDMA_TransferCfg_t periTransferTx = LDMA_TRANSFER_CFG_MEMORY();
 
   // First Descriptor
   descLink[0] = (LDMA_Descriptor_t)
-    LDMA_DESCRIPTOR_LINKREL_M2M_HALF( &srcBuffer, &dstBuffer[LAST_INDEX],
-                                     BUFFER_SIZE, 1 );
+    LDMA_DESCRIPTOR_LINKREL_M2M_HALF(&srcBuffer, &dstBuffer[LAST_INDEX],
+                                     BUFFER_SIZE, 1);
 
   // Middle Descriptors
-  for(i = 1; i < LIST_SIZE - 1; i++){
+  for (i = 1; i < LIST_SIZE - 1; i++)
+  {
     descLink[i] = (LDMA_Descriptor_t)
-        LDMA_DESCRIPTOR_LINKREL_M2M_HALF( 0, &dstBuffer[LAST_INDEX - i],
-                                         BUFFER_SIZE, 1 );
+        LDMA_DESCRIPTOR_LINKREL_M2M_HALF(0, &dstBuffer[LAST_INDEX - i],
+                                         BUFFER_SIZE, 1);
 
     // Descriptor source is relative
     descLink[i].xfer.srcAddrMode = ldmaCtrlSrcAddrModeRel;
@@ -98,7 +101,7 @@ void initLdmaScatter(void)
 
   // Last Descriptor
   descLink[LIST_SIZE - 1] = (LDMA_Descriptor_t)
-      LDMA_DESCRIPTOR_SINGLE_M2M_HALF( 0, &dstBuffer[0], BUFFER_SIZE );
+      LDMA_DESCRIPTOR_SINGLE_M2M_HALF(0, &dstBuffer[0], BUFFER_SIZE);
 
   // Last Descriptor source is relative
   descLink[LIST_SIZE - 1].xfer.srcAddrMode = ldmaCtrlSrcAddrModeRel;
@@ -117,7 +120,8 @@ void initLdmaGather(void)
 
   // Clear source buffer and keep destination buffer
   // Destination buffer is source and soruce buffer is destination
-  for (i = 0; i < BUFFER_SIZE * LIST_SIZE; i++){
+  for (i = 0; i < BUFFER_SIZE * LIST_SIZE; i++)
+  {
     srcBuffer[i] = 0;
   }
 
@@ -126,14 +130,15 @@ void initLdmaGather(void)
 
   // First Descriptor
   descLink[0] = (LDMA_Descriptor_t)
-    LDMA_DESCRIPTOR_LINKREL_M2M_HALF( &dstBuffer[LAST_INDEX], &srcBuffer,
-                                     BUFFER_SIZE, 1 );
+    LDMA_DESCRIPTOR_LINKREL_M2M_HALF(&dstBuffer[LAST_INDEX], &srcBuffer,
+                                     BUFFER_SIZE, 1);
 
   // Middle Descriptors
-  for(i = 1; i < LIST_SIZE - 1; i++){
+  for (i = 1; i < LIST_SIZE - 1; i++)
+  {
     descLink[i] = (LDMA_Descriptor_t)
-        LDMA_DESCRIPTOR_LINKREL_M2M_HALF( &dstBuffer[LAST_INDEX - i], 0,
-                                         BUFFER_SIZE, 1 );
+        LDMA_DESCRIPTOR_LINKREL_M2M_HALF(&dstBuffer[LAST_INDEX - i], 0,
+                                         BUFFER_SIZE, 1);
 
     // Descriptor destination is relative
     descLink[i].xfer.dstAddrMode = ldmaCtrlDstAddrModeRel;
@@ -141,7 +146,7 @@ void initLdmaGather(void)
 
   // Last Descriptor
   descLink[LIST_SIZE - 1] = (LDMA_Descriptor_t)
-      LDMA_DESCRIPTOR_SINGLE_M2M_HALF( &dstBuffer[0], 0, BUFFER_SIZE );
+      LDMA_DESCRIPTOR_SINGLE_M2M_HALF(&dstBuffer[0], 0, BUFFER_SIZE);
 
   // Last Descriptor destination is relative
   descLink[LIST_SIZE - 1].xfer.dstAddrMode = ldmaCtrlDstAddrModeRel;

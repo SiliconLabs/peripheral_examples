@@ -264,7 +264,7 @@
         </option>
         <option>
           <name>CCLangSelect</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1067,7 +1067,7 @@
         </option>
         <option>
           <name>CCLangSelect</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>

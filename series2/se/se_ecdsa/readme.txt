@@ -42,7 +42,8 @@ setting.
 
 The example has been instrumented with code to count the number of clock cycles
 spent inside the ECDSA API calls, mbedtls_ctr_drbg_seed, mbed TLS_ecdsa_genkey, 
-mbed TLS_ecdsa_write_signature and mbed TLS_ecdsa_read_signature.
+mbedtls_sha256_ret, mbed TLS_ecdsa_write_signature and
+mbed TLS_ecdsa_read_signature.
 The results are printed to stdout, i.e. the VCOM serial port console.
 
 The user can change the specific ECC curve used in the example by modifying the

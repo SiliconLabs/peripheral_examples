@@ -18,8 +18,10 @@
   </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
-    <include pattern="CMSIS/.*/system_.*.c" />
   </module>
+  <folder name="CMSIS">
+    <file name="custom_system_efr32xg21.c" uri="CMSIS/EFR32xG21/custom_system_efr32xg21.c" />
+  </folder>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main.c" uri="src/main.c" />

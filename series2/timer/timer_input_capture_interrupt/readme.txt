@@ -37,3 +37,8 @@ Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A)
 Device: EFR32MG21A010F1024IM32
 PD2 - Push Button 0
 
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG22C224F512IM40
+PB00 - Push Button 0
+

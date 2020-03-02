@@ -1,13 +1,13 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates the generation of a single pulse using
  * output compare. The TIMER module is configured for output compare such that
- * a 1ms pulse is generated on the GPIO pin specified in the readme.txt after
- * a 1 second delay.
+ * a 1 second pulse is generated on the GPIO pin specified in the readme.txt
+ * after a 1 second delay.
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -55,6 +55,17 @@ void initGpio(void)
 {
   // Configure PA6 as output
   GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
 }
 
 /**************************************************************************//**
@@ -114,6 +125,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

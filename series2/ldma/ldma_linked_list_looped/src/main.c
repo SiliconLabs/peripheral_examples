@@ -5,7 +5,7 @@
  * @version 0.0.1
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2020 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -50,7 +50,7 @@ uint8_t srcC[BUFFER_SIZE] = "CCcc";
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -61,7 +61,8 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
+  if (pending & LDMA_IF_ERROR)
+  {
     // Loop here to enable the debugger to see what has happened
     while (1);
   }
@@ -79,12 +80,13 @@ void initLdma(void)
   uint32_t i;
 
   // Initialize buffers for memory transfer
-  for (i = 0; i < BUFFER_SIZE; i++){
+  for (i = 0; i < BUFFER_SIZE; i++)
+  {
     dstBuffer[i] = 0;
   }
 
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 
   // Use looped memory transfer configuration macro
   LDMA_TransferCfg_t periTransferTx =

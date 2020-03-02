@@ -102,3 +102,13 @@ PA6 - USART0_TX (MOSI)  - Expansion Header pin 14
 PA5 - USART0_RX (MISO)  - Expansion Header pin 12
 PC3 - USART0_CLK (SCLK) - Expansion Header pin 10
 PC1 - USART0_CS (SSn)   - Expansion Header pin 6
+
+Board: Silicon Labs EFR32xG22 2.4 GHz 10 dBm Board (BRD4182A) 
+       + Wireless Starter Kit Mainboard (BRD4001A)
+
+Device  EFR32MG22C224F512IM40
+
+PA6 - USART0_TX (MOSI)  - Expansion Header pin 14
+PA5 - USART0_RX (MISO)  - Expansion Header pin 12
+PC3 - USART0_CLK (SCLK) - Expansion Header pin 10
+PC1 - USART0_CS (SSn)   - Expansion Header pin 6

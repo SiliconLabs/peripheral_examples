@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG22A224F512IM40	SiliconLaboratories EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -149,7 +149,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG22A224F512IM40	SiliconLaboratories EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -181,7 +181,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -483,7 +483,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -1066,7 +1066,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG22A224F512IM40	SiliconLaboratories EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1126,7 +1126,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG22A224F512IM40	SiliconLaboratories EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -1159,7 +1159,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -1462,7 +1462,7 @@
         <option>
           <name>ADefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG22A224F512IM40</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>

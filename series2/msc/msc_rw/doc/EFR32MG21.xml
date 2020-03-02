@@ -31,7 +31,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main.c</source>
+      <source>$PROJ_DIR$\..\src\main_xG21.c</source>
     </group>
   </project>
 </workspace>

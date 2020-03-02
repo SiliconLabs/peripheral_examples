@@ -1,13 +1,13 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates pulse width modulation using the TIMER
  * module. The GPIO pin specified in the readme.txt is configured for output and
  * outputs a 1kHz, 30% duty cycle signal. The duty cycle can be adjusted by
- * writing to the CCVB or changing the global dutyCyclePercent variable.
+ * writing to the CCVB or changing the global dutyCycle variable.
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -23,15 +23,12 @@
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Note: change this to set the desired output frequency in Hz
+// Global variables used to set top value and duty cycle of the timer
 #define PWM_FREQ          1000
 #define DUTY_CYCLE_STEPS  0.3
 
 static uint32_t topValue = 0;
 static volatile float dutyCycle = 0;
-
-// Note: change this to set the desired duty cycle (used to update CCVB value)
-// static volatile int dutyCyclePercent = 30;
 
 /**************************************************************************//**
  * @brief
@@ -39,7 +36,7 @@ static volatile float dutyCycle = 0;
  *
  * @note
  *    This handler doesn't actually dynamically change the duty cycle. Instead,
- *    it acts as a template for doing so. Simply change the dutyCyclePercent
+ *    it acts as a template for doing so. Simply change the dutyCycle
  *    global variable here to dynamically change the duty cycle.
  *****************************************************************************/
 void TIMER0_IRQHandler(void)
@@ -60,6 +57,17 @@ void initGpio(void)
 {
   // Configure PA6 as output
   GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
 }
 
 /**************************************************************************//**
@@ -120,6 +128,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

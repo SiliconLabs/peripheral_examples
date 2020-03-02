@@ -26,6 +26,7 @@
 #include "em_gpio.h"
 #include "em_ldma.h"
 #include "em_usart.h"
+#include "em_cmu.h"
 
 // Ports and pins for SPI interface
 #define US0MISO_PORT  gpioPortA
@@ -67,6 +68,9 @@ bool rx_done;
  *****************************************************************************/
 void initGpio(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
   // Configure MOSI pin as an input
   GPIO_PinModeSet(US0MOSI_PORT, US0MOSI_PIN, gpioModeInput, 0);
 
@@ -98,6 +102,9 @@ void initGpio(void)
  *****************************************************************************/
 void initUsart0(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_USART0, true);
+
   // Default asynchronous initializer (master mode, 1 Mbps, 8-bit data)
   USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 
@@ -130,6 +137,9 @@ void initUsart0(void)
  *****************************************************************************/
 void initLdma(void)
 {
+  // Enable clock (not needed on xG21)
+  CMU_ClockEnable(cmuClock_LDMA, true);
+
   // First, initialize the LDMA unit itself
   LDMA_Init_t ldmaInit = LDMA_INIT_DEFAULT;
   LDMA_Init(&ldmaInit);

@@ -23,7 +23,7 @@
     </includepaths>
     <group name="CMSIS">
       <source>##em-path-device##\EFR32MG21\Source\$IDE$\startup_efr32mg21.s</source>
-      <source>##em-path-device##\EFR32MG21\Source\system_efr32mg21.c</source>
+      <source>$PROJ_DIR$\..\CMSIS\EFR32xG21\custom_system_efr32xg21.c</source>
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_msc.c</source>

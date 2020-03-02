@@ -2,7 +2,7 @@
  * @file
  * @brief This example demonstrates the ECDSA.
  *        See readme.txt for details.
- * @version 0.0.1
+ * @version 0.0.2
  *******************************************************************************
  * # License
  * <b>Copyright 2019 Silicon Laboratories Inc. www.silabs.com</b>
@@ -53,7 +53,8 @@ static mbedtls_entropy_context entropy;         // Entropy context
 static mbedtls_ctr_drbg_context ctrDrbg;        // CTR_DRBG context
 static uint32_t signLen;                        // Length of the signature
 
-// Buffer for signature
+// Buffers for hash and signature
+static unsigned char messageHash[32];
 static unsigned char signature[MBEDTLS_ECDSA_MAX_LEN];
 // The message to be signed
 static unsigned char msgText[] = "This is the message to be signed.";
@@ -105,7 +106,35 @@ static bool seedRandomNumber(void)
 }
 
 /***************************************************************************//**
- * @brief Sign message with ECDSA key
+ * @brief  SHA-256 Hash
+ * @param hashSrc Pointer to message to generate hash
+ * @param length The lenght of the message
+ * @param hashDst Pointer to hash buffer
+ * @return true if successful and false otherwise.
+ ******************************************************************************/
+static bool sha256Hash(unsigned char *hashSrc,
+                       size_t length,
+                       unsigned char *hashDst)
+{
+  int ret;                      // Return code
+  uint32_t cycles;              // Cycle counter
+
+  DWT->CYCCNT = 0;
+  ret = mbedtls_sha256_ret(hashSrc, length, hashDst, 0);
+  cycles = DWT->CYCCNT;
+
+  if (ret != 0) {
+    mbedtls_printf(" failed\n  ! mbedtls_sha256_ret returned %d\n", ret);
+    return false;
+  }
+  mbedtls_printf(" ok  (cycles: %" PRIu32 " time: %" PRIu32 " us)\n",
+                 cycles,
+                 (cycles * 1000) / (CMU_ClockFreqGet(cmuClock_HCLK) / 1000));
+  return true;
+}
+
+/***************************************************************************//**
+ * @brief Sign message hash with ECDSA key
  * @return true if successful and false otherwise.
  ******************************************************************************/
 static bool signMessage(void)
@@ -149,14 +178,21 @@ static bool signMessage(void)
                    "0123456789ABCDEF"[signature[ret] % 16]);
   }
 
+  // Generate message hash (SHA-256)
+  mbedtls_printf("\n  . Message: %s\n", msgText);
+  mbedtls_printf("  + Computing message (%d bytes) hash...", sizeof(msgText));
+  if (!sha256Hash(msgText, sizeof(msgText), messageHash)) {
+    return false;
+  }
+
+  mbedtls_printf("  . Signing message hash with private key...");
   memset(signature, 0, sizeof(signature));      // Clear signature buffer
-  mbedtls_printf("\n  . Signing message with private key...");
 
   // Compute the ECDSA signature of message
   DWT->CYCCNT = 0;
-  if ((ret = mbedtls_ecdsa_write_signature(&signCtx, MBEDTLS_MD_SHA256, msgText,
-                                           sizeof(msgText), signature,
-                                           (size_t *)&signLen,
+  if ((ret = mbedtls_ecdsa_write_signature(&signCtx, MBEDTLS_MD_SHA256,
+                                           messageHash, sizeof(messageHash),
+                                           signature, (size_t *)&signLen,
                                            mbedtls_ctr_drbg_random, &ctrDrbg))
       != 0) {
     mbedtls_printf(" failed\n  ! mbedtls_ecdsa_write_signature returned %d\n",
@@ -172,7 +208,6 @@ static bool signMessage(void)
                  cycles / (CMU_ClockFreqGet(cmuClock_HCLK) / 1000));
 
   // Print out the message and signature
-  mbedtls_printf("  + Message: %s\n", msgText);
   mbedtls_printf("  + Signature: ");
   for (ret = 0; ret < signLen; ret++) {
     mbedtls_printf("%c%c", "0123456789ABCDEF"[signature[ret] / 16],
@@ -216,7 +251,8 @@ static bool verifySignature(void)
 
   // Read and verify an ECDSA signature
   DWT->CYCCNT = 0;
-  if ((ret = mbedtls_ecdsa_read_signature(&verifyCtx, msgText, sizeof(msgText),
+  if ((ret = mbedtls_ecdsa_read_signature(&verifyCtx, messageHash,
+                                          sizeof(messageHash),
                                           signature, signLen)) != 0) {
     mbedtls_printf(" failed\n  ! mbedtls_ecdsa_read_signature returned %d\n",
                    ret);

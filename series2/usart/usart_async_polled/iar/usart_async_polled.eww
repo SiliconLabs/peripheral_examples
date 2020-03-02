@@ -4,6 +4,9 @@
   <project>
     <path>$WS_DIR$\EFR32xG21_usart_async_polled.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32xG22_usart_async_polled.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

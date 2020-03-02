@@ -4,6 +4,9 @@
   <project>
     <path>$WS_DIR$\EFR32xG21_usart_spi_master_interrupt.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32xG22_usart_spi_master_interrupt.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

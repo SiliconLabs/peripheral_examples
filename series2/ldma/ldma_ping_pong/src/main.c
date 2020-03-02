@@ -5,7 +5,7 @@
  * @version 0.0.1
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2020 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -39,7 +39,7 @@ uint16_t pongBuffer[PP_BUFFER_SIZE];
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending, i;
 
@@ -50,13 +50,15 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
+  if (pending & LDMA_IF_ERROR)
+  {
     // Loop here to enable the debugger to see what has happened
     while (1);
   }
 
   // Increment source buffer
-  for (i = 0; i < PP_BUFFER_SIZE; i++){
+  for (i = 0; i < PP_BUFFER_SIZE; i++)
+  {
     srcBuffer[i]++;
   }
 
@@ -73,14 +75,15 @@ void initLdma(void)
   uint32_t i;
 
   // Initialize ping-pong buffers
-  for (i = 0; i < PP_BUFFER_SIZE; i++){
+  for (i = 0; i < PP_BUFFER_SIZE; i++)
+  {
     srcBuffer[i] = 1;
     pingBuffer[i] = 0;
     pongBuffer[i] = 0;
   }
 
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 
   // Use memory transfer configuration macro
   LDMA_TransferCfg_t periTransferTx = LDMA_TRANSFER_CFG_MEMORY();

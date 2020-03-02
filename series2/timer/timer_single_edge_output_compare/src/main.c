@@ -1,12 +1,12 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates one-shot edge output compare using the
  * TIMER module. The GPIO pin specified in the readme.txt is configured for
  * output and after 3 seconds, CC0 sets the pin high.
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -38,6 +38,17 @@ void initGpio(void)
 
 /**************************************************************************//**
  * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+}
+
+/**************************************************************************//**
+ * @brief
  *    TIMER initialization
  *****************************************************************************/
 void initTimer(void)
@@ -51,6 +62,7 @@ void initTimer(void)
   // Choose the prescalar, and initialize the timer, without starting
   timerInit.prescale = timerPrescale1024;
   timerInit.enable = false;
+  // Set output to logical high upon compare match
   timerCCInit.mode = timerCCModeCompare;
   timerCCInit.cmoa = timerOutputActionSet;
 
@@ -84,6 +96,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

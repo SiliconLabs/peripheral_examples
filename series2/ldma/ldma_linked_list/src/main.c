@@ -5,7 +5,7 @@
  * @version 0.0.1
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2020 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -40,7 +40,7 @@ uint16_t dstBuffer[LIST_SIZE][BUFFER_SIZE];
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -51,13 +51,13 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR )
+  if (pending & LDMA_IF_ERROR)
   {
     // Loop here to enable the debugger to see what has happened
     while (1);
   }
 
-  // Request next transfer
+  // Request next transfer, this transfers the remaining two descriptor
   LDMA->SWREQ |= LDMA_CH_MASK;
 }
 
@@ -70,33 +70,34 @@ void initLdma(void)
   uint32_t i;
 
   // Fill buffers
-  for (i = 0; i < BUFFER_SIZE * 4; i++){
+  for (i = 0; i < BUFFER_SIZE * 4; i++)
+  {
     srcBuffer[i / BUFFER_SIZE][i % BUFFER_SIZE] = i;
     dstBuffer[i / BUFFER_SIZE][i % BUFFER_SIZE] = 0;
   }
 
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 
   // Use memory transfer configuration macro
   LDMA_TransferCfg_t periTransferTx = LDMA_TRANSFER_CFG_MEMORY();
 
   // LINK descriptor macros to form linked list
-  for(i = 0; i < LIST_SIZE - 1; i++)
+  for (i = 0; i < LIST_SIZE - 1; i++)
   {
     descLink[i] = (LDMA_Descriptor_t)
-        LDMA_DESCRIPTOR_LINKREL_M2M_HALF( &srcBuffer[i], &dstBuffer[i],
-                                         BUFFER_SIZE, 1 );
+        LDMA_DESCRIPTOR_LINKREL_M2M_HALF(&srcBuffer[i], &dstBuffer[i],
+                                         BUFFER_SIZE, 1);
   }
 
   // SINGLE descriptor macro for the last one
   descLink[LIST_SIZE - 1] = (LDMA_Descriptor_t)
-      LDMA_DESCRIPTOR_SINGLE_M2M_HALF( &srcBuffer[LIST_SIZE - 1],
-                                      &dstBuffer[LIST_SIZE - 1], BUFFER_SIZE );
+      LDMA_DESCRIPTOR_SINGLE_M2M_HALF(&srcBuffer[LIST_SIZE - 1],
+                                      &dstBuffer[LIST_SIZE - 1], BUFFER_SIZE);
 
   // Turn on Done interrupts for Descriptor 2
   descLink[1].xfer.doneIfs = true;
-  // Disable automatic triggers for Descriptor 3
+  // Disable automatic triggers for Descriptor 3, wait for software trigger
   descLink[2].xfer.structReq = false;
 
   LDMA_StartTransfer(LDMA_CHANNEL, (void*)&periTransferTx, (void*)&descLink[0]);

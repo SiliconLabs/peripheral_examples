@@ -19,8 +19,16 @@ Peripherals Used:
 WDOG - 2 seconds period
 
 
-Board: Silicon Labs EFR32MG21 Starter Kit (STKXXX)
-Device: EFM32G890F128
-PB0 - LED0
-PD2 - Push Button PB0
+Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
+       + Wireless Starter Kit Mainboard (BRD4001A)
+       
+Device: EFR32MG21A010F1024IM32
+PD2 - LED0
+PB0 - Push Button PB0
 
+Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A) 
+       + Wireless Starter Kit Mainboard (BRD4001A)
+
+Device: EFR32MG22A224F512IM40
+PD2 - LED0
+PB0 - Push Button PB0

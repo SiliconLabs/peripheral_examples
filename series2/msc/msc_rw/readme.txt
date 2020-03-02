@@ -14,8 +14,12 @@ How To Test:
 Peripherals Used:
 HFRCO  - 19 MHz
 MSC
-SE
+SE (xG21 only)
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
+
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG22A224F512IM40

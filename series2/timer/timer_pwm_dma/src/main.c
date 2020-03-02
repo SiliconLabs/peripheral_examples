@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates DMA driven pulse width modulation using the
  * TIMER module. The GPIO pin specified in the readme.txt is configured to output
  * a 1kHz signal. The DMA continuously updates the CCVB register to vary the
@@ -7,7 +7,7 @@
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -46,6 +46,17 @@ void initGpio(void)
 {
   // Configure PA6 as output
   GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
 }
 
 /**************************************************************************//**
@@ -144,6 +155,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

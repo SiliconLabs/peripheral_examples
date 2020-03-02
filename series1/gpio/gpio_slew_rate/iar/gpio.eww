@@ -1,0 +1,15 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11B_gpio_slew_rate_gg11b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_gpio_slew_rate_pg12b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_gpio_slew_rate_pg1b.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

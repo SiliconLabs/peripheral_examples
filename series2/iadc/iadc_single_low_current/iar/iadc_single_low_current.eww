@@ -1,0 +1,12 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_iadc_single_low_current.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_iadc_single_low_current.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

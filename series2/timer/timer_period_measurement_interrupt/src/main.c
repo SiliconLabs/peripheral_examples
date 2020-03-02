@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @main_series1.c
+ * @main.c
  * @brief This project demonstrates period measurement using input capture.
  * A periodic input signal is routed to a Compare/Capture channel, and each
  * period length is calculated from the captured edges. Connect a periodic
@@ -8,7 +8,7 @@
  * @version 0.0.1
  ******************************************************************************
  * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -87,6 +87,17 @@ void initGpio(void)
 
 /**************************************************************************//**
  * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCmu(void)
+{
+  // Enable clock to GPIO and TIMER0
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+}
+
+/**************************************************************************//**
+ * @brief
  *    TIMER initialization
  *****************************************************************************/
 void initTimer(void)
@@ -128,6 +139,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCmu();
   initGpio();
   initTimer();
 

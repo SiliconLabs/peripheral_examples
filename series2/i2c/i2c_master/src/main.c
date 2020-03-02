@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief This project demonstrates the master configuration of the
- * EFx32xG21 I2C peripheral. Two EFx32xG21 modules are connected together, one
+ * EFx32xG2x I2C peripheral. Two EFx32xG2x modules are connected together, one
  * running the master project, the other running the slave project. The master
  * starts up and enters a while loop waiting for a button press on push button 0.
  * When push button 0 is pressed, the program performs an I2C test. This routine
@@ -16,7 +16,7 @@
  * turned on and the master sits and remains in an infinite while loop. Connecting
  * to the device via debugger while in the infinite loop, the I2C error code can
  * be retrieved.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -50,6 +50,16 @@ uint8_t i2c_rxBuffer[I2C_RXBUFFER_SIZE];
 volatile bool i2c_startTx;
 
 /**************************************************************************//**
+ * @brief Enable clocks
+ *****************************************************************************/
+void initCMU(void)
+{
+  // Enabling clock to the I2C and GPIO
+  CMU_ClockEnable(cmuClock_I2C0, true);
+  CMU_ClockEnable(cmuClock_GPIO, true);
+}
+
+/**************************************************************************//**
  * @brief GPIO initialization
  *****************************************************************************/
 void initGPIO(void)
@@ -68,7 +78,7 @@ void initGPIO(void)
 }
 
 /**************************************************************************//**
- * @brief  Setup I2C
+ * @brief Setup I2C
  *****************************************************************************/
 void initI2C(void)
 {
@@ -171,7 +181,7 @@ void I2C_MasterWrite(uint16_t slaveAddress, uint8_t targetAddress, uint8_t *txBu
 }
 
 /**************************************************************************//**
- * @brief  I2C Read/Increment/Write/Verify
+ * @brief I2C Read/Increment/Write/Verify
  *****************************************************************************/
 bool testI2C(void)
 {
@@ -223,7 +233,7 @@ void GPIO_EVEN_IRQHandler(void)
 }
 
 /**************************************************************************//**
- * @brief  Main function
+ * @brief Main function
  *****************************************************************************/
 int main(void)
 {
@@ -231,6 +241,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
+  initCMU();
   initGPIO();
 
   // Setting up i2c
