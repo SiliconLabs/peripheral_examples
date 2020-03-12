@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BRD4182A_cryptoacc_aescrypt" boardCompatibility="brd4182a" partCompatibility=".*efr32mg22c224f512im40.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargetserial.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.mbedtls">
+    <include pattern="mbedtls/aes.c" />
+    <include pattern="mbedtls/md.c" />
+    <include pattern="mbedtls/md2.c" />
+    <include pattern="mbedtls/md4.c" />
+    <include pattern="mbedtls/md5.c" />
+    <include pattern="mbedtls/md_wrap.c" />
+    <include pattern="mbedtls/ripemd160.c" />
+    <include pattern="mbedtls/sha1.c" />
+    <include pattern="mbedtls/sha256.c" />
+    <include pattern="sl_crypto/cryptoacc_aes.c" />
+    <include pattern="sl_crypto/cryptoacc_management.c" />
+    <include pattern="sl_crypto/cryptoacc_sha.c" />
+    <include pattern="sl_crypto/shax.c" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <macroDefinition name="RETARGET_VCOM" />
+  <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"cryptoacc-acceleration.h"' />
+  <file name="src/cryptoacc_aescrypt.icf" uri="src/cryptoacc_aescrypt.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <includePath uri="../../../../util/third_party/mbedtls/configs" />
+  <includePath uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src" />
+  <includePath uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/include" />
+  <includePath uri="../../../../hardware/kit/EFR32MG22_BRD4182A/config" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <includePath uri="src" />
+  <folder name="sl_crypto">
+    <file name="ba414ep_config.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/ba414ep_config.c" />
+    <file name="ba431_config.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/ba431_config.c" />
+    <file name="cryptodma_internal.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/cryptodma_internal.c" />
+    <file name="cryptolib_types.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/cryptolib_types.c" />
+    <file name="sx_aes.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/sx_aes.c" />
+    <file name="sx_blk_cipher.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/sx_blk_cipher.c" />
+    <file name="sx_hash.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/sx_hash.c" />
+    <file name="sx_math.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/sx_math.c" />
+    <file name="sx_memcmp.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/sx_memcmp.c" />
+    <file name="sx_memcpy.c" uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src/sx_memcpy.c" />
+  </folder>
+  <folder name="src">
+    <file name="readme.txt" uri="readme.txt" />
+    <file name="main.c" uri="src/main.c" />
+  </folder>
+  <toolOption toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="${workspace_loc:/${ProjName}/src/cryptoacc_aescrypt.icf}"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fomit-frame-pointer "/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

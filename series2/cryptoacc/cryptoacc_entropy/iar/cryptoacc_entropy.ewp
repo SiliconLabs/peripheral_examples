@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>se_ecdsa\Debug\Exe</state>
+          <state>cryptoacc_entropy\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>se_ecdsa\Debug\Obj</state>
+          <state>cryptoacc_entropy\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>se_ecdsa\Debug\List</state>
+          <state>cryptoacc_entropy\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -149,7 +149,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -181,11 +181,10 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>DEBUG_EFM</state>
           <state>RETARGET_VCOM</state>
-          <state>MBEDTLS_ENTROPY_FORCE_SHA256</state>
-          <state>MBEDTLS_CONFIG_FILE="config-sl-crypto-all-acceleration.h"</state>
+          <state>MBEDTLS_CONFIG_FILE="cryptoacc-acceleration.h"</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -315,14 +314,17 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
           <state>$PROJ_DIR$\..\src</state>
 
         </option>
@@ -490,11 +492,10 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>DEBUG_EFM</state>
           <state>RETARGET_VCOM</state>
-          <state>MBEDTLS_ENTROPY_FORCE_SHA256</state>
-          <state>MBEDTLS_CONFIG_FILE="config-sl-crypto-all-acceleration.h"</state>
+          <state>MBEDTLS_CONFIG_FILE="cryptoacc-acceleration.h"</state>
         </option>
         <option>
           <name>AList</name>
@@ -591,14 +592,17 @@
         <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
           <state>$PROJ_DIR$\..\src</state>
 
         </option>
@@ -634,7 +638,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>se_ecdsa.bin</state>
+          <state>cryptoacc_entropy.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -689,7 +693,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>se_ecdsa.out</state>
+          <state>cryptoacc_entropy.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -753,7 +757,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$PROJ_DIR$\..\src\se_ecdsa.icf</state>
+          <state>$PROJ_DIR$\..\src\cryptoacc_entropy.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -1008,15 +1012,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>se_ecdsa\Release\Exe</state>
+          <state>cryptoacc_entropy\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>se_ecdsa\Release\Obj</state>
+          <state>cryptoacc_entropy\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>se_ecdsa\Release\List</state>
+          <state>cryptoacc_entropy\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1080,7 +1084,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1140,7 +1144,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -1173,11 +1177,10 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>DEBUG_EFM</state>
           <state>RETARGET_VCOM</state>
-          <state>MBEDTLS_ENTROPY_FORCE_SHA256</state>
-          <state>MBEDTLS_CONFIG_FILE="config-sl-crypto-all-acceleration.h"</state>
+          <state>MBEDTLS_CONFIG_FILE="cryptoacc-acceleration.h"</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1307,14 +1310,17 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
           <state>$PROJ_DIR$\..\src</state>
 
         </option>
@@ -1483,11 +1489,10 @@
         <option>
           <name>ADefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG22C224F512IM40</state>
           <state>DEBUG_EFM</state>
           <state>RETARGET_VCOM</state>
-          <state>MBEDTLS_ENTROPY_FORCE_SHA256</state>
-          <state>MBEDTLS_CONFIG_FILE="config-sl-crypto-all-acceleration.h"</state>
+          <state>MBEDTLS_CONFIG_FILE="cryptoacc-acceleration.h"</state>
         </option>
         <option>
           <name>AList</name>
@@ -1584,14 +1589,17 @@
         <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
           <state>$PROJ_DIR$\..\src</state>
 
         </option>
@@ -1627,7 +1635,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>se_ecdsa.bin</state>
+          <state>cryptoacc_entropy.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1682,7 +1690,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>se_ecdsa.out</state>
+          <state>cryptoacc_entropy.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1746,7 +1754,7 @@
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$PROJ_DIR$\..\src\se_ecdsa.icf</state>
+          <state>$PROJ_DIR$\..\src\cryptoacc_entropy.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -1989,70 +1997,19 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Source\IAR\startup_efr32mg21.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Source\IAR\startup_efr32mg22.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Source\system_efr32mg21.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Source\system_efr32mg22.c</name>
     </file>
   </group>
   <group>
     <name>mbedtls</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\aes.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\asn1parse.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\asn1write.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\bignum.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ctr_drbg.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecdsa.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecp.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecp_curves.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\entropy.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\hmac_drbg.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md2.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md4.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md5.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md_wrap.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ripemd160.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha1.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha256.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha512.c</name>
     </file>
   </group>
   <group>
@@ -2067,10 +2024,10 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_se.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
@@ -2082,22 +2039,46 @@
   <group>
     <name>sl_crypto</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\se_aes.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc_management.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\se_ecp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc_sha.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\se_management.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\se_sha.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\se_trng.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc_trng.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\shax.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\ba414ep_config.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\ba431_config.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\cryptodma_internal.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\cryptolib_types.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\sx_hash.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\sx_math.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\sx_memcmp.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\sx_memcpy.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\sx_rng.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src\sx_trng.c</name>
     </file>
   </group>
   <group>
