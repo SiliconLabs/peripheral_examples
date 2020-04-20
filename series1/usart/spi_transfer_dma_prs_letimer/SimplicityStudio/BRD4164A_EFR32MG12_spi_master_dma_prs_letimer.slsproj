@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="BRD4164A_EFR32MG12_spi_master_dma_prs_letimer" boardCompatibility="brd4164a" partCompatibility=".*efr32mg12p433f1024gl125.*" toolchainCompatibility="" contentRoot="../">
+<project name="BRD4164A_EFR32MG12_spi_master_dma_prs_letimer" boardCompatibility="brd4164a" partCompatibility=".*efr32mg12p432f1024gl125.*" toolchainCompatibility="" contentRoot="../">
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>

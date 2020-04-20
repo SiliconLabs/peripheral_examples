@@ -135,7 +135,7 @@ PF6 - Push Button PB0
 PF7 - Push Button PB1
 
 Board:  Silicon Labs EFR32MG12P Starter Kit (BRD4161A)
-Device: EFR32MG1P432F1024GL125
+Device: EFR32MG12P432F1024GL125
 PC10 - TIM0_CC0 #15 (Expansion Header Pin 15)
 PF6 - Push Button PB0
 PF7 - Push Button PB1

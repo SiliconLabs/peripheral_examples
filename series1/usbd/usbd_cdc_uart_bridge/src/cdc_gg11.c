@@ -621,8 +621,9 @@ static void SerialPortInit(void)
 {
   USART_InitAsync_TypeDef init  = USART_INITASYNC_DEFAULT;
 
-  // Configure GPIO pins.
+  // Enable GPIO clock.
   CMU_ClockEnable(cmuClock_GPIO, true);
+  
   // To avoid false start, configure output as high.
   GPIO_PinModeSet(CDC_UART_TX_PORT, CDC_UART_TX_PIN, gpioModePushPull, 1);
   GPIO_PinModeSet(CDC_UART_RX_PORT, CDC_UART_RX_PIN, gpioModeInput, 0);

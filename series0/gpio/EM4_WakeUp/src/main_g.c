@@ -32,7 +32,7 @@
  *****************************************************************************/
 void initGPIO(void) 
 {
-  // Configure GPIO pins
+  // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure PD15 as an output

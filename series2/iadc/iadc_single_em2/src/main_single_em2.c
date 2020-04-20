@@ -170,7 +170,7 @@ int main(void)
 {
   CHIP_Init();
 
-  // Configure GPIO pins
+  // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
   //GPIO_PinModeSet(gpioPortB, 1, gpioModePushPull, 0);
 

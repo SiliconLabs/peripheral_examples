@@ -1,5 +1,5 @@
 <workspace name="async_polled">
-  <project device="EFR32MG12P433F1024GL125"
+  <project device="EFR32MG12P432F1024GL125"
            name="EFR32MG12P_async_polled">
     <targets>
       <name>slsproj</name>

@@ -116,7 +116,7 @@ ACMP0 Output- PF4 (LED 0 / ACMP Route Loc 28)
 
 Board:  Silicon Labs EFR32MG12 Radio Board (SLWRB4161A) + 
         Wireless Starter Kit Mainboard
-Device: EFR32MG1P432F1024GL125
+Device: EFR32MG12P432F1024GL125
 ACMP0 Input - PF6 (Push Button 0)
 ACMP0 Output- PF4 (LED 0 / ACMP Route Loc 28)
 

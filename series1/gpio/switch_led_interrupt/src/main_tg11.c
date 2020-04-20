@@ -48,7 +48,7 @@ void GPIO_ODD_IRQHandler(void)
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure GPIO pins
+  // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure PB0 and PB1 as input with glitch filter enabled

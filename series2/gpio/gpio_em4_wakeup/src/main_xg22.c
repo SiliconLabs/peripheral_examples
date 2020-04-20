@@ -55,12 +55,15 @@ void powerDownSpiFlash(void)
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure GPIO pins
+  // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
+  
   // Configure Button PB0 as input for the escape hatch
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT,BSP_GPIO_PB0_PIN, gpioModeInput, 1);
+  
   // Configure Button PB1 as input and EM4 wake-up source
   GPIO_PinModeSet(EM4WU_PORT, EM4WU_PIN, gpioModeInputPullFilter, 1);
+  
   // Enable GPIO pin wake-up from EM4
   GPIO_EM4EnablePinWakeup(EM4WU_EM4WUEN_MASK << _GPIO_EM4WUEN_EM4WUEN_SHIFT, 0);
 
@@ -123,6 +126,7 @@ int main(void)
 
   // Get the last Reset Cause
   uint32_t rstCause = RMU_ResetCauseGet();
+  
   // Clear Reset Cause
   RMU_ResetCauseClear();
 

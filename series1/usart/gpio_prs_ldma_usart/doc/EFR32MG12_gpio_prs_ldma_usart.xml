@@ -1,5 +1,5 @@
 <workspace name="gpio_prs_ldma_usart">
-  <project device="EFR32MG12P433F1024GL125"
+  <project device="EFR32MG12P432F1024GL125"
            name="EFM32MG12_gpio_prs_ldma_usart">
    <targets>
      <name>slsproj</name>

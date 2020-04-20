@@ -123,7 +123,7 @@ PC10- ADC0 Neg Port 2Y Channel 10 (Expansion Header Pin 15)
 
 Board:  Silicon Labs EFR32MG12 Radio Board (SLWRB4161A) + 
         Wireless Starter Kit Mainboard
-Device: EFR32MG1P432F1024GL125
+Device: EFR32MG12P432F1024GL125
 PC9 - ADC0 Pos Port 2X Channel 9 (Expansion Header Pin 13)
 PC10- ADC0 Neg Port 2Y Channel 10 (Expansion Header Pin 15)
 

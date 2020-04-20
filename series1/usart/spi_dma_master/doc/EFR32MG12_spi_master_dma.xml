@@ -1,5 +1,5 @@
 <workspace name="spi_master">
-  <project device="EFR32MG12P433F1024GL125"
+  <project device="EFR32MG12P432F1024GL125"
            name="EFR32MG12_spi_master_dma">
     <targets>
       <name>slsproj</name>

@@ -168,7 +168,7 @@ int main(void)
 {
   CHIP_Init();
 
-  // Configure GPIO pins
+  // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure LED0 as output
