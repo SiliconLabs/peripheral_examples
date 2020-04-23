@@ -96,9 +96,9 @@ void initADC (void)
   initScan.fifoOverwrite = true;        // FIFO overflow overwrites old data
 
   // Select ADC input. See README for corresponding EXP header pin.
-  // Add VDD to scan for demonstration purposes
+  // *Note that internal channels are unavailable in ADC scan mode
   ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup0, adcPosSelAPORT0XCH2);
-  ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup1, adcPosSelAVDD);
+  ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup1, adcPosSelAPORT0XCH6);
 
   // Set scan data valid level (DVL) to 2
   ADC0->SCANCTRLX = (ADC0->SCANCTRLX & ~_ADC_SCANCTRLX_DVL_MASK) | (((NUM_INPUTS - 1) << _ADC_SCANCTRLX_DVL_SHIFT) & _ADC_SCANCTRLX_DVL_MASK);

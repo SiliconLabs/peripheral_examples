@@ -139,9 +139,9 @@ void initAdc(void)
   initScan.scanDmaEm2Wu = true;
 
   // Add external ADC input to scan. See README for corresponding EXP header pin.
-  // Add VDD to scan for demonstration purposes
+  // *Note that internal channels are unavailable in ADC scan mode
   ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup0, adcPosSelAPORT2XCH9);
-  ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup1, adcPosSelAVDD);
+  ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup1, adcPosSelAPORT2YCH10);
 
   // Basic ADC scan configuration
   initScan.diff       = false;        // single-ended

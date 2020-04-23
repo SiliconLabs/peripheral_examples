@@ -154,9 +154,9 @@ void initAdc(void)
   init.em2ClockConfig = adcEm2ClockOnDemand;
 
   // Add external ADC input to scan. See README for corresponding EXP header pin.
-  // Add VDD to scan for demonstration purposes
+  // *Note that internal channels are unavailable in ADC scan mode
   ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup0, adcPosSelAPORT0XCH2);
-  ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup1, adcPosSelAVDD);
+  ADC_ScanSingleEndedInputAdd(&initScan, adcScanInputGroup1, adcPosSelAPORT0XCH6);
 
   // Basic ADC scan configuration
   initScan.diff       = false;        // single-ended

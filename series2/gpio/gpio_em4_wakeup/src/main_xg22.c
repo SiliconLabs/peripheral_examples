@@ -23,11 +23,6 @@
 #include "mx25flash_spi.h"
 #include "bsp.h"
 
-#define EM4WU_PIN           BSP_GPIO_PB1_PIN
-#define EM4WU_PORT          BSP_GPIO_PB1_PORT
-#define EM4WU_EM4WUEN_NUM   (3)                       // PB1 is EM4WUEN pin 3
-#define EM4WU_EM4WUEN_MASK  (1 << EM4WU_EM4WUEN_NUM)
-
 /**************************************************************************//**
  * A JEDEC standard SPI flash boots up in standby mode in order to
  * provide immediate access, such as when used it as a boot memory.
@@ -59,13 +54,13 @@ void initGPIO(void)
   CMU_ClockEnable(cmuClock_GPIO, true);
   
   // Configure Button PB0 as input for the escape hatch
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT,BSP_GPIO_PB0_PIN, gpioModeInput, 1);
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInput, 1);
   
   // Configure Button PB1 as input and EM4 wake-up source
-  GPIO_PinModeSet(EM4WU_PORT, EM4WU_PIN, gpioModeInputPullFilter, 1);
+  GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPullFilter, 1);
   
-  // Enable GPIO pin wake-up from EM4
-  GPIO_EM4EnablePinWakeup(EM4WU_EM4WUEN_MASK << _GPIO_EM4WUEN_EM4WUEN_SHIFT, 0);
+  // Enable GPIO pin wake-up from EM4; PB1 is EM4WUEN pin 3
+  GPIO_EM4EnablePinWakeup(GPIO_IEN_EM4WUIEN3, 0);
 
   // Configure LED0 as output
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
