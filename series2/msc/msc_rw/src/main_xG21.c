@@ -18,7 +18,7 @@
 #include "em_chip.h"
 #include "em_se.h"
 
-#define USERDATA ((uint8_t*)USERDATA_BASE)
+#define USERDATA ((uint32_t*)USERDATA_BASE)
 
 uint32_t Cleared_value;
 uint32_t Set_value;
@@ -38,13 +38,13 @@ int main(void)
   SE_eraseUserData();
 
   // Read the initial value in the cleared page
-  Cleared_value = USERDATA[4];
+  Cleared_value = USERDATA[3];
 
-  // Write the value into the first location of the UserData portion of the flash
-  SE_writeUserData(4, &value, 4);
+  // Write the value into the 4th word of the Userdata portion of the flash
+  SE_writeUserData(3*4, &value, 4);
 
   // Read the written data from the flash location it was stored in
-  Set_value = USERDATA[4];
+  Set_value = USERDATA[3];
 
   // Infinite Loop
   while(1);

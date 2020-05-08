@@ -40,18 +40,18 @@ int main(void)
   CMU_ClockEnable(cmuClock_MSC, true);
 
   // Clear the Userdata page of any previous data stored
-  MSC_ErasePage((uint32_t*)USERDATA_BASE);
+  MSC_ErasePage(USERDATA);
 
   // Read the initial value in the cleared page
-  Cleared_value = USERDATA[4];
+  Cleared_value = USERDATA[3];
 
-  // Write the value into the first location of the Userdata portion of the flash
+  // Write the value into the 4th word of the Userdata portion of the flash
   MSC_Init();
-  MSC_WriteWord(((uint32_t*)USERDATA_BASE + 4),&value,8);
+  MSC_WriteWord((USERDATA + 3), &value, 4);
   MSC_Deinit();
 
   // Read the written data from the flash location it was stored in
-  Set_value = USERDATA[4];
+  Set_value = USERDATA[3];
 
   // Infinite Loop
   while(1);

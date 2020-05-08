@@ -1,7 +1,7 @@
 msc_rw
 
  This project demonstrates the use of the userdata page of the
- flash memory. The value 32 is stored in the 4th byte of the page. A
+ flash memory. The value 32 is stored in the 4th word of the page. A
  variable is set to the value stored at this location, which can then
  be read in the debugger
 
