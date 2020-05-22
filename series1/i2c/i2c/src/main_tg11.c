@@ -29,6 +29,7 @@
 #define CORE_FREQUENCY              14000000
 #define RTC_MIN_TIMEOUT                32000
 #define I2C_ADDRESS                     0xE2
+#define I2C_ADDRESS_MASK                0xFE // Must match exact I2C_ADDRESS
 #define I2C_RXBUFFER_SIZE                 10
 
 // Buffers++
@@ -122,6 +123,7 @@ void initI2C(void)
 
   // Setting up to enable slave mode
   I2C0->SADDR = I2C_ADDRESS;
+  I2C0->SADDRMASK = I2C_ADDRESS_MASK;
   I2C0->CTRL |= I2C_CTRL_SLAVE | I2C_CTRL_AUTOACK | I2C_CTRL_AUTOSN;
   enableI2cSlaveInterrupts();
 }

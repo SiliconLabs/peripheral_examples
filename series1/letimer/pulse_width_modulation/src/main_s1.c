@@ -60,11 +60,7 @@ void initLETIMER(void)
   letimerInit.comp0Top = true;
   letimerInit.ufoa0 = letimerUFOAPwm;
   letimerInit.repMode = letimerRepeatFree;
-  letimerInit.enable = false;
   letimerInit.topValue = LETIMER0_FREQ / OUT_FREQ;
-
-  // Initialize LETIMER
-  LETIMER_Init(LETIMER0, &letimerInit);
 
   // Need REP0 != 0 to run PWM
   LETIMER_RepeatSet(LETIMER0, 0, 1);
@@ -76,10 +72,9 @@ void initLETIMER(void)
   // Enable LETIMER0 output0 on PF4 (Route 28)
   LETIMER0->ROUTEPEN |=  LETIMER_ROUTEPEN_OUT0PEN;
   LETIMER0->ROUTELOC0 |= LETIMER_ROUTELOC0_OUT0LOC_LOC28;
-  LETIMER0->COMP1 = CMU_ClockFreqGet(cmuClock_LETIMER0) * DUTY_CYCLE / (OUT_FREQ * 100);
 
-  // Enable LETIMER0
-  LETIMER0->CMD = LETIMER_CMD_START;
+  // Initialize LETIMER
+  LETIMER_Init(LETIMER0, &letimerInit);
 }
 
 /**************************************************************************//**
