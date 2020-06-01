@@ -4,7 +4,7 @@
  * TIMER module. The GPIO pin specified in the readme.txt is configured to output
  * a 1kHz signal. The DMA continuously updates the CCVB register to vary the
  * duty cycle.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -79,7 +79,7 @@ void initTimer(void)
   TIMER_Init(TIMER1, &timerInit);
 
   // Trigger DMA on compare event to set CCVB to update duty cycle on next period
-  TIMER_IntEnable(TIMER1, TIMER_IF_CC0);
+  TIMER_IntEnable(TIMER1, TIMER_IEN_CC0);
 }
 
 /**************************************************************************//**

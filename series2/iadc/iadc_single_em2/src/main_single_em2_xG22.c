@@ -3,7 +3,7 @@
  * @brief Uses the IADC repeated nonblocking measurements on a single input
  * while asleep. Sample rate is 1 ksps, and the ADC reads GPIO pins PC4
  * (P25 on BRD4001 J102) as input.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2018 Silicon Labs, http://www.silabs.com</b>
@@ -115,7 +115,7 @@ void initIADC (void)
   GPIO->IADC_INPUT_BUS |= IADC_INPUT_BUSALLOC;
 
   // Enable interrupts on data valid level
-  IADC_enableInt(IADC0, IADC_IF_SINGLEFIFODVL);
+  IADC_enableInt(IADC0, IADC_IEN_SINGLEFIFODVL);
 
   // Enable ADC interrupts
   NVIC_ClearPendingIRQ(IADC_IRQn);

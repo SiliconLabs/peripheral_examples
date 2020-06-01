@@ -11,7 +11,7 @@
  * Each entry into the transmit interrupt handler causes a character to be sent 
  * until all the characters originally received have been echoed.
  *
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2019 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -86,7 +86,7 @@ void EUART0_TX_IRQHandler(void)
    */
   {
     receive = true;   // Go back into receive when all is sent
-    EUSART_IntDisable(EUART0, EUSART_IF_TXFLIF); // Disable TX FIFO Level Interrupt
+    EUSART_IntDisable(EUART0, EUSART_IEN_TXFLIEN); // Disable TX FIFO Level Interrupt
   }
   
   // Clear the requesting interrupt before exiting the handler
@@ -158,17 +158,17 @@ int main(void)
       buffer[i] = 0;
 
     // Enable receive data valid interrupt
-    EUSART_IntEnable(EUART0, EUSART_IF_RXFLIF);
+    EUSART_IntEnable(EUART0, EUSART_IEN_RXFLIEN);
 
     // Wait in EM1 while receiving to reduce current draw
     while (receive)
       EMU_EnterEM1();
 
     // Disable RX FIFO Level Interrupt
-    EUSART_IntDisable(EUART0, EUSART_IF_RXFLIF);
+    EUSART_IntDisable(EUART0, EUSART_IEN_RXFLIEN);
 	
     // Enable TX FIFO Level Interrupt
-    EUSART_IntEnable(EUART0, EUSART_IF_TXFLIF);
+    EUSART_IntEnable(EUART0, EUSART_IEN_TXFLIEN);
 
     // Wait in EM1 while transmitting to reduce current draw
     while (!receive)

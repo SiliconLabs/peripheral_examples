@@ -4,7 +4,7 @@
  * output compare. The TIMER module is configured for output compare such that
  * a 1ms pulse is generated on the GPIO pin specified in the readme.txt after
  * a 1 second delay.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -105,7 +105,7 @@ void initWtimer(void)
                     + compareValue1;
 
   // Enable WTIMER0 interrupts
-  TIMER_IntEnable(WTIMER0, TIMER_IF_CC0);
+  TIMER_IntEnable(WTIMER0, TIMER_IEN_CC0);
   NVIC_EnableIRQ(WTIMER0_IRQn);
 
   // Enable the TIMER

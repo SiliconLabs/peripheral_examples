@@ -5,7 +5,7 @@
  * (LED0 & LED1) are used in initiate and indicate different resets 
  * respectively. A specific pattern of LEDs indicates a specific reset source.
  * See readme.txt for details.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -202,7 +202,7 @@ void startCRYO(void)
   CRYOTIMER_Init(&init);
 
   // Interrupt Setup
-  CRYOTIMER_IntClear(CRYOTIMER_IF_PERIOD);
+  CRYOTIMER_IntClear(CRYOTIMER_IFC_PERIOD);
   CRYOTIMER_IntEnable(CRYOTIMER_IEN_PERIOD);
   NVIC_ClearPendingIRQ(CRYOTIMER_IRQn);
   NVIC_EnableIRQ(CRYOTIMER_IRQn);

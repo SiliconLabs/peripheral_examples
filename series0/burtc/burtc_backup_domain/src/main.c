@@ -7,7 +7,7 @@
  * one of the real time counters still available in backup mode. This project
  * uses the LFXO for higher precision, but the ULFRCO can also be used to save
  * even more energy.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -131,11 +131,11 @@ void BURTC_IRQHandler(void)
 *    they are initialized every time
 *
 * @note
-*    BURTC_IntEnable(BURTC_IF_COMP0) is called here simply for code neatness.
+*    BURTC_IntEnable(BURTC_IEN_COMP0) is called here simply for code neatness.
 *    It could be moved into initBurtc()
 *
 * @note
-*    BURTC_IntClear(BURTC_IF_COMP0) is called here to clear pending interrupts
+*    BURTC_IntClear(BURTC_IFC_COMP0) is called here to clear pending interrupts
 *    that might have resulted from brownout. Without this line here, you will
 *    see the counter skip values upon returning from brownout.
 ******************************************************************************/
@@ -160,8 +160,8 @@ int main(void)
   }
 
   // Enable BURTC interrupts
-  BURTC_IntClear(BURTC_IF_COMP0);
-  BURTC_IntEnable(BURTC_IF_COMP0);
+  BURTC_IntClear(BURTC_IFC_COMP0);
+  BURTC_IntEnable(BURTC_IEN_COMP0);
   NVIC_EnableIRQ(BURTC_IRQn);
 
   while (1) {

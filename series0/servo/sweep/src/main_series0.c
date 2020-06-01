@@ -4,7 +4,7 @@
  * module. The GPIO pin specified in the readme.txt is configured for output and
  * outputs a 1kHz, 30% duty cycle signal. The duty cycle can be adjusted by
  * writing to the CCVB or changing the global dutyCyclePercent variable.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -94,7 +94,7 @@ void initTimer(void)
   TIMER_Init(TIMER1, &timerInit);
 
   // Enable TIMER1 compare event interrupts to update the duty cycle
-  TIMER_IntEnable(TIMER1, TIMER_IF_CC0);
+  TIMER_IntEnable(TIMER1, TIMER_IEN_CC0);
   NVIC_EnableIRQ(TIMER1_IRQn);
 }
 

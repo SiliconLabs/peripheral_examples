@@ -11,7 +11,7 @@
  * 4. Both LEDs will turn off for two seconds
  * 5. Go back to step 3
  *
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -97,7 +97,7 @@ void initCryotimer(void)
   CRYOTIMER_Init(&init);
 
   // Enable Cryotimer interrupts
-  CRYOTIMER_IntEnable(CRYOTIMER_IF_PERIOD);
+  CRYOTIMER_IntEnable(CRYOTIMER_IEN_PERIOD);
   NVIC_EnableIRQ(CRYOTIMER_IRQn);
 
   // Start the Cryotimer

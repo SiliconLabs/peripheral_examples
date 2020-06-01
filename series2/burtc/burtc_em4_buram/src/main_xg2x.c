@@ -4,7 +4,7 @@
  * device from EM4 mode and thus trigger a reset. This project also shows
  * how to use the BURAM retention registers to have data persist between
  * resets.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2019 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -66,7 +66,7 @@ void initBURTC(void)
   BURTC_CounterReset();
   BURTC_CompareSet(0, BURTC_IRQ_PERIOD);
 
-  BURTC_IntEnable(BURTC_IF_COMP); 		// compare match
+  BURTC_IntEnable(BURTC_IEN_COMP); 		// compare match
   NVIC_EnableIRQ(BURTC_IRQn);
   BURTC_Enable(true);
 }

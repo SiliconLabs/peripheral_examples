@@ -3,7 +3,7 @@
  * @brief This project shows how to use the Cryotimer in EM4 with the LFXO and
  * no GPIO retention. This project does so by using LEDs. For the exact program
  * flow, please see the readme.txt.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -81,7 +81,7 @@ void initCryotimer(void)
   CRYOTIMER_Init(&init);
 
   // Enable Cryotimer interrupts
-  CRYOTIMER_IntEnable(CRYOTIMER_IF_PERIOD);
+  CRYOTIMER_IntEnable(CRYOTIMER_IEN_PERIOD);
   NVIC_EnableIRQ(CRYOTIMER_IRQn);
 }
 

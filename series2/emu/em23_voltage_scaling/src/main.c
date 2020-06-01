@@ -2,7 +2,7 @@
  * @file
  * @brief Example using different voltage scaling levels to show influence
  * on current draw in the Profiler
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2019 Silicon Labs, http://www.silabs.com</b>
@@ -70,7 +70,7 @@ void initBURTC()
   BURTC_Init(&burtcInit);
 
   // Interrupt on compare match
-  BURTC_IntEnable(BURTC_IF_COMP);
+  BURTC_IntEnable(BURTC_IEN_COMP);
   NVIC_EnableIRQ(BURTC_IRQn);
 
   // Set the compare value and start the counter.

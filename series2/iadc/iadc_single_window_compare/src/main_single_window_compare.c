@@ -4,7 +4,7 @@
  * on PC04 (P25 on BRD4001 J102) and PB01 (WSTK LED0) toggles on each
  * comparator trigger. The most recent sample within the window comparison is
  * also stored globally.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2018 Silicon Labs, http://www.silabs.com</b>
@@ -136,7 +136,7 @@ void initIADC (void)
   GPIO->IADC_INPUT_BUS |= IADC_INPUT_BUSALLOC;
 
   // Enable interrupts on window comparison match
-  IADC_enableInt(IADC0, IADC_IF_SINGLECMP);
+  IADC_enableInt(IADC0, IADC_IEN_SINGLECMP);
 
   // Enable ADC interrupts
   NVIC_ClearPendingIRQ(IADC_IRQn);

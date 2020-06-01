@@ -4,7 +4,7 @@
  * EFM32 I2C peripheral. Two EFM32 I2C modules are connected and set up
  * to both transmit (master mode) and receive (slave mode) between each
  * other using a common I2C bus.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -79,7 +79,7 @@ void initGPIO(void)
  *****************************************************************************/
 void enableI2cSlaveInterrupts(void)
 {
-  I2C_IntClear(I2C0, I2C_IEN_ADDR | I2C_IEN_RXDATAV | I2C_IEN_SSTOP);
+  I2C_IntClear(I2C0, I2C_IFC_ADDR | I2C_IF_RXDATAV | I2C_IFC_SSTOP);
   I2C_IntEnable(I2C0, I2C_IEN_ADDR | I2C_IEN_RXDATAV | I2C_IEN_SSTOP);
   NVIC_EnableIRQ(I2C0_IRQn);
 }
@@ -91,7 +91,7 @@ void disableI2cInterrupts(void)
 {
   NVIC_DisableIRQ(I2C0_IRQn);
   I2C_IntDisable(I2C0, I2C_IEN_ADDR | I2C_IEN_RXDATAV | I2C_IEN_SSTOP);
-  I2C_IntClear(I2C0, I2C_IEN_ADDR | I2C_IEN_RXDATAV | I2C_IEN_SSTOP);
+  I2C_IntClear(I2C0, I2C_IFC_ADDR | I2C_IF_RXDATAV | I2C_IFC_SSTOP);
 }
 
 /**************************************************************************//**
@@ -201,7 +201,7 @@ void I2C0_IRQHandler(void)
 
   if(status & I2C_IEN_SSTOP){
     // Stop received, reception is ended
-    I2C_IntClear(I2C0, I2C_IEN_SSTOP);
+    I2C_IntClear(I2C0, I2C_IFC_SSTOP);
     i2c_rxInProgress = false;
     i2c_rxBufferIndex = 0;
   }

@@ -5,7 +5,7 @@
  * (LED0 & LED1) are used in initiate and indicate different resets 
  * respectively. A specific pattern of LEDs indicates a specific reset source.
  * See readme.txt for details.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -217,6 +217,6 @@ void startBURTC(void)
   BURTC_CompareSet(0, 1000);
 
   //Enable Interrupt
-  BURTC_IntEnable( BURTC_IF_COMP0 );
+  BURTC_IntEnable(BURTC_IEN_COMP0);
   BURTC_Init(&burtcInit);
 }

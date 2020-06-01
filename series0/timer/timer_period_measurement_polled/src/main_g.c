@@ -5,7 +5,7 @@
  * and each period length is calculated from the captured edges. Connect a
  * periodic signal to the GPIO pin specified in the readme.txt for input.
  * Note maximum measurable frequency is 333 kHz.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -93,7 +93,7 @@ uint32_t calculatePeriod(void)
   // Check if the timer overflowed (flag gets set even if interrupt not enabled)
   if (TIMER_IntGet(TIMER0) & TIMER_IF_OF) {
     overflowCount++;
-    TIMER_IntClear(TIMER0, TIMER_IF_OF);
+    TIMER_IntClear(TIMER0, TIMER_IFC_OF);
   }
 
   // Calculate period in microseconds, while compensating for overflows

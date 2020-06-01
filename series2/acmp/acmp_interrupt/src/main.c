@@ -75,7 +75,7 @@ void initACMP(void)
 
   // Enable ACMP interrupts
   NVIC_EnableIRQ(ACMP0_IRQn);
-  ACMP_IntEnable(ACMP0, ACMP_IF_RISE | ACMP_IF_FALL);
+  ACMP_IntEnable(ACMP0, ACMP_IEN_RISE | ACMP_IEN_FALL);
 }
 
 /**************************************************************************//**

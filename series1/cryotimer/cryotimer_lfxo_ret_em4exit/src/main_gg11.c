@@ -4,7 +4,7 @@
  * GPIO retention where the retention is enabled upon entering EM4 and disabled
  * upon exiting EM4. This project shows the program execution by using LEDs. For
  * the exact program flow, please see the readme.txt.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -104,7 +104,7 @@ void initCryotimer(void)
   CRYOTIMER_Init(&init);
 
   // Enable Cryotimer interrupts
-  CRYOTIMER_IntEnable(CRYOTIMER_IF_PERIOD);
+  CRYOTIMER_IntEnable(CRYOTIMER_IEN_PERIOD);
   NVIC_EnableIRQ(CRYOTIMER_IRQn);
 }
 

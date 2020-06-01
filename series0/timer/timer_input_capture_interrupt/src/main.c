@@ -5,7 +5,7 @@
  * to the timer to indicate that an input capture needs to occur. An interrupt
  * then occurs because the Compare/Capture channel interrupt flag is set.
  * The captured timer value is then stored in the user's buffer.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -122,7 +122,7 @@ void initTimer(void)
   TIMER_Init(TIMER0, &timerInit);
 
   // Enable TIMER0 interrupts for Capture/Compare on channel 0
-  TIMER_IntEnable(TIMER0, TIMER_IF_CC0);
+  TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
   NVIC_EnableIRQ(TIMER0_IRQn);
 }
 

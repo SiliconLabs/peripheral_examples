@@ -8,7 +8,7 @@
  *
  * The example also has instructions on using polled mode for input capture.
  *
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2020 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -142,13 +142,13 @@ void initTimer(void)
    *
    * To use this example in polled mode instead of interrupt mode -
    *
-   * 1. Remove TIMER_IntEnable(TIMER0, TIMER_IF_CC0);
+   * 1. Remove TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
    * 2. Remove NVIC_EnableIRQ(TIMER0_IRQn);
    *
    *****************************************************************************/
 
   // Enable TIMER0 interrupts for Capture/Compare on channel 0
-  TIMER_IntEnable(TIMER0, TIMER_IF_CC0);
+  TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
   NVIC_EnableIRQ(TIMER0_IRQn);
 
   // Enable the TIMER

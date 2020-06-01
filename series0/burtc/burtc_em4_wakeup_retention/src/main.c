@@ -4,7 +4,7 @@
  * board up from EM4 mode and thus trigger a reset. This project also shows
  * how to use the BURTC retention registers to have data persist between
  * resets. The LCD will show the number of resets triggered by the BURTC.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -101,7 +101,7 @@ void initBurtc(void)
   burtcInit.clkSel    = burtcClkSelULFRCO; // Select ULFRCO as clock source
   burtcInit.clkDiv    = burtcClkDiv_2;     // Choose 1kHz ULFRCO clock frequency
   BURTC_CompareSet(0, ULFRCO_FREQUENCY * BURTC_TIMEOUT_S);   // Set top value for comparator
-  BURTC_IntEnable(BURTC_IF_COMP0);         // Enable compare interrupt flag
+  BURTC_IntEnable(BURTC_IEN_COMP0);         // Enable compare interrupt flag
   BURTC_Init(&burtcInit);
 }
 

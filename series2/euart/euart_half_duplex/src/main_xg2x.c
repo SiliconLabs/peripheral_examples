@@ -3,7 +3,7 @@
  * @brief This project shows how to configure the EUART for half-duplex
  * communication. See the readme.txt for details.
  *
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2019 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -64,7 +64,7 @@ void EUART0_RX_IRQHandler(void)
     inpos++;
   else{
     receive = false;   // Stop receiving on CR
-    EUSART_IntDisable(EUART0, EUSART_IF_RXFLIF);
+    EUSART_IntDisable(EUART0, EUSART_IEN_RXFLIEN);
   }
 
   // Clear the requesting interrupt before exiting the handler
@@ -88,7 +88,7 @@ void EUART0_TX_IRQHandler(void)
    */
   {
     receive = true;   // Go back into receive when all is sent
-    EUSART_IntDisable(EUART0, EUSART_IF_TXCIF);
+    EUSART_IntDisable(EUART0, EUSART_IEN_TXCIEN);
   }
   
   // Clear the requesting interrupt before exiting the handler
@@ -159,7 +159,7 @@ int main(void)
   while (1){
     // Switch to RX
 	EUSART_Enable(EUART0, eusartEnableRx);
-	EUSART_IntEnable(EUART0, EUSART_IF_RXFLIF);
+	EUSART_IntEnable(EUART0, EUSART_IEN_RXFLIEN);
 	
     // Wait in EM1 while receiving to reduce current draw
 	while (receive)
@@ -173,7 +173,7 @@ int main(void)
 
 	//Switch to TX
     EUSART_Enable(EUART0, eusartEnableTx);
-    EUSART_IntEnable(EUART0, EUSART_IF_TXCIF);
+    EUSART_IntEnable(EUART0, EUSART_IEN_TXCIEN);
     EUSART_IntSet(EUART0, EUSART_IF_TXCIF);
 	
     // Wait in EM1 while transmitting to reduce current draw

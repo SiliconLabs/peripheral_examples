@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @main_series1_PG1_EFR.c
  * @brief Demonstrates USART1 as SPI slave.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -103,13 +103,13 @@ void initUSART1 (void)
   // there is room in the transmit buffer
   // This should immediately trigger to load the first byte of our TX buffer
   USART_IntClear(USART1, USART_IF_TXBL);
-  USART_IntEnable(USART1, USART_IF_TXBL);
+  USART_IntEnable(USART1, USART_IEN_TXBL);
   NVIC_ClearPendingIRQ(USART1_TX_IRQn);
   NVIC_EnableIRQ(USART1_TX_IRQn);
   
   // Enable USART1 RX interrupts
   USART_IntClear(USART1, USART_IF_RXDATAV);
-  USART_IntEnable(USART1, USART_IF_RXDATAV);
+  USART_IntEnable(USART1, USART_IEN_RXDATAV);
   NVIC_ClearPendingIRQ(USART1_RX_IRQn);
   NVIC_EnableIRQ(USART1_RX_IRQn);
   

@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Use the ADC to take repeated nonblocking measurements on multiple inputs
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2018 Silicon Labs, http://www.silabs.com</b>
@@ -136,7 +136,7 @@ void initIADC (void)
   GPIO->IADC_INPUT_1_BUS |= IADC_INPUT_1_BUSALLOC;
 
   // Clear any previous interrupt flags
-  IADC_clearInt(IADC0, _IADC_IEN_MASK);
+  IADC_clearInt(IADC0, _IADC_IF_MASK);
 
   // Enable Scan interrupts
   IADC_enableInt(IADC0, IADC_IEN_SCANTABLEDONE);
@@ -179,7 +179,7 @@ void IADC_IRQHandler(void)
   }
 
   // Start next IADC conversion
-  IADC_clearInt(IADC0, IADC_IEN_SCANTABLEDONE); // flags are sticky; must be cleared in software
+  IADC_clearInt(IADC0, IADC_IF_SCANTABLEDONE); // flags are sticky; must be cleared in software
   IADC_command(IADC0, iadcCmdStartScan);
 }
 

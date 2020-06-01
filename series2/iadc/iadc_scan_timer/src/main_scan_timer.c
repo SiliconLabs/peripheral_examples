@@ -2,7 +2,7 @@
  * @file
  * @brief Use the ADC to take repeated nonblocking measurements on multiple inputs
  * using IADC local timer to trigger conversions.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2018 Silicon Labs, http://www.silabs.com</b>
@@ -158,7 +158,7 @@ void IADC_IRQHandler(void)
   }
 
   // Start next IADC conversion
-  IADC_clearInt(IADC0, IADC_IEN_SCANFIFODVL); // flags are sticky; must be cleared in software
+  IADC_clearInt(IADC0, IADC_IF_SCANFIFODVL); // flags are sticky; must be cleared in software
 }
 
 /**************************************************************************//**

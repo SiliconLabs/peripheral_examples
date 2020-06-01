@@ -14,7 +14,7 @@
  * the BKPT instruction.  This stops the processor while it is still
  * in EM0, thus allowing a debugger to make a connection.
  *
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2019 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -158,7 +158,7 @@ void rtccInit(uint32_t next)
    * is ever going to be generated.  We're enabling this interrupt to
    * use it to wake the device from EM4.
    */
-  RTCC_IntClear(_RTCC_IF_MASK);
+  RTCC_IntClear(_RTCC_IFC_MASK);
   RTCC_IntEnable(RTCC_IEN_CC1);
   RTCC_EM4WakeupEnable(true);
 

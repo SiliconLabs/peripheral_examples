@@ -3,7 +3,7 @@
  * @brief This project demonstrates polled pulse generation via output compare.
  * The GPIO pin specified in the readme.txt is configured for output and
  * generates a single 1 ms pulse.
- * @version 0.0.1
+ * @version 0.0.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -70,9 +70,9 @@ void initWtimer(void)
   TIMER_Init(WTIMER0, &timerInit);
 
   // Safely enable WTIMER0 CC0 interrupt flag
-  TIMER_IntClear(WTIMER0, TIMER_IF_CC0);
+  TIMER_IntClear(WTIMER0, TIMER_IFC_CC0);
   NVIC_DisableIRQ(WTIMER0_IRQn);
-  TIMER_IntEnable(WTIMER0, TIMER_IF_CC0);
+  TIMER_IntEnable(WTIMER0, TIMER_IEN_CC0);
 }
 
 /**************************************************************************//**
@@ -94,11 +94,11 @@ int main(void)
 
   // Wait for rising edge
   while(!(TIMER_IntGet(WTIMER0) & TIMER_IF_CC0));
-  TIMER_IntClear(WTIMER0, TIMER_IF_CC0);
+  TIMER_IntClear(WTIMER0, TIMER_IFC_CC0);
 
   // Disable timer after falling edge
   while(!(TIMER_IntGet(WTIMER0) & TIMER_IF_CC0));
-  TIMER_IntClear(WTIMER0, TIMER_IF_CC0);
+  TIMER_IntClear(WTIMER0, TIMER_IFC_CC0);
   TIMER_Enable(WTIMER0, false);
 
   while(1) {
