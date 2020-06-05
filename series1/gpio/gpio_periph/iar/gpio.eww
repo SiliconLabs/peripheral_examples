@@ -1,0 +1,54 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFM32GG11B_gpio_periph_gg11b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG12B_gpio_periph_pg12b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32PG1B_gpio_periph_pg1b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11B_gpio_periph_tg11b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_gpio_periph_bg12p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_gpio_periph_bg13p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_gpio_periph_bg14p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_gpio_periph_bg1p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_gpio_periph_fg12p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_gpio_periph_fg13p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_gpio_periph_fg14p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_gpio_periph_fg1p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_gpio_periph_mg12p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_gpio_periph_mg13p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_gpio_periph_mg14p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_gpio_periph_mg1p.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

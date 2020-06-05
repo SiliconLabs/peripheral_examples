@@ -168,6 +168,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFM32GG11B820F2048GL192</state>
           
         </option>
@@ -301,16 +302,8 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\inc</state>
-          <state>$PROJ_DIR$\..\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
 
         </option>
         <option>
@@ -568,16 +561,8 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\inc</state>
-          <state>$PROJ_DIR$\..\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
 
         </option>
         <option>
@@ -1129,6 +1114,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFM32GG11B820F2048GL192</state>
           
         </option>
@@ -1262,16 +1248,8 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\inc</state>
-          <state>$PROJ_DIR$\..\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
 
         </option>
         <option>
@@ -1525,16 +1503,8 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\inc</state>
-          <state>$PROJ_DIR$\..\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
 
         </option>
         <option>
@@ -1922,36 +1892,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Source\system_efm32gg11b.c</name>
-    </file>
-  </group>
-  <group>
-    <name>Drivers</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\display.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displayls013b7dh06.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displaypalemlib.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargettextdisplay.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\textdisplay.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\udelay.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\rtcdrv\src\rtcdriver.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emdrv\ustimer\src\ustimer.c</name>
     </file>
   </group>
   <group>

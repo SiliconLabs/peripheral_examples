@@ -17,31 +17,12 @@
       <path>##em-path-cmsis##\CMSIS\Include</path>
       <path>##em-path-cmsis##\Device\SiliconLabs\EFM32GG11B\Include</path>
       <path>##em-path-cmsis##\emlib\inc</path>
-      <path>##em-path-bsp##</path>
-      <path>##em-path-drivers##</path>
       <path>##em-path-kitconfig##</path>
-      <path>##em-path-cmsis##\emdrv\rtcdrv\inc</path>
-      <path>##em-path-cmsis##\emdrv\rtcdrv\config</path>
-      <path>##em-path-cmsis##\middleware\glib</path>
-      <path>##em-path-cmsis##\emdrv\common\inc</path>
-      <path>##em-path-cmsis##\emdrv\ustimer\config</path>
-      <path>##em-path-cmsis##\emdrv\ustimer\inc</path>
-      <path>$PROJ_DIR$\..\src</path>
+      <path>##em-path-bsp##</path>
     </includepaths>
     <group name="CMSIS">
       <source>##em-path-cmsis##\Device\SiliconLabs\EFM32GG11B\Source\$IDE$\startup_efm32gg11b.s</source>
       <source>##em-path-cmsis##\Device\SiliconLabs\EFM32GG11B\Source\system_efm32gg11b.c</source>
-    </group>
-    <group name="Drivers">
-      <source>##em-path-drivers##\display.c</source>
-      <source>##em-path-drivers##\displayls013b7dh06.c</source>
-      <source>##em-path-drivers##\displaypalemlib.c</source>
-      <source>##em-path-drivers##\retargetio.c</source>
-      <source>##em-path-drivers##\retargettextdisplay.c</source>
-      <source>##em-path-drivers##\textdisplay.c</source>
-      <source>##em-path-drivers##\udelay.c</source>
-      <source>##em-path-cmsis##\emdrv\rtcdrv\src\rtcdriver.c</source>
-      <source>##em-path-cmsis##\emdrv\ustimer\src\ustimer.c</source>
     </group>
     <group name="emlib">
       <source>##em-path-cmsis##\emlib\src\em_assert.c</source>
@@ -65,3 +46,4 @@
     </group>
   </project>
 </workspace>
+

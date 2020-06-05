@@ -22,30 +22,13 @@
     <include pattern="emlib/em_timer.c" />
     <include pattern="emlib/em_letimer.c" />
   </module>
-  <module id="com.silabs.sdk.exx32.common.emdrv">
-    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
-    <include pattern="Drivers(/.*){0,1}/ustimer.c" />
-  </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />
-  </module>
-  <module id="com.silabs.sdk.exx32.common.drivers">
-    <include pattern="Drivers/display.c" />
-    <include pattern="Drivers/displayls013b7dh03.c" />
-    <include pattern="Drivers/displaypalemlib.c" />
-    <include pattern="Drivers/retargetio.c" />
-    <include pattern="Drivers/retargettextdisplay.c" />
-    <include pattern="Drivers/textdisplay.c" />
-    <include pattern="Drivers/udelay.c" />
   </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
-  <module id="com.silabs.sdk.exx32.external.glib">
-    <exclude pattern=".*" />
-  </module>
-  <includePath uri="src" />
   <folder name="src">
     <file name="main_gpio_slew_rate.c" uri="src/main_gpio_slew_rate.c" />
     <file name="readme.txt" uri="readme.txt" />

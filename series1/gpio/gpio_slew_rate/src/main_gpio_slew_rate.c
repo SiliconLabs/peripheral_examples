@@ -6,12 +6,8 @@
 #include "em_emu.h"
 #include "bsp.h"
 #include "stdio.h"
-#include "display.h"
-#include "textdisplay.h"
-#include "retargettextdisplay.h"
-#include "displayconfigapp.h"
 
-#ifdef BSP_STK_BRD2204A /* GG11 STK square wave on PD1 */
+#if defined(BSP_STK_BRD2204A) || defined(BSP_STK_BRD2102A) /* GG11 or TG11 STK square wave on PD1 */
 #define SQUARE_WAVE_PORT gpioPortD
 #define SQUARE_WAVE_PIN  1
 #define SQUARE_WAVE_LOC TIMER_ROUTELOC0_CC0LOC_LOC2
@@ -20,28 +16,6 @@
 #define SQUARE_WAVE_PIN  0
 #define SQUARE_WAVE_LOC TIMER_ROUTELOC0_CC0LOC_LOC0
 #endif
-
-/******************************************************************************
- * @brief  LCD initialization.
- *****************************************************************************/
-void lcdInit(void)
-{
-  /* LCD initialization */
-  DISPLAY_Init();
-  DISPLAY_Device_t displayDevice;
-  if (DISPLAY_DeviceGet(0, &displayDevice) != DISPLAY_EMSTATUS_OK)
-  {
-    /* Unable to get display handle */
-    while (1);
-  }
-
-  /* Retarget stdio to a text display */
-  if (RETARGET_TextDisplayInit() != TEXTDISPLAY_EMSTATUS_OK)
-  {
-    /* Text display initialization failed */
-    while (1);
-  }
-}
 
 /**************************************************************************//**
  * @brief Setup GPIO interrupt for pushbuttons and PA0 output.
@@ -76,7 +50,7 @@ uint32_t slewRate = 6;
 /**************************************************************************//**
  * @brief Unified GPIO Interrupt handler (pushbuttons).
  *        PB0 Cycles through slew rate settings.
- *        PB1 Cycles through drive strenght settings.
+ *        PB1 Cycles through drive strength settings.
  *****************************************************************************/
 void GPIO_Unified_IRQ(void)
 {
@@ -157,18 +131,15 @@ void timerSetup(void)
  * a 50 pF capacitor on the output pin and observing the change in rise and
  * fall times of the 1 MHz square wave.
  *
- * The output pin is PD1 on SLSTK3701 (EFM32GG11 STK), and PA0 on other kits.
+ * Output pin is PD1 on SLSTK3701 (EFM32GG11 STK) and SLSTK3301 (EFM32TG11 STK)
+ * and PA0 on other kits.
  *
  * To test:
  * 1. Place a 50 pF capacitor between the square wave output and GND.
  * 2. Upload and run the example.
- * 3. The slew rate setting and drive strength setting are displayed on the
- *    LCD.
- * 4. While observing the rise and fall times of the waveform on PA0:
+ * 3. While observing the rise and fall times of the waveform on PA0/PD1:
  *    a. Press BTN0 to change the slew rate setting
  *    b. Press BTN1 to change the drive strength setting
- *
- *
  *****************************************************************************/
 int main(void)
 {
@@ -181,31 +152,12 @@ int main(void)
   /* Initialize PA0 square-wave output */
   timerSetup();
 
-  /* Initialize LCD controller */
-  lcdInit();
-
   /* Infinite loop */
   while (1)
   {
     /* Update PA0 drive strength and slew rate */
     GPIO_DriveStrengthSet(SQUARE_WAVE_PORT, driveStrength);
     GPIO_SlewrateSet(SQUARE_WAVE_PORT, slewRate, slewRate);
-
-    /* Display demo header */
-    printf("\f\nSlew Rate Demo\n\n");
-    printf("BTN1: Drive Str\n");
-    printf("BTN0: Slew Rate\n\n");
-
-    /* Update displayed drive strength and slew rate */
-    if (driveStrength == gpioDriveStrengthStrongAlternateStrong)
-    {
-      printf("Drive Str:STRONG\n");
-    }
-    else
-    {
-      printf("Drive Str:WEAK\n");
-    }
-    printf("Slew Rate: %ld", slewRate);
 
     /* Enter EM1 until a push-button interrupt triggers a wake-up */
     EMU_EnterEM1();

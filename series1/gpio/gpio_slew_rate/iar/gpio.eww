@@ -10,6 +10,45 @@
   <project>
     <path>$WS_DIR$\EFM32PG1B_gpio_slew_rate_pg1b.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG11B_gpio_slew_rate_tg11b.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG12P_gpio_slew_rate_bg12p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG13P_gpio_slew_rate_bg13p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG14P_gpio_slew_rate_bg14p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32BG1P_gpio_slew_rate_bg1p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG12P_gpio_slew_rate_fg12p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG13P_gpio_slew_rate_fg13p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG14P_gpio_slew_rate_fg14p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG1P_gpio_slew_rate_fg1p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG12P_gpio_slew_rate_mg12p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG13P_gpio_slew_rate_mg13p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG14P_gpio_slew_rate_mg14p.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG1P_gpio_slew_rate_mg1p.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

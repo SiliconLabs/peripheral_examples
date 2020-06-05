@@ -37,12 +37,12 @@
 #include "bsp.h"
 
 
-#ifdef BSP_STK_BRD2204A /* GG11 STK LFRCO out on PF2 */
-#define SQUARE_WAVE_PORT gpioPortF
-#define SQUARE_WAVE_PIN  2
+#if defined(BSP_STK_BRD2204A) || defined(BSP_STK_BRD2102A) /* GG11 STK LFRCO out on PA12 */
+#define SQUARE_WAVE_PORT gpioPortA
+#define SQUARE_WAVE_PIN  12
 #define SQUARE_WAVE_CLKOUTSEL CMU_CTRL_CLKOUTSEL0_LFRCO
 #define SQUARE_WAVE_ROUTE_PEN CMU_ROUTEPEN_CLKOUT0PEN
-#define SQUARE_WAVE_LOC CMU_ROUTELOC0_CLKOUT0LOC_LOC4
+#define SQUARE_WAVE_LOC CMU_ROUTELOC0_CLKOUT0LOC_LOC5
 #else /* All other STKs, LFRCO out on PA0 */
 #define SQUARE_WAVE_PORT gpioPortA
 #define SQUARE_WAVE_PIN  0
@@ -63,7 +63,7 @@ int main(void)
   /* Enable clock for GPIO module */
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  /* Set PA0/PF2 as output so it can be
+  /* Set PA0/PA12 as output so it can be
   overriden by the peripheral, in this case the CMU */  
   GPIO_PinModeSet(SQUARE_WAVE_PORT, SQUARE_WAVE_PIN, gpioModePushPull, 0);
 
