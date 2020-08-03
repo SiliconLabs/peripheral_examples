@@ -33,6 +33,7 @@
     <include pattern="mbedtls/md4.c" />
     <include pattern="mbedtls/md5.c" />
     <include pattern="mbedtls/md_wrap.c" />
+    <include pattern="mbedtls/platform_util.c" />
     <include pattern="mbedtls/ripemd160.c" />
     <include pattern="mbedtls/sha1.c" />
     <include pattern="mbedtls/sha256.c" />
@@ -46,7 +47,10 @@
   <macroDefinition name="RETARGET_VCOM" />
   <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-sl-crypto-all-acceleration.h"' />
   <file name="src/se_aescrypt.icf" uri="src/se_aescrypt.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <includePath uri="../../../../platform/common/inc" />
   <includePath uri="../../../../util/third_party/mbedtls/configs" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/src" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main.c" uri="src/main.c" />

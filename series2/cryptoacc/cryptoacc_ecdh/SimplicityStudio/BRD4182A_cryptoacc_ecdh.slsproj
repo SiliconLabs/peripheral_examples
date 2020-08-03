@@ -34,6 +34,7 @@
     <include pattern="mbedtls/ecp.c" />
     <include pattern="mbedtls/ecp_curves.c" />
     <include pattern="mbedtls/entropy.c" />
+    <include pattern="mbedtls/platform_util.c" />
     <include pattern="mbedtls/sha256.c" />
     <include pattern="sl_crypto/cryptoacc_aes.c" />
     <include pattern="sl_crypto/cryptoacc_ecp.c" />
@@ -46,9 +47,12 @@
   <macroDefinition name="RETARGET_VCOM" />
   <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"cryptoacc-acceleration.h"' />
   <file name="src/cryptoacc_ecdh.icf" uri="src/cryptoacc_ecdh.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <includePath uri="../../../../platform/common/inc" />
   <includePath uri="../../../../util/third_party/mbedtls/configs" />
   <includePath uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src" />
   <includePath uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/include" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/src" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
   <includePath uri="../../../../hardware/kit/EFR32MG22_BRD4182A/config" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   <includePath uri="src" />
   <folder name="sl_crypto">

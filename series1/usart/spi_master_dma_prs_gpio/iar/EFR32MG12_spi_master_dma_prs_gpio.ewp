@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG12P432F1024GL125	SiliconLaboratories EFR32MG12P432F1024GL125</state>
+          <state>EFR32MG12P433F1024GL125	SiliconLaboratories EFR32MG12P433F1024GL125</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -168,7 +168,8 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>EFR32MG12P432F1024GL125</state>
+          <state>STR(x)=#x</state>
+          <state>EFR32MG12P433F1024GL125</state>
           
         </option>
         <option>
@@ -359,7 +360,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -461,7 +462,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG12P432F1024GL125</state>
+          <state>EFR32MG12P433F1024GL125</state>
           
         </option>
         <option>
@@ -1041,7 +1042,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG12P432F1024GL125	SiliconLaboratories EFR32MG12P432F1024GL125</state>
+          <state>EFR32MG12P433F1024GL125	SiliconLaboratories EFR32MG12P433F1024GL125</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1115,7 +1116,8 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG12P432F1024GL125</state>
+          <state>STR(x)=#x</state>
+          <state>EFR32MG12P433F1024GL125</state>
           
         </option>
         <option>
@@ -1306,7 +1308,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1404,7 +1406,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG12P432F1024GL125</state>
+          <state>EFR32MG12P433F1024GL125</state>
           
         </option>
         <option>

@@ -42,6 +42,7 @@
     <include pattern="mbedtls/md4.c" />
     <include pattern="mbedtls/md5.c" />
     <include pattern="mbedtls/md_wrap.c" />
+    <include pattern="mbedtls/platform_util.c" />
     <include pattern="mbedtls/ripemd160.c" />
     <include pattern="mbedtls/sha1.c" />
     <include pattern="mbedtls/sha256.c" />
@@ -58,6 +59,9 @@
   <macroDefinition name="MBEDTLS_ENTROPY_FORCE_SHA256" />
   <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-sl-crypto-all-acceleration.h"' />
   <file name="src/se_ecdsa.icf" uri="src/se_ecdsa.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <includePath uri="../../../../platform/common/inc" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/src" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
   <includePath uri="src" />
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />

@@ -113,15 +113,15 @@ void initIADC (void)
   initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
   initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
 
-  initScanTable.entries[5].posInput = iadcPosInputDvdd;      // Add DVDD to scan for demonstration purposes
+  initScanTable.entries[5].posInput = iadcPosInputVssaux;    // Add Vssaux to scan for demonstration purposes
   initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
   initScanTable.entries[5].includeInScan = false;
 
-  initScanTable.entries[6].posInput = iadcPosInputVddx;      // Add VDDx to scan for demonstration purposes
+  initScanTable.entries[6].posInput = iadcPosInputDvdd;      // Add DVDD to scan for demonstration purposes
   initScanTable.entries[6].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
   initScanTable.entries[6].includeInScan = false;
 
-  initScanTable.entries[7].posInput = iadcPosInputVddlv;     // Add VDDlv to scan for demonstration purposes
+  initScanTable.entries[7].posInput = iadcPosInputDecouple;  // Add Decouple to scan for demonstration purposes
   initScanTable.entries[7].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
   initScanTable.entries[7].includeInScan = false;
 

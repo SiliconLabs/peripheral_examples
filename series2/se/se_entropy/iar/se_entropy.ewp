@@ -317,10 +317,13 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
@@ -379,7 +382,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -593,10 +596,13 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
@@ -1309,10 +1315,13 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
@@ -1371,7 +1380,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1586,10 +1595,13 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
@@ -1999,6 +2011,9 @@
     <name>mbedtls</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\entropy.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\platform_util.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha256.c</name>

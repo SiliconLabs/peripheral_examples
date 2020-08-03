@@ -8,8 +8,10 @@
       <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
       <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+	  <platform>$PROJ_DIR$\..\..\..\..\..\platform\common</platform>
       <mbedtls>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls</mbedtls>
       <cryptoacc>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc</cryptoacc>
+	  <se_manager>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager</se_manager>
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</kitconfig>
@@ -33,12 +35,15 @@
       <path>##em-path-cmsis##\Include</path>
       <path>##em-path-device##\EFR32MG22\Include</path>
       <path>##em-path-emlib##\inc</path>
+	  <path>##em-path-platform##\inc</path>
       <path>##em-path-mbedtls##\configs</path>
       <path>##em-path-mbedtls##\include</path>
       <path>##em-path-mbedtls##\include\mbedtls</path>
       <path>##em-path-mbedtls##\sl_crypto\include</path>
       <path>##em-path-cryptoacc##\src</path>
       <path>##em-path-cryptoacc##\include</path>
+	  <path>##em-path-se_manager##\src</path>
+      <path>##em-path-se_manager##\inc</path>
       <path>##em-path-bsp##</path>
       <path>##em-path-drivers##</path>
       <path>##em-path-kitconfig##</path>
@@ -57,6 +62,7 @@
       <source>##em-path-mbedtls##\library\ecp.c</source>
       <source>##em-path-mbedtls##\library\ecp_curves.c</source>
       <source>##em-path-mbedtls##\library\entropy.c</source>
+	  <source>##em-path-mbedtls##\library\platform_util.c</source>
       <source>##em-path-mbedtls##\library\sha256.c</source>
     </group>
     <group name="emlib">

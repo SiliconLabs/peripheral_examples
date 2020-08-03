@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13_rtcc_wake_em4.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14_rtcc_wake_em4.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32FG12P_rtcc_wake_em4.ewp</path>
   </project>
   <project>

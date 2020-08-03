@@ -29,6 +29,7 @@
   </module>
   <module id="com.silabs.sdk.exx32.external.mbedtls">
     <include pattern="mbedtls/entropy.c" />
+    <include pattern="mbedtls/platform_util.c" />
     <include pattern="mbedtls/sha256.c" />
     <include pattern="sl_crypto/se_management.c" />
     <include pattern="sl_crypto/se_sha.c" />
@@ -40,7 +41,10 @@
   <macroDefinition name="MBEDTLS_ENTROPY_FORCE_SHA256" />
   <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-sl-crypto-all-acceleration.h"' />
   <file name="src/se_entropy.icf" uri="src/se_entropy.icf" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <includePath uri="../../../../platform/common/inc" />
   <includePath uri="../../../../util/third_party/mbedtls/configs" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/src" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main.c" uri="src/main.c" />

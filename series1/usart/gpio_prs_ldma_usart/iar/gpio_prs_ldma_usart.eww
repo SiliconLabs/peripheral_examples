@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13_gpio_prs_ldma_usart.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14_gpio_prs_ldma_usart.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFM32BG1_gpio_prs_ldma_usart.ewp</path>
   </project>
   <project>

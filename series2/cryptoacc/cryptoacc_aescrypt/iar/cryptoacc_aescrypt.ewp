@@ -316,12 +316,16 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
@@ -594,12 +598,16 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
@@ -1312,12 +1320,16 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
@@ -1591,12 +1603,16 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\configs</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\src</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\cryptoacc\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
@@ -2022,6 +2038,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md_wrap.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\platform_util.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ripemd160.c</name>

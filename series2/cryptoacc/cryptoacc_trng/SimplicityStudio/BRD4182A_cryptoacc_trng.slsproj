@@ -27,15 +27,19 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <module id="com.silabs.sdk.exx32.external.mbedtls">
+    <include pattern="mbedtls/platform_util.c" />
     <include pattern="sl_crypto/cryptoacc_management.c" />
     <include pattern="sl_crypto/cryptoacc_trng.c" />
   </module>
   <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
   <macroDefinition name="RETARGET_VCOM" />
   <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"cryptoacc-acceleration.h"' />
+  <includePath uri="../../../../platform/common/inc" />
   <includePath uri="../../../../util/third_party/mbedtls/configs" />
   <includePath uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/src" />
   <includePath uri="../../../../util/third_party/mbedtls/sl_crypto/src/cryptoacc/include" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/src" />
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
   <includePath uri="../../../../hardware/kit/EFR32MG22_BRD4182A/config" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   <includePath uri="src" />
   <folder name="sl_crypto">
