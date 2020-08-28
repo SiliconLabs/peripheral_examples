@@ -1,5 +1,5 @@
-/**************************************************************************//**
- * @main.c
+/***************************************************************************//**
+ * @file main.c
  * @brief This project demonstrates use of the USART with interrupts.
  *
  * After initialization, the MCU goes into EM1 where the receive interrupt
@@ -7,21 +7,40 @@
  * CR (carriage return, ASCII 0x0D).
  *
  * Once the CR or 80 characters is hit, the receive data valid interrupt is
- * disabled, and the transmit buffer level interrupt, which, by default, is
- * set after power-on, is is enabled.  Each entry into the transmit
- * interrupt handler causes a character to be sent until all the
- * characters originally received have been echoed.
- *
- * @version 0.0.1
- ******************************************************************************
- * @section License
- * <b>Copyright 2019 Silicon Labs, Inc. http://www.silabs.com</b>
+ * disabled, and the transmit buffer level interrupt, which, by default, is set
+ * after power-on, is is enabled.  Each entry into the transmit interrupt
+ * handler causes a character to be sent until all the characters originally
+ * received have been echoed.
+ *******************************************************************************
+ * # License
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
- * This file is licensed under the Silabs License Agreement. See the file
- * "Silabs_License_Agreement.txt" for details. Before using this software for
- * any purpose, you must agree to the terms of that agreement.
+ * SPDX-License-Identifier: Zlib
  *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ *
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ *
+ * 1. The origin of this software must not be misrepresented; you must not
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
+ * 2. Altered source versions must be plainly marked as such, and must not be
+ *    misrepresented as being the original software.
+ * 3. This notice may not be removed or altered from any source distribution.
+ *
+ *******************************************************************************
+ * # Evaluation Quality
+ * This code has been minimally tested to ensure that it builds and is suitable 
+ * as a demonstration for evaluation purposes only. This code will be maintained
+ * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
 #include "em_device.h"

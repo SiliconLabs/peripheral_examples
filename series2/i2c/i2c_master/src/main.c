@@ -1,31 +1,51 @@
-/**************************************************************************//**
+/***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates the master configuration of the
- * EFx32xG2x I2C peripheral. Two EFx32xG2x modules are connected together, one
- * running the master project, the other running the slave project. The master
- * starts up and enters a while loop waiting for a button press on push button 0.
- * When push button 0 is pressed, the program performs an I2C test. This routine
- * reads the slave device's current buffer values, increments each value by 1,
- * and writes the new values back to the slave device. The master then reads back
- * the slave values again and verifies the new values match what was previously
- * written. Upon a successful write, LED0 is toggled and the device re-enters the
- * while loop, waiting again for user input through push button 0. This project
- * runs in a continuous loop, re-running the I2C test with every PB0 button press
- * and toggling LED0 with each successful iteration. If there is an I2C
- * transmission error, or if the verification step of the I2C test fails, LED1 is
- * turned on and the master sits and remains in an infinite while loop. Connecting
- * to the device via debugger while in the infinite loop, the I2C error code can
- * be retrieved.
- * @version 0.0.2
- ******************************************************************************
- * @section License
- * <b>Copyright 2018 Silicon Labs, Inc. http://www.silabs.com</b>
+ * @brief This project demonstrates the master configuration of the EFx32xG2x
+ * I2C peripheral. Two EFx32xG2x modules are connected together, one running the
+ * master project, the other running the slave project. The master starts up and
+ * enters a while loop waiting for a button press on push button 0. When push
+ * button 0 is pressed, the program performs an I2C test. This routine reads the
+ * slave device's current buffer values, increments each value by 1, and writes
+ * the new values back to the slave device. The master then reads back the slave
+ * values again and verifies the new values match what was previously written.
+ * Upon a successful write, LED0 is toggled and the device re-enters the while
+ * loop, waiting again for user input through push button 0. This project runs
+ * in a continuous loop, re-running the I2C test with every PB0 button press and
+ * toggling LED0 with each successful iteration. If there is an I2C transmission
+ * error, or if the verification step of the I2C test fails, LED1 is turned on
+ * and the master sits and remains in an infinite while loop. Connecting to the
+ * device via debugger while in the infinite loop, the I2C error code can be
+ * retrieved.
+ *******************************************************************************
+ * # License
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
- * This file is licensed under the Silabs License Agreement. See the file
- * "Silabs_License_Agreement.txt" for details. Before using this software for
- * any purpose, you must agree to the terms of that agreement.
+ * SPDX-License-Identifier: Zlib
  *
+ * The licensor of this software is Silicon Laboratories Inc.
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ *
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ *
+ * 1. The origin of this software must not be misrepresented; you must not
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
+ * 2. Altered source versions must be plainly marked as such, and must not be
+ *    misrepresented as being the original software.
+ * 3. This notice may not be removed or altered from any source distribution.
+ *
+ *******************************************************************************
+ * # Evaluation Quality
+ * This code has been minimally tested to ensure that it builds and is suitable 
+ * as a demonstration for evaluation purposes only. This code will be maintained
+ * at the sole discretion of Silicon Labs.
  ******************************************************************************/
  
 #include <stdio.h>

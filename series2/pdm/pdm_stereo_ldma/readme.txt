@@ -5,7 +5,7 @@ using the PDM interface. An LDMA transfer is triggered when there is valid data
 in the PDM's hardware FIFO. The LDMA transfers the raw PCM data from the FIFO to
 the ping-pong buffers. The main loop converts the raw PCM data in the ping-pong
 buffers into left and right stereo audio PCM data. The device enters EM1 when
-when the CPU isn't busy.
+the CPU isn't busy.
 
 How To Test:
 1. Build the project and download it to the Thunderboard

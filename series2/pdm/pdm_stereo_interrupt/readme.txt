@@ -4,7 +4,7 @@ This project demonstrates how to get stereo PCM data from a MEMS microphone
 using the PDM interface. An interrupt is triggered when there is valid data in
 the PDM's hardware FIFO. The interrupt handler reads and translates the raw PCM
 data from the FIFO into left and right stereo audio PCM data. The device enters
-EM1 when when the CPU isn't busy.
+EM1 when the CPU isn't busy.
 
 How To Test:
 1. Build the project and download it to the Thunderboard
