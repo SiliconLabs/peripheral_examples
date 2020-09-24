@@ -10,6 +10,10 @@ while the CCV is set to control the duty cycle. The duty cycle is altered by
 writing to the CCVB register, which safely updates the compare value on the 
 next overflow event.
 
+This example is designed to show the minimal configuration for servo motors,
+and is not a fully featured driver. Care should be taken not to exceed the 
+specifications of a connected servo motor. This example was designed with an 
+MG995 servo.
 ================================================================================
 
 Peripherals Used:
