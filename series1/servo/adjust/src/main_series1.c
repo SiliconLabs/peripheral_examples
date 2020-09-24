@@ -46,7 +46,7 @@
 #include "bsp.h"
 
 // Note: change this to set the desired output frequency in Hz
-#define PWM_FREQ 1000
+#define PWM_FREQ 50 
 
 // Note: change this to set the desired duty cycle (used to update CCVB value)
 static volatile int dutyCyclePercent = 5;
@@ -142,13 +142,14 @@ void initTimer(void)
   TIMER0->ROUTEPEN |= TIMER_ROUTEPEN_CC0PEN;
 
   // Set top value to overflow at the desired PWM_FREQ frequency
-  TIMER_TopSet(TIMER0, CMU_ClockFreqGet(cmuClock_TIMER0) / PWM_FREQ);
+  TIMER_TopSet(TIMER0, CMU_ClockFreqGet(cmuClock_TIMER0) / (8 * PWM_FREQ));
 
   // Set compare value for initial duty cycle
   TIMER_CompareSet(TIMER0, 0, (TIMER_TopGet(TIMER0) * dutyCyclePercent) / 100);
 
   // Initialize the timer
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
+  timerInit.prescale = timerPrescale8;
   TIMER_Init(TIMER0, &timerInit);
 
   // Enable TIMER0 compare event interrupts to update the duty cycle
