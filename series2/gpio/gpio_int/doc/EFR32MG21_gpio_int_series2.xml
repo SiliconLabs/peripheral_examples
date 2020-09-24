@@ -36,8 +36,6 @@
       <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_timer.c</source>
       <source>##em-path-emlib##\src\em_usart.c</source>
-      <source>##em-path-drivers##\retargetio.c</source>
-      <source>##em-path-drivers##\retargetserial.c</source>
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_gpio_int_s2_xg21.c</source>

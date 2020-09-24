@@ -20,10 +20,6 @@
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />
   </module>
-  <module id="com.silabs.sdk.exx32.common.drivers">
-    <include pattern="Drivers/retargetio.c" />
-    <include pattern="Drivers/retargetserial.c" />
-  </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
