@@ -38,7 +38,6 @@
 #include "em_emu.h"
 #include "em_cmu.h"
 #include "bsp.h"
-#include "retargetserial.h"
 #include <stdio.h>
 
 /**************************************************************************//**
