@@ -168,8 +168,9 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFR32MG13P632F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -270,7 +271,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -359,7 +360,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -462,7 +463,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32MG13P632F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -740,7 +741,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1115,8 +1116,9 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFR32MG13P632F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1217,7 +1219,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1306,7 +1308,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1405,7 +1407,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32MG13P632F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1683,7 +1685,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1908,6 +1910,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
@@ -1917,7 +1922,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_s1_pg1_efr.c</name>
+      <name>$PROJ_DIR$\..\src\main_xg1_xg12_xg13_xg14.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme_pg1_efr.txt</name>
