@@ -38,7 +38,6 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -47,17 +46,19 @@
 #include "em_iadc.h"
 #include "em_ldma.h"
 #include "em_gpio.h"
-#include "em_prs.h"
 #include "bsp.h"
 
 /*******************************************************************************
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
+// Use specified LDMA channel
+#define IADC_LDMA_CH              0
+
 // How many samples to capture
 #define NUM_SAMPLES               1024
 
-// Set HFRCOEM23 to lowest frequency (1MHz)
+// Set HFRCOEM23 to lowest frequency (1 MHz)
 #define HFRCOEM23_FREQ            cmuHFRCOEM23Freq_1M0Hz
 
 // Set CLK_ADC to 1 MHz (set to max for shortest IADC conversion/power-up time)
@@ -71,10 +72,22 @@
                                          // 100   => 10000 samples/second
                                          // 40    => 25000 samples/second
 
-// When changing GPIO port/pins above, make sure to change xBUSALLOC macro's
-// accordingly.
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
+/*
+ * Specify the IADC input using the IADC_PosInput_t typedef.  This
+ * must be paired with a corresponding macro definition that allocates
+ * the corresponding ABUS to the IADC.  These are...
+ *
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AEVEN0_ADC0
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AODD0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BEVEN0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BODD0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDEVEN0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDODD0_ADC0
+ *
+ * ...for port A, port B, and port C/D pins, even and odd, respectively.
+ */
+#define IADC_INPUT      iadcPosInputPortDPin3   // EXP header pin 9
+#define ALLOCATE_ABUS   (GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDODD0_ADC0)
 
 // Push-buttons are active-low
 #define PB_PRESSED (0)
@@ -83,10 +96,10 @@
  ***************************   GLOBAL VARIABLES   *******************************
  ******************************************************************************/
 
-// Globally declared LDMA link descriptor
+// LDMA link descriptor
 LDMA_Descriptor_t descriptor;
 
-// buffer to store IADC samples
+// Buffer for IADC samples
 uint32_t singleBuffer[NUM_SAMPLES];
 
 /**************************************************************************//**
@@ -94,13 +107,17 @@ uint32_t singleBuffer[NUM_SAMPLES];
  *****************************************************************************/
 void initGPIO (void)
 {
-  // Enable GPIO clock branch
-  CMU_ClockEnable(cmuClock_GPIO, true);
-
-  // Configure push button PB0 as a user input; will use as a toggle to indicate when inputs are ready
+  // Configure push button 0 pin as an input; wait for toggle to begin
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
 
-  // Configure LED0 as output, will be set when LDMA transfer completes
+  /*
+   * Debugging trap; wait here for PB0 toggle before entering EM2.
+   * Allows EM0 current to be observed in Energy Profiler.
+   */
+  while(GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) != PB_PRESSED);
+  while(GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == PB_PRESSED);
+
+  // Configure LED0 as output; will be set when LDMA completes transfers
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 }
 
@@ -153,11 +170,14 @@ void initIADC (void)
   initSingle.fifoDmaWakeup = true;
 
   // Configure Input sources for single ended conversion
-  initSingleInput.posInput = iadcPosInputPortCPin4;
+  initSingleInput.posInput = IADC_INPUT;
   initSingleInput.negInput = iadcNegInputGnd;
 
   // Initialize IADC
   IADC_init(IADC0, &init, &initAllConfigs);
+
+  // Allocate the corresponding ABUS to the IADC
+  ALLOCATE_ABUS;
 
   // Initialize Single
   IADC_initSingle(IADC0, &initSingle, &initSingleInput);
@@ -174,7 +194,6 @@ void initIADC (void)
  *****************************************************************************/
 void initLDMA(uint32_t *buffer, uint32_t size)
 {
-  // Declare LDMA init structs
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
 
   // Configure LDMA for transfer from IADC to memory
@@ -183,21 +202,16 @@ void initLDMA(uint32_t *buffer, uint32_t size)
     LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_IADC0_IADC_SINGLE);
 
   // Set up descriptors for dual buffer transfer
-  LDMA_Descriptor_t xfer = LDMA_DESCRIPTOR_LINKREL_P2M_BYTE(&IADC0->SINGLEFIFODATA, buffer, size, 1);
+  descriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_BYTE(&IADC0->SINGLEFIFODATA, buffer, size, 1);
 
-  // Store descriptors globally
-  // Note that this is required for the LDMA to function properly
-  descriptor = xfer;
-
-  // Modify descriptor for NUM_SAMPLES sized transfer from iadc to buffer
-  // Transfer 32 bits per unit, increment by 32 bits
+  // Transfer 32 bits per unit
   descriptor.xfer.size = ldmaCtrlSizeWord;
 
-  // Set descriptor to loop NUM_SAMPLES times and then complete
+  // One loop of NUM_SAMPLES, then complete
   descriptor.xfer.decLoopCnt = 1;
   descriptor.xfer.xferCnt = NUM_SAMPLES;
 
-  // Interrupt after transfer complete
+  // Interrupt upon transfer complete
   descriptor.xfer.doneIfs = 1;
   descriptor.xfer.ignoreSrec = 0;
 
@@ -205,7 +219,7 @@ void initLDMA(uint32_t *buffer, uint32_t size)
   LDMA_Init(&init);
 
   // Start transfer, LDMA will sample the IADC NUM_SAMPLES time, and then interrupt
-  LDMA_StartTransfer(0, (void*)&transferCfg, (void*)&descriptor);
+  LDMA_StartTransfer(IADC_LDMA_CH, &transferCfg, &descriptor);
 }
 
 /**************************************************************************//**
@@ -219,7 +233,7 @@ void LDMA_IRQHandler(void)
   // Stop the IADC
   IADC_command(IADC0, iadcCmdStopSingle);
 
-  // Set GPIO to notify that transfer is complete
+  // Turn on LED0 to notify that transfers are complete
   GPIO_PinOutSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
 }
 
@@ -241,8 +255,6 @@ static void disableHFClocks(void)
   I2C0->EN_CLR = 0x1;
   I2C1->EN_CLR = 0x1;
   GPCRC->EN_CLR = 0x1;
-
-  CMU_ClockSelectSet(cmuClock_SYSCLK, cmuSelect_FSRCO);
 
   // Check that HFRCODPLL and HFXO are not requested
   while (((HFRCO0->STATUS & _HFRCO_STATUS_ENS_MASK) != 0U)
@@ -325,42 +337,35 @@ void em_EM2_RTCC(CMU_Select_TypeDef osc, bool powerdownRam)
  *****************************************************************************/
 int main(void)
 {
-  // Use default settings for EM23 and HFXO
-  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
-  CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_WSTK_DEFAULT;
-
   CHIP_Init();
 
-  initGPIO();
-
-  // Debugging Catch; wait here before proceeding into EM2
-  // Allows Energy Profiler to start up and show prior EM0 current
-  while(GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) != PB_PRESSED); //user feedback
-  while(GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == PB_PRESSED); //make it a toggle
-
-  // Turn off GPIO input
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 1);
-
-  // Initialize EM2/EM3/EM4 with default parameters
+  // Use default settings for EM23
+  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
   EMU_EM23Init(&em23Init);
-  CMU_HFXOInit(&hfxoInit);
 
-  // Set clock frequency to defined value
-  CMU_HFRCOEM23BandSet(HFRCOEM23_FREQ);
+  // Switch to running from the FSRCO
+  CMU_ClockSelectSet(cmuClock_SYSCLK, cmuSelect_FSRCO);
 
-  // Initialize the IADC
-  initIADC();
+  while (1)
+  {
+    initGPIO();
 
-  // Initialize LDMA
-  initLDMA(singleBuffer, NUM_SAMPLES);
+    // Turn off push button 0 GPIO input
+    GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
 
-  // IADC single already enabled; must enable timer block in order to trigger
-  IADC_command(IADC0, iadcCmdEnableTimer);
+    // Set HFRCOEM23 to specified frequency band
+    CMU_HFRCOEM23BandSet(HFRCOEM23_FREQ);
 
-  // Sleep CPU until LDMA transfer completes
-  // EM2 with RTCC running off LFRCO is a documented current mode in the DS
-  em_EM2_RTCC(cmuSelect_LFRCO, false);
+    // Initialize the IADC
+    initIADC();
 
-  // Infinite loop
-  while(1);
+    // Initialize LDMA
+    initLDMA(singleBuffer, NUM_SAMPLES);
+
+    // IADC single already enabled; must enable timer block in order to trigger
+    IADC_command(IADC0, iadcCmdEnableTimer);
+
+    // Run in EM2 with the RTCC running of the LFRCO until the LDMA is done
+    em_EM2_RTCC(cmuSelect_LFRCO, false);
+  }
 }

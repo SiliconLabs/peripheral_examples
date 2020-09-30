@@ -52,13 +52,13 @@ Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
 PB00 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK Pin 8, LED0
-PC04 -  IADC input, single-ended, J102 of BRD4001, Pin 25
+PD03 -  IADC input, single-ended, Expansion Header (see source for specific
+pin)
 PD02 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22A224F512IM40
 PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK Pin 8, LED0
-PD03 -  IADC input, single-ended, Expansion Header (see source for specific
-pin)
+PC04 -  IADC input, single-ended, J102 of BRD4001, Pin 25
 PB00 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
