@@ -9,6 +9,30 @@ from EM4, the device will turn on LED0 and LED1 and execute the BKPT
 instruction.  This stops the processor while it is still in EM0, thus
 allowing a debugger to make a connection.
 
+Note that the standard, factory-programmed AN0003 bootloader shipped
+on all EFM32 Series 1 devices would normally interfere with the
+operation of the RTCC upon wake from EM4.  This is discussed in the
+program comments, and workaround options are provided.
+
+To disable the bootloader, it is necessary to write a 0 to bit 1 of
+Configuration Lock Word 0, which is located at 0xFE041E8h.  There
+are several ways to do this.  The fastest is to use Simplicity
+Commander to generate a patch file that has a 0 in the necessary bit
+and then program it into the device.  Execute the following commands
+to do so:
+
+commander convert --patch 0x0FE041E8:0xFFFFFFFD:4 --outfile bootloader_disable.hex
+
+commander flash bootloader_disable.hex
+
+To re-enable the bootloader, follow the above sequence but replace
+0xFFFFFFFD in the patch command with 0xFFFFFFFF.
+
+Standalone EFR32 devices do not ship with a bootloader, so this
+workaround (and the CLW0 bit 1 check in the example) is not necessary.
+Likewise, Gecko Bootloader uses TIMER0 for delays, leaving the RTCC
+untouched.
+
 ================================================================================
 
 Peripherals Used:
@@ -17,7 +41,6 @@ CMU
 GPIO
 RMU
 RTCC
-USART1
 
 ================================================================================
 

@@ -55,13 +55,16 @@
 
 #include "bsp.h"
 
+// Configuration Lock Word 0 (holds the bootloader enable bit)
+#define CLW0 *(uint32_t *)(LOCKBITS_BASE + (122 << 2))
+
 /*
  *  Specify the LFXO frequency in Hz.  This provides flexibility for
  *  configuring the RTCC so as to accommodate non-standard frequencies
  *  like 32 kHz at the expensive of losing the use of capture/compare
  *  channel 0.
  */
-#define LFXOFREQ	32768
+#define LFXOFREQ  32768
 
 /**************************************************************************//**
  * @brief
@@ -70,49 +73,66 @@
 void lfClkInit(bool unlatch)
 {
   /*
-   * Clocks in the low-energy domain have to enabled in a specific
-   * order, especially after waking from EM4.  Before doing anything
-   * else, the bus clock for the low-energy domain registers needs
-   * to be enabled.
-   */
-  CMU_ClockEnable(cmuClock_HFLE, true);
+   * A LF oscillator that is retained in EM4 cannot be selected as
+   * as the LFECLK source with CMU_ClockSelectSet().  Until they are
+   * unlatched, writes to the CMU registers for LFECLK domain have
+   * no effect.
+   *
+   * This means that writing to CMU_OSCENCMD to "restart" the LFXO,
+   * for example, has no effect (the LFXO remains running because
+   * it was retained).  Likewise, CMU_STATUS_LFXOENS is not going to
+   * change state until it is unlatched.
 
-  /*
-   * Again, wake from EM4 requires special handling.  It is customary
-   * to use CMU_ClockSelectSet() to select the oscillator for one of
-   * the LFxCLK domains, but this function also enables the selected
-   * oscillator.  This CANNOT be done after waking from EM4 because
-   * certain registers are latched and must be unlatched.
+   * CMU_ClockSelectSet() calls CMU_OscillatorEnable() to start the
+   * specified oscillator, so it will stall when called to select the
+   * LFXO as the LFECLK source after wake from EM4.
    *
-   * Failure to do will result in code getting stuck when
-   * CMU_ClockSelectSet() calls CMU_OscillatorEnable() to enable the
-   * LFXO.  Until the unlatch operation is performed,
-   * CMU_OscillatorEnable() will sit in a loop waiting for
-   * CMU_STATUS_LFXOENS to go active, which will never happen.
-   *
-   * So, to properly manage this, we want to manually select the LFXO
-   * as the source of the LFECLK, but we'll hold off on enabling the
-   * LFXO until we've done this.
-   *
-   * Note that any LF oscillator retained in EM4 remains running upon
-   * wake, but the registers that control that oscillator and report
-   * its status don't function normally until unlatch is performed.
+   * So, to properly manage this, manually select the LFXO as the
+   * source of the LFECLK now; enabling the LFXO, which is handled
+   * differently depending on the source of reset, is done later.
    */
   CMU->LFECLKSEL = CMU_LFECLKSEL_LFE_LFXO;
 
-  // (Re)initialize the LFXO before enabling it.
-  CMU_LFXOInit_TypeDef lfxo = CMU_LFXOINIT_DEFAULT;
-  CMU_LFXOInit(&lfxo);
+  /*
+   * Enable the RTCC clock here.  LFECLKEN0 is a latched register,
+   * and while CMU_ClockEnable(cmuClock_RTCC, true) does the same
+   * thing, it's useful to call this out separately along with the
+   * other latched CMU registers.
+   */
+  CMU->LFECLKEN0 = CMU_LFECLKEN0_RTCC;
 
   /*
-   * Every register that needs to be re-initialized before unlatch
-   * should now be handled, so unlatch can now be performed without
-   * affecting anything that that was retained through wake.
+   * In addition to manually selecting the LFXO as the LFECLK source,
+   * reconfiguring the LFXO after wake from EM4 should be handled in
+   * a slightly different fashion.
+   *
+   * Any LF oscillator retained in EM4 will be running upon wake-up,
+   * so it's not necessary to reinitialize the oscillator as would
+   * be the case after a hard reset, such as POR or pin reset.
+   *
+   * In the case of the LFXO, the usual start-up delay timeout period
+   * of 32768 cycles (CMU_LFXOCTRL_TIMEOUT = 0x7) can be reduced to
+   * just two cycles.
+   *
+   * After doing this, all registers that need to be "re-painted"
+   * (rewritten to their pre-EM4 entry values) have been taken care
+   * of, and it is now safe to unlatch.
    */
   if (unlatch)
-    EMU_UnlatchPinRetention();
+  {
+    CMU->LFXOCTRL = (CMU->LFXOCTRL & (~_CMU_LFXOCTRL_MASK))
+                    | CMU_LFXOCTRL_TIMEOUT_2CYCLES;
 
-  // It is now safe to restart the LFXO
+    EMU_UnlatchPinRetention();
+  }
+  // For non-EM4 resets, the LFXO needs to be initialized as usual.
+  else
+  {
+    CMU_LFXOInit_TypeDef lfxo = CMU_LFXOINIT_DEFAULT;
+    CMU_LFXOInit(&lfxo);
+  }
+
+  // It is now safe to (re)start the LFXO
   CMU_OscillatorEnable(cmuOsc_LFXO, true, true);
 }
 
@@ -120,93 +140,137 @@ void lfClkInit(bool unlatch)
  * @brief
  *    Initialize the RTCC.
  *****************************************************************************/
-void rtccInit(uint32_t next)
+void rtccInit(uint32_t next, bool wake)
 {
-  // (Re-)enable the RTCC bus clock
-  CMU_ClockEnable(cmuClock_RTCC, true);
+  /*
+   *  Need full initialization if reset was other than wake from EM4.
+   *  The RTCC clock was previously enabled in lfClkInit().
+   */
+  if (!wake)
+  {
+    RTCC_Init_TypeDef rtcc = RTCC_INIT_DEFAULT;
+    rtcc.debugRun         = false;
+    rtcc.precntWrapOnCCV0 = true;
+    rtcc.cntWrapOnCCV1    = false;
+    rtcc.presc            = rtccCntPresc_1;
+    rtcc.prescMode        = rtccCntTickCCV0Match;
+    rtcc.cntMode          = rtccCntModeNormal;
+    rtcc.enaOSCFailDetect = false;
 
-  // Configure the RTCC but don't enable yet
-  RTCC_Init_TypeDef rtcc = RTCC_INIT_DEFAULT;
-  rtcc.enable   		    = false;
-  rtcc.debugRun			    = false;
-  rtcc.precntWrapOnCCV0 = true;
-  rtcc.cntWrapOnCCV1 	  = false;
-  rtcc.presc            = rtccCntPresc_1;
-  rtcc.prescMode        = rtccCntTickCCV0Match;
-  rtcc.cntMode          = rtccCntModeNormal;
-  rtcc.enaOSCFailDetect	= false;
+    /*
+     * Set RTCC_CC0_CCV to frequency of the low-frequency crystal used
+     * (minus 1).  When the pre-counter (RTCC_PRECNT) matches this
+     * value, the counter (RTCC_CNT) increments by one.
+     *
+     * When using the PRECENT match feature, the actual comparison is
+     * to RTCC_CC0_CCV bits [14:0] because the pre-counter is 15 bits
+     * wide while the capture/compare value register is 32 bits wide.
+     *
+     * This also why LFXOFREQ - 1 is written to RTCC_CC0_CCV.  In the
+     * case of a 32.768 kHz crystal, writing 32768 (0x8000) never
+     * results in a match because bit 15 is not compared, thus RTCC_CNT
+     * increments at the frequency of the LFECLK.
+     *
+     * This option is used instead of a 2^n prescaler tap selectable
+     * by RTCC_CTRL_CNTPRESC in order to accommodate non-standard LFXO
+     * crystal frequencies, like 32 kHz.
+     *
+     * Note that RTCC_ChannelCCVSet(0, LFXOFREQ - 1) can be used to set
+     * the wrap-around value.  However, the direct register write is
+     * used here to correspond to the reference manual RTCC chapter
+     * language, which specifically describes this functionality in
+     * terms of the RTCC_CTRL_CCV0MATCH bit enabling RTCC_PRECENT
+     * wrap-around based on the value of RTCC_CC0_CCV.
+     */
+    RTCC->CC[0].CCV = LFXOFREQ - 1;
+
+    // Initialize and start counting
+    RTCC_Init(&rtcc);
+
+    /*
+     * Set up RTCC capture/compare channel 1 for match operation.
+     * These events will provide the signal to wake from EM4.
+     */
+    RTCC_CCChConf_TypeDef compCfg = RTCC_CH_INIT_COMPARE_DEFAULT;
+    RTCC_ChannelInit(1, &compCfg);
+  }
 
   /*
-   * Set RTC_CC0_CCV to frequency of the LFXO crystal used (minus 1).
-   * When the pre-counter (RTCC_PRECNT) matches this value, the counter
-   * (RTCC_CNT) increments by one.
-   *
-   * Take special note of the fact that when using the PRECENT match
-   * feature, the actual comparison is to RTC_CC0_CCV bits [14:0]
-   * because the pre-counter is 15 bits wide while the capture/compare
-   * value register is 32 bits wide.
-   *
-   * This also why LFXOFREQ - 1 is written to CC0_CCV.  In the case of
-   * a 32.768 kHz crystal, writing 32768 (0x8000) to CC0_CCV never
-   * results in a match because bit 15 is not compared, thus CNT
-   * increments at the frequency of the LFECLK.
-   *
-   * We're using this option instead of a 2^n prescaler tap selectable
-   * by RTCC_CTRL_CNTPRESC in order to accommodate non-standard LFXO
-   * crystal frequencies, like 32 kHz.
+   * Match at the current RTCC count plus 'next' counts, which will
+   * be 'next' seconds later because RTCC_CNT increments once per
+   * LFXOFREQ counts of PRECENT.
    */
-  RTCC->CC[0].CCV = LFXOFREQ - 1;
-
-  // Initialize and start counting
-  RTCC_Init(&rtcc);
+  RTCC_ChannelCCVSet(1, RTCC_CounterGet() + next);
 
   /*
-   * Set up RTCC capture/compare channel 1 to match at the specified
-   * number of ticks after the current count, which will be 'next'
-   * seconds later because CNT increments once per LFXOFREQ - 1 counts
-   * of PRECENT.
+   * Enable capture/compare channel 1 match interrupt.  Note that only
+   * the CC1 interrupt request is being enabled and not the NVIC RTCC
+   * interrupt source.  No processor interrupt is ever going to be
+   * generated.  This example sits in EM4 most of the time, and the
+   * CC1 match interrupt is what wakes the device from EM4.
    */
-  RTCC_CCChConf_TypeDef compCfg = RTCC_CH_INIT_COMPARE_DEFAULT;
-  RTCC_ChannelInit(1, &compCfg);
-  RTCC_ChannelCompareValueSet(1, RTCC_CounterGet() + next);
-
-  /*
-   * Enable capture/compare channel 1 match interrupt.  Note that this
-   * example spends most of its time in EM4, so we're not actually
-   * enabling the NVIC RTCC interrupt source.  No processor interrupt
-   * is ever going to be generated.  We're enabling this interrupt to
-   * use it to wake the device from EM4.
-   */
-  RTCC_IntClear(_RTCC_IFC_MASK);
+  RTCC_IntClear(_RTCC_IF_MASK);
   RTCC_IntEnable(RTCC_IEN_CC1);
   RTCC_EM4WakeupEnable(true);
 
-  // Now start counting
-  RTCC_Enable(true);
-
   /*
-   * The following lines of code are a crutch of sorts needed solely
-   * for this example.  The RTCC is enabled by setting the ENABLE bit
-   * in the RTCC_CTRL register.  A write to this bit must cross the
-   * clock domain boundary between the peripheral registers, which are
-   * clocked by a local copy of the HFBUSCLKLE, and the RTCC logic,
-   * which is clocked by the LFECLK.
+   * The last lines of code in this function are crutches of sorts for
+   * this example but might also be necessary in real application code.
    *
-   * While a write to RTCC_CTRL_ENABLE does not stall the CPU (e.g.
-   * the RTCC does not delay completion of the transfer pending
-   * acknowledgement of the write in the LFECLK domain), it does
-   * not take effect immediately.  Consequently, if the code enters EM4
-   * immediately after the write to ENABLE, the chip will never wake
-   * because the counter will not have started.
+   * 1. Check if Configuration Lock Word 0 (CLW0) bit 1 = 1.
+   *
+   * All EFM32TG11 devices are factory pre-programmed with the AN0003
+   * bootloader.  Without a valid application in flash, the RTCC is
+   * used to periodically check the state of the bootloader pins.
+   *
+   * When the bootloader transfers execution to the application code,
+   * it restores any registers used to their reset states.  In the case
+   * of the RTCC this means writing RTCC_CTRL to 0.
+   *
+   * However, when the RTCC is enabled in EM4, its registers are
+   * retained across wake-ups (regardless of the source) and do not
+   * require repainting.  Consequently, in attempting to restore the
+   * device to its reset state, the bootloader disables the RTCC!
+   *
+   * Because the bootloader is enabled by default (CLW0 bit 1 = 1),
+   * it is necessary to re-enable the RTCC when running this example
+   * on a factory-fresh device or Starter Kit.
+   *
+   * In practice, this causes the RTCC to lose time because the
+   * bootloader effectively stops it until re-enabled here.  Disable
+   * the bootloader to avoid this by writing a 0 to CLW0 bit 1.  The
+   * same flash programming procedure used to enable debug lock or to
+   * program other lock word registers would be used to do this.  When
+   * this example runs on a device with CLW0 bit 1  = 0, the RTCC
+   * remains enabled across wake-ups and keeps time constantly.
+   *
+   * 2. Account for clock domain boundary crossing.
+   *
+   * Writes to RTCC registers must generally cross the clock domain
+   * boundary between the peripheral registers, which are clocked by a
+   * local copy of the HFBUSCLKLE, and the RTCC logic, which is clocked
+   * by the LFECLK.
+   *
+   * While these writes do not stall the CPU (e.g. the RTCC does not
+   * delay completion of the transfer pending acknowledgment of the
+   * write in the LFECLK domain), they do not take effect immediately
+   * as far as the CPU is concerned.  Consequently, if firmware enters
+   * EM4 immediately after configuring a match event and writing to
+   * RTCC_CTRL to start the counter, the chip will never wake because
+   * the counter will not have started.
    *
    * For code where this might be a concern, there are a few different
    * ways to handle it.  One option would be to simply wait for the
-   * first tick to register in the CNT register.  In this example,
-   * we clear the STATUS register BUMODETS bit, which requires a write
-   * to the RTC_CMD_CLEARSTATUS bit.  The CMD bit in the SYNCBUSY
-   * registers the completion of this write and can be used to confirm
-   * that the RTCC is enabled.
+   * first tick to register in RTCC_CNT.  This example clears the
+   * RTCC_STATUS register BUMODETS bit, which requires a write to the
+   * RTC_CMD_CLEARSTATUS bit.  The CMD bit in RTCC_SYNCBUSY reflects
+   * the completion of this write and can be used to confirm that the
+   * RTCC is configured and enabled.
    */
+  uint32_t isBootloaderEnabled = CLW0;
+  if (((isBootloaderEnabled >> 1) & 0x1) == 1)
+    RTCC_Enable(true);
+
   RTCC->CMD = RTCC_CMD_CLRSTATUS;
   while ((RTCC->SYNCBUSY & RTCC_SYNCBUSY_CMD));
 }
@@ -223,11 +287,11 @@ int main(void)
   CHIP_Init();
 
   /*
-   * Regardless of whether we are booting from POR or waking from EM4,
-   * turn on the GPIO clock here.  It's going to be needed no matter
-   * what else has to be done during initialization and saves us from
-   * having to write redundant code to do this.
+   * These clocks must be enabled regardless of whether the last
+   * reset is courtesy of EM4 wake-up or another source.  Avoid
+   * possibly redundant code by doing so here.
    */
+  CMU_ClockEnable(cmuClock_HFLE, true);
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Get reset cause(s)
@@ -236,24 +300,23 @@ int main(void)
   /*
    * What caused the last reset?
    *
-   * Keep in mind that for any given reset there can be multiple causes.
+   * For any given reset there can be multiple causes.
    *
    * Any source that causes a wake from EM4 (e.g. a GPIO pin or the
    * CRYOTIMER) sets the RMU_RSTCAUSE register's EM4RST bit.  For this
-   * reason, assertion of the nRESET pin while in EM4 sets both the
+   * reason, assertion of the RESETn pin while in EM4 sets both the
    * EXTRST and EM4RST bits in RMU_RSTCAUSE.
    *
-   * In this demonstration, we want to know if the last reset was caused
-   * ONLY by RTCC wake from EM4 and not something like the nRESET pin,
-   * so the code tests exclusively for EM4RST and not other
-   * RMU_RSTCAUSE flags that could also be set at the same time.
+   * To simplify this example, it matters only if the last recent was
+   * caused by the RTCC waking the system from EM4 and not something
+   * something else.
    */
   if (rflags == RMU_RSTCAUSE_EM4RST)
   {
     /*
-     * If we're here, we woke from EM4, which we need to take note of
-     * in order to determine whether or not to perform an unlatch
-     * operation when initializing the LF clock domains and GPIO.
+     * Reset was caused by EM4 wake-up, so some register repainting
+     * (rewriting of registers to their states before EM4 entry) is
+     * going to be necessary before performing the unlatch operation.
      */
     wakestate = true;
 
@@ -282,28 +345,22 @@ int main(void)
       pinstate = 0;
     else
       pinstate = 1;
-
-    RMU_UserResetStateSet(pinstate);
   }
   /*
-   * If we get here, it means we had a reset source other than (although
-   * in addition to is possible) EM4RST.  This could be something more
-   * severe, like POR, which would mean that if the RTCC were being used
-   * to keep time, it would need to be reset, something that wouldn't be
-   * required in the case of a proper EM4 wake.
+   * Something other than EM4 wake-up alone caused the last reset,
+   * which means the RTCC is no longer keeping time and must be
+   * re-initialized.
    */
   else
   {
-    /*
-     *  We're here because of POR or hard pin reset and not EM4 wake
-     *  exclusively.  This also means the LED needs to resume the
-     *  initial ON state.
-     */
     wakestate = false;
 
+    // Turn LED on because GPIO was not retained.
     pinstate = 1;
-    RMU_UserResetStateSet(pinstate);
   }
+
+  // Save the pin state for the next wake-up.
+  RMU_UserResetStateSet(pinstate);
 
   /*
    *  Set the LED to the appropriate state based on the code above that
@@ -312,59 +369,50 @@ int main(void)
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, pinstate);
 
   /*
-   * At this point, we've handled whatever initialization must be
-   * performed according to the type of reset, so it's time to clear
-   * RSTCAUSE so we know which reset matters next time around.
+   * RMU_RSTCAUSE is retained between resets; it must be explicitly
+   * cleared in order to determine the cause of the next reset.
    */
   RMU_ResetCauseClear();
 
   /*
-   * Care must be taken when unlatching pins if full pin retention is
-   * used in EM4.  For this example, the only pin we care about is the
-   * GPIO driving LED0, and we've already prepared to drive to the new
-   * state in the previous code.
+   * This example uses GPIO retention to keep the LED on or off through
+   * each EM4 entry and subsequent wake-up.  Enabling retention latches
+   * the state of all GPIO pin control signals so that they are
+   * unaffected by any reset source other than POR.
    *
-   * Note that the call to GPIO_PinModeSet() above does not actually
-   * change the pin state if we have had an EM4 wake-up with full
-   * retention.  All we're doing is putting the new register value in
-   * place so that when we do unlatch, it takes effect.
+   * Because wake from EM4 is a reset, the GPIO registers assume their
+   * default states, but the pins themselves do not revert to register
+   * control.  Firmware must first update the GPIO registers, including
+   * repainting those for pins that are not supposed to change state,
+   * and then call EMU_UnlatchPinRetention() to globally unlatch them.
    *
-   * Why mention all of this here?  Wake from EM4 not only has
-   * implications if full GPIO retention is used but also with regards
-   * to certain CMU and EMU registers.  Because we're about to
-   * initialize the LF clocks, it will be necessary to unlatch before
-   * certain register writes can take place.  The parameter passed to
-   * lfClkInit() lets the function know whether or not unlatch is
-   * necessary.
-   *
-   * In the case of our GPIO pin above, its state will have already
-   * changed if our reset is not an EM4 wake (e.g. POR or pin reset).
-   * However, in the case of a wake-up, the state changes when
-   * EMU_UnlatchPinRetention() is called in lfClkInit().
+   * Why mention this here?  The CMU LF oscillator and LFECLK registers
+   * are also latched and must be repainted on wake from EM4.  The
+   * parameter passed to lfClkInit() lets the function know whether or
+   * not unlatch is necessary.
    */
   lfClkInit(wakestate);
 
   /*
-   * Initialize and start the RTCC.  Note that to get a 5-second wake
-   * interval, the match needs to occur at 4 counts because there is
-   * a 1 CNT delay from when the match occurs to when it is recognized
-   * by the EM4 wake-up logic.
+   * Setup the RTCC and start it when not waking from EM4.  Note that
+   * to get a 5-second wake interval, the match needs to occur at 4
+   * counts because there is a 1 count delay from when the match occurs
+   * to when it is recognized by the EM4 wake-up logic.
    */
-  rtccInit(4);
+  rtccInit(4, wakestate);
 
   /*
-   * When developing/debugging code that enters EM4 is it imperative to
-   * have an "escape hatch" type mechanism, e.g. a way to pause the
+   * When developing/debugging code that enters EM4 it is imperative to
+   * have an "escape hatch" type of mechanism, e.g. a way to pause the
    * device so that a debugger can connect in order to erase flash,
    * among other things.
    *
    * This is necessary because once a device enters EM4, it is not
-   * possible to connect with a debugger.  While it is possible to
-   * use the AAP in such a case to force a device erase, the timing to
-   * do so is very tight and cannot be met using the normal J-Link
-   * commands.  Instead, it would be necessary to use an EFM32 Starter
-   * Kit configured to operate in Debug Out mode as the debug interface
-   * and then to use Simplicity Commander to unlock the device.
+   * possible to connect with a debugger.  While the AAP cab be used in
+   * such a case to force a device erase, the timing to do so is very
+   * tight and cannot be met using the normal J-Link commands.  Instead,
+   * an EFM32 Starter Kit must be used as the debug interface along with
+   * Simplicity Commander to unlock the device.
    *
    * Before proceeding with this example, make sure PB0 is not pressed.
    * If the PB0 pin is low, turn on LED0 and LED1 and execute the BKPT
@@ -386,8 +434,8 @@ int main(void)
   /*
    * Configure EM4 options.  Note that this has nothing to do with the
    * selection of wake-up events.  The only things specified here are
-   * the EM4 state (hibernate or shutdown, retained oscillators, pin
-   * retention, and voltage scaling).
+   * the EM4 state (hibernate or shutdown), retained oscillators, pin
+   * retention, and voltage scaling.
    */
   EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
   em4Init.em4State = emuEM4Hibernate;
