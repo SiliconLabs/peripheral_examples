@@ -61,6 +61,10 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 ## How to import to IAR Embedded Workbench IDE ##
 1. Navigate to the desired .eww file and double click
 
+## Porting to Another Board
+Peripheral examples make use of the BSP headers to provide portable support for different development boards. To change the target board, navigate to Project -> Properties -> C/C++ Build -> Board/Part/SDK. Start typing in the Boards search box and locate the desired development board, then click Apply to change the project settings. Ensure that the board specific include paths, found in Project -> Properties -> C/C++ General -> Paths and Symbols, correctly match the target board.
+
+e.g. ```${StudioSdkPath}/hardware/kit/EFR32MG21_BRD4181B/config``` is the correct include path for the brd4181b radio board.
 
 ## Reporting Bugs/Issues and Posting Questions and Comments ##
 

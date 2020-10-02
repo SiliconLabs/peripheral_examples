@@ -37,7 +37,6 @@
 #include "em_gpio.h"
 #include "em_emu.h"
 #include "bsp.h"
-#include <stdio.h>
 
 // must re-map GPIO to pins on port A/B for interrupts to work in EM2/3
 #define  BUTTON_0_PORT  gpioPortA
@@ -54,12 +53,22 @@ static void gpioSetup(void)
   /* Configure Button PB0 as input and enable interrupt */
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPull, 1);
   GPIO_PinModeSet(BUTTON_0_PORT, BUTTON_0_PIN, gpioModeInputPull, 1);
-  GPIO_IntConfig(BUTTON_0_PORT, BUTTON_0_PIN, false, true, true);
+  GPIO_ExtIntConfig(BUTTON_0_PORT,
+                    BUTTON_0_PIN,
+                    BUTTON_0_PIN,
+                    false,
+                    true,
+                    true);
 
   /* Configure Button PB1 as input and enable interrupt */
   GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPull, 1);
   GPIO_PinModeSet(BUTTON_1_PORT, BUTTON_1_PIN, gpioModeInputPull, 1);
-  GPIO_IntConfig (BUTTON_1_PORT, BUTTON_1_PIN, false, true, true);
+  GPIO_ExtIntConfig(BUTTON_1_PORT,
+                    BUTTON_1_PIN,
+                    BUTTON_1_PIN,
+                    false,
+                    true,
+                    true);
 
   /* Enable EVEN interrupt to catch button press that changes slew rate */
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);

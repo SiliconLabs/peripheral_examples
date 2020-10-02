@@ -60,7 +60,12 @@ static void gpioSetup(void)
 
   /* Configure Button PB0 as input and enable interrupt */
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPull, 1);
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, true, true);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT,
+                    BSP_GPIO_PB0_PIN,
+                    BSP_GPIO_PB0_PIN,
+                    false,
+                    true,
+                    true);
 
   /* Enable EVEN interrupt to catch button press that changes slew rate */
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
