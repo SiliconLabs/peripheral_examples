@@ -17,9 +17,6 @@
     <path>$WS_DIR$\EFR32BG13P_idac_timer_prs.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_idac_timer_prs.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32BG1P_idac_timer_prs.ewp</path>
   </project>
   <project>

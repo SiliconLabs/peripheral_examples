@@ -162,13 +162,6 @@ PA0 - OPA2_P   (POS2)  (APORT3XCH8)   (Expansion Header Pin 12)
 PA4 - OPA0_N   (Vin)   (Negative Pad) (Breakout Pads Pin 14)
 PA1 - OPA2_OUT (Vout2) (APORT3YCH9)   (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PC8 - OPA0_P   (POS0)  (APORT1XCH8)   (Expansion Header Pin 8)
-PC9 - OPA1_P   (POS1)  (APORT2XCH9)   (Expansion Header Pin 10)
-PA4 - OPA0_N   (Vin)   (Negative Pad) (Breakout Pads Pin 14)
-PA1 - OPA1_OUT (Vout1) (APORT3YCH9)   (Expansion Header Pin 14)
-
 Board:  Silicon Labs EFM32GG11 Starter Kit (SLSTK3701A)
 Device: EFM32GG11B820F2048GL192
 PE8  - OPA0_P   (POS0)  (APORT3XCH8)   (Expansion Header Pin 12)

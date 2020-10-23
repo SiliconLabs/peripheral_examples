@@ -41,15 +41,6 @@ PC7 - USART1 MISO - EXP Header Pin 6
 PC8 - USART1 CLK  - EXP Header Pin 8
 PC9 - USART1 CS   - EXP Header Pin 10
 
-Board: Silicon Labs EFR32BG14 Starter Kit(BRD4105A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-PC6 - USART1 MOSI - EXP Header Pin 4
-PC7 - USART1 MISO - EXP Header Pin 6
-PC8 - USART1 CLK  - EXP Header Pin 8
-PC9 - USART1 CS   - EXP Header Pin 10
-
-
 Board:  Silicon Labs EFM32FG1P Starter Kit (BRD4250A) + 
         Wireless Starter Kit Mainboard
 Device: EFM32FG1P133F256GM48

@@ -72,11 +72,6 @@ Board:  Silicon Labs EFR32BG13 Radio Board (SLWRB4104A) +
 Device: EFR32BG13P632F512GM48
 PC9 - ADC0 Port 2X Channel 9 (Expansion Header Pin 10)
 
-Board:  Silicon Labs EFR32BG14 Radio Board (SLWRB4105A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-PA3 - ADC0 Port 4X Channel 11 (Expansion Header Pin 5)
-
 Board:  Silicon Labs EFR32FG1P Starter Kit (BRD4250A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG1P133F256GM48

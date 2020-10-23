@@ -101,11 +101,6 @@ Device: EFR32BG13P632F512GM48
 PA3  - VDAC0_OUT0 (Pin 2 of breakout pads)
 PD14 - VDAC0_OUT1 (Pin 33 of breakout pads)
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PA3  - VDAC0_OUT0 (Pin 2 of breakout pads)
-PD14 - VDAC0_OUT1 (Pin 33 of breakout pads)
-
 Board:  Silicon Labs EFR32FG12 Radio Board (BRD4253A)
 Device: EFR32FG12P433F1024GL125
 PA3  - VDAC0_OUT0 (Pin 36 of breakout pads)

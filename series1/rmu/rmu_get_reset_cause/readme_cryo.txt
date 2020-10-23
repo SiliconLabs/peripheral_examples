@@ -54,13 +54,6 @@ PF5 - LED1
 PF6 - Push Button PB0
 PF7 - Push Button PB1
 
-Board: Silicon Labs EFM32BG14P Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PF4 - LED0
-PF5 - LED1
-PF6 - Push Button PB0
-PF7 - Push Button PB1
-
 Board:  Silicon Labs EFM32MG1 Starter Kit (BRD4151A)
 Device: EFR32MG1P232F256GM48
 PF4 - LED0

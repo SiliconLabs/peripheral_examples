@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13P_gpio_slew_rate_bg13p.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_gpio_slew_rate_bg14p.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32BG1P_gpio_slew_rate_bg1p.ewp</path>
   </project>
   <project>

@@ -48,10 +48,6 @@ Board:  Silicon Labs EFR32BG13 Starter Kit (BRD4104A)
 Device: EFR32BG13P632F512GM48
 PF6 - Push Button 0
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PF6 - Push Button 0
-
 Board:  Silicon Labs EFR32FG12P Starter Kit (BRD4253A)
 Device: EFR32FG12P433F1024GL125
 PF6 - Push Button 0

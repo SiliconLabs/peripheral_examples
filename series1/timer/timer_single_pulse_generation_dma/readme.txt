@@ -73,10 +73,6 @@ Board:  Silicon Labs EFR32BG13 Starter Kit (BRD4104A)
 Device: EFR32BG13P632F512GM48
 PC10 - TIM0_CC0 #15 (Expansion Header Pin 15)
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PC10 - TIM0_CC0 #15 (Expansion Header Pin 15)
-
 Board:  Silicon Labs EFR32FG1P Starter Kit (BRD4250A)
 Device: EFR32FG1P133F256GM48
 PC10 - TIM0_CC0 #15 (Expansion Header Pin 15)

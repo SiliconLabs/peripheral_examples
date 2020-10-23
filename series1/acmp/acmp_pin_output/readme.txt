@@ -78,12 +78,6 @@ Device: EFR32BG13P632F512GM48
 ACMP0 Input - PF6 (Push Button 0)
 ACMP0 Output- PF4 (LED 0 / ACMP Route Loc 28)
 
-Board:  Silicon Labs EFR32BG14 Radio Board (SLWRB4105A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-ACMP0 Input - PF6 (Push Button 0)
-ACMP0 Output- PF4 (LED 0 / ACMP Route Loc 28)
-
 Board:  Silicon Labs EFR32FG1P Starter Kit (BRD4250A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG1P133F256GM48

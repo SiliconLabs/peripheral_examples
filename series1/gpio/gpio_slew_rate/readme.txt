@@ -38,13 +38,6 @@ PF6 - Push Button PB0
 PF7 - Push Button PB1
 PA0 - 1 MHz output
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A) +
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-PF6 - Push Button PB0
-PF7 - Push Button PB1
-PA0 - 1 MHz output
-
 Board:  Silicon Labs EFM32FG1P Starter Kit (BRD4250A) +
         Wireless Starter Kit Mainboard
 Device: EFM32FG1P133F256GM48

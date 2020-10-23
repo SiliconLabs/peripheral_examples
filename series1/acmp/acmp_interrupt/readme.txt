@@ -64,11 +64,6 @@ Board:  Silicon Labs EFR32BG13 Radio Board (SLWRB4104A) +
 Device: EFR32BG13P632F512GM48
 ACMP0 input Ch 0 - Push Button 0 (PF6)
 
-Board:  Silicon Labs EFR32BG14 Radio Board (SLWRB4105A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-ACMP0 input Ch 0 - Push Button 0 (PF6)
-
 Board:  Silicon Labs EFR32FG1P Starter Kit (BRD4250A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG1P133F256GM48

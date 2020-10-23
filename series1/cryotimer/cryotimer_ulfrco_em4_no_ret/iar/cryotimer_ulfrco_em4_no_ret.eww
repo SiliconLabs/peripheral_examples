@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13P_cryotimer_ulfrco_em4_no_ret.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_cryotimer_ulfrco_em4_no_ret.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32BG1P_cryotimer_ulfrco_em4_no_ret.ewp</path>
   </project>
   <project>

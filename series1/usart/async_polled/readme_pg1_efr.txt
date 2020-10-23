@@ -33,12 +33,6 @@ Device: EFR32BG13P632F512GM48
 PA0 - USART0 TX
 PA1 - USART0 RX
 
-Board: Silicon Labs EFR32BG14 Starter Kit (BRD4105A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-PA0 - USART0 TX
-PA1 - USART0 RX
-
 Board:  Silicon Labs EFM32FG1P Starter Kit (BRD4250A) + 
         Wireless Starter Kit Mainboard
 Device: EFM32FG1P133F256GM48

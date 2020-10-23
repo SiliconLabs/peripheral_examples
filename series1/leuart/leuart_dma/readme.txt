@@ -146,16 +146,6 @@ Device: EFR32BG13P632F512GM48
 PA0 - LEUART0 TX (Pin 12)
 PA1 - LEUART0 RX (Pin 14)
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PA0 - LEUART0 TX (Pin 12)
-PA1 - LEUART0 RX (Pin 14)
-
-Board:  Silicon Labs EFM32GG11 Starter Kit (SLSTK3701A)
-Device: EFM32GG11B820F2048GL192
-PC14 - LEUART0 TX (top right row of breakout pads, Pin 25)
-PC15 - LEUART0 RX (top right row of breakout pads, Pin 27)
-
 Board:  Silicon Labs EFM32TG11 Starter Kit (SLSTK3301A)
 Device: EFM32TG11B520F128GM80
 PC14 - LEUART0 TX (Pin 12)

@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13P_debug_lock.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_debug_lock.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32BG1P_debug_lock.ewp</path>
   </project>
   <project>

@@ -55,12 +55,6 @@ PA0 - USART0 TX
 PA1 - USART0 RX
 PA5 - Board Controller VCOM Enable
 
-Board:  Silicon Labs EFM32BG14P Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PA0 - USART0 TX
-PA1 - USART0 RX
-PA5 - Board Controller VCOM Enable
-
 Board:  Silicon Labs EFM32FG1 Starter Kit (BRD4250A)
 Device: EFR32FG1P133F256GM48
 PA0 - USART0 TX

@@ -17,9 +17,6 @@
     <path>$WS_DIR$\EFR32BG13P_voltage_scaling.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_voltage_scaling.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32FG12P_voltage_scaling.ewp</path>
   </project>
   <project>

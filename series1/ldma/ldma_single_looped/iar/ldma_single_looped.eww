@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13P_ldma_single_looped.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_ldma_single_looped.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32BG1P_ldma_single_looped.ewp</path>
   </project>
   <project>

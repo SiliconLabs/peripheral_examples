@@ -92,10 +92,6 @@ Board:  Silicon Labs EFR32BG13 Starter Kit (BRD4104A)
 Device: EFR32BG13P632F512GM48
 PA2  - IDAC0_OUT (pin 3 of expansion headers)
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A)
-Device: EFR32BG14P732F256GM48
-PA2  - IDAC0_OUT (pin 3 of expansion headers)
-
 Board:  Silicon Labs EFM32GG11 Starter Kit (SLSTK3701A)
 Device: EFM32GG11B820F2048GL192
 PE10 - IDAC0_OUT (pin 4 of expansion headers)

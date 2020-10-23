@@ -20,9 +20,6 @@
     <path>$WS_DIR$\EFR32BG13P_adc_single_prs_gpio_dma.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32BG14P_adc_single_prs_gpio_dma.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32BG1P_adc_single_prs_gpio_dma.ewp</path>
   </project>
   <project>

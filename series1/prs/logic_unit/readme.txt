@@ -62,11 +62,6 @@ Device: EFR32BG13P632F512GM48
 OUT0 - PRS Channel 0 Route 4  - PF4 (LED0)
 OUT1 - PRS Channel 1 Route 4  - PF5 (LED1)
 
-Board:  Silicon Labs EFR32BG14 Radio Board (SLWRB4105A) 
-Device: EFR32BG14P732F256GM48
-OUT0 - PRS Channel 0 Route 4  - PF4 (LED0)
-OUT1 - PRS Channel 1 Route 4  - PF5 (LED1)
-
 Board:  Silicon Labs EFM32FG1P Starter Kit (BRD4250A)
 Device: EFM32FG1P133F256GM48
 OUT0 - PRS Channel 0 Route 4  - PF4 (LED0)

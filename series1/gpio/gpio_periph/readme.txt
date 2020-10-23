@@ -25,11 +25,6 @@ Board:  Silicon Labs EFR32BG13 Starter Kit (BRD4104A) +
 Device: EFR32BG13P632F512GM48
 PA0 - LFRCO output1
 
-Board:  Silicon Labs EFR32BG14 Starter Kit (BRD4105A) +
-        Wireless Starter Kit Mainboard
-Device: EFR32BG14P732F256GM48
-PA0 - LFRCO output
-
 Board:  Silicon Labs EFM32FG1P Starter Kit (BRD4250A) + 
         Wireless Starter Kit Mainboard
 Device: EFM32FG1P133F256GM48
