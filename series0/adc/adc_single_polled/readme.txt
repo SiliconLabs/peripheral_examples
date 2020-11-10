@@ -1,4 +1,4 @@
-ADC_Single_Polled
+adc_single_polled
 
 This project demonstrates using the ADC0 peripheral to take single-ended
 analog measurements.  The main program polls continuously for conversions,

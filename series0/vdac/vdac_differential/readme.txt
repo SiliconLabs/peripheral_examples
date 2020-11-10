@@ -1,5 +1,4 @@
-
-================================================================================
+vdac_differential
 
 This project uses the VDAC in continuous mode with differential output to output
 a difference of 0.5V between two pins in EM3. The VDAC operates independently

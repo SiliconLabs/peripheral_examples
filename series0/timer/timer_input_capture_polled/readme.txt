@@ -1,5 +1,4 @@
-
-================================================================================
+timer_input_capture_polled
 
 This project demonstrates the use of the TIMER module for polled
 input capture. The Compare/Capture channel interrupt flag is polled until

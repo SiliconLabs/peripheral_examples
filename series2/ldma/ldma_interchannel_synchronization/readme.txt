@@ -1,4 +1,4 @@
-LDMA_Interchannel_Synchronization
+ldma_interchannel_synchronization
 
 This example is based on the EFR32 Series 2 Reference Manual:
 Chapter: LDMA

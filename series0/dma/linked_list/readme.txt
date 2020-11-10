@@ -1,4 +1,8 @@
-DMA_Linked_List
+linked_list
+
+Software requests a DMA transfer on a linked list of 4 descriptors, 
+which each move 8 halfwords of memory into a destination buffer.  The 
+callback function is called after every descriptor.
 
 This example is based on the Reference Guide Section 8.4.2.3.4:
 Chapter: DMA
@@ -6,10 +10,6 @@ Section: Functional Description
 Subsection: DMA Control
 Control Structure: DMA Cycle Types
 Cycle Type: Ping-Pong
-
-Software requests a DMA transfer on a linked list of 4 descriptors, 
-which each move 8 halfwords of memory into a destination buffer.  The 
-callback function is called after every descriptor.
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

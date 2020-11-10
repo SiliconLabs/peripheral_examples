@@ -1,5 +1,4 @@
-
-================================================================================
+aes_cfb_256
 
 This project uses the CFB (Cipher Feedback) mode of AES encryption to 
 encrypt the user's input data and then decrypt it. This project uses 256 bit

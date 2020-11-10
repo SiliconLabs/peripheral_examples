@@ -1,5 +1,4 @@
-
-================================================================================
+usbd_cdc_vcom_echo
 
 This project uses the USB module to implement a USB CDC device (Communications
 Device Class) that acts as a VCOM port. This example uses the "VCOM port" to

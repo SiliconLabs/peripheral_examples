@@ -1,4 +1,4 @@
-ACMP_Pin_Output
+acmp_pin_output
 
 This project demonstrates a simple comparison of 2 inputs. An external
 input pin is compared with an internal Vref of 1.25V.  When the voltage

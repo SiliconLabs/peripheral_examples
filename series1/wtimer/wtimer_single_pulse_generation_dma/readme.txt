@@ -1,5 +1,4 @@
-
-================================================================================
+wtimer_single_pulse_generation_dma
 
 This project demonstrates the generation of a single pulse using output compare
 and the LDMA. WTIMER is initialized for output compare on Compare/Capture

@@ -1,7 +1,5 @@
 em4_wakeup
 
-For Tiny Gecko:
-
 This project demonstrates the ability for a pin to wake the device from EM4.
 When first loading th eproject, the device will enter EM4.
 Pressing the external reset button will wake the device from EM4 and cause the LEDs on the STK to

@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_inverting
 
 This project operates in EM3 and configures an opamp as an inverting amplifier
 whose gain is given by the following equation:

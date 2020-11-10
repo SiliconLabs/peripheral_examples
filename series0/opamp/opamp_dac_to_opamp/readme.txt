@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_dac_to_opamp
 
 This project configures opamp 2 as a non-inverting amplifier whose gain is given
 by the following equation: Vout = Vin * (1 + R2/R1). By default, this project

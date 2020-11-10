@@ -1,9 +1,4 @@
-LDMA_Scatter_Gather
-
-This example is based on the Reference Manual Section 7.4.8:
-Chapter: LDMA
-Section: Examples
-Subsection: Example #8
+ldma_scatter_gather
 
 Software requests an LDMA transfer on a linked list of 4 descriptors to
 "scatter" one large array into 4 smaller arrays.  Each descriptor moves 8 
@@ -21,6 +16,10 @@ dstBuffer[1] = 16, 17, 18, 19, 20, 21, 22, 23
 dstBuffer[2] =  8,  9, 10, 11, 12, 13, 14, 15
 dstBuffer[3] =  0,  1,  2,  3,  4,  5,  6,  7
 
+This example is based on the Reference Manual Section 7.4.8:
+Chapter: LDMA
+Section: Examples
+Subsection: Example #8
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

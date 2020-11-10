@@ -1,4 +1,4 @@
-I2S
+i2s
 
 This project demonstrates how to get raw microphone data using i2s and
 transferring it over USART via LDMA transfers. Only the left microphone  

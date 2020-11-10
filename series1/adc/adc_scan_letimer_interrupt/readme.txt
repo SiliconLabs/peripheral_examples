@@ -1,4 +1,4 @@
-ADC_Scan_Letimer_Interrupt
+adc_scan_letimer_interrupt
 
 This project demonstrates ADC0 peripheral used with multiple single-ended
 inputs to take nonblocking measurements requested periodically by LETIMER0,

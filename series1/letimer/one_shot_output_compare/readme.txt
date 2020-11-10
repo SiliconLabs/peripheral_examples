@@ -1,4 +1,4 @@
-LETIMER_One_Shot_Output_Compare
+letimer_one_shot_output_compare
 
 This project demonstrates output compare in EM2 using the LETIMER.
 The project initializes the timer in one-shot mode, and after one 

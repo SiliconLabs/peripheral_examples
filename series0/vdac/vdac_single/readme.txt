@@ -1,5 +1,4 @@
-
-================================================================================
+vdac_single
 
 This project uses the VDAC in sample/off mode with single-ended output to output
 0.5V to a pin in EM3.

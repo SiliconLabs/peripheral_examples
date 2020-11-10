@@ -1,10 +1,4 @@
-LDMA_Interchannel_Synchronization
-
-This example is based on the Reference Manual Section 7.4.5:
-Chapter: LDMA
-Section: Examples
-Subsection: Example #5
-
+ldma_interchannel_synchronization
 
 In this example, the LDMA synchronizes across 2 Channels.  Each
 channel starts off on a different button press, and transfers 
@@ -15,6 +9,10 @@ If you press PB1, "YYyy" will be transfered to dstBuffer.
 After you press the second button (regardless of the order), 
 "CCcc" will be transferred to dstBuffer.
 
+This example is based on the Reference Manual Section 7.4.5:
+Chapter: LDMA
+Section: Examples
+Subsection: Example #5
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

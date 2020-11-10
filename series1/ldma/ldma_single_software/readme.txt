@@ -1,14 +1,13 @@
-LDMA_Single_Software
+ldma_single_software
+
+In this example, the LDMA transfers 127 halfwords (256 bytes)
+from one software array to another.  The transfer is requested
+by software.
 
 This example is based on the Reference Manual Section 7.4.1:
 Chapter: LDMA
 Section: Examples
 Subsection: Example #1
-
-
-In this example, the LDMA transfers 127 halfwords (256 bytes)
-from one software array to another.  The transfer is requested
-by software.
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

@@ -1,4 +1,4 @@
-LDMA_Scatter_Gather
+ldma_scatter_gather
 
 This example is based on the EFR32 Series 2 Reference Manual:
 Chapter: LDMA

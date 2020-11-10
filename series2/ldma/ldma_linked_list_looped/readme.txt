@@ -1,4 +1,4 @@
-LDMA_Linked_List_Looped
+ldma_linked_list_looped
 
 This example is based on the EFR32 Series 2 Reference Manual:
 Chapter: LDMA

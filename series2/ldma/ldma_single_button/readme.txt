@@ -1,4 +1,4 @@
-LDMA_Single_Button
+ldma_single_button
 
 This example is based on the EFR32 Series 2 Reference Manual:
 Chapter: LDMA

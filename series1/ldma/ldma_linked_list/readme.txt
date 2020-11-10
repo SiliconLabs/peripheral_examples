@@ -1,13 +1,13 @@
-LDMA_Linked_List
+ldma_linked_list
+
+Software requests an LDMA transfer on a linked list of 4 descriptors, 
+which each move 32 halfwords of memory into a destination buffer.  
+There are interrupts triggered after the second and fourth descriptors.
 
 This example is based on the Reference Manual Section 7.4.2:
 Chapter: LDMA
 Section: Examples
 Subsection: Example #2
-
-Software requests an LDMA transfer on a linked list of 4 descriptors, 
-which each move 32 halfwords of memory into a destination buffer.  
-There are interrupts triggered after the second and fourth descriptors.
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

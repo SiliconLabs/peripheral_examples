@@ -1,5 +1,4 @@
-
-================================================================================
+wtimer_frequency_generation
 
 This project demonstrates frequency generation using the WTIMER module.
 WTIMER0 is initialized for output compare on Compare/Capture channel 0 which

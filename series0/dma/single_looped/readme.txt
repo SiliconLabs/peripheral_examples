@@ -1,4 +1,4 @@
-DMA_Single_Looped_Transfer
+single_looped
 
 In this example, the DMA transfers 8 halfwords from one software 
 array to another.  It will loop this process an infinite number

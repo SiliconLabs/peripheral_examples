@@ -1,3 +1,4 @@
+timer_pwm_dma
 
 This project demonstrates DMA driven pulse width modulation using the TIMER
 module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is

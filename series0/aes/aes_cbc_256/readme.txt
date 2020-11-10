@@ -1,5 +1,4 @@
-
-================================================================================
+aes_cbc_256
 
 This project uses the CBC (Cipher Block Chaining) mode of AES encryption to 
 encrypt the user's input data and then decrypt it. This project uses 256 bit

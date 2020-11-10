@@ -1,3 +1,5 @@
+lfrco_cal_polled
+
 This project demonstrates calibration of the LFRCO against the HFXO.
 
 The device is initialized for the board it is running on, and the

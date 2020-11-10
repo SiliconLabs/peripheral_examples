@@ -1,4 +1,4 @@
-ACMP_Polled
+acmp_polled
 
 This project demonstrates a simple comparison of 2 inputs. An input pin is
 one input, which is compared with internal Vref of 1.25V. The program polls

@@ -1,11 +1,4 @@
-DMA_Scatter_Gather
-
-For more information on Scatter-Gathers, see Reference Guide Section 8.4.2.3.5:
-Chapter: 		LDMA
-Section: 		Functional Description
-Subsection: 	DMA Control
-Topic:			DMA Cycle Types
-Cycle Type: 	Memory Scatter-Gather
+scatter_gather
 
 Software requests a DMA transfer on a linked list of 4 descriptors to "scatter" 
 one large array into 4 smaller arrays.  Each descriptor moves 8 halfwords of 
@@ -22,6 +15,13 @@ dstBuffer[0] = 24, 25, 26, 27, 28, 29, 30, 31
 dstBuffer[1] = 16, 17, 18, 19, 20, 21, 22, 23
 dstBuffer[2] =  8,  9, 10, 11, 12, 13, 14, 15
 dstBuffer[3] =  0,  1,  2,  3,  4,  5,  6,  7
+
+For more information on Scatter-Gathers, see Reference Guide Section 8.4.2.3.5:
+Chapter: 		LDMA
+Section: 		Functional Description
+Subsection: 	DMA Control
+Topic:			DMA Cycle Types
+Cycle Type: 	Memory Scatter-Gather
 
 
 How to Test:

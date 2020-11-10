@@ -1,4 +1,4 @@
-VCMP_Interrupt
+vcmp_interrupt
 
 This project demonstrates the VCMP to detect battery level thresholds
 in EM2.  When the source battery is below the MAX_VOLTAGE (3.0 V), LED0

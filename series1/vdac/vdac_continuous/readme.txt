@@ -1,5 +1,4 @@
-
-================================================================================
+vdac_continuous
 
 This project uses the VDAC in continuous mode with single-ended output to output
 0.5V to a pin in EM3. The VDAC operates independently from the core. Since the

@@ -1,5 +1,4 @@
-
-================================================================================
+vdac_timer_dma_waveform
 
 This project uses the DAC/VDAC and TIMER0 to output a 32 point sine wave at a
 particular frequency (10 kHz by default). This project operates in EM1 because

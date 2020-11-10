@@ -1,5 +1,4 @@
-
-================================================================================
+idac_timer_dma_waveform
 
 This example shows how to use a timer and the DMA to output a sinewave using the
 IDAC. This project operates in EM1.

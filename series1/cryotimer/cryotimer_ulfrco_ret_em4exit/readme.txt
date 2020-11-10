@@ -1,5 +1,4 @@
-
-================================================================================
+cryotimer_ulfrco_ret_em4exit
 
 This project shows how to use the Cryotimer in EM4 with the ULFRCO and GPIO
 retention where the retention is enabled upon entering EM4 and disabled upon 

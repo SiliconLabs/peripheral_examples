@@ -1,4 +1,4 @@
-ADC_Single_Letimer_Prs_Dma
+adc_single_letimer_prs_dma
 
 This project demonstrates ADC0 peripheral in EM2 to take single-ended
 measurements.  These measurements are requested periodically by the 

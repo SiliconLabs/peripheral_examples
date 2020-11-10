@@ -1,3 +1,4 @@
+timer_period_measurement_interrupt
 
 This project demonstrates period measurement using the TIMER module. TIMER is
 initialized for input capture on Compare/Capture channel 0 for falling edge

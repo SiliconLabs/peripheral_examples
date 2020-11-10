@@ -1,5 +1,4 @@
-
-================================================================================
+leuart_dma
 
 This example uses the LEUART to receive serial input and then echo it back using
 the DMA/LDMA (Linked DMA is for series 1 devices only). The devices stays in EM2

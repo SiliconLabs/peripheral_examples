@@ -1,5 +1,4 @@
-
-================================================================================
+cryotimer_ulfrco_em4_no_ret
 
 This project shows how to use the Cryotimer in EM4 with the ULFRCO and no GPIO
 retention. This project does so by using LEDs.

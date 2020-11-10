@@ -1,5 +1,4 @@
-
-================================================================================
+aes_ctr_128
 
 This project uses the CTR (Counter Mode) mode of AES encryption to 
 encrypt the user's input data and then decrypt it. This project uses 128 bit

@@ -1,3 +1,5 @@
+usart_async_polled
+
 This project demonstrates polled operation of the USART in asynchronous
 mode.  USART1 is configured for asynchronous operation at 115200 baud
 with 8 data bits, no parity, and one stop bit (115200N81).  The main loop

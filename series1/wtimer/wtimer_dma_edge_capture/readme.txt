@@ -1,5 +1,4 @@
-
-================================================================================
+wtimer_dma_edge_capture
 
 This project demonstrates edge capture with DMA. The first 512 events
 captured by WTIMER CC0 are transferred to a fixed length buffer by the

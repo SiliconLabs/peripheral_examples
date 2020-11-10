@@ -1,3 +1,5 @@
+timer_frequency_generation
+
 This project demonstrates frequency generation using the TIMER module.
 TIMER0 is initialized for output compare on Compare/Capture channel 0 which
 is routed to GPIO Pin PA6 (Expansion Header Pin 14). The Top value is set

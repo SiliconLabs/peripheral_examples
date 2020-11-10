@@ -1,7 +1,5 @@
 em4_wakeup
 
-For Zero Gecko:
-
 This project demonstrates the ability for a pin to wake the device from EM4.
 Under a normal, non-EM4 reset, the device will enter EM4.
 Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to

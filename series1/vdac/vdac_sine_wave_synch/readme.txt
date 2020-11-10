@@ -1,5 +1,4 @@
-
-================================================================================
+vdac_sine_wave_synch
 
 This project uses the DAC and the internal sine wave generator to produce a
 16-point sine wave at a frequency of f_sinewave Hz centered at the reference

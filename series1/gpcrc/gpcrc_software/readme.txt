@@ -1,4 +1,4 @@
-GPCRC_Software
+gpcrc_software
 
 This project demonstrates the GPCRC used to check an array of 32-bit data
 using the IEEE 802.3 polynomial standard. The GPCRC conversions are initiated

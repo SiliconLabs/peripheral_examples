@@ -1,3 +1,4 @@
+timer_single_pulse_generation_interrupt
 
 This project demonstrates the generation of a single pulse using output compare.
 TIMER is initialized for output compare on Compare/Capture channel 0 which is

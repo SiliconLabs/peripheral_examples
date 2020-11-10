@@ -1,4 +1,4 @@
-Series 0 LETIMER_Pulse_Train
+pulse_train
 
 This project demonstrates pulse train generation using the LETIMER.
 The project initializes the timer in free mode, and creates a one 

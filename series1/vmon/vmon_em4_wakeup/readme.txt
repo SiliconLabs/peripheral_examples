@@ -1,4 +1,4 @@
-VMON_EM4_Wakeup
+vmon_em4_wakeup
 
 This project demonstrates using the VMON to wakeup from EM4H whenever 
 the battery level drops below a certain threashold. When first loaded,

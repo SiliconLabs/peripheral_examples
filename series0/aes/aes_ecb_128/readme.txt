@@ -1,5 +1,4 @@
-
-================================================================================
+aes_ecb_128
 
 This project uses the ECB (Electronic Code Book) mode of AES encryption to 
 encrypt the user's input data and then decrypt it. This project uses 128 bit

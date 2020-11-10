@@ -1,4 +1,4 @@
-ADC_Single_Prs_Gpio_Dma
+adc_single_prs_gpio_dma
 
 This project demonstrates ADC0 peripheral in EM2 to take single-ended 
 measurements.  These measurements are requested by gpio signals and routed 

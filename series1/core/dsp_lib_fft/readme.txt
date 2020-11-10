@@ -1,8 +1,5 @@
 dsp_lib_fft
 
-This example is compatible with all boards using cortex M4 cores. This includes
-Pearl, Blue, Flex, Mighty, and Giant 11 Gecko boards.
-
 This project demonstrates performing windowing and FFT on a time domain signal
 using the ARM CMSIS DSP_lib. A test 10kHz cosine is used for time domain data.
 The signal is first windowed by a hamming window function. This prevents
@@ -10,6 +7,9 @@ artifacts in the FFT caused by discontinuity between the first and last
 sample. The hamming window also reduces spectral leakage compared to lower 
 complexity windowing functions. The FFT is performed on the windowed signal,
 and the magnitude response is calculated and stored in a seperate buffer.
+
+This example is compatible with all boards using cortex M4 cores. This includes
+Pearl, Blue, Flex, Mighty, and Giant 11 Gecko boards.
 
 How To Test:
 1. Build the project and download to the Starter Kit

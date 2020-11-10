@@ -1,4 +1,4 @@
-ADC_Scan_Diff_Interrupt
+adc_scan_diff_interrupt
 
 This project demonstrates using the ADC0 peripheral to take 
 differential-ended analog measurements across different channels.  ADC

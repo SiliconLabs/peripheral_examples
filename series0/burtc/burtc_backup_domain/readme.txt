@@ -1,5 +1,4 @@
-
-================================================================================
+burtc_backup_domain
 
 This project uses the Backup Power Domain and BURTC (Backup Real Time Counter)
 to maintain a counter value even during a main power brownout. The counter is

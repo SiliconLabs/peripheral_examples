@@ -1,5 +1,4 @@
-
-================================================================================
+leuart_half_duplex
 
 This example uses the LEUART0 module (low energy UART) to do half-duplex
 communication with the LEUART0 module on another board using the single data-link

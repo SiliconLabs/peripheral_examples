@@ -1,5 +1,4 @@
-
-================================================================================
+cryotimer_lfxo_em4_no_ret
 
 This project shows how to use the Cryotimer in EM4 with the LFXO and no GPIO
 retention. This project does so by using LEDs.

@@ -1,4 +1,4 @@
-EMU_Voltage_Scaler
+voltage_scaling
 
 This project demonstrates the Voltage Scaling capabilities of the EMU.  When PB0
 is pressed, the handler switches between VSCALE0 and VSCALE2.  Using the energy

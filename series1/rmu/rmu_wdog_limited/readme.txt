@@ -1,4 +1,4 @@
-RMU Limited Reset
+rmu_wdog_limited
 
 This project showcases the Limited Reset capability of series 1 starter kits.
 In the Limited Reset mode, after a soft reset, everything is reset with the

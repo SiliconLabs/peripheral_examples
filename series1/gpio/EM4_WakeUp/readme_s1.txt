@@ -1,12 +1,12 @@
 em4_wakeup
 
-For Pearl Gecko 1, Pearl Gecko 12, Zero Gecko, Giant Gecko 11, Tiny Gecko 11. and all EFR32 kits:
-
 This project demonstrates the ability for a pin to wake the device from EM4.
 Under a normal, non-EM4 reset, the device will enter EM4.
 Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to
 toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake
 up register.
+
+For Pearl Gecko 1, Pearl Gecko 12, Zero Gecko, Giant Gecko 11, Tiny Gecko 11. and all EFR32 kits:
 
 How To Test:
 1. Build the project and download to the Starter Kit

@@ -1,5 +1,4 @@
-DMA_Single_Button
-
+single_button
 
 In this example, the DMA transfers 128 halfwords (256 bytes) from one 
 software array to another.  The transfer is requested by a button press 

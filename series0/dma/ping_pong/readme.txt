@@ -1,4 +1,4 @@
-DMA_Ping_Pong
+ping_pong
 
 Software requests DMA ping-pong transfers.  A shared source array is 
 transfered first to the "ping" buffer, then to the "pong", then back to ping, 

@@ -1,4 +1,4 @@
-ADC_Single_Interrupt
+adc_single_interrupt
 
 This project demonstrates using the ADC0 peripheral to take single-ended
 analog measurements.  ADC interrupts handle completed conversions and stores

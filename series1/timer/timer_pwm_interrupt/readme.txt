@@ -1,3 +1,4 @@
+timer_pwm_interrupt
 
 This project demonstrates pulse width modulation using the TIMER module. TIMER 
 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO 

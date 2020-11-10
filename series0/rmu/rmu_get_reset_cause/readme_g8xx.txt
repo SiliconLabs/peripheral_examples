@@ -1,6 +1,4 @@
-RMU Reset Sources
-
-This readme applies for main_G8xx which is used with Gecko kits.
+rmu_get_reset_cause
 
 This project demonstrates three different reset sources - POR, Pin Reset 
 and System Reset Request. GPIO Push Button (PB0) and LEDs (LED0 & LED1) 

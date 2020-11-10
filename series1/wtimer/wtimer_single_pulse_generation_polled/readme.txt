@@ -1,5 +1,4 @@
-
-================================================================================
+wtimer_single_pulse_generation_polled
 
 This project demonstrates the generation of a single pulse signal using output
 compare. WTIMER is initialized for output compare on Compare/Capture channel 0,

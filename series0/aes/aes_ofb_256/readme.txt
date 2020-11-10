@@ -1,5 +1,4 @@
-
-================================================================================
+aes_ofb_256
 
 This project uses the OFB (Output Feedback Mode) mode of AES encryption to 
 encrypt the user's input data and then decrypt it. This project uses 256 bit

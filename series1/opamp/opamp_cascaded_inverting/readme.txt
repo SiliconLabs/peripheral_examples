@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_cascaded_inverting
 
 This project operates in EM3 and configures opamps 0, 1, 2 as cascaded inverting
 amplifiers whose gains are given by the following equations:

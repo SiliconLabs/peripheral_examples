@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_differential_three
 
 This project operates in EM3 and configures opamp 0 as a voltage follower, 
 opamp 1 as a voltage follower, and opamp 2 as a non-inverting opamp to produce 

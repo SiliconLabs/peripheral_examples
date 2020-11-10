@@ -1,4 +1,4 @@
-RTC_ULFRCO
+rtc_ulfrco
 
 This project demonstrates the use of the Real Time Counter in EM3.
 The RTC is set up and then the device goes into EM3. After 5 seconds

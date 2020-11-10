@@ -1,4 +1,4 @@
-WDOG
+wdog_led_toggle
 
 This project demonstrates the functionality of the watchdog timer. It uses 
 LEDs and a Push-button to indicate the state of the system. If the LEDs are 

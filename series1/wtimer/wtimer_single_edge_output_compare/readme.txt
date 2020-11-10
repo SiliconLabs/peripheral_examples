@@ -1,3 +1,4 @@
+wtimer_single_edge_output_compare
 
 This project demonstrates single output compare using the WTIMER module.
 WTIMER is initialized for output compare on Compare/Capture channel 0 which

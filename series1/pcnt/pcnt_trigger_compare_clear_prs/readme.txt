@@ -1,11 +1,11 @@
-PCNT_TRIGGER_COMPARE_CLEAR_PRS
+pcnt_trigger_compare_clear_prs
 
- This project demonstrates the trigger compare and clear functionality
- of the pulse counter using interrupts. The program requests an interrupt 
- whenever the pulse counter clock (PRS in this example) triggers a
- compare and clear command and the result is the counter less than 
- or equal to the top value. Note the top value is set to 5 in this
- example. This feature is only for series 1 boards.
+This project demonstrates the trigger compare and clear functionality
+of the pulse counter using interrupts. The program requests an interrupt 
+whenever the pulse counter clock (PRS in this example) triggers a
+compare and clear command and the result is the counter less than 
+or equal to the top value. Note the top value is set to 5 in this
+example. This feature is only for series 1 boards.
 
 
 How To Test:

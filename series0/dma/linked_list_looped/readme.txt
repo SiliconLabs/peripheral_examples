@@ -1,5 +1,4 @@
-DMA_Descr_List_With_Looping
-
+linked_list_looped
 
 In this example, the DMA transfers 4 character strings from one 
 software array to another in the pattern:
@@ -9,7 +8,6 @@ A, B, A, B, A, B, A, B, C
 The transfer is requested by software at the end of the DMA 
 initialization.  A Callback function is called after every 
 completed transfer.
-  
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

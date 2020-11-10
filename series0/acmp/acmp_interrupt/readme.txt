@@ -1,4 +1,4 @@
-ACMP_Interrupt
+acmp_interrupt
 
 This project demonstrates a simple comparison of 2 inputs. An external input
 pin is compared with internal Vref of 1.25V. The program interrupts when the

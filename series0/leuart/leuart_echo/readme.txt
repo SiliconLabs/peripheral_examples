@@ -1,5 +1,4 @@
-
-================================================================================
+leuart_echo
 
 This example uses the LEUART (low energy UART) to receive serial input and then
 echo it back. The board waits in EM2 to preserve energy while waiting for input.

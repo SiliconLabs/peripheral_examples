@@ -1,9 +1,4 @@
-LDMA_Ping_Pong
-
-This example is based on the Reference Manual Section 7.4.7:
-Chapter: LDMA
-Section: Examples
-Subsection: Example #7
+ldma_ping_pong
 
 Software requests LDMA ping-pong transfers.  A universal source array is 
 transfered first to the "pingBuffer" array, then to the "pongBuffer", then
@@ -12,6 +7,10 @@ increments the elements of the source buffer, then requests the next transfer.
 In this way, you should see "11111111" transfered to ping, then "22222222" 
 transfered to pong, etc.
 
+This example is based on the Reference Manual Section 7.4.7:
+Chapter: LDMA
+Section: Examples
+Subsection: Example #7
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

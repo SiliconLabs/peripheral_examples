@@ -1,4 +1,4 @@
-I2C_Master_Slave
+i2c
 
 This project demonstrates both master and slave configurations of the 
 EFM32 I2C peripheral. Two EFM32 starter kits are connected via a single I2C

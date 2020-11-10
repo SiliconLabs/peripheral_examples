@@ -1,5 +1,4 @@
-
-================================================================================
+usbd_cdc_uart_bridge
 
 This project uses the USB module to implement a USB CDC device (Communications
 Device Class) that uses the driver code in Drivers/cdc.c to act as a USB to UART

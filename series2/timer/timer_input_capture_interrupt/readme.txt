@@ -1,5 +1,4 @@
-
-================================================================================
+timer_input_capture_interrupt
 
 This project demonstrates the use of the TIMER module for interrupt
 based input capture. After button 0 is pressed, the PRS routes this signal

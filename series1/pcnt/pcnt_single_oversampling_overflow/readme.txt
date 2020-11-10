@@ -1,11 +1,11 @@
-PCNT_SINGLE_OVERSAMPLING
+pcnt_single_oversampling_overflow
 
- This project demonstrates the single input oversampling mode using
- the LFA clock with interrupts. The program generates an interrupt 
- whenever the pulse counter detects the number of pulses that went
- above a certain threshold. The threshold is defined by the user.
- In this example, Push Button PB0 is used as the pulse counter
- input source.
+This project demonstrates the single input oversampling mode using
+the LFA clock with interrupts. The program generates an interrupt 
+whenever the pulse counter detects the number of pulses that went
+above a certain threshold. The threshold is defined by the user.
+In this example, Push Button PB0 is used as the pulse counter
+input source.
 
 How To Test:
 1. Build the project and download to the Starter Kit

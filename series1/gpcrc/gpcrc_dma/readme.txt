@@ -1,4 +1,4 @@
-GPCRC_LDMA
+gpcrc_dma
 
 This project demonstrates the GPCRC used to check 32-bit data using the 
 IEEE 802.3 polynomial standard in EM1.  Data is fed into and read out

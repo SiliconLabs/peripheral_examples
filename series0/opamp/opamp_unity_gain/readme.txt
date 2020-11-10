@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_unity_gain
 
 This project configures an opamp as a voltage follower with unity gain. The 
 output is routed back to the inverting input and the output voltage is equal to 

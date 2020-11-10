@@ -1,3 +1,5 @@
+usart_spi_master_polled
+
 This project demonstrates polled operation of the USART in synchronous
 master mode.  USART0 is configured for SPI-compatible operation at
 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard

@@ -1,3 +1,5 @@
+async_interrupt
+
 This project demonstrates interrupt-drive operation of the USART in
 asynchronous mode.  Depending on the device, USART0, USART1, or USART4 is
 configured for asynchronous operation at 115200 baud with 8 data bits, no

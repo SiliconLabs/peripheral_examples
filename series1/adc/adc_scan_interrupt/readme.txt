@@ -1,4 +1,4 @@
-ADC_Scan_Interrupt
+adc_scan_interrupt
 
 This project demonstrates using the ADC0 peripheral to take single-ended
 analog measurements across different channels. In this example, single-ended

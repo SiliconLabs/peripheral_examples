@@ -1,4 +1,4 @@
-RTC_LFXO
+rtc_lfxo
 
 This project demonstrates the use of the Real Time Counter in EM2.
 The timer is set to interrupt every 3 seconds and upon interrupt 

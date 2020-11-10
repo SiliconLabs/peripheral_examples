@@ -1,5 +1,4 @@
-
-================================================================================
+idac_timer_prs
 
 This example shows how to use a timer to control the IDAC through the PRS. The
 IDAC is configured to enable its output based on the signal it receives from PRS

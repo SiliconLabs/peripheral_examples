@@ -1,3 +1,4 @@
+wtimer_pulse_capture
 
 This project demonstrates single pulse capture using the TIMER module. The HFXO
 is configured to run the HFPER clock. WTIMER is then initialized for input

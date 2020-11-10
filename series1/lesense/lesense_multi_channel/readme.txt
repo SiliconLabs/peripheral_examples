@@ -1,4 +1,4 @@
-Lesense_Multi_Channel
+lesense_multi_channel
 
 This project demonstrates the usage of lesense to sample multiple channels using ACMP. The project
 defines four lesense channels and each of these channels is linked to one of the ACMP channel based

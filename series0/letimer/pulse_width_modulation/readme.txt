@@ -1,4 +1,4 @@
-LETIMER_Pulse_Width_Modulation
+pulse_width_modulation
 
 This project demonstrates pulse width modulation using the LETIMER.
 The project initializes the timer for PWM with a set 30 percent 

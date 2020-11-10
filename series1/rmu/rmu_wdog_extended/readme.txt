@@ -1,4 +1,4 @@
-RMU Wdog Extended Reset
+rmu_wdog_extended
 
 This project showcases the Extended reset capability of the series 1
 starter kits. In the extended reset mode, after a soft reset, 

@@ -1,4 +1,4 @@
-LDMA_Single_Looped
+ldma_single_looped
 
 This example is based on the EFR32 Series 2 Reference Manual:
 Chapter: LDMA

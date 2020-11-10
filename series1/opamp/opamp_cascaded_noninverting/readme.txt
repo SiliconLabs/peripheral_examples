@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_cascaded_noninverting
 
 This project operates in EM3 and configures opamp 0, 1, 2 as cascading 
 non-inverting amplifiers gains are given by the following equations:

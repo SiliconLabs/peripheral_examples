@@ -1,10 +1,4 @@
-LDMA_Linked_List_Looped
-
-This example is based on the Reference Manual Section 7.4.4:
-Chapter: LDMA
-Section: Examples
-Subsection: Example #4
-
+ldma_linked_list_looped
 
 In this example, the LDMA transfers 4 character strings from one software
 array to another.  It switches between A and B four times, then transfers 
@@ -35,7 +29,11 @@ Also remove from LDMA_IRQHandler() the following lines:
 
 	/* Request first transfer */
 	LDMA->SWREQ |= LDMA_CH_MASK;
-  
+
+This example is based on the Reference Manual Section 7.4.4:
+Chapter: LDMA
+Section: Examples
+Subsection: Example #4
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

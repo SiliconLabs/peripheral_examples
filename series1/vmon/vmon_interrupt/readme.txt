@@ -1,4 +1,4 @@
-VMON_Interrupt
+vmon_interrupt
 
 This project demonstrates the VMON to detect battery level threasholds
 in EM2.  When the source battery is below the THRESHOLD_VOLTAGE (3.0 V),

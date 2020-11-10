@@ -1,3 +1,5 @@
+usart_spi_slave_polled
+
 This project demonstrates polled operation of the USART in synchronous
 slave mode.  USART0 is configured for SPI-compatible operation at 1 Mbps.
 Compatibility with the Synchronous Peripheral Interface standard implies

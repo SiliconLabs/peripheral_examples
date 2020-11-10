@@ -1,5 +1,4 @@
-
-================================================================================
+cryotimer_ulfrco_em123
 
 This project shows how to use the Cryotimer with the ULFRCO in EM3. The project
 idles in EM3 while waiting for the interrupt handler to toggle LED0. An

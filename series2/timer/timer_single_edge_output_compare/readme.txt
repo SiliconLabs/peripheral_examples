@@ -1,3 +1,5 @@
+timer_single_edge_output_compare
+
 This project demonstrates single output compare using the TIMER module.
 TIMER1 is initialized for output compare on Compare/Capture channel 0 which
 is routed to the GPIO pin specified below. The Compare value is set such that

@@ -1,3 +1,5 @@
+rtcc_em4_wake
+
 This project demonstrates use of the RTCC to wake from EM4.
 
 Once the device is initialized, it toggles LED0 on or off depending on

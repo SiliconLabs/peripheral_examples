@@ -1,3 +1,4 @@
+timer_dma_edge_capture
 
 This project demonstrates DMA driven edge capture from a TIMER Compare/Capture
 channel. TIMER0 CC0 is configured to capture rising and falling edges. GPIO Pin

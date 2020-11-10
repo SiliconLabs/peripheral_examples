@@ -1,5 +1,4 @@
-
-================================================================================
+burtc_em4_wakeup_retention
 
 This project uses the BURTC (Backup Real Time Counter) to wake the board up from
 EM4 mode and thus trigger a reset. This project also shows how to use the BURTC

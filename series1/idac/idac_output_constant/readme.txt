@@ -1,5 +1,4 @@
-
-================================================================================
+idac_output_constant
 
 This example uses the IDAC to output 2 microamps to the pin specified in the pin
 mappings section below. The project operates in EM3. This example used about

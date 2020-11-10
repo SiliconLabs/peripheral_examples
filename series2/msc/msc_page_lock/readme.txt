@@ -1,3 +1,5 @@
+msc_page_lock
+
 This project demonstrates how to lock flash pages using the
 MSC_PAGELOCKn and MSC_MISCLOCKWORD registers.  While the locking
 process is a simple matter of writing 1s to the relevant register

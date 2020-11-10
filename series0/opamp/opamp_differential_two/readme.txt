@@ -1,5 +1,4 @@
-
-================================================================================
+opamp_differential_two
 
 This project operates in EM3 and configures opamp 0 as a voltage follower and
 opamp 1 as a non-inverting opamp. The equation for Vdiff is shown below:

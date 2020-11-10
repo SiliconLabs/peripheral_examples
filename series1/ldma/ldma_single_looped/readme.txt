@@ -1,10 +1,4 @@
-LDMA_Single_Looped
-
-This example is based on the Reference Manual Section 7.4.3:
-Chapter: LDMA
-Section: Examples
-Subsection: Example #3
-
+ldma_single_looped
 
 In this example, the LDMA transfers 16 words from one software 
 array to another in 4 sets of 4 words.  The transfer is requested 
@@ -26,6 +20,10 @@ Also remove from LDMA_IRQHandler() the following lines:
   // Start next Transfer
   LDMA->SWREQ |= LDMA_CH_MASK;
 
+This example is based on the Reference Manual Section 7.4.3:
+Chapter: LDMA
+Section: Examples
+Subsection: Example #3
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)

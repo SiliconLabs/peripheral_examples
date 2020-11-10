@@ -1,3 +1,5 @@
+em23_voltage_scaling
+
 This project demonstrates the use of EM2/EM3 voltage scaling on Series 2
 EFR32 devices.  Note that this differs from the voltage scaling
 functionality on Series 1 devices where a single setting (VS2 or VS0)

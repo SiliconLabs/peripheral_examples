@@ -1,6 +1,4 @@
-RMU Reset Sources
-
-This readme applies for main_GPIO which is used with Zero Gecko and Happy Gecko kits.
+rmu_get_reset_cause
 
 This project demonstrates four different reset sources - POR, EM4, Pin Reset 
 and System Reset Request. GPIO Push Buttons (PB0 & PB1) and LEDs (LED0 & LED1) 

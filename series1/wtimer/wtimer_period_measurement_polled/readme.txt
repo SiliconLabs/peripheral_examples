@@ -1,3 +1,4 @@
+wtimer_period_measurement_polled
 
 This project demonstrates polled period measurement using the WTIMER module. 
 TIMER is initialized for input capture on Compare/Capture channel 0 for falling 

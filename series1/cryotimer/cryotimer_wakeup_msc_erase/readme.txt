@@ -1,5 +1,4 @@
-
-================================================================================
+cryotimer_wakeup_msc_erase
 
 This project shows how to use the Cryotimer with the ULFRCO to wake
 up from EM4. This project also shows how to write/erase the USERDATA page.

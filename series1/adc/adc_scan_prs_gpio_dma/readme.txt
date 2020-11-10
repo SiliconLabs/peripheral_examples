@@ -1,4 +1,4 @@
-ADC_Scan_Prs_Gpio_Dma
+adc_scan_prs_gpio_dma
 
 This project demonstrates ADC0 peripheral in EM2 to take single-ended
 measurements on multiple pins.  These measurements are requested by gpio

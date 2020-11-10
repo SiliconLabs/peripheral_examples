@@ -1,4 +1,4 @@
-PRS_Logic
+prs_logic_unit
 
 This project demonstrates the built-in PRS logic functions between channels.
 PB0 and PB1 are set as PRS source. 

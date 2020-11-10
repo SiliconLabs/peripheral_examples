@@ -1,8 +1,8 @@
 pcnt_extclk_quadrature
 
- This project demonstrates the external quadrature mode of the pulse counter
- peripheral. The program will request an interrupt whenever the quadrature
- decoder detects a change in direction.
+This project demonstrates the external quadrature mode of the pulse counter
+peripheral. The program will request an interrupt whenever the quadrature
+decoder detects a change in direction.
 
 For Tiny Gecko Series:
 

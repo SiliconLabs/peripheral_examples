@@ -1,10 +1,4 @@
-DMA_2D_Copy
-
-This example is based on the Reference Guide Section 8.4.5:
-Chapter: DMA
-Section: Functional Description
-Subsection: 2D Copy
-
+2d_copy
 
 In this example, the DMA transfers a submatrix from one software matrix 
 to another.   The source buffer is numbered from 0 to 
@@ -24,6 +18,11 @@ With the sample values given, the LDMA will transfer
 40 41 42
 
 from the source matrix to index (1, 2) of the destination matrix.
+
+This example is based on the Reference Guide Section 8.4.5:
+Chapter: DMA
+Section: Functional Description
+Subsection: 2D Copy
 
 How to Test:
 1) Update the kit's firmware from the Simplicity Launcher (if necessary)
