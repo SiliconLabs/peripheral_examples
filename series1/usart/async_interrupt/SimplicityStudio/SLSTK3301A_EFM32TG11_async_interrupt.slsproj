@@ -26,7 +26,7 @@
   </module>
   <folder name="src">
     <file name="main_tg11.c" uri="src/main_tg11.c" />
-    <file name="readme_tg11.txt" uri="readme_tg11.txt" />
+    <file name="readme.txt" uri="readme.txt" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>
 </project>

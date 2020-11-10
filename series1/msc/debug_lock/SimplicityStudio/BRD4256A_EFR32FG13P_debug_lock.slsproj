@@ -22,7 +22,7 @@
   </module>
   <includePath uri="../../../../hardware/kit/EFR32FG13_BRD4256A/config" />
   <folder name="src">
-    <file name="readme_SYSRESETREQ.txt" uri="readme_SYSRESETREQ.txt" />
+    <file name="readme_sysresetreq.txt" uri="readme_sysresetreq.txt" />
     <file name="main_sysresetreq.c" uri="src/main_sysresetreq.c" />
   </folder>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>

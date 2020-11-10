@@ -26,7 +26,7 @@
   <macroDefinition name="RETARGET_VCOM" />
   <folder name="src">
     <file name="main_s1_pg1_efr.c" uri="src/main_s1_pg1_efr.c" />
-    <file name="readme_s1_pg1_efr.txt" uri="readme_s1_pg1_efr.txt" />
+    <file name="readme_pg1_efr.txt" uri="readme_pg1_efr.txt" />
   </folder>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
 </project>

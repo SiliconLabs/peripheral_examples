@@ -29,7 +29,7 @@
   <includePath uri="../../../../hardware/kit/EFR32FG12_BRD4253A/config" />
   <folder name="src">
     <file name="main_efr32.c" uri="src/main_efr32.c" />
-    <file name="readme_s1_zg.txt" uri="readme_s1_zg.txt" />
+    <file name="readme_s1.txt" uri="readme_s1.txt" />
   </folder>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
 </project>
