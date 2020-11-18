@@ -112,14 +112,13 @@ void initLdma(void)
   // Transfers trigger off ADC single conversion complete
   trans = (LDMA_TransferCfg_t)LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_ADC0_SINGLE);
 
-  descr = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_BYTE(
+  descr = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_WORD(
       &(ADC0->SINGLEDATA),  // source
       adcBuffer,            // destination
       ADC_BUFFER_SIZE,      // data transfer size
       0);                   // link relative offset (links to self)
 
   descr.xfer.ignoreSrec = true;       // ignore single requests to reduce time spent out of EM2
-  descr.xfer.size = ldmaCtrlSizeWord; // transfer words instead of bytes
 
   // Initialize LDMA transfer
   LDMA_StartTransfer(LDMA_CHANNEL, &trans, &descr);

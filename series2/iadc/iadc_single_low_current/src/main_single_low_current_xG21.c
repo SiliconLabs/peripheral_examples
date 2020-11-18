@@ -202,10 +202,7 @@ void initLDMA(uint32_t *buffer, uint32_t size)
     LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_IADC0_IADC_SINGLE);
 
   // Set up descriptors for dual buffer transfer
-  descriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_BYTE(&IADC0->SINGLEFIFODATA, buffer, size, 1);
-
-  // Transfer 32 bits per unit
-  descriptor.xfer.size = ldmaCtrlSizeWord;
+  descriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_WORD(&IADC0->SINGLEFIFODATA, buffer, size, 1);
 
   // One loop of NUM_SAMPLES, then complete
   descriptor.xfer.decLoopCnt = 1;
