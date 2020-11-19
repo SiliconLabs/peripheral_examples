@@ -1453,7 +1453,7 @@
     <properties key="defaultName" value="SLSTK3400A_EFM32HG_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/SLSTK3400A_EFM32HG_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/SLSTK3400A_EFM32HG_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="STK3200_EFM32ZG_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. ">
     <properties key="core.boardCompatibility" value="brd2010a"/>
@@ -1461,7 +1461,7 @@
     <properties key="defaultName" value="STK3200_EFM32ZG_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/STK3200_EFM32ZG_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/STK3200_EFM32ZG_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="STK3300_EFM32TG_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. When first loading th eproject, the device will enter EM4. Pressing the external reset button will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. You need to use an socket board to test this device. ">
     <properties key="core.boardCompatibility" value="brd2100a"/>
@@ -1469,7 +1469,7 @@
     <properties key="defaultName" value="STK3300_EFM32TG_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/STK3300_EFM32TG_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/STK3300_EFM32TG_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="STK3600_EFM32LG_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Grounding PA0 will wake the device from EM4 and cause the output pin to toggle indefinitely. Note you have to use a socket board since PA0 is not provided as an expansion header pin You also have to map one of the output pin on the socket board to its LED by using wire connections ">
     <properties key="core.boardCompatibility" value="brd2201a"/>
@@ -1477,7 +1477,7 @@
     <properties key="defaultName" value="STK3600_EFM32LG_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/STK3600_EFM32LG_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/STK3600_EFM32LG_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="STK3700_EFM32GG_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Grounding PA0 will wake the device from EM4 and cause the output pin to toggle indefinitely. Note you have to use a socket board since PA0 is not provided as an expansion header pin You also have to map one of the output pin on the socket board to its LED by using wire connections ">
     <properties key="core.boardCompatibility" value="brd2200a"/>
@@ -1485,7 +1485,7 @@
     <properties key="defaultName" value="STK3700_EFM32GG_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/STK3700_EFM32GG_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/STK3700_EFM32GG_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="STK3800_EFM32WG_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Grounding PA0 will wake the device from EM4 and cause the output pin to toggle indefinitely. Note you have to use a socket board since PA0 is not provided as an expansion header pin You also have to map one of the output pin on the socket board to its LED by using wire connections ">
     <properties key="core.boardCompatibility" value="brd2400a"/>
@@ -1493,7 +1493,7 @@
     <properties key="defaultName" value="STK3800_EFM32WG_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/STK3800_EFM32WG_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/STK3800_EFM32WG_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="STKXXX_EFM32G_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. When first loading the project, the device will enter EM4. Pressing the external reset button will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. ">
     <properties key="core.boardCompatibility" value="brd2001a"/>
@@ -1501,7 +1501,7 @@
     <properties key="defaultName" value="STKXXX_EFM32G_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/gpio/em4_wakeup/SimplicityStudio/STKXXX_EFM32G_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/gpio/EM4_WakeUp/SimplicityStudio/STKXXX_EFM32G_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3400A_EFM32HG_gpio_conf" description="This project demonstrates how GPIO pin configuration, reading, and writing are performed. By default, LED0 is configured to be driven with the default drive strength. When the PB0 button is pressed, the EFM32 will change the drive strength of LED0 to its lowest value.  Default and alternate drive strength are derivative-specific; check the datasheet for the device in question for drive strength options. ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
@@ -7549,7 +7549,7 @@
     <properties key="defaultName" value="BRD4100A_EFR32BG1P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4100A_EFR32BG1P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4100A_EFR32BG1P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4103A_EFR32BG12P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4103a"/>
@@ -7557,7 +7557,7 @@
     <properties key="defaultName" value="BRD4103A_EFR32BG12P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4103A_EFR32BG12P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4103A_EFR32BG12P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4104A_EFR32BG13P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4104a"/>
@@ -7565,7 +7565,7 @@
     <properties key="defaultName" value="BRD4104A_EFR32BG13P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4104A_EFR32BG13P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4104A_EFR32BG13P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4151A_EFR32MG1P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4151a"/>
@@ -7573,7 +7573,7 @@
     <properties key="defaultName" value="BRD4151A_EFR32MG1P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4151A_EFR32MG1P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4151A_EFR32MG1P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4159A_EFR32MG13P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4159a"/>
@@ -7581,7 +7581,7 @@
     <properties key="defaultName" value="BRD4159A_EFR32MG13P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4159A_EFR32MG13P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4159A_EFR32MG13P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4161A_EFR32MG12P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4161a"/>
@@ -7589,7 +7589,7 @@
     <properties key="defaultName" value="BRD4161A_EFR32MG12P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4161A_EFR32MG12P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4161A_EFR32MG12P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4169B_EFR32MG14P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4169b"/>
@@ -7597,7 +7597,7 @@
     <properties key="defaultName" value="BRD4169B_EFR32MG14P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4169B_EFR32MG14P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4169B_EFR32MG14P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4250A_EFR32FG1P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4250a"/>
@@ -7605,7 +7605,7 @@
     <properties key="defaultName" value="BRD4250A_EFR32FG1P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4250A_EFR32FG1P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4250A_EFR32FG1P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4253A_EFR32FG12P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4253a"/>
@@ -7613,7 +7613,7 @@
     <properties key="defaultName" value="BRD4253A_EFR32FG12P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4253A_EFR32FG12P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4253A_EFR32FG12P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4256A_EFR32FG13P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4256a"/>
@@ -7621,7 +7621,7 @@
     <properties key="defaultName" value="BRD4256A_EFR32FG13P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4256A_EFR32FG13P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4256A_EFR32FG13P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4257A_EFR32FG14P_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd4257a"/>
@@ -7629,7 +7629,7 @@
     <properties key="defaultName" value="BRD4257A_EFR32FG14P_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/BRD4257A_EFR32FG14P_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/BRD4257A_EFR32FG14P_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3301A_EFM32TG11_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd2102a"/>
@@ -7637,7 +7637,7 @@
     <properties key="defaultName" value="SLSTK3301A_EFM32TG11_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/SLSTK3301A_EFM32TG11_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/SLSTK3301A_EFM32TG11_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3401A_EFM32PG1B_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd2500a"/>
@@ -7645,7 +7645,7 @@
     <properties key="defaultName" value="SLSTK3401A_EFM32PG1B_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/SLSTK3401A_EFM32PG1B_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/SLSTK3401A_EFM32PG1B_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3402A_EFM32PG12B_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd2501a"/>
@@ -7653,7 +7653,7 @@
     <properties key="defaultName" value="SLSTK3402A_EFM32PG12B_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/SLSTK3402A_EFM32PG12B_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/SLSTK3402A_EFM32PG12B_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3701A_EFM32GG11_EM4_WakeUp" description="This project demonstrates the ability for a pin to wake the device from EM4. Under a normal, non-EM4 reset, the device will enter EM4. Pressing PB1 will wake the device from EM4 and cause the LEDs on the STK to toggle indefinitely. Note for GG11 and TG11, PB1 is mapped to bit 2 in the wake up register. ">
     <properties key="core.boardCompatibility" value="brd2204a"/>
@@ -7661,7 +7661,7 @@
     <properties key="defaultName" value="SLSTK3701A_EFM32GG11_EM4_WakeUp"/>
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/gpio/em4_wakeup/SimplicityStudio/SLSTK3701A_EFM32GG11_EM4_WakeUp.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/gpio/EM4_WakeUp/SimplicityStudio/SLSTK3701A_EFM32GG11_EM4_WakeUp.slsproj"/>
   </descriptors>
   <descriptors label="BRD4100A_EFR32BG1P_gpio_periph_bg1p" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
@@ -12519,125 +12519,125 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/rmu/rmu_get_reset_cause/SimplicityStudio/SLSTK3701A_EFM32GG11_rmu_get_reset_cause.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4100A_EFR32BG1P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4100A_EFR32BG1P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
-    <properties key="defaultName" value="BRD4100A_EFR32BG1P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4100A_EFR32BG1P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4100A_EFR32BG1P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4100A_EFR32BG1P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4103A_EFR32BG12P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4103A_EFR32BG12P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4103a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
-    <properties key="defaultName" value="BRD4103A_EFR32BG12P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4103A_EFR32BG12P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4103A_EFR32BG12P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4103A_EFR32BG12P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4104A_EFR32BG13P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4104A_EFR32BG13P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4104a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
-    <properties key="defaultName" value="BRD4104A_EFR32BG13P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4104A_EFR32BG13P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4104A_EFR32BG13P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4104A_EFR32BG13P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4151A_EFR32MG1P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4151A_EFR32MG1P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4151a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
-    <properties key="defaultName" value="BRD4151A_EFR32MG1P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4151A_EFR32MG1P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4151A_EFR32MG1P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4151A_EFR32MG1P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4159A_EFR32MG13P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4159A_EFR32MG13P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4159a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
-    <properties key="defaultName" value="BRD4159A_EFR32MG13P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4159A_EFR32MG13P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4159A_EFR32MG13P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4159A_EFR32MG13P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4161A_EFR32MG12P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4161A_EFR32MG12P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4161a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
-    <properties key="defaultName" value="BRD4161A_EFR32MG12P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4161A_EFR32MG12P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4161A_EFR32MG12P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4161A_EFR32MG12P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4169B_EFR32MG14P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4169B_EFR32MG14P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4169b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg14.*"/>
-    <properties key="defaultName" value="BRD4169B_EFR32MG14P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4169B_EFR32MG14P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4169B_EFR32MG14P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4169B_EFR32MG14P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4250A_EFR32FG1P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4250A_EFR32FG1P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4250a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
-    <properties key="defaultName" value="BRD4250A_EFR32FG1P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4250A_EFR32FG1P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4250A_EFR32FG1P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4250A_EFR32FG1P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4253A_EFR32FG12P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4253A_EFR32FG12P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4253a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
-    <properties key="defaultName" value="BRD4253A_EFR32FG12P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4253A_EFR32FG12P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4253A_EFR32FG12P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4253A_EFR32FG12P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4256A_EFR32FG13P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4256A_EFR32FG13P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4256a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
-    <properties key="defaultName" value="BRD4256A_EFR32FG13P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4256A_EFR32FG13P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4256A_EFR32FG13P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4256A_EFR32FG13P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4257A_EFR32FG14P_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="BRD4257A_EFR32FG14P_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd4257a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
-    <properties key="defaultName" value="BRD4257A_EFR32FG14P_rmu_wdog_extended"/>
+    <properties key="defaultName" value="BRD4257A_EFR32FG14P_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/BRD4257A_EFR32FG14P_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/BRD4257A_EFR32FG14P_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3301A_EFM32TG11_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="SLSTK3301A_EFM32TG11_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd2102a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
-    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_rmu_wdog_extended"/>
+    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/SLSTK3301A_EFM32TG11_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/SLSTK3301A_EFM32TG11_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3401A_EFM32PG1B_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="SLSTK3401A_EFM32PG1B_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd2500a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
-    <properties key="defaultName" value="SLSTK3401A_EFM32PG1B_rmu_wdog_extended"/>
+    <properties key="defaultName" value="SLSTK3401A_EFM32PG1B_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/SLSTK3401A_EFM32PG1B_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/SLSTK3401A_EFM32PG1B_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3402A_EFM32PG12B_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="SLSTK3402A_EFM32PG12B_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd2501a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
-    <properties key="defaultName" value="SLSTK3402A_EFM32PG12B_rmu_wdog_extended"/>
+    <properties key="defaultName" value="SLSTK3402A_EFM32PG12B_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/SLSTK3402A_EFM32PG12B_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/SLSTK3402A_EFM32PG12B_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3701A_EFM32GG11_rmu_wdog_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
+  <descriptors label="SLSTK3701A_EFM32GG11_rmu_pin_reset_extended" description="This project showcases the Extended reset capability of the series 1 starter kits. In the extended reset mode, after a soft reset,  everything is reset with the exception of Cryotimer,  Debugger and parts of CMU, RMU and EMU. This example demonstrates the  extended reset capability using pin reset and cryotimer. USART0 is connected to the board controller, which enumerates as a VCOM port when connected to a PC. This displays the Cryotimer counts on any  terminal program. It can be seen here that despite the pin reset, the value of the cryotimer remains unchanged.  ">
     <properties key="core.boardCompatibility" value="brd2204a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
-    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_rmu_wdog_extended"/>
+    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_rmu_pin_reset_extended"/>
     <properties key="template.category" value="RMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/rmu/rmu_wdog_extended/SimplicityStudio/SLSTK3701A_EFM32GG11_rmu_wdog_extended.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/rmu/rmu_pin_reset_extended/SimplicityStudio/SLSTK3701A_EFM32GG11_rmu_pin_reset_extended.slsproj"/>
   </descriptors>
   <descriptors label="BRD4100A_EFR32BG1P_rmu_wdog_limited" description="This project showcases the Limited Reset capability of series 1 starter kits. In the Limited Reset mode, after a soft reset, everything is reset with the exception of Cryotimer, Debugger, RTCC, VMON and parts of CMU, RMU and EMU. This example demonstrates the Limited Reset capability using watchdog reset and RTCC.  USART0 is to connected the board controller, which enumerates as a VCOM port when connected to a PC. This displays the RTCC counts on any serial terminal program. It can be seen here that despite the wdog reset, the value of the RTCC remains unchanged. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
