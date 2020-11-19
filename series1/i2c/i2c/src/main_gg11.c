@@ -123,6 +123,8 @@ void initI2C(void)
   I2C_Init_TypeDef i2cInit = I2C_INIT_DEFAULT;
   // Use ~400khz SCK
   i2cInit.freq = I2C_FREQ_FAST_MAX;
+  // Use 6:3 low high SCK ratio
+  i2cInit.clhr = i2cClockHLRAsymetric;
 
   // Using PC10 (SDA) and PC11 (SCL)
   GPIO_PinModeSet(gpioPortC, 0, gpioModeWiredAndPullUpFilter, 1);
