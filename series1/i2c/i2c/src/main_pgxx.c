@@ -46,8 +46,6 @@
 #include "bsp.h"
 
 // Defines
-#define CORE_FREQUENCY              14000000
-#define RTC_MIN_TIMEOUT                32000
 #define I2C_ADDRESS                     0xE2
 #define I2C_ADDRESS_MASK                0xFE // Must match exact I2C_ADDRESS
 #define I2C_RXBUFFER_SIZE                 10
