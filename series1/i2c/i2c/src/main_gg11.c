@@ -124,11 +124,11 @@ void initI2C(void)
   // Use 6:3 low high SCK ratio
   i2cInit.clhr = i2cClockHLRAsymetric;
 
-  // Using PC10 (SDA) and PC11 (SCL)
+  // Using PC0 (SDA) and PC1 (SCL)
   GPIO_PinModeSet(gpioPortC, 0, gpioModeWiredAndPullUpFilter, 1);
   GPIO_PinModeSet(gpioPortC, 1, gpioModeWiredAndPullUpFilter, 1);
 
-  // Enable pins at location 15 as specified in datasheet
+  // Enable pins at location 4 as specified in datasheet
   I2C0->ROUTEPEN = I2C_ROUTEPEN_SDAPEN | I2C_ROUTEPEN_SCLPEN;
   I2C0->ROUTELOC0 = (I2C0->ROUTELOC0 & (~_I2C_ROUTELOC0_SDALOC_MASK)) | I2C_ROUTELOC0_SDALOC_LOC4;
   I2C0->ROUTELOC0 = (I2C0->ROUTELOC0 & (~_I2C_ROUTELOC0_SCLLOC_MASK)) | I2C_ROUTELOC0_SCLLOC_LOC4;
