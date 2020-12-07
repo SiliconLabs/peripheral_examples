@@ -7,10 +7,13 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
-    <include pattern="emlib/em_se.c" />
     <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_se.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
@@ -20,6 +23,11 @@
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
+  <folder name="se_manager">
+    <file name="sl_se_manager.c" uri="../../../../util/third_party/crypto/sl_component/se_manager/src/sl_se_manager.c" />
+    <file name="sl_se_manager_util.c" uri="../../../../util/third_party/crypto/sl_component/se_manager/src/sl_se_manager_util.c" />
+  </folder>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main_xG21.c" uri="src/main_xG21.c" />

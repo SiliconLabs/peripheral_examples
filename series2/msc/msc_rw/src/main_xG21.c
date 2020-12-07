@@ -37,12 +37,15 @@
  
 #include "em_device.h"
 #include "em_chip.h"
-#include "em_se.h"
+
+#include "sl_se_manager_util.h"
 
 #define USERDATA ((uint32_t*)USERDATA_BASE)
 
 uint32_t Cleared_value;
 uint32_t Set_value;
+
+sl_se_command_context_t cmd_ctx;
 
 /**************************************************************************//**
  * @brief  Main function
@@ -56,13 +59,13 @@ int main(void)
   uint32_t value = 32;
 
   // Clear the UserData page of any previous data stored
-  SE_eraseUserData();
+  sl_se_erase_user_data(&cmd_ctx);
 
   // Read the initial value in the cleared page
   Cleared_value = USERDATA[3];
 
   // Write the value into the 4th word of the Userdata portion of the flash
-  SE_writeUserData(3*4, &value, 4);
+  sl_se_write_user_data(&cmd_ctx, 3*4, &value, 4);
 
   // Read the written data from the flash location it was stored in
   Set_value = USERDATA[3];
