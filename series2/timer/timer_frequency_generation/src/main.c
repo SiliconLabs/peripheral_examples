@@ -80,7 +80,7 @@ void initTIMER(void)
   timerInit.prescale = timerPrescale1;
   timerInit.enable = false;
   timerCCInit.mode = timerCCModeCompare;
-  timerCCInit.cmoa = timerOutputActionToggle;
+  timerCCInit.cofoa = timerOutputActionToggle;
 
   // configure, but do not start timer
   TIMER_Init(TIMER0, &timerInit);
