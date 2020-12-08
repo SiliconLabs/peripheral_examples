@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="SLSTK3701A_EFM32GG11_lesense_multi_channel" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
+<project name="SLSTK3701A_EFM32GG11_lesense_multi_channel_ACMP" boardCompatibility="brd2204a" partCompatibility=".*efm32gg11b820f2048gl192.*" toolchainCompatibility="" contentRoot="../">
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
@@ -14,22 +14,18 @@
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_acmp.c" />
     <include pattern="emlib/em_lesense.c" />
-    <include pattern="emlib/em_vdac.c" />
-    <include pattern="emlib/em_usart.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <include pattern="BSP/bsp_stk_leds.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
-    <include pattern="Drivers/retargetserial.c" />
-    <include pattern="Drivers/retargetio.c" />
+    <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
-  <macroDefinition name="RETARGET_VCOM" />
-  <includePath uri="../../app/alex_lcsense_project/include" />
+  <includePath uri="##em-path-app##/include" />
   <folder name="src">
     <file name="main_gg11.c" uri="src/main_gg11.c" />
     <file name="readme.txt" uri="readme.txt" />

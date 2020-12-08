@@ -2,10 +2,10 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFM32GG11_lesense_multi_channel.ewp</path>
+    <path>$WS_DIR$\EFM32GG11_lesense_multi_channel_ACMP.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFM32TG11_lesense_multi_channel.ewp</path>
+    <path>$WS_DIR$\EFM32TG11_lesense_multi_channel_ACMP.ewp</path>
   </project>
 
   <batchBuild/>

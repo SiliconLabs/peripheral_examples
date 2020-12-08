@@ -12,25 +12,25 @@
       <name>General</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>22</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFM32GG11_lesense_multi_channel\Debug\Exe</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFM32GG11_lesense_multi_channel\Debug\Obj</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFM32GG11_lesense_multi_channel\Debug\List</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP\Debug\List</state>
         </option>
         <option>
           <name>Variant</name>
-          <version>20</version>
-          <state>40</state>
+          <version>13</version>
+          <state>36</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -38,8 +38,8 @@
         </option>
         <option>
           <name>Input variant</name>
-          <version>3</version>
-          <state>1</state>
+          <version>1</version>
+          <state>0</state>
         </option>
         <option>
           <name>Input description</name>
@@ -47,8 +47,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>1</state>
+          <version>0</version>
+          <state>0</state>
         </option>
         <option>
           <name>Output description</name>
@@ -60,8 +60,8 @@
         </option>
         <option>
           <name>FPU</name>
-          <version>2</version>
-          <state>5</state>
+          <version>0</version>
+          <state>0</state>
         </option>
         <option>
           <name>OGCoreOrChip</name>
@@ -82,12 +82,16 @@
           <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
+          <name>RTConfigPath</name>
+          <state>$TOOLKIT_DIR$\INC\DLib_Config_Normal.h</state>
+        </option>
+        <option>
           <name>OGProductVersion</name>
-          <state>5.10.0.159</state>
+          <state>5.40.2.51615</state>
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.70.1.5793</state>
+          <state>5.40.2.51615</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -99,7 +103,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFM32GG11B820F2048GL192	SiliconLaboratories EFM32GG11B820F2048GL192</state>
+          <state>EFM32TG11B520F128GM80	SiliconLaboratories EFM32TG11B520F128GM80</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -131,45 +135,19 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
-        </option>
-        <option>
-          <name>GFPUCoreSlave</name>
-          <version>20</version>
-          <state>40</state>
-        </option>
-        <option>
-          <name>GBECoreSlave</name>
-          <version>20</version>
-          <state>40</state>
-        </option>
-        <option>
-          <name>OGUseCmsis</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OGUseCmsisDspLib</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>GRuntimeLibThreads</name>
-          <state>0</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>ICCARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>29</version>
+        <version>21</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>EFM32GG11B820F2048GL192</state>
-          <state>RETARGET_VCOM</state>
+          <state>EFM32TG11B520F128GM80</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -270,7 +248,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -283,6 +261,10 @@
         <option>
           <name>OutputFile</name>
           <state>$FILE_BNAME$.o</state>
+        </option>
+        <option>
+          <name>CCLangSelect</name>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -299,17 +281,20 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32TG11\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\app\alex_lcsense_project\include</state>
 
         </option>
         <option>
           <name>CCStdIncCheck</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>CCStdIncludePath</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
         </option>
         <option>
           <name>CCCodeSection</name>
@@ -334,7 +319,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -346,73 +331,13 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>CCPosIndRopi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndRwpi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndNoDynInit</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccLang</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccAllowVLA</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCppDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccExceptions</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccRTTI</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccStaticDestr</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCppInlineSemantics</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccFloatSemantics</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCNoLiteralPool</name>
-          <state>0</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>AARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>9</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -462,8 +387,8 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFM32GG11B820F2048GL192</state>
-          <state>RETARGET_VCOM</state>
+          <state>EFM32TG11B520F128GM80</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -558,14 +483,17 @@
           <state>0</state>
         </option>
         <option>
+          <name>AStdIncludes</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
+        </option>
+        <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32TG11\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\app\alex_lcsense_project\include</state>
 
         </option>
         <option>
@@ -596,7 +524,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFM32GG11_lesense_multi_channel.bin</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -633,7 +561,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>16</version>
+        <version>8</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -650,7 +578,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFM32GG11_lesense_multi_channel.out</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -742,7 +670,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -802,6 +730,10 @@
           <state>1</state>
         </option>
         <option>
+          <name>CrcAlgo</name>
+          <state>1</state>
+        </option>
+        <option>
           <name>CrcPoly</name>
           <state>0x11021</state>
         </option>
@@ -843,80 +775,6 @@
           <name>IlinkIElfToolPostProcess</name>
           <state>0</state>
         </option>
-        <option>
-          <name>IlinkLogAutoLibSelect</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogRedirSymbols</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogUnusedFragments</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcReverseByteOrder</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcUseAsInput</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptInline</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsAllow</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsForce</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptMergeDuplSections</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkOptUseVfe</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptForceVfe</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackAnalysisEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackControlFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>IlinkStackCallGraphFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>CrcAlgorithm</name>
-          <version>0</version>
-          <state>1</state>
-        </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkThreadsSlave</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -956,25 +814,25 @@
       <name>General</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>22</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFM32GG11_lesense_multi_channel\Release\Exe</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFM32GG11_lesense_multi_channel\Release\Obj</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFM32GG11_lesense_multi_channel\Release\List</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP\Release\List</state>
         </option>
         <option>
           <name>Variant</name>
-          <version>20</version>
-          <state>0</state>
+          <version>13</version>
+          <state>36</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -982,8 +840,8 @@
         </option>
         <option>
           <name>Input variant</name>
-          <version>3</version>
-          <state>1</state>
+          <version>1</version>
+          <state>0</state>
         </option>
         <option>
           <name>Input description</name>
@@ -991,8 +849,8 @@
         </option>
         <option>
           <name>Output variant</name>
-          <version>2</version>
-          <state>1</state>
+          <version>0</version>
+          <state>0</state>
         </option>
         <option>
           <name>Output description</name>
@@ -1004,8 +862,8 @@
         </option>
         <option>
           <name>FPU</name>
-          <version>2</version>
-          <state>5</state>
+          <version>0</version>
+          <state>0</state>
         </option>
         <option>
           <name>OGCoreOrChip</name>
@@ -1026,12 +884,16 @@
           <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
         </option>
         <option>
+          <name>RTConfigPath</name>
+          <state>$TOOLKIT_DIR$\INC\DLib_Config_Normal.h</state>
+        </option>
+        <option>
           <name>OGProductVersion</name>
-          <state>5.10.0.159</state>
+          <state>5.40.2.51615</state>
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.70.1.5793</state>
+          <state>5.40.2.51615</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -1043,7 +905,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFM32GG11B820F2048GL192	SiliconLaboratories EFM32GG11B820F2048GL192</state>
+          <state>EFM32TG11B520F128GM80	SiliconLaboratories EFM32TG11B520F128GM80</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1075,50 +937,20 @@
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
-        <option>
-          <name>RTConfigPath2</name>
-          <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
-        </option>
-        <option>
-          <name>GFPUCoreSlave</name>
-          <version>20</version>
-          <state>40</state>
-        </option>
-        <option>
-          <name>GBECoreSlave</name>
-          <version>20</version>
-          <state>40</state>
-        </option>
-        <option>
-          <name>OGUseCmsis</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>OGUseCmsisDspLib</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>GRuntimeLibThreads</name>
-          <state>0</state>
-        </option>
       </data>
     </settings>
     <settings>
       <name>ICCARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>29</version>
+        <version>21</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
-          <name>CCOptimizationNoSizeConstraints</name>
-          <state>0</state>
-        </option>
-        <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
-          <state>EFM32GG11B820F2048GL192</state>
-          <state>RETARGET_VCOM</state>
+          <state>EFM32TG11B520F128GM80</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1219,7 +1051,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1232,6 +1064,10 @@
         <option>
           <name>OutputFile</name>
           <state>$FILE_BNAME$.o</state>
+        </option>
+        <option>
+          <name>CCLangSelect</name>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1248,17 +1084,20 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32TG11\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\app\alex_lcsense_project\include</state>
 
         </option>
         <option>
           <name>CCStdIncCheck</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>CCStdIncludePath</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
         </option>
         <option>
           <name>CCCodeSection</name>
@@ -1283,7 +1122,7 @@
         </option>
         <option>
           <name>CCOptLevelSlave</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CompilerMisraRules98</name>
@@ -1294,62 +1133,6 @@
           <name>CompilerMisraRules04</name>
           <version>0</version>
           <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
-        </option>
-        <option>
-          <name>CCPosIndRopi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndRwpi</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCPosIndNoDynInit</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccLang</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccAllowVLA</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IccCppDialect</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccExceptions</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccRTTI</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccStaticDestr</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCppInlineSemantics</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IccFloatSemantics</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCNoLiteralPool</name>
-          <state>0</state>
         </option>
       </data>
     </settings>
@@ -1407,8 +1190,8 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFM32GG11B820F2048GL192</state>
-          <state>RETARGET_VCOM</state>
+          <state>EFM32TG11B520F128GM80</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1503,14 +1286,17 @@
           <state>0</state>
         </option>
         <option>
+          <name>AStdIncludes</name>
+          <state>$TOOLKIT_DIR$\INC\</state>
+        </option>
+        <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32TG11\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
-          <state>$PROJ_DIR$\..\..\..\app\alex_lcsense_project\include</state>
 
         </option>
         <option>
@@ -1541,7 +1327,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFM32GG11_lesense_multi_channel.bin</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1578,7 +1364,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>16</version>
+        <version>8</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1595,7 +1381,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFM32GG11_lesense_multi_channel.out</state>
+          <state>EFM32TG11_lesense_multi_channel_ACMP.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1687,7 +1473,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1747,6 +1533,10 @@
           <state>1</state>
         </option>
         <option>
+          <name>CrcAlgo</name>
+          <state>1</state>
+        </option>
+        <option>
           <name>CrcPoly</name>
           <state>0x11021</state>
         </option>
@@ -1788,80 +1578,6 @@
           <name>IlinkIElfToolPostProcess</name>
           <state>0</state>
         </option>
-        <option>
-          <name>IlinkLogAutoLibSelect</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogRedirSymbols</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkLogUnusedFragments</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcReverseByteOrder</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCrcUseAsInput</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptInline</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsAllow</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptExceptionsForce</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkCmsis</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptMergeDuplSections</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkOptUseVfe</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>IlinkOptForceVfe</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackAnalysisEnable</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkStackControlFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>IlinkStackCallGraphFile</name>
-          <state></state>
-        </option>
-        <option>
-          <name>CrcAlgorithm</name>
-          <version>0</version>
-          <state>1</state>
-        </option>
-        <option>
-          <name>CrcUnitSize</name>
-          <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>IlinkThreadsSlave</name>
-          <state>1</state>
-        </option>
       </data>
     </settings>
     <settings>
@@ -1892,21 +1608,12 @@
     </settings>
   </configuration>
   <group>
-    <name>Drivers</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetserial.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</name>
-    </file>
-  </group>
-  <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Source\IAR\startup_efm32gg11b.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Source\IAR\startup_efm32tg11b.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG11B\Source\system_efm32gg11b.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Source\system_efm32tg11b.c</name>
     </file>
   </group>
   <group>
@@ -1932,12 +1639,6 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_lesense.c</name>
     </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_vdac.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
-    </file>
   </group>
   <group>
     <name>bsp</name>
@@ -1948,7 +1649,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_gg11.c</name>
+      <name>$PROJ_DIR$\..\src\main_tg11.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>
