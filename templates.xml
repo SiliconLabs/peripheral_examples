@@ -18095,46 +18095,6 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/burtc/burtc_em4_buram/SimplicityStudio/BRD4182A_EFR32xG22_burtc_em4_buram.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4182A_cryptoacc_aescrypt" description="This example uses the CRYPTOACC module in the EFR32 Series 2 to accelerate the AES encryption, descryption, and SHA hash functions of mbed TLS. ">
-    <properties key="core.boardCompatibility" value="brd4182a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_cryptoacc_aescrypt"/>
-    <properties key="template.category" value="CRYPTOACC"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/cryptoacc/cryptoacc_aescrypt/SimplicityStudio/BRD4182A_cryptoacc_aescrypt.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4182A_cryptoacc_ecdh" description="This example uses the CRYPTOACC module in the EFR32 Series 2 to accelerate the ECDH API functions of mbed TLS. ">
-    <properties key="core.boardCompatibility" value="brd4182a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_cryptoacc_ecdh"/>
-    <properties key="template.category" value="CRYPTOACC"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/cryptoacc/cryptoacc_ecdh/SimplicityStudio/BRD4182A_cryptoacc_ecdh.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4182A_cryptoacc_ecdsa" description="This example uses the CRYPTOACC module in the EFR32 Series 2 to accelerate the ECDSA API functions of mbed TLS. ">
-    <properties key="core.boardCompatibility" value="brd4182a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_cryptoacc_ecdsa"/>
-    <properties key="template.category" value="CRYPTOACC"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/cryptoacc/cryptoacc_ecdsa/SimplicityStudio/BRD4182A_cryptoacc_ecdsa.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4182A_cryptoacc_entropy" description="This example uses the CRYPTOACC module in the EFR32 Series 2 to accelerate the  mbed TLS entropy funtions for random number generation. ">
-    <properties key="core.boardCompatibility" value="brd4182a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_cryptoacc_entropy"/>
-    <properties key="template.category" value="CRYPTOACC"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/cryptoacc/cryptoacc_entropy/SimplicityStudio/BRD4182A_cryptoacc_entropy.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4182A_cryptoacc_trng" description="This example uses the CRYPTOACC module in the EFR32 Series 2 to generate the random number. ">
-    <properties key="core.boardCompatibility" value="brd4182a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_cryptoacc_trng"/>
-    <properties key="template.category" value="CRYPTOACC"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/cryptoacc/cryptoacc_trng/SimplicityStudio/BRD4182A_cryptoacc_trng.slsproj"/>
-  </descriptors>
   <descriptors label="BRD4182A_EFR32xG22_em01_voltage_scaling" description="This project demonstrates the use of EM0/EM1 voltage scaling on Series 2 EFR32 devices.  Note that this differs from the voltage scaling functionality on Series 1 devices where a single setting (VS2 or VS0) applies in all operating modes.  For Series 2 devices, separate examples are provided for EM0/1 and EM2/3 voltage scaling. ">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
@@ -18694,46 +18654,6 @@
     <properties key="template.category" value="RTCC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/rtcc/rtcc_interrupt/SimplicityStudio/BRD4182A_EFR32xG22_rtcc_interrupt.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4181A_se_aescrypt" description="This example uses the CRYPTO module in the EFR32 Series 2 Secure Element (SE) to accelerate the AES encryption, descryption, and SHA hash functions of mbed TLS. ">
-    <properties key="core.boardCompatibility" value="brd4181a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_se_aescrypt"/>
-    <properties key="template.category" value="SE"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/se/se_aescrypt/SimplicityStudio/BRD4181A_se_aescrypt.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4181A_se_ecdh" description="This example uses the CRYPTO module in the EFR32 Series 2 Secure Element (SE) to accelerate the ECDH API functions of mbed TLS. ">
-    <properties key="core.boardCompatibility" value="brd4181a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_se_ecdh"/>
-    <properties key="template.category" value="SE"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/se/se_ecdh/SimplicityStudio/BRD4181A_se_ecdh.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4181A_se_ecdsa" description="This example uses the CRYPTO module in the EFR32 Series 2 Secure Element (SE) to accelerate the ECDSA API functions of mbed TLS. ">
-    <properties key="core.boardCompatibility" value="brd4181a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_se_ecdsa"/>
-    <properties key="template.category" value="SE"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/se/se_ecdsa/SimplicityStudio/BRD4181A_se_ecdsa.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4181A_se_entropy" description="This example uses the CRYPTO and TRNG module in the EFR32 Series 2 Secure Element (SE) to accelerate the mbed TLS entropy funtions for random number generation. ">
-    <properties key="core.boardCompatibility" value="brd4181a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_se_entropy"/>
-    <properties key="template.category" value="SE"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/se/se_entropy/SimplicityStudio/BRD4181A_se_entropy.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4181A_se_trng" description="This example uses the TRNG module in the EFR32 Series 2 Secure Element (SE) to generate the random number. ">
-    <properties key="core.boardCompatibility" value="brd4181a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_se_trng"/>
-    <properties key="template.category" value="SE"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/se/se_trng/SimplicityStudio/BRD4181A_se_trng.slsproj"/>
   </descriptors>
   <descriptors label="BRD4181A_EFR32xG21_timer_dma_edge_capture" description="This project demonstrates DMA driven edge capture from a TIMER Compare/Capture channel. TIMER0 CC0 is configured to capture rising and falling edges. GPIO Pin PA6 (Expansion Header Pin 14) is to be connected to a periodic signal, and  edges captured from PA6 are stored in CC0. The LDMA is configured to transfer the first 512 edges to a fixed length buffer. The buffer is stored globally for possible future processing. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
