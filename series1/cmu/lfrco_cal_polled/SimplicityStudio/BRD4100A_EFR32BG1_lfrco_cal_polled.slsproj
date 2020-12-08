@@ -13,9 +13,6 @@
     <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_gpio.c" />
   </module>
-  <module id="com.silabs.sdk.exx32.common.bsp">
-    <exclude pattern=".*" />
-  </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
     <exclude pattern=".*" />
   </module>

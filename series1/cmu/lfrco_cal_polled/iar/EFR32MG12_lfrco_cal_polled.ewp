@@ -271,7 +271,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -303,7 +303,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4162A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -563,7 +562,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4162A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -741,7 +739,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1219,7 +1217,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1251,7 +1249,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4162A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1507,7 +1504,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4162A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1685,7 +1681,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1905,6 +1901,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cryotimer.c</name>

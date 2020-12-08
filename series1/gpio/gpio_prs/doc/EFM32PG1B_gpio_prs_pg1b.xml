@@ -22,6 +22,7 @@
     <group name="emlib">
       <source>##em-path-cmsis##\emlib\src\em_adc.c</source>
       <source>##em-path-cmsis##\emlib\src\em_cmu.c</source>
+	  <source>##em-path-cmsis##\emlib\src\em_core.c</source>
       <source>##em-path-cmsis##\emlib\src\em_gpio.c</source>
       <source>##em-path-cmsis##\emlib\src\em_emu.c</source>
       <source>##em-path-cmsis##\emlib\src\em_prs.c</source>

@@ -27,6 +27,7 @@
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
       <source>##em-path-emlib##\src\em_usart.c</source>

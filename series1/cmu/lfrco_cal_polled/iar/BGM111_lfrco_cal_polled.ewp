@@ -303,7 +303,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\BGM11_BRD4300A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -563,7 +562,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\BGM11_BRD4300A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1251,7 +1249,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\BGM11_BRD4300A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1507,7 +1504,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\BGM11_BRD4300A\config</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1905,6 +1901,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cryotimer.c</name>

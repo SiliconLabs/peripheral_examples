@@ -40,8 +40,6 @@
 #include "em_emu.h"
 #include "em_gpio.h"
 
-#include "bsp.h"
-
 /*
  * Top value for the calibration down counter.  Maximum allowed is
  * 2^20-1 = 0xFFFFF, which equates to 2^20 counts.  A larger value

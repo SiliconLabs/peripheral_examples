@@ -8,6 +8,7 @@
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
     <include pattern="emlib/em_acmp.c" />
+    <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_system.c" />
   </module>
