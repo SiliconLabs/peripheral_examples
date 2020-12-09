@@ -21,6 +21,7 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 - EFM32LG
 - EFM32GG
 - EFM32WG
+TEST
 
 ## Supported Series 1 Devices ##
 - EFM32PG1
