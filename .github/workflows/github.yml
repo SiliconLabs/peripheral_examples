@@ -1,0 +1,15 @@
+name: Close Pull Request
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: SiliconLabs/close-pull-request-target@v2.2
+      with:
+        comment: "This repo does not accept PRs. The code in this repository is provided as-is, and questions related to this repo will not be supported. If you have a general question for Silicon Labs, visit www.silabs.com/support for assistance."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
