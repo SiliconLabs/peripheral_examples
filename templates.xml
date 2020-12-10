@@ -6391,6 +6391,150 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/adc/adc_single_prs_gpio_dma/SimplicityStudio/SLSTK3701A_EFM32GG11B_adc_single_prs_gpio_dma.slsproj"/>
   </descriptors>
+  <descriptors label="BRD4100A_EFR32BG1_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4100a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4100A_EFR32BG1_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4100A_EFR32BG1_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4103A_EFR32BG12_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4103a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
+    <properties key="defaultName" value="BRD4103A_EFR32BG12_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4103A_EFR32BG12_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4104A_EFR32BG13_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4104a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
+    <properties key="defaultName" value="BRD4104A_EFR32BG13_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4104A_EFR32BG13_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4151A_EFR32MG1_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4151a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
+    <properties key="defaultName" value="BRD4151A_EFR32MG1_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4151A_EFR32MG1_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4158A_EFR32MG13_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4158a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
+    <properties key="defaultName" value="BRD4158A_EFR32MG13_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4158A_EFR32MG13_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4162A_EFR32MG12_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4162a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
+    <properties key="defaultName" value="BRD4162A_EFR32MG12_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4162A_EFR32MG12_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4250A_EFR32FG1_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4250a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
+    <properties key="defaultName" value="BRD4250A_EFR32FG1_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4250A_EFR32FG1_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4253A_EFR32FG12_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4253a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
+    <properties key="defaultName" value="BRD4253A_EFR32FG12_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4253A_EFR32FG12_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4255A_EFR32FG13_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4255a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
+    <properties key="defaultName" value="BRD4255A_EFR32FG13_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4255A_EFR32FG13_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4257A_EFR32FG14_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4257a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
+    <properties key="defaultName" value="BRD4257A_EFR32FG14_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4257A_EFR32FG14_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4300A_BGM111_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4300a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4300A_BGM111_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4300A_BGM111_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4301A_BGM113_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4301a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4301A_BGM113_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4301A_BGM113_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4302A_BGM121_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4302a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4302A_BGM121_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4302A_BGM121_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4306B_BGM13_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4306b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bgm13.*"/>
+    <properties key="defaultName" value="BRD4306B_BGM13_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/BRD4306B_BGM13_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3301A_EFM32TG11_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd2102a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
+    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/SLSTK3301A_EFM32TG11_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3401A_EFM32PG1_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd2500a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
+    <properties key="defaultName" value="SLSTK3401A_EFM32PG1_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/SLSTK3401A_EFM32PG1_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3402A_EFM32PG12_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd2501a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
+    <properties key="defaultName" value="SLSTK3402A_EFM32PG12_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/SLSTK3402A_EFM32PG12_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3701A_EFM32GG11_hfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified HFRCO is output to a pin where it can be observed.  The CRYOTIMER is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd2204a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
+    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_hfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/hfrco_cal_interrupt/SimplicityStudio/SLSTK3701A_EFM32GG11_hfrco_cal_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="BRD4100A_EFR32BG1_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
