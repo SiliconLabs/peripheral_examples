@@ -6391,6 +6391,150 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/adc/adc_single_prs_gpio_dma/SimplicityStudio/SLSTK3701A_EFM32GG11B_adc_single_prs_gpio_dma.slsproj"/>
   </descriptors>
+  <descriptors label="BRD4100A_EFR32BG1_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4100a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4100A_EFR32BG1_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4100A_EFR32BG1_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4103A_EFR32BG12_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4103a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
+    <properties key="defaultName" value="BRD4103A_EFR32BG12_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4103A_EFR32BG12_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4104A_EFR32BG13_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4104a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
+    <properties key="defaultName" value="BRD4104A_EFR32BG13_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4104A_EFR32BG13_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4151A_EFR32MG1_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4151a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
+    <properties key="defaultName" value="BRD4151A_EFR32MG1_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4151A_EFR32MG1_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4158A_EFR32MG13_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4158a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
+    <properties key="defaultName" value="BRD4158A_EFR32MG13_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4158A_EFR32MG13_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4162A_EFR32MG12_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4162a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
+    <properties key="defaultName" value="BRD4162A_EFR32MG12_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4162A_EFR32MG12_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4250A_EFR32FG1_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4250a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
+    <properties key="defaultName" value="BRD4250A_EFR32FG1_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4250A_EFR32FG1_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4253A_EFR32FG12_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4253a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
+    <properties key="defaultName" value="BRD4253A_EFR32FG12_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4253A_EFR32FG12_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4255A_EFR32FG13_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4255a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
+    <properties key="defaultName" value="BRD4255A_EFR32FG13_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4255A_EFR32FG13_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4257A_EFR32FG14_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4257a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
+    <properties key="defaultName" value="BRD4257A_EFR32FG14_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4257A_EFR32FG14_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4300A_BGM111_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4300a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4300A_BGM111_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4300A_BGM111_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4301A_BGM113_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4301a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4301A_BGM113_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4301A_BGM113_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4302A_BGM121_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4302a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4302A_BGM121_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4302A_BGM121_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4306B_BGM13_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4306b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bgm13.*"/>
+    <properties key="defaultName" value="BRD4306B_BGM13_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4306B_BGM13_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3301A_EFM32TG11_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd2102a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
+    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/SLSTK3301A_EFM32TG11_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3401A_EFM32PG1_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd2500a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
+    <properties key="defaultName" value="SLSTK3401A_EFM32PG1_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/SLSTK3401A_EFM32PG1_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3402A_EFM32PG12_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd2501a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
+    <properties key="defaultName" value="SLSTK3402A_EFM32PG12_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/SLSTK3402A_EFM32PG12_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3701A_EFM32GG11_lfrco_cal_interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd2204a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
+    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_lfrco_cal_interrupt"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/cmu/lfrco_cal_interrupt/SimplicityStudio/SLSTK3701A_EFM32GG11_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="BRD4100A_EFR32BG1_lfrco_cal_polled" description="This project demonstrates calibration of the LFRCO against the HFXO. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
@@ -9807,21 +9951,21 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/ldma/ldma_single_software/SimplicityStudio/SLSTK3701A_EFM32GG11B_ldma_single_software.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3301A_EFM32TG11_lesense_multi_channel" description="This project demonstrates the usage of lesense to sample multiple channels using ACMP. The project defines four lesense channels and each of these channels is linked to one of the ACMP channel based on the datasheet. The project is tested on the Tiny Gecko 11 and Giant Gecko 11 board. For Tiny Gecko 11 all pins will be avaliable on the expansion header, for Giant Gecko 11 only two of the pins will be avaliable, a socket board will be required for all four pins. ">
+  <descriptors label="SLSTK3301A_EFM32TG11_lesense_multi_channel_ACMP" description="This project demonstrates the usage of lesense to sample multiple channels using ACMP. The project defines four lesense channels and each of these channels is linked to one of the ACMP channel based on the pin configuration shown in the datasheet. Each channel will be able to detect a sensor's level change, and will trigger an interrupt whenever it detects a positive edge on the sensor's input level. ">
     <properties key="core.boardCompatibility" value="brd2102a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
-    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_lesense_multi_channel"/>
+    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_lesense_multi_channel_ACMP"/>
     <properties key="template.category" value="LESENSE"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/lesense/lesense_multi_channel/SimplicityStudio/SLSTK3301A_EFM32TG11_lesense_multi_channel.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/lesense/lesense_multi_channel_ACMP/SimplicityStudio/SLSTK3301A_EFM32TG11_lesense_multi_channel_ACMP.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3701A_EFM32GG11_lesense_multi_channel" description="This project demonstrates the usage of lesense to sample multiple channels using ACMP. The project defines four lesense channels and each of these channels is linked to one of the ACMP channel based on the datasheet. The project is tested on the Tiny Gecko 11 and Giant Gecko 11 board. For Tiny Gecko 11 all pins will be avaliable on the expansion header, for Giant Gecko 11 only two of the pins will be avaliable, a socket board will be required for all four pins. ">
+  <descriptors label="SLSTK3701A_EFM32GG11_lesense_multi_channel_ACMP" description="This project demonstrates the usage of lesense to sample multiple channels using ACMP. The project defines four lesense channels and each of these channels is linked to one of the ACMP channel based on the pin configuration shown in the datasheet. Each channel will be able to detect a sensor's level change, and will trigger an interrupt whenever it detects a positive edge on the sensor's input level. ">
     <properties key="core.boardCompatibility" value="brd2204a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
-    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_lesense_multi_channel"/>
+    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_lesense_multi_channel_ACMP"/>
     <properties key="template.category" value="LESENSE"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/lesense/lesense_multi_channel/SimplicityStudio/SLSTK3701A_EFM32GG11_lesense_multi_channel.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/lesense/lesense_multi_channel_ACMP/SimplicityStudio/SLSTK3701A_EFM32GG11_lesense_multi_channel_ACMP.slsproj"/>
   </descriptors>
   <descriptors label="BRD4100A_EFR32BG1P_one_shot_output_compare" description="This project demonstrates output compare in EM2 using the LETIMER. The project initializes the timer in one-shot mode, and after one  second, while staying in a low energy mode, will set either an Exp  Header Pin or LED0 high. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
