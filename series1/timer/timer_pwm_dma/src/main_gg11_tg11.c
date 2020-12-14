@@ -48,11 +48,11 @@
 #define PWM_FREQ 1000
 
 // Buffer size
-#define BUFFER_SIZE 10
+#define BUFFER_SIZE 11
 
 // Note: change this to change the duty cycles used in this example
 static const uint16_t dutyCyclePercentages[BUFFER_SIZE] =
-  {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+  {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
 // Buffer of duty cycle values for DMA transfer to CCVB
 // Buffer is populated after TIMER is initialized and Top value is set
@@ -96,10 +96,9 @@ void initTimer(void)
 
   // Initialize and start timer with no prescaling
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  TIMER_Init(TIMER1, &timerInit);
+  timerInit.dmaClrAct = true;
 
-  // Trigger DMA on compare event to set CCVB to update duty cycle on next period
-  TIMER_IntEnable(TIMER1, TIMER_IEN_CC0);
+  TIMER_Init(TIMER1, &timerInit);
 }
 
 /**************************************************************************//**
@@ -121,7 +120,7 @@ void populateBuffer(void)
 *    Configure the channel descriptor to use the default peripheral to
 *    memory transfer descriptor. Modify it to not generate an interrupt
 *    upon transfer completion (we don't need it). Additionally, the transfer
-*    configuration selects the TIMER1_CC0 signal as the trigger for the LDMA
+*    configuration selects the TIMER1_UFOF signal as the trigger for the LDMA
 *    transaction to occur.
 *
 * @note
@@ -142,7 +141,7 @@ void initLdma(void)
 
   // Transfer configuration and trigger selection
   LDMA_TransferCfg_t transferConfig =
-    LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER1_CC0);
+    LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER1_UFOF);
 
   // LDMA initialization
   LDMA_Init_t init = LDMA_INIT_DEFAULT;

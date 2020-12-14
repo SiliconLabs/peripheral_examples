@@ -6,13 +6,13 @@ routed to the GPIO Pin specified below. In PWM mode, overflow events
 set the output pin, while compare events clear the pin. Thus the overflow value
 is set to output the desired signal frequency, while the CCV is set to control 
 the duty cycle. The DMA is set to loop through a buffer of duty cycles
-incrementing from 0 to 100%, and writes to the CCVB on each compare event.
+incrementing from 0 to 100%, and writes to the CCVB on each overflow event.
 
 ================================================================================
 
 Peripherals Used:
-TIMER0/1 - HFPERCLK (19 MHz for series 1 boards)
-DMA/LDMA
+TIMER0 - EM01GRPACLK/PCLK (19 MHz)
+LDMA
 
 ================================================================================
 

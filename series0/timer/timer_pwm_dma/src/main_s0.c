@@ -49,11 +49,11 @@
 #define PWM_FREQ 1000
 
 // Buffer size
-#define BUFFER_SIZE 10
+#define BUFFER_SIZE 11
 
 // Note: change this to change the duty cycles used in this example
 static const uint16_t dutyCyclePercentages[BUFFER_SIZE] =
-  {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+  {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
 // Buffer of duty cycle values for DMA transfer to CCVB
 // Buffer is populated after TIMER is initialized and Top value is set
@@ -96,10 +96,9 @@ void initTimer(void)
 
   // Initialize and start timer with no prescaling
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  TIMER_Init(TIMER1, &timerInit);
+  timerInit.dmaClrAct = true;
 
-  // Trigger DMA on compare event to set CCVB to update duty cycle on next period
-  TIMER_IntEnable(TIMER1, TIMER_IEN_CC0);
+  TIMER_Init(TIMER1, &timerInit);
 }
 
 /**************************************************************************//**
@@ -129,8 +128,8 @@ void initDma(void)
   DMA_CfgChannel_TypeDef channelConfig;
   channelConfig.highPri   = false; // Set high priority for the channel
   channelConfig.enableInt = false; // Interrupt not needed in loop transfer mode
-  channelConfig.select    = DMAREQ_TIMER1_CC0; // Select DMA trigger
-  channelConfig.cb        = NULL;              // No callback because no interrupt
+  channelConfig.select    = DMAREQ_TIMER1_UFOF; // Select DMA trigger
+  channelConfig.cb        = NULL;               // No callback because no interrupt
   uint32_t channelNum     = 0;
   DMA_CfgChannel(channelNum, &channelConfig);
 
