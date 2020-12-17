@@ -118,7 +118,6 @@ void initI2C(void)
   // Setting up to enable slave mode
   I2C_SlaveAddressSet(I2C0, I2C_ADDRESS);
   I2C_SlaveAddressMaskSet(I2C0, 0xFE); // must match exact address
-  I2C0->CTRL = I2C_CTRL_SLAVE;
 
   // Configure interrupts
   I2C_IntClear(I2C0, _I2C_IF_MASK);
