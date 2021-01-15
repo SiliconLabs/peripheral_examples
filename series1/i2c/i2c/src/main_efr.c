@@ -128,7 +128,7 @@ void initI2C(void)
   GPIO_PinModeSet(gpioPortC, 10, gpioModeWiredAndPullUpFilter, 1);
   GPIO_PinModeSet(gpioPortC, 11, gpioModeWiredAndPullUpFilter, 1);
 
-  // Enable pins at location 15 as specified in datasheet
+  // Enable I2C SDA and SCL pins, see the readme or the device datasheet for I2C pin mappings
   I2C0->ROUTEPEN = I2C_ROUTEPEN_SDAPEN | I2C_ROUTEPEN_SCLPEN;
   I2C0->ROUTELOC0 = (I2C0->ROUTELOC0 & (~_I2C_ROUTELOC0_SDALOC_MASK)) | I2C_ROUTELOC0_SDALOC_LOC16;
   I2C0->ROUTELOC0 = (I2C0->ROUTELOC0 & (~_I2C_ROUTELOC0_SCLLOC_MASK)) | I2C_ROUTELOC0_SCLLOC_LOC14;
