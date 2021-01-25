@@ -5,6 +5,9 @@ input pin is compared with an internal Vref of 1.25V.  When the voltage
 on the input pin is above 1.25V, an output pin will be set high. When it
 is low, the output pin will be set low.
 
+Note: Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+regardless of whether OVT is enabled or disabled.
+
 How To Test:
 1. Build the project and download to the Starter Kit
 2. Provide the input pin with a voltage above or below 1.25V and watch 

@@ -4,6 +4,9 @@ This project demonstrates a simple comparison of 2 inputs. An input pin is
 one input, which is compared with internal Vref of 1.25V. The program polls
 for a voltage greater than 1.25V on this input pin (see below for which pin).
 
+Note: Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+regardless of whether OVT is enabled or disabled.
+
 How To Test:
 1. Build the project and download to the Starter Kit
 2. Provide input pin with voltage less than 1.25V and watch LED0 turn on

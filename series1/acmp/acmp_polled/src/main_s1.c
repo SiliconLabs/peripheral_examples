@@ -2,6 +2,9 @@
  * @file main_s1.c
  * @brief This project demonstrates a simple analog comparison of push button 0
  * to the 1.25V internal VREF, if the button is pushed, it sets LED0 on.
+ *
+ * Note: Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+ * regardless of whether OVT is enabled or disabled.
  *******************************************************************************
  * # License
  * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
@@ -50,9 +53,19 @@ void initGPIO(void)
   // Enable clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Configure push button and LED
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInput, 0);
+  // Configure Push Button 0 for analog input to ACMP
+  // It is recommended to set the pin mode to disabled for analog inputs.
+  // See the GPIO description in the device reference manual for more details.
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
+
+  // Configure LED0 pin
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
+
+  // Disable OVT for pins used as analog inputs. Disabling the over-voltage
+  // capability will provide less distortion on analog inputs.
+  // Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+  // regardless of whether OVT is enabled or disabled.
+  GPIO->P[BSP_GPIO_PB0_PORT].OVTDIS |= 1 << BSP_GPIO_PB0_PIN;
 }
 
 /**************************************************************************//**

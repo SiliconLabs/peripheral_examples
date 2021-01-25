@@ -4,6 +4,9 @@ This project demonstrates a simple comparison of 2 inputs. An external input
 pin is compared with internal Vref of 1.25V. The program interrupts when the
 voltage on that pin drops below 1.25V, and toggles LED0.
 
+Note: Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+regardless of whether OVT is enabled or disabled.
+
 How To Test:
 1. Build the project and download to the Starter Kit
 2. Drop the voltage on the input pin below 1.25V and watch LED0 toggle

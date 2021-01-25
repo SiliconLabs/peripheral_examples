@@ -2,6 +2,9 @@
  * @file main_gg11.c
  * @brief This project demonstrates a simple analog comparison of PB9 to the
  * 1.25V internal VREF; when the voltage is below 1.25, LED0 is red.
+ *
+ * Note: Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+ * regardless of whether OVT is enabled or disabled.
  *******************************************************************************
  * # License
  * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
@@ -27,6 +30,7 @@
  *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  *
+ * Note: The voltage on the input pin may not exceed IOVDD + 0.3V
  *******************************************************************************
  * # Evaluation Quality
  * This code has been minimally tested to ensure that it builds and is suitable 
@@ -45,14 +49,24 @@
 /**************************************************************************//**
  * @brief GPIO initialization
  *****************************************************************************/
-void initGpio(void)
+void initGPIO(void)
 {
   // Enable clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure input: PB9 (Expansion Header Pin 13)
-  GPIO_PinModeSet(gpioPortB, 9, gpioModeInputPull, 0);
+  // It is recommended to set the pin mode to disabled for analog inputs.
+  // See the GPIO description in the device reference manual for more details.
+  GPIO_PinModeSet(gpioPortB, 9, gpioModeDisabled, 0);
+
+  // Configure LED0 pin
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
+
+  // Disable OVT for pins used as analog inputs. Disabling the over-voltage
+  // capability will provide less distortion on analog inputs.
+  // Analog pin inputs cannot exceed the minimum of IOVDD or AVDD + 0.3V,
+  // regardless of whether OVT is enabled or disabled.
+  GPIO->P[gpioPortB].OVTDIS |= 1 << 9;
 }
 
 /**************************************************************************//**
@@ -95,7 +109,7 @@ int main(void)
   CHIP_Init();
 
   // Initializations
-  initGpio();
+  initGPIO();
   initACMP();
 
   while(1){
