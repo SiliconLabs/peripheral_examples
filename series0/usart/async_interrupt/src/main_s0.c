@@ -52,8 +52,8 @@ volatile char tx_buffer[BUFFER_SIZE];
 void USART1_RX_IRQHandler(void)
 {
   static uint32_t i = 0;
-  uint32_t flags;
-  flags = USART_IntGet(USART1);
+  static uint32_t flags;
+  flags = (USART_IntGet(USART1) & (~USART_IF_RXDATAV));
   USART_IntClear(USART1, flags);
 
   /* Store incoming data into rx_buffer, set rx_data_ready when a full
@@ -103,7 +103,7 @@ void USART1_TX_IRQHandler(void)
  * @brief Main function
  *****************************************************************************/
 int main(void)
-{
+  {
   USART_InitAsync_TypeDef init = USART_INITASYNC_DEFAULT;
   char welcome_string[] = "Silicon Labs UART Code example!\r\f";
   uint32_t i;

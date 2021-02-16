@@ -170,9 +170,6 @@ void USART0_RX_IRQHandler(void)
   // If there are still bytes left to send, transmit the next one
   if (bufpos < BUFLEN)
     USART0->TXDATA = outbuf[bufpos];
-
-  // Clear the requesting interrupt before exiting the handler
-  USART_IntClear(USART0, USART_IF_RXDATAV);
 }
 
 /**************************************************************************//**

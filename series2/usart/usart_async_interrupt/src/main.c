@@ -134,9 +134,6 @@ void USART1_RX_IRQHandler(void)
     inpos++;
   else
     receive = false;   // Stop receiving on CR
-
-  // Clear the requesting interrupt before exiting the handler
-  USART_IntClear(USART1, USART_IF_RXDATAV);
 }
 
 /**************************************************************************//**
