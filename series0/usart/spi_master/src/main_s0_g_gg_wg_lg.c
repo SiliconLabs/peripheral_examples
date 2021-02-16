@@ -109,15 +109,13 @@ void initUSART1 (void)
 
   // Enabling TX interrupts to transfer whenever
   // there is room in the transmit buffer
-  USART_IntClear(USART1, USART_IF_TXBL);
-  USART_IntEnable(USART1, USART_IF_TXBL);
+  USART_IntEnable(USART1, USART_IEN_TXBL);
   NVIC_ClearPendingIRQ(USART1_TX_IRQn);
   NVIC_EnableIRQ(USART1_TX_IRQn);
 
   // Enabling RX interrupts to trigger whenever
   // a new packet arrives from the slave
-  USART_IntClear(USART1, USART_IF_RXDATAV);
-  USART_IntEnable(USART1, USART_IF_RXDATAV);
+  USART_IntEnable(USART1, USART_IEN_RXDATAV);
   NVIC_ClearPendingIRQ(USART1_RX_IRQn);
   NVIC_EnableIRQ(USART1_RX_IRQn);
 

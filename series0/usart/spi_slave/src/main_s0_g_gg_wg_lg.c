@@ -113,16 +113,14 @@ void initUSART1 (void)
   USART_Enable(USART1, usartEnable);
 
   // Enable USART1 RX interrupts
-  USART_IntClear(USART1, USART_IF_RXDATAV);
-  USART_IntEnable(USART1, USART_IF_RXDATAV);
+  USART_IntEnable(USART1, USART_IEN_RXDATAV);
   NVIC_ClearPendingIRQ(USART1_RX_IRQn);
   NVIC_EnableIRQ(USART1_RX_IRQn);
 
   // Enabling TX interrupts to transfer whenever
   // there is room in the transmit buffer
   // This should immediately trigger to load the first byte of our TX buffer
-  USART_IntClear(USART1, USART_IF_TXBL);
-  USART_IntEnable(USART1, USART_IF_TXBL);
+  USART_IntEnable(USART1, USART_IEN_TXBL);
   NVIC_ClearPendingIRQ(USART1_TX_IRQn);
   NVIC_EnableIRQ(USART1_TX_IRQn);
 }

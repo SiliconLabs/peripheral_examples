@@ -135,8 +135,6 @@ void USART4_TX_IRQHandler(void)
     receive = true;   // Go back into receive when all is sent
     USART_IntDisable(USART4, USART_IEN_TXBL);
   }
-  // Clear the requesting interrupt before exiting the handler
-  USART_IntClear(USART4, USART_IF_TXBL);
 }
 
 /**************************************************************************//**
