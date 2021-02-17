@@ -15,7 +15,7 @@ HFRCO - 19 MHz
 DAC  - internal 1.25V low noise reference, continuous mode
 
 Board: Silicon Labs EFM32G Starter Kit (STKXXX)
-Device: EFM32GG890F128
+Device: EFM32G890F128
 PB11 - DAC0_OUT0
 
 Board: Silicon Labs EFM32GG Starter Kit (STK3700)
