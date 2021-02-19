@@ -83,8 +83,8 @@ void GPIO_EVEN_IRQHandler(void)
   // Get and clear all pending GPIO interrupts
   GPIO_IntClear(GPIO_IntGet());
 
-  //Configure PC9 (EM4WU Pin 2) to wake up device from EM4
-  GPIO_EM4EnablePinWakeup(0x0 << _GPIO_EM4WUEN_EM4WUEN_SHIFT, 0);
+  //Configure PA0 (EM4WU Pin 1) to wake up device from EM4
+  GPIO_EM4EnablePinWakeup(GPIO_EM4WUEN_EM4WUEN_A0, 0);
   GPIO_EM4SetPinRetention(true);
 
   // Go into EM4 and wait for wakeup; LED(s) will be off
