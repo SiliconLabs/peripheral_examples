@@ -1,8 +1,8 @@
 /***************************************************************************//**
  * @file main.c
  * @brief This project demonstrates the functionality of the watchdog timer. It
- * uses LEDs and a Push-button to indicate the state of the system. If the LEDs
- * are flashing, the system has not undergone a reset. If the Push Button 0 is
+ * uses an LED and a Push-button to indicate the state of the system. If the LED
+ * is flashing, the system has not undergone a reset. If the Push Button 0 is
  * pressed and held for some time, it will trigger a WDOG reset. See readme.txt
  * for details.
  *******************************************************************************
@@ -96,7 +96,7 @@ int main(void)
   // Clear Reset causes so we know which reset occurs the next time 
   RMU_ResetCauseClear();
 
-  // Configure the Push Buttons and the LEDs 
+  // Configure the Push Buttons and the LED
   initGPIO();
 
   // Setup SysTick Timer for 1 msec interrupts  
@@ -108,7 +108,7 @@ int main(void)
   // Check if Power on Reset (POR) triggered the last reset 
   if (resetCause & RMU_RSTCAUSE_WDOGRST)
   {
-    // Turn LED0 and LED1 ON 
+    // Turn LED0 ON
     GPIO_PinOutSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
     while(1); //Stay here
   }
@@ -126,7 +126,7 @@ int main(void)
   // Feed the watchdog 
 	WDOG_Feed();
 
-	// Toggle LED0 and LED1 at 10 kHz 
+	// Toggle LED0 at 10 kHz
 	GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
 	Delay(100);
   }
@@ -140,7 +140,7 @@ void initGPIO(void)
   // Enable clock for the GPIO module 
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Configure the GPIO pins F4 and F5 for the LEDs as output pins 
+  // Configure the GPIO pin for LED0 as output pin
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 
   // Configure PB0 as input  
