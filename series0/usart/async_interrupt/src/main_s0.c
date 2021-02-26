@@ -103,7 +103,7 @@ void USART1_TX_IRQHandler(void)
  * @brief Main function
  *****************************************************************************/
 int main(void)
-  {
+{
   USART_InitAsync_TypeDef init = USART_INITASYNC_DEFAULT;
   char welcome_string[] = "Silicon Labs UART Code example!\r\f";
   uint32_t i;
