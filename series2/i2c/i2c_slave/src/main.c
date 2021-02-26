@@ -49,6 +49,7 @@
 #include "em_emu.h"
 #include "em_gpio.h"
 #include "em_rtcc.h"
+#include "em_core.h"
 #include "bsp.h"
 
 // Defines
@@ -305,10 +306,15 @@ int main(void)
       EMU_EnterEM1();
     }
 
+    // EM2 entry is a critical section and interrupts are disabled to prevent
+    // race conditions
+    CORE_DECLARE_IRQ_STATE;
+    CORE_ENTER_CRITICAL();
     GPIO_PinOutClear(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
 
     // Enter EM2. The I2C address match will wake up the EFM32
     // EM2 with RTCC running off LFRCO is a documented current mode in the DS
     em_EM2_RTCC(cmuSelect_LFRCO, false);
+    CORE_EXIT_CRITICAL();
   }
 }
