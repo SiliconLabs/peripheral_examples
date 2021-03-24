@@ -3511,7 +3511,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pulse_capture/SimplicityStudio/STKXXX_EFM32G_timer_pulse_capture.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3400A_EFM32HG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="SLSTK3400A_EFM32HG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.hg.*"/>
     <properties key="defaultName" value="SLSTK3400A_EFM32HG_timer_pwm_dma"/>
@@ -3519,7 +3519,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pwm_dma/SimplicityStudio/SLSTK3400A_EFM32HG_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="STK3200_EFM32ZG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="STK3200_EFM32ZG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2010a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.zg.*"/>
     <properties key="defaultName" value="STK3200_EFM32ZG_timer_pwm_dma"/>
@@ -3527,7 +3527,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pwm_dma/SimplicityStudio/STK3200_EFM32ZG_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="STK3300_EFM32TG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="STK3300_EFM32TG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg.*"/>
     <properties key="defaultName" value="STK3300_EFM32TG_timer_pwm_dma"/>
@@ -3535,7 +3535,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pwm_dma/SimplicityStudio/STK3300_EFM32TG_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="STK3600_EFM32LG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="STK3600_EFM32LG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2201a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.lg.*"/>
     <properties key="defaultName" value="STK3600_EFM32LG_timer_pwm_dma"/>
@@ -3543,7 +3543,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pwm_dma/SimplicityStudio/STK3600_EFM32LG_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="STK3700_EFM32GG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="STK3700_EFM32GG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2200a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg.*"/>
     <properties key="defaultName" value="STK3700_EFM32GG_timer_pwm_dma"/>
@@ -3551,7 +3551,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pwm_dma/SimplicityStudio/STK3700_EFM32GG_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="STK3800_EFM32WG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="STK3800_EFM32WG_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2400a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.wg.*"/>
     <properties key="defaultName" value="STK3800_EFM32WG_timer_pwm_dma"/>
@@ -3559,7 +3559,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/timer/timer_pwm_dma/SimplicityStudio/STK3800_EFM32WG_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="STKXXX_EFM32G_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="STKXXX_EFM32G_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2001a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.g.*"/>
     <properties key="defaultName" value="STKXXX_EFM32G_timer_pwm_dma"/>
@@ -3863,6 +3863,14 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/usart/async_interrupt/SimplicityStudio/STK3200_EFM32ZG_async_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="STK3300_EFM32TG_async_interrupt" description="This example echoes back lines sent to it over the virtual com port by the user using a baudrate of 115200. Once a new line or 80 characters are received, the RxBuffer is echoed back.  ">
+    <properties key="core.boardCompatibility" value="brd2100a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg.*"/>
+    <properties key="defaultName" value="STK3300_EFM32TG_async_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/async_interrupt/SimplicityStudio/STK3300_EFM32TG_async_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="STK3600_EFM32LG_async_interrupt" description="This example echoes back lines sent to it over the virtual com port by the user using a baudrate of 115200. Once a new line or 80 characters are received, the RxBuffer is echoed back.  ">
     <properties key="core.boardCompatibility" value="brd2201a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.lg.*"/>
@@ -4055,62 +4063,6 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/usart/spi_dma_slave/SimplicityStudio/STKXXX_EFM32G_spi_slave_dma.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3400A_EFM32HG_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2012a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.hg.*"/>
-    <properties key="defaultName" value="SLSTK3400A_EFM32HG_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/SLSTK3400A_EFM32HG_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="STK3200_EFM32ZG_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2010a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.zg.*"/>
-    <properties key="defaultName" value="STK3200_EFM32ZG_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/STK3200_EFM32ZG_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="STK3300_EFM32TG_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2100a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg.*"/>
-    <properties key="defaultName" value="STK3300_EFM32TG_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/STK3300_EFM32TG_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="STK3600_EFM32LG_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2201a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.lg.*"/>
-    <properties key="defaultName" value="STK3600_EFM32LG_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/STK3600_EFM32LG_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="STK3700_EFM32GG_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2200a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.gg.*"/>
-    <properties key="defaultName" value="STK3700_EFM32GG_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/STK3700_EFM32GG_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="STK3800_EFM32WG_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2400a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.wg.*"/>
-    <properties key="defaultName" value="STK3800_EFM32WG_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/STK3800_EFM32WG_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="STKXXX_EFM32G_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2001a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.g.*"/>
-    <properties key="defaultName" value="STKXXX_EFM32G_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_master/SimplicityStudio/STKXXX_EFM32G_spi_master.slsproj"/>
-  </descriptors>
   <descriptors label="SLSTK3400A_EFM32HG_spi_master_dma_prs_gpio" description="This example demonstrates using DMA with SPI as the master where  packet transfers are triggered every push of Push Button 0. ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.hg.*"/>
@@ -4166,6 +4118,62 @@
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/usart/spi_master_dma_prs_gpio/SimplicityStudio/STKXXX_EFM32G_spi_master_dma_prs_gpio.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3400A_EFM32HG_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2012a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.hg.*"/>
+    <properties key="defaultName" value="SLSTK3400A_EFM32HG_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/SLSTK3400A_EFM32HG_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="STK3200_EFM32ZG_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2010a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.zg.*"/>
+    <properties key="defaultName" value="STK3200_EFM32ZG_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/STK3200_EFM32ZG_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="STK3300_EFM32TG_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2100a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg.*"/>
+    <properties key="defaultName" value="STK3300_EFM32TG_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/STK3300_EFM32TG_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="STK3600_EFM32LG_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2201a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.lg.*"/>
+    <properties key="defaultName" value="STK3600_EFM32LG_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/STK3600_EFM32LG_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="STK3700_EFM32GG_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2200a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.gg.*"/>
+    <properties key="defaultName" value="STK3700_EFM32GG_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/STK3700_EFM32GG_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="STK3800_EFM32WG_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2400a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.wg.*"/>
+    <properties key="defaultName" value="STK3800_EFM32WG_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/STK3800_EFM32WG_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="STKXXX_EFM32G_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2001a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.g.*"/>
+    <properties key="defaultName" value="STKXXX_EFM32G_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_master_interrupt/SimplicityStudio/STKXXX_EFM32G_spi_master_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3400A_EFM32HG_spi_master_polled" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
@@ -4223,61 +4231,61 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/usart/spi_master_polled/SimplicityStudio/STKXXX_EFM32G_spi_master_polled.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3400A_EFM32HG_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="SLSTK3400A_EFM32HG_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.hg.*"/>
-    <properties key="defaultName" value="SLSTK3400A_EFM32HG_spi_slave"/>
+    <properties key="defaultName" value="SLSTK3400A_EFM32HG_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/SLSTK3400A_EFM32HG_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/SLSTK3400A_EFM32HG_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="STK3200_EFM32ZG_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="STK3200_EFM32ZG_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2010a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.zg.*"/>
-    <properties key="defaultName" value="STK3200_EFM32ZG_spi_slave"/>
+    <properties key="defaultName" value="STK3200_EFM32ZG_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/STK3200_EFM32ZG_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/STK3200_EFM32ZG_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="STK3300_EFM32TG_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="STK3300_EFM32TG_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg.*"/>
-    <properties key="defaultName" value="STK3300_EFM32TG_spi_slave"/>
+    <properties key="defaultName" value="STK3300_EFM32TG_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/STK3300_EFM32TG_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/STK3300_EFM32TG_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="STK3600_EFM32LG_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="STK3600_EFM32LG_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2201a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.lg.*"/>
-    <properties key="defaultName" value="STK3600_EFM32LG_spi_slave"/>
+    <properties key="defaultName" value="STK3600_EFM32LG_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/STK3600_EFM32LG_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/STK3600_EFM32LG_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="STK3700_EFM32GG_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="STK3700_EFM32GG_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2200a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg.*"/>
-    <properties key="defaultName" value="STK3700_EFM32GG_spi_slave"/>
+    <properties key="defaultName" value="STK3700_EFM32GG_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/STK3700_EFM32GG_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/STK3700_EFM32GG_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="STK3800_EFM32WG_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="STK3800_EFM32WG_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2400a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.wg.*"/>
-    <properties key="defaultName" value="STK3800_EFM32WG_spi_slave"/>
+    <properties key="defaultName" value="STK3800_EFM32WG_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/STK3800_EFM32WG_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/STK3800_EFM32WG_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="STKXXX_EFM32G_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="STKXXX_EFM32G_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2001a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.g.*"/>
-    <properties key="defaultName" value="STKXXX_EFM32G_spi_slave"/>
+    <properties key="defaultName" value="STKXXX_EFM32G_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series0/usart/spi_slave/SimplicityStudio/STKXXX_EFM32G_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series0/usart/spi_slave_interrupt/SimplicityStudio/STKXXX_EFM32G_spi_slave_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="SLSTK3400A_EFM32HG_spi_slave_polled" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by polling. The TXDATA register is loaded right after receiving data  to send data to the master each SPI frame on the MISO pin. ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
@@ -4655,7 +4663,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/vdac/vdac_timer_dma_waveform/SimplicityStudio/STKXXX_EFM32G_vdac_timer_dma_waveform.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3400A_EFM32HG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="SLSTK3400A_EFM32HG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2012a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.hg.*"/>
     <properties key="defaultName" value="SLSTK3400A_EFM32HG_wdog"/>
@@ -4663,7 +4671,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/wdog/wdog_led_toggle/SimplicityStudio/SLSTK3400A_EFM32HG_wdog.slsproj"/>
   </descriptors>
-  <descriptors label="STK3200_EFM32ZG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="STK3200_EFM32ZG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2010a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.zg.*"/>
     <properties key="defaultName" value="STK3200_EFM32ZG_wdog"/>
@@ -4671,7 +4679,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/wdog/wdog_led_toggle/SimplicityStudio/STK3200_EFM32ZG_wdog.slsproj"/>
   </descriptors>
-  <descriptors label="STK3300_EFM32TG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="STK3300_EFM32TG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg.*"/>
     <properties key="defaultName" value="STK3300_EFM32TG_wdog"/>
@@ -4679,7 +4687,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/wdog/wdog_led_toggle/SimplicityStudio/STK3300_EFM32TG_wdog.slsproj"/>
   </descriptors>
-  <descriptors label="STK3600_EFM32LG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="STK3600_EFM32LG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2201a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.lg.*"/>
     <properties key="defaultName" value="STK3600_EFM32LG_wdog"/>
@@ -4687,7 +4695,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/wdog/wdog_led_toggle/SimplicityStudio/STK3600_EFM32LG_wdog.slsproj"/>
   </descriptors>
-  <descriptors label="STK3700_EFM32GG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="STK3700_EFM32GG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2200a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg.*"/>
     <properties key="defaultName" value="STK3700_EFM32GG_wdog"/>
@@ -4695,7 +4703,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/wdog/wdog_led_toggle/SimplicityStudio/STK3700_EFM32GG_wdog.slsproj"/>
   </descriptors>
-  <descriptors label="STK3800_EFM32WG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="STK3800_EFM32WG_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2400a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.wg.*"/>
     <properties key="defaultName" value="STK3800_EFM32WG_wdog"/>
@@ -4703,7 +4711,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series0/wdog/wdog_led_toggle/SimplicityStudio/STK3800_EFM32WG_wdog.slsproj"/>
   </descriptors>
-  <descriptors label="STKXXX_EFM32G_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  LEDs and a Push-button to indicate the state of the system. If the LEDs are  flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, both the LEDs are turned on and the code does not execute  any further.  ">
+  <descriptors label="STKXXX_EFM32G_wdog" description="This project demonstrates the functionality of the watchdog timer. It uses  an LED and a Push-button to indicate the state of the system. If the LED is flashing, the system has not undergone a reset. If the Push Button 0 is  pressed and held for some time, it will trigger a WDOG reset. The code looks for a reset source in the beginning of the execution and if WDOG is found to  be the reset source, the LED is turned on and the code does not execute  any further.  ">
     <properties key="core.boardCompatibility" value="brd2001a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.g.*"/>
     <properties key="defaultName" value="STKXXX_EFM32G_wdog"/>
@@ -14487,7 +14495,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pulse_capture/SimplicityStudio/SLSTK3701A_EFM32GG11B_timer_pulse_capture.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4100A_EFR32BG1P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4100A_EFR32BG1P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
     <properties key="defaultName" value="BRD4100A_EFR32BG1P_timer_pwm_dma"/>
@@ -14495,7 +14503,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4100A_EFR32BG1P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4103A_EFR32BG12P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4103A_EFR32BG12P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4103a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
     <properties key="defaultName" value="BRD4103A_EFR32BG12P_timer_pwm_dma"/>
@@ -14503,7 +14511,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4103A_EFR32BG12P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4104A_EFR32BG13P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4104A_EFR32BG13P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4104a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
     <properties key="defaultName" value="BRD4104A_EFR32BG13P_timer_pwm_dma"/>
@@ -14511,7 +14519,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4104A_EFR32BG13P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4151A_EFR32MG1P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4151A_EFR32MG1P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4151a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
     <properties key="defaultName" value="BRD4151A_EFR32MG1P_timer_pwm_dma"/>
@@ -14519,7 +14527,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4151A_EFR32MG1P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4159A_EFR32MG13P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4159A_EFR32MG13P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4159a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
     <properties key="defaultName" value="BRD4159A_EFR32MG13P_timer_pwm_dma"/>
@@ -14527,7 +14535,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4159A_EFR32MG13P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4161A_EFR32MG12P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4161A_EFR32MG12P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4161a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
     <properties key="defaultName" value="BRD4161A_EFR32MG12P_timer_pwm_dma"/>
@@ -14535,7 +14543,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4161A_EFR32MG12P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4169B_EFR32MG14P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4169B_EFR32MG14P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4169b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg14.*"/>
     <properties key="defaultName" value="BRD4169B_EFR32MG14P_timer_pwm_dma"/>
@@ -14543,7 +14551,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4169B_EFR32MG14P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4250A_EFR32FG1P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4250A_EFR32FG1P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4250a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
     <properties key="defaultName" value="BRD4250A_EFR32FG1P_timer_pwm_dma"/>
@@ -14551,7 +14559,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4250A_EFR32FG1P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4253A_EFR32FG12P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4253A_EFR32FG12P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4253a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
     <properties key="defaultName" value="BRD4253A_EFR32FG12P_timer_pwm_dma"/>
@@ -14559,7 +14567,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4253A_EFR32FG12P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4256A_EFR32FG13P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4256A_EFR32FG13P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4256a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
     <properties key="defaultName" value="BRD4256A_EFR32FG13P_timer_pwm_dma"/>
@@ -14567,7 +14575,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4256A_EFR32FG13P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4257A_EFR32FG14P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4257A_EFR32FG14P_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4257a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
     <properties key="defaultName" value="BRD4257A_EFR32FG14P_timer_pwm_dma"/>
@@ -14575,7 +14583,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/BRD4257A_EFR32FG14P_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3301A_EFM32TG11B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="SLSTK3301A_EFM32TG11B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2102a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
     <properties key="defaultName" value="SLSTK3301A_EFM32TG11B_timer_pwm_dma"/>
@@ -14583,7 +14591,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/SLSTK3301A_EFM32TG11B_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3401A_EFM32PG1B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="SLSTK3401A_EFM32PG1B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2500a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
     <properties key="defaultName" value="SLSTK3401A_EFM32PG1B_timer_pwm_dma"/>
@@ -14591,7 +14599,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/SLSTK3401A_EFM32PG1B_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3402A_EFM32PG12B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="SLSTK3402A_EFM32PG12B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2501a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
     <properties key="defaultName" value="SLSTK3402A_EFM32PG12B_timer_pwm_dma"/>
@@ -14599,7 +14607,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/timer/timer_pwm_dma/SimplicityStudio/SLSTK3402A_EFM32PG12B_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3701A_EFM32GG11B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="SLSTK3701A_EFM32GG11B_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0/1 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd2204a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
     <properties key="defaultName" value="SLSTK3701A_EFM32GG11B_timer_pwm_dma"/>
@@ -15807,126 +15815,6 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/usart/spi_dma_slave/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_slave_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4100A_EFR32BG1P_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4100a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
-    <properties key="defaultName" value="BRD4100A_EFR32BG1P_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4100A_EFR32BG1P_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4103A_EFR32BG12_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4103a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
-    <properties key="defaultName" value="BRD4103A_EFR32BG12_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4103A_EFR32BG12_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4104A_EFR32BG13_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4104a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
-    <properties key="defaultName" value="BRD4104A_EFR32BG13_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4104A_EFR32BG13_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4151A_EFR32MG1P_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4151a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
-    <properties key="defaultName" value="BRD4151A_EFR32MG1P_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4151A_EFR32MG1P_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4159A_EFR32MG13_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4159a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
-    <properties key="defaultName" value="BRD4159A_EFR32MG13_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4159A_EFR32MG13_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4164A_EFR32MG12_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4164a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
-    <properties key="defaultName" value="BRD4164A_EFR32MG12_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4164A_EFR32MG12_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4169B_EFR32MG14_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4169b"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg14.*"/>
-    <properties key="defaultName" value="BRD4169B_EFR32MG14_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4169B_EFR32MG14_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4250A_EFR32FG1P_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4250a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
-    <properties key="defaultName" value="BRD4250A_EFR32FG1P_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4250A_EFR32FG1P_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4253A_EFR32FG12_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4253a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
-    <properties key="defaultName" value="BRD4253A_EFR32FG12_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4253A_EFR32FG12_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4256A_EFR32FG13_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4256a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
-    <properties key="defaultName" value="BRD4256A_EFR32FG13_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4256A_EFR32FG13_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="BRD4257A_EFR32FG14_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd4257a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
-    <properties key="defaultName" value="BRD4257A_EFR32FG14_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/BRD4257A_EFR32FG14_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="SLSTK3301A_EFM32TG11_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2102a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
-    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/SLSTK3301A_EFM32TG11_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="SLSTK3401A_EFM32PG1B_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2500a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
-    <properties key="defaultName" value="SLSTK3401A_EFM32PG1B_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/SLSTK3401A_EFM32PG1B_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="SLSTK3402A_EFM32PG12_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2501a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
-    <properties key="defaultName" value="SLSTK3402A_EFM32PG12_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/SLSTK3402A_EFM32PG12_spi_master.slsproj"/>
-  </descriptors>
-  <descriptors label="SLSTK3701A_EFM32GG11_spi_master" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
-    <properties key="core.boardCompatibility" value="brd2204a"/>
-    <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
-    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_spi_master"/>
-    <properties key="template.category" value="USART"/>
-    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_master/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_master.slsproj"/>
-  </descriptors>
   <descriptors label="BRD4100A_EFR32BG1P_spi_master_dma_prs_gpio" description="This example demonstrates using DMA with SPI as the master where  packet transfers are triggered every push of Push Button 0. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
@@ -16046,6 +15934,174 @@
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/usart/spi_master_dma_prs_gpio/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_master_dma_prs_gpio.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4100A_EFR32BG1_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4100a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
+    <properties key="defaultName" value="BRD4100A_EFR32BG1_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4100A_EFR32BG1_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4103A_EFR32BG12_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4103a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
+    <properties key="defaultName" value="BRD4103A_EFR32BG12_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4103A_EFR32BG12_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4104A_EFR32BG13_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4104a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
+    <properties key="defaultName" value="BRD4104A_EFR32BG13_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4104A_EFR32BG13_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4151A_EFR32MG1_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4151a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
+    <properties key="defaultName" value="BRD4151A_EFR32MG1_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4151A_EFR32MG1_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4158A_EFR32MG13_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4158a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
+    <properties key="defaultName" value="BRD4158A_EFR32MG13_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4158A_EFR32MG13_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4159A_EFR32MG13_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4159a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
+    <properties key="defaultName" value="BRD4159A_EFR32MG13_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4159A_EFR32MG13_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4162A_EFR32MG12_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4162a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
+    <properties key="defaultName" value="BRD4162A_EFR32MG12_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4162A_EFR32MG12_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4164A_EFR32MG12_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4164a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
+    <properties key="defaultName" value="BRD4164A_EFR32MG12_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4164A_EFR32MG12_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4169B_EFR32MG14_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4169b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg14.*"/>
+    <properties key="defaultName" value="BRD4169B_EFR32MG14_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4169B_EFR32MG14_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4250A_EFR32FG1_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4250a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
+    <properties key="defaultName" value="BRD4250A_EFR32FG1_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4250A_EFR32FG1_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4253A_EFR32FG12_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4253a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
+    <properties key="defaultName" value="BRD4253A_EFR32FG12_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4253A_EFR32FG12_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4255A_EFR32FG13_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4255a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
+    <properties key="defaultName" value="BRD4255A_EFR32FG13_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4255A_EFR32FG13_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4256A_EFR32FG13_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4256a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
+    <properties key="defaultName" value="BRD4256A_EFR32FG13_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4256A_EFR32FG13_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4257A_EFR32FG14_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4257a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
+    <properties key="defaultName" value="BRD4257A_EFR32FG14_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4257A_EFR32FG14_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4300A_BGM111_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4300a"/>
+    <properties key="core.partCompatibility" value=".*bgm111a256v2.*"/>
+    <properties key="defaultName" value="BRD4300A_BGM111_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4300A_BGM111_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4302A_BGM121_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4302a"/>
+    <properties key="core.partCompatibility" value=".*bgm121a256v2.*"/>
+    <properties key="defaultName" value="BRD4302A_BGM121_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4302A_BGM121_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4306B_BGM13_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4306b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bgm13.*"/>
+    <properties key="defaultName" value="BRD4306B_BGM13_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/BRD4306B_BGM13_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3301A_EFM32TG11_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2102a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
+    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/SLSTK3301A_EFM32TG11_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3401A_EFM32PG1_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2500a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
+    <properties key="defaultName" value="SLSTK3401A_EFM32PG1_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/SLSTK3401A_EFM32PG1_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3402A_EFM32PG12_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2501a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
+    <properties key="defaultName" value="SLSTK3402A_EFM32PG12_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/SLSTK3402A_EFM32PG12_spi_master_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3701A_EFM32GG11_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd2204a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
+    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_master_interrupt/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_master_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="BRD4100A_EFR32BG1P_spi_master_polled" description="This example demonstrates USART as a SPI master. 10 bytes, 0x00 - 0x09, are transmitted on MOSI. 10 bytes are received on MISO. Expected values are 0xA0 - 0xA9. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
@@ -16167,125 +16223,173 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/usart/spi_master_polled/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_master_polled.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4100A_EFR32BG1P_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4100A_EFR32BG1_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg1.*"/>
-    <properties key="defaultName" value="BRD4100A_EFR32BG1P_spi_slave"/>
+    <properties key="defaultName" value="BRD4100A_EFR32BG1_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4100A_EFR32BG1P_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4100A_EFR32BG1_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4103A_EFR32BG12_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4103A_EFR32BG12_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4103a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg12.*"/>
-    <properties key="defaultName" value="BRD4103A_EFR32BG12_spi_slave"/>
+    <properties key="defaultName" value="BRD4103A_EFR32BG12_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4103A_EFR32BG12_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4103A_EFR32BG12_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4104A_EFR32BG13_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4104A_EFR32BG13_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4104a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg13.*"/>
-    <properties key="defaultName" value="BRD4104A_EFR32BG13_spi_slave"/>
+    <properties key="defaultName" value="BRD4104A_EFR32BG13_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4104A_EFR32BG13_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4104A_EFR32BG13_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4151A_EFR32MG1P_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4151A_EFR32MG1_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4151a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg1.*"/>
-    <properties key="defaultName" value="BRD4151A_EFR32MG1P_spi_slave"/>
+    <properties key="defaultName" value="BRD4151A_EFR32MG1_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4151A_EFR32MG1P_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4151A_EFR32MG1_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4159A_EFR32MG13_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4158A_EFR32MG13_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4158a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
+    <properties key="defaultName" value="BRD4158A_EFR32MG13_spi_slave_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4158A_EFR32MG13_spi_slave_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4159A_EFR32MG13_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4159a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg13.*"/>
-    <properties key="defaultName" value="BRD4159A_EFR32MG13_spi_slave"/>
+    <properties key="defaultName" value="BRD4159A_EFR32MG13_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4159A_EFR32MG13_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4159A_EFR32MG13_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4164A_EFR32MG12_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4162A_EFR32MG12_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4162a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
+    <properties key="defaultName" value="BRD4162A_EFR32MG12_spi_slave_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4162A_EFR32MG12_spi_slave_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4164A_EFR32MG12_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4164a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg12.*"/>
-    <properties key="defaultName" value="BRD4164A_EFR32MG12_spi_slave"/>
+    <properties key="defaultName" value="BRD4164A_EFR32MG12_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4164A_EFR32MG12_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4164A_EFR32MG12_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4169B_EFR32MG14_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4169B_EFR32MG14_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4169b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg14.*"/>
-    <properties key="defaultName" value="BRD4169B_EFR32MG14_spi_slave"/>
+    <properties key="defaultName" value="BRD4169B_EFR32MG14_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4169B_EFR32MG14_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4169B_EFR32MG14_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4250A_EFR32FG1P_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4250A_EFR32FG1_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4250a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg1.*"/>
-    <properties key="defaultName" value="BRD4250A_EFR32FG1P_spi_slave"/>
+    <properties key="defaultName" value="BRD4250A_EFR32FG1_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4250A_EFR32FG1P_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4250A_EFR32FG1_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4253A_EFR32FG12P_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4253A_EFR32FG12_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4253a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg12.*"/>
-    <properties key="defaultName" value="BRD4253A_EFR32FG12P_spi_slave"/>
+    <properties key="defaultName" value="BRD4253A_EFR32FG12_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4253A_EFR32FG12P_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4253A_EFR32FG12_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4256A_EFR32FG13P_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4255A_EFR32FG13_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4255a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
+    <properties key="defaultName" value="BRD4255A_EFR32FG13_spi_slave_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4255A_EFR32FG13_spi_slave_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4256A_EFR32FG13_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4256a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg13.*"/>
-    <properties key="defaultName" value="BRD4256A_EFR32FG13P_spi_slave"/>
+    <properties key="defaultName" value="BRD4256A_EFR32FG13_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4256A_EFR32FG13P_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4256A_EFR32FG13_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4257A_EFR32FG14P_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4257A_EFR32FG14_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4257a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg14.*"/>
-    <properties key="defaultName" value="BRD4257A_EFR32FG14P_spi_slave"/>
+    <properties key="defaultName" value="BRD4257A_EFR32FG14_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/BRD4257A_EFR32FG14P_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4257A_EFR32FG14_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3301A_EFM32TG11_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="BRD4300A_BGM111_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4300a"/>
+    <properties key="core.partCompatibility" value=".*bgm111a256v2.*"/>
+    <properties key="defaultName" value="BRD4300A_BGM111_spi_slave_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4300A_BGM111_spi_slave_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4302A_BGM121_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4302a"/>
+    <properties key="core.partCompatibility" value=".*bgm121a256v2.*"/>
+    <properties key="defaultName" value="BRD4302A_BGM121_spi_slave_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4302A_BGM121_spi_slave_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="BRD4306B_BGM13_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4306b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bgm13.*"/>
+    <properties key="defaultName" value="BRD4306B_BGM13_spi_slave_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/BRD4306B_BGM13_spi_slave_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="SLSTK3301A_EFM32TG11_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2102a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.tg11.*"/>
-    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_spi_slave"/>
+    <properties key="defaultName" value="SLSTK3301A_EFM32TG11_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/SLSTK3301A_EFM32TG11_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/SLSTK3301A_EFM32TG11_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3401A_EFM32PG1B_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="SLSTK3401A_EFM32PG1_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2500a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.pg1.*"/>
-    <properties key="defaultName" value="SLSTK3401A_EFM32PG1B_spi_slave"/>
+    <properties key="defaultName" value="SLSTK3401A_EFM32PG1_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/SLSTK3401A_EFM32PG1B_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/SLSTK3401A_EFM32PG1_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3402A_EFM32PG12_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="SLSTK3402A_EFM32PG12_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2501a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.pg12.*"/>
-    <properties key="defaultName" value="SLSTK3402A_EFM32PG12_spi_slave"/>
+    <properties key="defaultName" value="SLSTK3402A_EFM32PG12_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/SLSTK3402A_EFM32PG12_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/SLSTK3402A_EFM32PG12_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="SLSTK3701A_EFM32GG11_spi_slave" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by an interrupt. Once moved to a buffer the same interrupt moves data from the TxBuffer into the TXDATA register which will send data  to the master on the next transfer. ">
+  <descriptors label="SLSTK3701A_EFM32GG11_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd2204a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efm32.gg11.*"/>
-    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_spi_slave"/>
+    <properties key="defaultName" value="SLSTK3701A_EFM32GG11_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series1/usart/spi_slave/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_slave.slsproj"/>
+    <properties key="template.projectFilePaths" value="series1/usart/spi_slave_interrupt/SimplicityStudio/SLSTK3701A_EFM32GG11_spi_slave_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="BRD4100A_EFR32BG1P_spi_slave_polled" description="This example demonstrates USART as a SPI slave. Data received on the MOSI pin is processed by polling. The TXDATA register is loaded right after receiving data  to send data to the master each SPI frame on the MISO pin. ">
     <properties key="core.boardCompatibility" value="brd4100a"/>
@@ -19183,7 +19287,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_pulse_capture/SimplicityStudio/BRD4182A_EFR32xG22_timer_pulse_capture.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4181A_EFR32xG21_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4181A_EFR32xG21_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32xG21_timer_pwm_dma"/>
@@ -19191,7 +19295,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_pwm_dma/SimplicityStudio/BRD4181A_EFR32xG21_timer_pwm_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4182A_EFR32xG22_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each compare event. ">
+  <descriptors label="BRD4182A_EFR32xG22_timer_pwm_dma" description="This project demonstrates DMA driven pulse width modulation using the TIMER module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO Pin specified below. In PWM mode, overflow events set the output pin, while compare events clear the pin. Thus the overflow value is set to output the desired signal frequency, while the CCV is set to control  the duty cycle. The DMA is set to loop through a buffer of duty cycles incrementing from 0 to 100%, and writes to the CCVB on each overflow event. ">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
     <properties key="defaultName" value="BRD4182A_EFR32xG22_timer_pwm_dma"/>
@@ -19327,6 +19431,14 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/usart/usart_spi_master_dma/SimplicityStudio/BRD4182A_EFR32xG22_usart_spi_master_dma.slsproj"/>
   </descriptors>
+  <descriptors label="BRD4180A_EFR32xG21_usart_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  USART0 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+    <properties key="core.boardCompatibility" value="brd4180a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4180A_EFR32xG21_usart_spi_master_interrupt"/>
+    <properties key="template.category" value="USART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/usart/usart_spi_master_interrupt/SimplicityStudio/BRD4180A_EFR32xG21_usart_spi_master_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="BRD4181A_EFR32xG21_usart_spi_master_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous master mode.  USART0 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -19375,21 +19487,21 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/usart/usart_spi_slave_dma/SimplicityStudio/BRD4182A_EFR32xG22_usart_spi_slave_dma.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4181A_EFR32xG21_usart_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  USART0 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+  <descriptors label="BRD4181A_EFR32xG21_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_EFR32xG21_usart_spi_slave_interrupt"/>
+    <properties key="defaultName" value="BRD4181A_EFR32xG21_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/usart/usart_spi_slave_interrupt/SimplicityStudio/BRD4181A_EFR32xG21_usart_spi_slave_interrupt.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/usart/usart_spi_slave_interrupt/SimplicityStudio/BRD4181A_EFR32xG21_spi_slave_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="BRD4182A_EFR32xG22_usart_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  USART0 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
+  <descriptors label="BRD4182A_EFR32xG22_spi_slave_interrupt" description="This project demonstrates interrupt-driven operation of the USART in synchronous slave mode.  One of the USARTs (this depends on the device) is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_EFR32xG22_usart_spi_slave_interrupt"/>
+    <properties key="defaultName" value="BRD4182A_EFR32xG22_spi_slave_interrupt"/>
     <properties key="template.category" value="USART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/usart/usart_spi_slave_interrupt/SimplicityStudio/BRD4182A_EFR32xG22_usart_spi_slave_interrupt.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/usart/usart_spi_slave_interrupt/SimplicityStudio/BRD4182A_EFR32xG22_spi_slave_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="BRD4181A_EFR32xG21_usart_spi_slave_polled" description="This project demonstrates polled operation of the USART in synchronous slave mode.  USART0 is configured for SPI-compatible operation at 1 Mbps. Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits transmitted and received MSB-first. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
