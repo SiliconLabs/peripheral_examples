@@ -181,6 +181,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFR32MG22C224F512IM40</state>
           
         </option>
@@ -283,7 +284,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -767,7 +768,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1159,6 +1160,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFR32MG22C224F512IM40</state>
           
         </option>
@@ -1261,7 +1263,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1746,7 +1748,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1973,6 +1975,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
@@ -1991,7 +1996,7 @@
       <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main.c</name>
+      <name>$PROJ_DIR$\..\src\main_s2_xg22.c</name>
     </file>
   </group>
 
