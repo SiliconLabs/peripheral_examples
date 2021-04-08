@@ -24,7 +24,7 @@ How To Test:
    execute a POR to the MCU - LED0 will turn ON
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 Board: Silicon Labs EFM32G Starter Kit (STKXXX)
 Device: EFM32G890F128

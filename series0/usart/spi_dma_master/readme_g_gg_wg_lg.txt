@@ -20,7 +20,7 @@ How To Test:
    RxBuffer[] should contain 0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9.
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 USART1 - Synchronous (SPI) mode, CLK = 1 MHz
 
 Board:  Silicon Labs EFM32G Starter Kit (Gxxx_STK)

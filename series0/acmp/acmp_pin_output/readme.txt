@@ -11,7 +11,7 @@ How To Test:
 the voltage on the output pin change accordingly
 
 Peripherals Used:
-HFRCO - 19 MHz
+HFRCO - 14 MHz
 ACMP0 - 1.25V internal reference versus external input pin
 
 

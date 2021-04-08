@@ -12,7 +12,7 @@ How To Test:
    Confirm that the Set_value is 32
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 MSC
 
 Board:  Silicon Labs EFM32G Starter Kit (STKXXX)

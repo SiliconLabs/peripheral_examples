@@ -36,7 +36,7 @@ Known problem : EM4 wake up bit must be PA0, other bit will cause the device to 
                 automatically
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 
 Board: Silicon Labs EFM32TG Starter Kit (STK3300)

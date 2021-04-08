@@ -24,7 +24,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-HFRCO - 19 MHz
+HFRCO - 14 MHz
 VDAC  - internal 1.25V low noise reference, continuous mode
 
 ================================================================================

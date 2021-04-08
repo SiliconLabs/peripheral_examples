@@ -33,7 +33,7 @@ How To Test:
    replicate a POR to the MCU - LED0 will turn ON
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 Board: Silicon Labs EFM32HG Starter Kit (SLSTK3400A)
 Device: EFM32HG322F64
@@ -61,7 +61,7 @@ How To Test:
    replicate a POR to the MCU - LED0 will turn ON
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 
 Board: Silicon Labs EFM32ZG Starter Kit (STK3200)

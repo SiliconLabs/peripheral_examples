@@ -36,7 +36,7 @@ as if the debug lock has failed.
 	should output some other value.
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 
 Board: Silicon Labs EFM32ZG Starter Kit (STK3200)
 Device: EFM32ZG222f32

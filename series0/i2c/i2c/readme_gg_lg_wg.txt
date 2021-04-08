@@ -15,7 +15,7 @@ How To Test:
    receive data is correct
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 I2C0 - 392157 Hz
 
 Board:  Silicon Labs EFM32GG Starter Kit (STK3700)

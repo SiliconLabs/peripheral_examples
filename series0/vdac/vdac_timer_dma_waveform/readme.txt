@@ -23,7 +23,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-HFRCO - 19 MHz
+HFRCO - 14 MHz
 VDAC  - internal 1.25V low noise reference, sine wave mode
 TIMER0 - frequency can be set by the WAVEFORM_FREQ macro,
          but ultimately the timer runs off of the HFPER clock (19 MHz)

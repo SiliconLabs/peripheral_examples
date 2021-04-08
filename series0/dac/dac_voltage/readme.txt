@@ -11,7 +11,7 @@ How To Test:
 2. Measure the DAC output pin
 
 Peripherals Used:
-HFRCO - 19 MHz
+HFRCO - 14 MHz
 DAC  - internal 1.25V low noise reference, continuous mode
 
 Board: Silicon Labs EFM32G Starter Kit (STKXXX)

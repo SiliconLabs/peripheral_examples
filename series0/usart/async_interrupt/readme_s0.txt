@@ -18,7 +18,7 @@ How To Test:
    characters by default).
 
 Peripherals Used:
-HFRCO  - 19 MHz
+HFRCO  - 14 MHz
 USART1 - 115200 baud, 8-N-1
 
 Board:  Silicon Labs EFM32G Starter Kit (Gxxx_STK)
