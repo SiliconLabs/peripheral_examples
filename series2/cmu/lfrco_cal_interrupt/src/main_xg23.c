@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg21.c
+ * @file main_xg23.c
  * @brief Demonstrates interrupt-driven calibration of the LFRCO against
  *        the HFXO with output to a pin.
  *******************************************************************************
@@ -52,6 +52,7 @@ void startBURTC(void)
 
   // Set BURTC clock
   CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_LFRCO);
+  CMU_ClockEnable(cmuClock_BURTC, true);
 
   // Set BURTC parameters
   burtcInit.clkDiv = 32768;
@@ -304,6 +305,10 @@ int main(void)
 {
   CHIP_Init();
 
+  // Initialize DCDC with kit specific parameters
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
+  EMU_DCDCInit(&dcdcInit);
+
   // Start the HFXO with safe default parameters
   CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_DEFAULT;
   CMU_HFXOInit(&hfxoInit);
@@ -312,7 +317,17 @@ int main(void)
   // Switch the SYSCLK to the HFXO.
   CMU_ClockSelectSet(cmuClock_SYSCLK, cmuSelect_HFXO);
 
+  /*
+   * Enable the LFRCO register clock.  The register clock needs to be
+   * enabled so that the LFRCO_CAL register is accessible to the
+   * processor.  This allows an out-of-range tuning value to be set in
+   * the debugger so that the calibration adjustments are more readily
+   * visible on an oscilloscope.
+   */
+  CMU_ClockEnable(cmuClock_LFRCO, true);
+
   // Drive LFRCO onto PC0 to observe calibration
+  CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClkOutPinConfig(0, cmuSelect_LFRCO, 1, gpioPortC, 0);
 
   while (1)
