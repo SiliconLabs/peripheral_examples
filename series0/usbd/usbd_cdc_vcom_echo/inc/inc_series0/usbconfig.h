@@ -64,7 +64,7 @@ extern "C" {
 #define NUM_APP_TIMERS   0
 
 // Define the interface numbers
-// Needed for src/cdc.c
+// Needed for src/cdc_echo.c
 #define CDC_CTRL_INTERFACE_NO   0
 #define CDC_DATA_INTERFACE_NO   1
 
@@ -73,7 +73,7 @@ extern "C" {
 #define NUM_INTERFACES   2
 
 // Define USB endpoint addresses for the interfaces
-// Needed for src/descriptors.c and src/cdc.c
+// Needed for src/descriptors.c and src/cdc_echo.c
 #define CDC_EP_DATA_OUT  0x01  // Endpoint for CDC data transmission (host sends to device)
 #define CDC_EP_DATA_IN   0x81  // Endpoint for CDC data reception (host receives from device)
 #define CDC_EP_NOTIFY    0x82  // Notification endpoint (not used)

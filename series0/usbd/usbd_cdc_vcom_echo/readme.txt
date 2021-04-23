@@ -14,7 +14,7 @@ The inc/usbconfig.h file has #defines that can be modified to configure the USB
 stack. These options include the clock source for low power mode, number of
 endpoints used, the number of interfaces, etc.
 
-The src/cdc.c file contains the CDC callback functions for handling device
+The src/cdc_echo.c file contains the CDC callback functions for handling device
 state changes and USB host setup commands. It also contains RX/TX callback
 functions that define the flow of data transfers. Once the device is in the
 configured state, cdcStateChangeEvent() sets the usbTxActive global variable to
@@ -29,7 +29,7 @@ the endpoint for another read. Once the data has been transmitted,
 usbDataTransmitted() gets called. Here, we simply update the global variable
 usbTxActive to indicate that the tranmission has completed.
 
-Note: The callback functions in src/cdc.c are named with respect to the USB
+Note: The callback functions in src/cdc_echo.c are named with respect to the USB
 device (in this case the EFM32 board). For example, usbDataTransmitted() gets
 called when the USB device transmits data over USB to the host.
 

@@ -68,9 +68,8 @@ usbd_cdc_uart_bridge/
         usbconfig.h
 
       inc_series0/
-      usbconfig.h
+        usbconfig.h
 
-      cdc.h
       descriptors.h
 
   - src

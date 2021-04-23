@@ -58,7 +58,7 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Set the callback functions (see src/cdc.c)
+  // Set the callback functions (see src/cdc_echo.c)
   USBD_Callbacks_TypeDef callbacks = {
     .usbReset        = NULL,
     .usbStateChange  = cdcStateChangeEvent, // Called when the device changes state
