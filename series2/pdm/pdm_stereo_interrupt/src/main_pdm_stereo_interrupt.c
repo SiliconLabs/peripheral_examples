@@ -60,10 +60,12 @@ int16_t right[BUFFER_SIZE];
  ******************************************************************************/
 void initPdm(void)
 {
+  PDM_Init_TypeDef pdmInit;
+
   // Set up clocks
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_PDM, true);
-  CMU_ClockSelectSet(cmuClock_PDM, cmuSelect_HFRCODPLL); // 19 MHz
+  CMU_ClockSelectSet(cmuClock_PDMREF, cmuSelect_HFRCODPLL); // 19 MHz
 
   // Config GPIO and pin routing
   GPIO_PinModeSet(gpioPortA, 0, gpioModePushPull, 1);    // MIC_EN
@@ -80,27 +82,24 @@ void initPdm(void)
   GPIO->PDMROUTE.DAT1ROUTE = (gpioPortC << _GPIO_PDM_DAT1ROUTE_PORT_SHIFT)
                             | (7 << _GPIO_PDM_DAT1ROUTE_PIN_SHIFT);
 
-  // Config PDM
-  PDM->CFG0 = PDM_CFG0_STEREOMODECH01_CH01ENABLE
-              | PDM_CFG0_CH0CLKPOL_NORMAL
-              | PDM_CFG0_CH1CLKPOL_INVERT
-              | PDM_CFG0_FIFODVL_ONE
-              | PDM_CFG0_DATAFORMAT_DOUBLE16
-              | PDM_CFG0_NUMCH_TWO
-              | PDM_CFG0_FORDER_FIFTH;
+  // Initialize PDM registers with reset values
+  PDM_Reset(PDM);
 
-  PDM->CFG1 = (5 << _PDM_CFG1_PRESC_SHIFT);
+  // Configure PDM
+  pdmInit.start = true;
+  pdmInit.dsr = 32;
+  pdmInit.gain = 5;
+  pdmInit.ch0ClkPolarity = pdmCh0ClkPolarityRisingEdge;  // Normal
+  pdmInit.ch1ClkPolarity = pdmCh0ClkPolarityFallingEdge; // Invert
+  pdmInit.enableCh0Ch1Stereo = true;
+  pdmInit.fifoValidWatermark = pdmFifoValidWatermarkOne;
+  pdmInit.dataFormat = pdmDataFormatDouble16;
+  pdmInit.numChannels = pdmNumberOfChannelsTwo;
+  pdmInit.filterOrder = pdmFilterOrderFifth;
+  pdmInit.prescaler = 5;
 
-  // Enable module
-  PDM->EN = PDM_EN_EN;
-
-  // Start filter
-  while(PDM->SYNCBUSY != 0);
-  PDM->CMD = PDM_CMD_START;
-
-  // Config DSR/Gain
-  while(PDM->SYNCBUSY != 0);
-  PDM->CTRL = (3 << _PDM_CTRL_GAIN_SHIFT) | (32 << _PDM_CTRL_DSR_SHIFT);
+  // Initialize PDM peripheral
+  PDM_Init(PDM, &pdmInit);
 
   // Enable Interrupts
   PDM->IEN = PDM_IEN_DVL;

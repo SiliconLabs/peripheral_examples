@@ -25,11 +25,9 @@ PC7 - PDM data
 Note:
 In order to change this example to use receive mono audio from a single
 MEMs microphone, apply the following changes:
-1. Remove/comment out line 57 and 58 about GPIO routing of PDM Data 1
-2. Change line 61 from "PDM_CFG0_STEREOMODECH01_CH01ENABLE" to
-  "PDM_CFG0_STEREOMODECH01_DISABLE"
-3. Remove/comment out line 63 about PDM channel 1 polarity
-4. Change line 66 from "PDM_CFG0_NUMCH_TWO" to "PDM_CFG0_NUMCH_ONE"
+1. Remove/comment out line 82 and 83 about GPIO routing of PDM Data 1
+2. Change line 94 enabling stereo from "true" to "false"
+3. Change line 97 num channels from "pdmNumberOfChannelsTwo" to "pdmNumberOfChannelsOne"
 
 Note: On SLTB010A BRD4184A Rev A01, the PDM signals are suboptimally routed 
 next to the High Frequency crystal which causes HFXO and RF performance issues.
