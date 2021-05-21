@@ -38,6 +38,7 @@
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
+#include "em_emu.h"
 #include "em_iadc.h"
 #include "em_gpio.h"
 
@@ -52,15 +53,35 @@
 // Number of scan channels
 #define NUM_INPUTS 8
 
-// When changing GPIO port/pins below, make sure to change xBUSALLOC macro's
-// accordingly.
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
-#define IADC_INPUT_1_BUS          CDBUSALLOC
-#define IADC_INPUT_1_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+/*
+ * Specify the IADC input using the IADC_PosInput_t typedef.  This
+ * must be paired with a corresponding macro definition that allocates
+ * the corresponding ABUS to the IADC.  These are...
+ *
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AEVEN0_ADC0
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AODD0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BEVEN0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BODD0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDEVEN0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDODD0_ADC0
+ *
+ * ...for port A, port B, and port C/D pins, even and odd, respectively.
+ */
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortBPin0;
+#define IADC_INPUT_1_PORT_PIN     iadcPosInputPortBPin1;
+
+#define IADC_INPUT_0_BUS          BBUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_BBUSALLOC_BEVEN0_ADC0
+#define IADC_INPUT_1_BUS          BBUSALLOC
+#define IADC_INPUT_1_BUSALLOC     GPIO_BBUSALLOC_BODD0_ADC0
+
+/* This example enters EM2 in the infinite while loop; Setting this define to 1
+ * enables debug connectivity in the EMU_CTRL register, which will consume about
+ * 0.5uA additional supply current */
+#define EM2DEBUG                  1
 
 /*******************************************************************************
- ***************************   GLOBAL VARIABLES   *******************************
+ ***************************   GLOBAL VARIABLES   ******************************
  ******************************************************************************/
 
 static volatile double scanResult[NUM_INPUTS];  // Volts
@@ -79,7 +100,12 @@ void initIADC (void)
   // Enable IADC0 and GPIO clock branches
   CMU_ClockEnable(cmuClock_IADC0, true);
   CMU_ClockEnable(cmuClock_GPIO, true);
-
+  /* Note: For EFR32xG21 radio devices, library function calls to 
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
+   
   // Reset IADC to reset configuration in case it has been modified by
   // other code
   IADC_reset(IADC0);
@@ -113,11 +139,11 @@ void initIADC (void)
 
   // Configure entries in scan table, CH0 is single-ended from input 0, CH1 is
   // single-ended from input 1
-  initScanTable.entries[0].posInput = iadcPosInputPortCPin4; // PC04 -> P25 on BRD4001 J102
+  initScanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
   initScanTable.entries[0].negInput = iadcNegInputGnd;
   initScanTable.entries[0].includeInScan = true;
 
-  initScanTable.entries[1].posInput = iadcPosInputPortCPin5; // PC05 -> P27 on BRD4001 J102
+  initScanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
   initScanTable.entries[1].negInput = iadcNegInputGnd;
   initScanTable.entries[1].includeInScan = true;
 
@@ -198,9 +224,8 @@ void IADC_IRQHandler(void)
       IADC_setScanMask(IADC0, 0x000F);  // configure scan mask to measure first set of table entries
   }
 
-  // Start next IADC conversion
+  // Clear scan interrupt flag
   IADC_clearInt(IADC0, IADC_IF_SCANTABLEDONE); // flags are sticky; must be cleared in software
-  IADC_command(IADC0, iadcCmdStartScan);
 }
 
 /**************************************************************************//**
@@ -213,9 +238,17 @@ int main(void)
   // Initialize the IADC
   initIADC();
 
-  // Start first conversion
-  IADC_command(IADC0, iadcCmdStartScan);
+#ifdef EM2DEBUG
+  // Enable debug connectivity in EM2
+  EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 
   // Infinite loop
-  while(1);
+  while(1){
+    // Start scan
+    IADC_command(IADC0, iadcCmdStartScan);
+
+    // Enter EM2
+    EMU_EnterEM2(false);
+  }
 }

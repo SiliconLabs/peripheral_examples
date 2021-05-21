@@ -2,14 +2,32 @@ iadc_scan_interrupt
 
 This project demonstrates using the IADC peripheral to take single-ended
 analog measurements across two different external inputs and six of the internal
-voltage supply channels. IADC interrupts handle completed conversions and store 
-the converted voltage results in a global array.
+voltage supply channels. The IADC operates in EM2 and IADC interrupts wake to 
+EM0 to handle completed conversions and store the converted voltage results in a
+global array. Due to the IADC operating in scan mode, external inputs have been
+selected from ports A/B as these ports remain fully functional in EM2 and the 
+analog multiplexers can switch between external inputs during the scan. 
+
+Note: To utilize differential-ended analog measurements for the external inputs,
+the negative inputs for scan table entries 0 and 1 must be modified for an
+external port/pin. Analog multiplexer selection must consist of one EVEN ABUS
+selection and one ODD ABUS selection for differential mode to operate correctly: 
+*For scan table entry 0 which references Port B Pin 0, an ODD Port/Pin selection
+must be used for IADC negative input.
+*For scan table entry 1 which references Port B Pin 1, an EVEN Port/Pin
+selection must be used for IADC negative input. 
+As with singled-ended mode, the IADC logic will automatically swap the multiplexer
+connections to IADC input if needed. See reference manual for more details. 
+
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
+effect as oscillators are automatically turned on/off based on demand from the peripherals;
+CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Starter Kit
 3. Open the Simplicity Debugger and add "scanResult" to the Expressions Window
-4. Set a breakpoint at the end of the IADC_IRQHandler (IADC_command on line 183)
+4. Set a breakpoint at the end of the IADC_IRQHandler (IADC_command)
 5. Run the example project
 6. At the breakpoint, observe the measured voltages in the Expressions Window
 and how they respond to different voltage values on the corresponding pins (see below)
@@ -36,11 +54,17 @@ IADC         - 12-bit resolution, Automatic Two's Complement (single-ended = uni
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
-PC04 - IADC input, single-ended, J102 of BRD4001, Pin 25
-PC05 - IADC input, single-ended, J102 of BRD4001, Pin 27
+PB00 -  IADC input, single-ended, Expansion Header Pin 11, WSTK P8
+PB01 -  IADC input, single-ended, Expansion Header Pin 13, WSTK P10
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22A224F512IM40
-PC04 - IADC input, single-ended, J102 of BRD4001, Pin 25
-PC05 - IADC input, single-ended, J102 of BRD4001, Pin 27
+PB00 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4
+PB01 -  IADC input, single-ended, Expansion Header Pin 9, WSTK P6
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PB00 -  IADC input, single-ended, WSTK P15
+PB01 -  IADC input, single-ended, WSTK P17

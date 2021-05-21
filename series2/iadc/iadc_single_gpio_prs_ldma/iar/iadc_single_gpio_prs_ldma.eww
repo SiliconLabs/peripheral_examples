@@ -1,0 +1,15 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_iadc_single_gpio_prs_ldma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_iadc_single_gpio_prs_ldma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG23_iadc_single_gpio_prs_ldma.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

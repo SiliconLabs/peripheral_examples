@@ -2,14 +2,18 @@ iadc_single_differential_polled
 
 This project demonstrates using the IADC peripheral to take a differential
 analog measurement. The main program polls continuously for conversions,
-then stores the IADC result and a voltage conversion of the result into two 
+then stores the IADC raw result and a voltage conversion of the result into two 
 global variables.
+
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
+effect as oscillators are automatically turned on/off based on demand from the peripherals;
+CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Starter Kit
 3. Open the Simplicity Debugger and add "singleResult" to the Expressions Window
-4. Set a breakpoint at the first function within the infinite while loop (IADC_command on line 115)
+4. Set a breakpoint at the first function within the infinite while loop (IADC_command)
 5. Run the example project
 6. At the breakpoint, observe the measured voltage in the Expressions Window
 and how it responds to different voltage values on the corresponding pins (see below).
@@ -33,11 +37,17 @@ IADC         - 12-bit resolution, Automatic Two's Complement (differential = bip
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
-PC04 -  IADC positive differential input, J102 of BRD4001, Pin 25
-PC05 -  IADC negative differential input, J102 of BRD4001, Pin 27
+PB00 -  IADC positive differential input, Expansion Header Pin 11, WSTK P8
+PB01 -  IADC negative differential input, Expansion Header Pin 13, WSTK P10
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22A224F512IM40
-PC04 -  IADC input, single-ended, J102 of BRD4001, Pin 25
-PC05 -  IADC input, single-ended, J102 of BRD4001, Pin 27
+PB00 -  IADC positive differential input, Expansion Header Pin 7, WSTK P4
+PB01 -  IADC negative differential input, Expansion Header Pin 9, WSTK P6
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PB00 -  IADC positive differential input, WSTK P15
+PB01 -  IADC negative differential input, WSTK P17

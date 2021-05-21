@@ -55,12 +55,27 @@
 #define CLK_SRC_ADC_FREQ            10000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ                10000000 // CLK_ADC - 10MHz max in normal mode
 
-// When changing GPIO port/pins below, make sure to change xBUSALLOC macro's
-// accordingly.
-#define IADC_INPUT_0_BUS            CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC       GPIO_CDBUSALLOC_CDEVEN0_ADC0
-#define IADC_INPUT_1_BUS            CDBUSALLOC
-#define IADC_INPUT_1_BUSALLOC       GPIO_CDBUSALLOC_CDODD0_ADC0
+/*
+ * Specify the IADC input using the IADC_PosInput_t typedef.  This
+ * must be paired with a corresponding macro definition that allocates
+ * the corresponding ABUS to the IADC.  These are...
+ *
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AEVEN0_ADC0
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AODD0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BEVEN0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BODD0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDEVEN0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDODD0_ADC0
+ *
+ * ...for port A, port B, and port C/D pins, even and odd, respectively.
+ */
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin4;
+#define IADC_INPUT_1_PORT_PIN     iadcNegInputPortCPin5;
+
+#define IADC_INPUT_0_BUS          CDBUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
+#define IADC_INPUT_1_BUS          CDBUSALLOC
+#define IADC_INPUT_1_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
 
 #define IADC_SCALE_OFFSET_MAX_NEG   0x00020000UL // 18-bit 2's compliment
 #define IADC_SCALE_OFFSET_ZERO      0x00000000UL
@@ -82,7 +97,12 @@ void initGPIO (void)
 {
   // Enable GPIO clock branch
   CMU_ClockEnable(cmuClock_GPIO, true);
-
+  /* Note: For EFR32xG21 radio devices, library function calls to 
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
+   
   // Configure push button PB0 as a user input; will use as a toggle to indicate when inputs are ready
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
 
@@ -127,8 +147,8 @@ void initIADC (void)
   initAllConfigs.configs[0].twosComplement = iadcCfgTwosCompBipolar; // Force IADC to use bipolar inputs for conversion
 
   // Assign pins to positive and negative inputs in differential mode
-  initSingleInput.posInput   = iadcPosInputPortCPin4;   // PC04 -> P25 on BRD4001 J102
-  initSingleInput.negInput   = iadcNegInputPortCPin5;   // PC05 -> P27 on BRD4001 J102
+  initSingleInput.posInput   = IADC_INPUT_0_PORT_PIN;
+  initSingleInput.negInput   = IADC_INPUT_1_PORT_PIN;
 
   // Initialize the IADC
   IADC_init(IADC0, &init, &initAllConfigs);
@@ -264,8 +284,17 @@ int main(void)
   if (IADC_CALIBRATED_OFFSET < -131072)
       IADC_CALIBRATED_OFFSET = -131072;
 
-  scale = IADC_SCALE_GAIN3MSB_GAIN100 | (IADC_CALIBRATED_GAIN13LSB << _IADC_SCALE_GAIN13LSB_SHIFT)
-          | (IADC_CALIBRATED_OFFSET & _IADC_SCALE_OFFSET_MASK);
+  // Maintain previous gain correction; apply offset correction
+  if(gain_correction_factor >= 1.0)
+  {
+      scale = IADC_SCALE_GAIN3MSB_GAIN100 | (IADC_CALIBRATED_GAIN13LSB << _IADC_SCALE_GAIN13LSB_SHIFT)
+              | (IADC_CALIBRATED_OFFSET & _IADC_SCALE_OFFSET_MASK);
+  }
+  else
+  {
+      scale = IADC_SCALE_GAIN3MSB_GAIN011 | (IADC_CALIBRATED_GAIN13LSB << _IADC_SCALE_GAIN13LSB_SHIFT)
+              | (IADC_CALIBRATED_OFFSET & _IADC_SCALE_OFFSET_MASK);
+  }
 
   IADCRescale(scale);
 

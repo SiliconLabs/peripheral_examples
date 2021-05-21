@@ -49,12 +49,27 @@
 #define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
 
-// When changing GPIO port/pins below, make sure to change xBUSALLOC macro's
-// accordingly.
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
-#define IADC_INPUT_1_BUS          CDBUSALLOC
-#define IADC_INPUT_1_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+/*
+ * Specify the IADC input using the IADC_PosInput_t typedef.  This
+ * must be paired with a corresponding macro definition that allocates
+ * the corresponding ABUS to the IADC.  These are...
+ *
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AEVEN0_ADC0
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AODD0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BEVEN0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BODD0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDEVEN0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDODD0_ADC0
+ *
+ * ...for port A, port B, and port C/D pins, even and odd, respectively.
+ */
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortBPin0;
+#define IADC_INPUT_1_PORT_PIN     iadcNegInputPortBPin1;
+
+#define IADC_INPUT_0_BUS          BBUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_BBUSALLOC_BEVEN0_ADC0
+#define IADC_INPUT_1_BUS          BBUSALLOC
+#define IADC_INPUT_1_BUSALLOC     GPIO_BBUSALLOC_BODD0_ADC0
 
 /*******************************************************************************
  ***************************   GLOBAL VARIABLES   *******************************
@@ -77,7 +92,12 @@ void initIADC (void)
   // Enable IADC0 and GPIO clock branches
   CMU_ClockEnable(cmuClock_IADC0, true);
   CMU_ClockEnable(cmuClock_GPIO, true);
-
+  /* Note: For EFR32xG21 radio devices, library function calls to 
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
+   
   // Reset IADC to reset configuration in case it has been modified by
   // other code
   IADC_reset(IADC0);
@@ -103,8 +123,8 @@ void initIADC (void)
                                              init.srcClkPrescale);
 
   // Assign pins to positive and negative inputs in differential mode
-  initSingleInput.posInput   = iadcPosInputPortCPin4;   // PC04 -> P25 on BRD4001 J102
-  initSingleInput.negInput   = iadcNegInputPortCPin5;   // PC05 -> P27 on BRD4001 J102
+  initSingleInput.posInput   = IADC_INPUT_0_PORT_PIN;
+  initSingleInput.negInput   = IADC_INPUT_1_PORT_PIN;
 
   // Initialize the IADC
   IADC_init(IADC0, &init, &initAllConfigs);

@@ -1,10 +1,14 @@
 iadc_single_window_compare
 
 This project demonstrates using the IADC peripheral as a window comparator on a
-single-ended input PC04 (J102 of BRD4001, Pin 25). The window comparator is configured
-to trigger on output results which are inside the specified window. WSTK LED0
-is toggled on each conversion with results within the specified window. The most recent
+single-ended input PC05. The window comparator is configured to trigger on 
+output results which are inside the specified window. WSTK LED0 is toggled on 
+each conversion with results within the specified window. The most recent
 sample within the window comparison is also stored globally.
+
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
+effect as oscillators are automatically turned on/off based on demand from the peripherals;
+CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
@@ -31,11 +35,17 @@ IADC         - 12-bit resolution, Automatic Two's Complement (single-ended = uni
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
-PB00 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK Pin 8, LED0
-PC04 -  IADC input, single-ended, J102 of BRD4001, Pin 25
+PB00 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8, LED0
+PC05 -  IADC input, single-ended, J102->Pin 8 of BRD4001, WSTK P27
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22A224F512IM40
-PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK Pin 8, LED0
-PC04 -  IADC input, single-ended, J102 of BRD4001, Pin 25
+PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8, LED0
+PC05 -  IADC input, single-ended, J102->Pin 8 of BRD4001, WSTK P27
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0
+PC05 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12

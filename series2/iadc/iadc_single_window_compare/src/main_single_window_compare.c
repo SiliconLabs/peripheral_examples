@@ -1,9 +1,8 @@
 /***************************************************************************//**
  * @file main_single_window_compare.c
  * @brief Uses the IADC as a window comparator on a single pin. Input is taken
- * on PC04 (P25 on BRD4001 J102) and PB01 (WSTK LED0) toggles on each comparator
- * trigger. The most recent sample within the window comparison is also stored
- * globally.
+ * on PC05 and PB01 (WSTK LED0) toggles on each comparator trigger. The most
+ * recent sample within the window comparison is also stored globally.
  *******************************************************************************
  * # License
  * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
@@ -58,10 +57,24 @@
 #define WINDOW_UPPER_BOUND      0xC000   // 2.475V
 #define WINDOW_LOWER_BOUND      0x4000   // 0.825V
 
-// When changing IADC input port/pins, make sure to change xBUSALLOC macro's
-// accordingly.
-#define IADC_INPUT_BUS          CDBUSALLOC
-#define IADC_INPUT_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
+/*
+ * Specify the IADC input using the IADC_PosInput_t typedef.  This
+ * must be paired with a corresponding macro definition that allocates
+ * the corresponding ABUS to the IADC.  These are...
+ *
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AEVEN0_ADC0
+ * GPIO->ABUSALLOC |= GPIO_ABUSALLOC_AODD0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BEVEN0_ADC0
+ * GPIO->BBUSALLOC |= GPIO_BBUSALLOC_BODD0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDEVEN0_ADC0
+ * GPIO->CDBUSALLOC |= GPIO_CDBUSALLOC_CDODD0_ADC0
+ *
+ * ...for port A, port B, and port C/D pins, even and odd, respectively.
+ */
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin5;
+
+#define IADC_INPUT_0_BUS          CDBUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
 
 // HFXO frequency set for most common radio configurations
 #define HFXO_FREQ               38400000
@@ -84,7 +97,12 @@ void initGPIO (void)
 {
   // Enable GPIO clock branch
   CMU_ClockEnable(cmuClock_GPIO, true);
-
+  /* Note: For EFR32xG21 radio devices, library function calls to 
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
+   
   // Configure LED0 as output; enable WSTK LED0
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 }
@@ -139,7 +157,7 @@ void initIADC (void)
   initSingle.triggerAction = iadcTriggerActionContinuous;
 
   // Configure Input sources for single ended conversion
-  initSingleInput.posInput = iadcPosInputPortCPin4;
+  initSingleInput.posInput = IADC_INPUT_0_PORT_PIN;
   initSingleInput.negInput = iadcNegInputGnd;
 
   // Enable window comparisons on this input
@@ -152,7 +170,7 @@ void initIADC (void)
   IADC_initSingle(IADC0, &initSingle, &initSingleInput);
 
   // Allocate the analog bus for ADC0 inputs
-  GPIO->IADC_INPUT_BUS |= IADC_INPUT_BUSALLOC;
+  GPIO->IADC_INPUT_0_BUS |= IADC_INPUT_0_BUSALLOC;
 
   // Enable interrupts on window comparison match
   IADC_enableInt(IADC0, IADC_IEN_SINGLECMP);
