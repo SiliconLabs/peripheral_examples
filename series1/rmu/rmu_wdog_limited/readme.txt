@@ -13,12 +13,9 @@ How To Test:
 1. Build the project and download to the Starter Kit
 2. Open any terminal program and connect to the device's VCOM port
 3. Watch the RTCC values on the terminal screen
-4. Press the reset button on the STK
-5. The terminal screen should display the reset source and the RTCC's value 
-will not restart at 0.
-4. Press the reset button on the STK, which will cause the RTCC to restart at 0
-5. The terminal screen should display the watchdog reset source every 8 seconds
+4. The terminal screen should display the watchdog reset source every 8 seconds
 and the RTCC's value will not restart at 0.
+5. Press the reset button on the STK, which will cause the RTCC to restart at 0
 
 Peripherals Used:
 HFRCO  - 19 MHz

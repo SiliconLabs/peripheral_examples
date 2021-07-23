@@ -189,7 +189,8 @@ void initWDOG(void)
   CMU_ClockEnable(cmuClock_HFLE, true);
 
   WDOG_Init_TypeDef wdogInit = WDOG_INIT_DEFAULT;
-  wdogInit.perSel = wdogPeriod_8k; // 8193 clock cycles of a 1kHz clock  ~8 seconds period
+  wdogInit.clkSel = wdogClkSelULFRCO; // ULFRCO (1 kHz) as clock source
+  wdogInit.perSel = wdogPeriod_8k;    // 8193 clock cycles of a 1 kHz clock  ~8 seconds period
   // Initializing watchdog with chosen settings 
   WDOG_Init(&wdogInit);
   // Enbale the WDOG 
