@@ -82,7 +82,7 @@ void initACMP(void)
   // acmpInputVREFDIV1V25, which we can use as a 1.25 V reference.
   // Now we select the two inputs to compare. Here we compare the acmpInputPD3
   // input to the internal 1.25V reference. When acmpInputPD3 is lower than
-  // 1.25 V then the ACMP output is 0 and when acmpInputPD3 is is higher than
+  // 1.25 V then the ACMP output is 0 and when acmpInputPD3 is higher than
   // 1.25 V then the ACMP output is 1.
   ACMP_ChannelSet(ACMP0, acmpInputVREFDIV1V25, acmpInputPD3);
 
