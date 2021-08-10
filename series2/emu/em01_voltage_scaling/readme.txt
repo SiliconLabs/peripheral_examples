@@ -24,7 +24,6 @@ and 1.0V core operating voltage levels.
 ================================================================================
 
 Peripherals Used:
-
 GPIO
 CMU
 
@@ -48,3 +47,9 @@ Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A)
 
 Device: EFR32MG22C224F512 (this code will run unchanged on the radio
 board for any EFR32xG22 variant).
+
+Board: Silicon Labs EFR32FG23 868-915 MHz 14 dBm Board (BRD4263B)
+       + Wireless Starter Kit Mainboard (BRD4001A)
+
+Device: EFR32FG23A010F512 (this code will run unchanged on the radio
+board for any EFR32xG23 variant).

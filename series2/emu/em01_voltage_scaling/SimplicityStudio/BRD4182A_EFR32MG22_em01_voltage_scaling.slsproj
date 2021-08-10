@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="BRD4182A_EFR32xG22_em01_voltage_scaling" boardCompatibility="brd4182a" partCompatibility=".*efr32mg22c224f512im40.*" toolchainCompatibility="" contentRoot="../">
+<project name="BRD4182A_EFR32MG22_em01_voltage_scaling" boardCompatibility="brd4182a" partCompatibility=".*efr32mg22c224f512im40.*" toolchainCompatibility="" contentRoot="../">
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>

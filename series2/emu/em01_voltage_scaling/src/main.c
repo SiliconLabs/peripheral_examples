@@ -42,7 +42,6 @@
 #include "em_cmu.h"
 #include "em_emu.h"
 #include "em_gpio.h"
-
 #include "bsp.h"
 
 /*
@@ -141,12 +140,10 @@ int fibLoop(void)
   while(1)
   {
     volatile uint32_t temp;
-
     for(uint32_t i = 0; i < 0x3FF; i++)
     {
       temp = fib(i);
     }
-
     (void)temp;
   }
 }
@@ -159,13 +156,18 @@ int main(void)
 {
   CHIP_Init();
 
+  // Turn on DCDC regulator
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_WSTK_DEFAULT;
+  EMU_DCDCInit(&dcdcInit);
+
   /*
    * Run at 38 MHz, the highest preset frequency band common to both
    * VS2 and VS1,  in order to see the difference in current draw
    * when not scaled vs. scaled.
    */
+  // Set HFRCODPLL as system clock
+  CMU_ClockSelectSet(cmuClock_SYSCLK, cmuSelect_HFRCODPLL);
   CMU_HFRCODPLLBandSet(cmuHFRCODPLLFreq_38M0Hz);
-
   initGpio();
 
   // Run the Fibonacci code to exercise the CPU and RAM subsystems.

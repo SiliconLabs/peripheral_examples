@@ -1,5 +1,5 @@
 <workspace name="em01_voltage_scaling">
-  <project name="EFR32xG22_em01_voltage_scaling"
+  <project name="EFR32MG22_em01_voltage_scaling"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>
