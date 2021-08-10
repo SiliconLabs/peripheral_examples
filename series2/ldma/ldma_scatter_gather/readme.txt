@@ -37,6 +37,7 @@ srcBuffer =  0,  1,  2,  3,  4,  5,  6,  7,
           = 16, 17, 18, 19, 20, 21, 22, 23,
           = 24, 25, 26, 27, 28, 29, 30, 31
 
+================================================================================
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
@@ -53,10 +54,13 @@ How To Test:
 8. Run the debugger. It should halt inside the interrupt handler again with
    values in srcBuffer that match the values described above
 
+================================================================================
 
 Peripherals Used:
 HFRCODPLL - 19 MHz
 LDMA      - Channel 0
+
+================================================================================
 
 Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard (BRD4001A)
@@ -65,3 +69,7 @@ Device: EFM32MG21A010F1024IM32
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
+
+Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48

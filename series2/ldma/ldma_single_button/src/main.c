@@ -91,6 +91,11 @@ static void gpioPrsSetup(void)
   // Enable peripheral clocks
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_PRS, true);
+  /* Note: For EFR32xG21 radio devices, library function calls to
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
 
   // Configure push button PB1 as input
   GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN,
@@ -121,6 +126,12 @@ void initLdma(void)
 
   // Enable peripheral clock
   CMU_ClockEnable(cmuClock_LDMA, true);
+  /* Note: For EFR32xG21 radio devices, library function calls to
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
+
 
   // Initialize buffers for memory transfer
   for (i = 0; i < BUFFER_SIZE; i++)
@@ -169,7 +180,7 @@ int main(void)
   CHIP_Init();
 
   // Init DCDC regulator if available
-#if defined( _EMU_DCDCCTRL_MASK )  
+#if defined( DCDC )  
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
 #endif

@@ -14,6 +14,12 @@ If you press PB1, "YYyy" will be transfered to dstBuffer.
 After you press the second button (regardless of the order), 
 "CCcc" will be transferred to dstBuffer.
 
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
+================================================================================
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
@@ -24,6 +30,7 @@ How To Test:
    each button press change according to the behavior described above.
 Note: You will have to pause the debugger to see the value in dstBuffer.
 
+================================================================================
 
 Peripherals Used:
 HFRCODPLL - 19 MHz
@@ -31,6 +38,8 @@ LDMA      - Channel 0
 PRS       - Channel 1, Push Button PB0
           - Channel 2, Push Button PB1
 GPIO
+
+================================================================================
 
 Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard (BRD4001A)
@@ -43,3 +52,9 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
 Device: EFR32MG22C224F512IM40
 PB00  - push button PB0
 PB01  - push button PB1
+
+Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PB01 - push button PB0, WSTK Pin 17
+PB03 - push button PB1, WSTK Pin 21

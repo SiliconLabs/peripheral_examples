@@ -132,7 +132,7 @@ int main(void)
   CHIP_Init();
 
   // Init DCDC regulator if available
-#if defined( _EMU_DCDCCTRL_MASK )  
+#if defined( DCDC )  
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
 #endif

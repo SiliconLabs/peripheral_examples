@@ -12,6 +12,7 @@ elements of the source buffer, then requests the next transfer.
 In this way, you should see "11111111" transfered to ping, then "22222222" 
 transfered to pong, etc.
 
+================================================================================
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
@@ -24,10 +25,13 @@ How To Test:
 6. Resume the program. The debugger should halt inside the interrupt subroutine
    again, after the next descriptor has completed.
 
+================================================================================
 
 Peripherals Used:
 HFRCODPLL - 19 MHz
 LDMA      - Channel 0
+
+================================================================================
 
 Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard (BRD4001A)
@@ -36,3 +40,7 @@ Device: EFM32MG21A010F1024IM32
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
+
+Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48

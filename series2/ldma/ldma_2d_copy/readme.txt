@@ -22,6 +22,12 @@ With the sample values given, the LDMA will transfer
 40 41 42
 from the source matrix to index (2, 1) of the destination matrix.
 
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
+================================================================================
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
@@ -32,10 +38,13 @@ How To Test:
 6. You can expand the "dst2d" variable in the Expressions window to see that the
    submatrix has been successfully transfered
 
+================================================================================
 
 Peripherals Used:
 HFRCODPLL - 19 MHz
 LDMA      - Channel 0
+
+================================================================================
 
 Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard (BRD4001A)
@@ -44,3 +53,7 @@ Device: EFM32MG21A010F1024IM32
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
+
+Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
