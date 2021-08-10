@@ -5,9 +5,15 @@ compare. TIMER is initialized for output compare on Compare/Capture channel 0,
 which is routed to the GPIO Pin specified below. The buffered compare values are
 set such that a single pulse is generated.
 
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
 ================================================================================
 
 Peripherals Used:
+HFRCO    - 19 MHz
 TIMER0/1 - HFPERCLK (19 MHz for series 2 boards)
 
 ================================================================================
@@ -30,3 +36,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA6 - TIM0_CC0 (Expansion Header Pin 11)

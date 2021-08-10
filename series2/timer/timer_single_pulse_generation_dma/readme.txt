@@ -8,6 +8,11 @@ second, falling edge to the OC. The LDMA is configured to transfer a single
 word to the OC register once the first compare event occurs. The values loaded 
 into the OC are such that a 1ms pulse is generated after a 3 second delay.
 
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
 ================================================================================
 
 Peripherals Used:
@@ -35,3 +40,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA6 - TIM0_CC0 (Expansion Header Pin 11)

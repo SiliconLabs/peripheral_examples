@@ -181,6 +181,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFR32MG21A010F1024IM32</state>
           
         </option>
@@ -1159,6 +1160,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFR32MG21A010F1024IM32</state>
           
         </option>

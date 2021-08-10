@@ -6,13 +6,19 @@ routed to the GPIO Pin specified below. In PWM mode, overflow events
 set the output pin, while compare events clear the pin. Thus the overflow value
 is set to output the desired signal frequency, while the CCV is set to control 
 the duty cycle. The DMA is set to loop through a buffer of duty cycles
-incrementing from 0 to 100%, and writes to the CCVB on each overflow event.
+incrementing from 0 to 100%, and writes to the CCVB on each compare event.
+
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
 
 ================================================================================
 
 Peripherals Used:
-TIMER0 - EM01GRPACLK/PCLK (19 MHz)
-LDMA
+HFRCO    - 19 MHz
+TIMER0/1 - HFPERCLK (19 MHz for series 2 boards)
+DMA/LDMA
 
 ================================================================================
 
@@ -34,3 +40,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA6 - TIM0_CC0 (Expansion Header Pin 11)

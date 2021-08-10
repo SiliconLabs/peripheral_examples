@@ -43,16 +43,19 @@
 #include "em_chip.h"
 #include "em_gpio.h"
 #include "em_timer.h"
+#include "bsp.h"
 
 // Stored edges from interrupt
 volatile uint32_t firstEdge;
 volatile uint32_t secondEdge;
 
+#ifdef BSP_WSTK_BRD4263B
+// HFXO frequency for BRD4263B
+#define HFXO_FREQ               39000000
+#else
 // HFXO frequency set for most common radio configurations
 #define HFXO_FREQ               38400000
-
-// CTUNE value for the BRD4181A HFXO oscillator
-#define HFXO_CTUNE_VALUE        120
+#endif
 
 /**************************************************************************//**
  * @brief
@@ -77,11 +80,7 @@ void TIMER0_IRQHandler(void)
 void initHFXO(void)
 {
   // Initialization structure for HFXO configuration
-  CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_DEFAULT;
-
-  // Apply board specific tuning capacitor values
-  hfxoInit.ctuneXiAna = HFXO_CTUNE_VALUE;
-  hfxoInit.ctuneXoAna = HFXO_CTUNE_VALUE;
+  CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_WSTK_DEFAULT;
 
   // Configure HFXO settings
   CMU_HFXOInit(&hfxoInit);
@@ -112,6 +111,11 @@ void initCmu(void)
   // Enable clock to GPIO and TIMER0
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
+  /* Note: For EFR32xG21 radio devices, library function calls to
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
 }
 
 /**************************************************************************//**

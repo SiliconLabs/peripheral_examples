@@ -12,10 +12,16 @@ are negative logic (i.e. the pin value goes low when the button is pressed).
 The example also has comments that show how polled mode can be used for input 
 capture.
 
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
 ================================================================================
 
 Peripherals Used:
-TIMER0 - HFPERclk
+HFRCO  - 19 MHz
+TIMER0 - HFPERCLK (19 MHz for series 2 boards)
 PRS    - (route GPIO signal to the timer)
 
 ================================================================================
@@ -34,10 +40,14 @@ Listed below are the port and pin mappings for working with this example.
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG21A010F1024IM32
-PD2 - Push Button 0
+PD02 - Push Button 0
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PB00 - Push Button 0
 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PB01 - Push Button 0

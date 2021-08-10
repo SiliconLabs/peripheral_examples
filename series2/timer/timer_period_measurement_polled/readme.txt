@@ -15,10 +15,16 @@ frequencies accuracy is diminished due to dropout, and above 333 kHz the
 interrupt execution time is longer than the signal period. For methods to 
 measure shorter periods, see the timer_pulse_capture example.
 
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
 ================================================================================
 
 Peripherals Used:
-TIMER0 - HFPERCLK (19 MHz for series 1 boards)
+HFRCO  - 19 MHz
+TIMER0 - HFPERCLK (19 MHz for series 2 boards)
 
 ================================================================================
 
@@ -41,3 +47,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA6 - TIM0_CC0 (Expansion Header Pin 11)

@@ -6,16 +6,19 @@ capture on Compare/Capture channel 0 for interrupts on every edge. The GPIO Pin
 specified below is to be connected to a periodic signal or pulse generator. The
 two edges captured (one falling and one rising) are read from the CCV register.
 
-Note: The range of frequencies this program can measure accurately is limited
-due to dropout at higher frequencies, input setup time, and the HPERCLK frequency
-selected for the timer peripheral source. The minimum measurable pulse width is 
-~10X HPERCLK period.
+Note: The range of frequencies this program can measure accurately is limited.
+The minimum measurable period is around 700 ns, or 1.43 MHz.
+
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
 
 ================================================================================
 
 Peripherals Used:
 TIMER - CC0
-HFXO - 38.4 MHz for radio boards xG21
+HFXO - 38.4 MHz for most radio boards; 39.0 MHz for BRD4263B 
 ================================================================================
 
 How To Test:
@@ -37,3 +40,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA6 - TIM0_CC0 (Expansion Header Pin 11)

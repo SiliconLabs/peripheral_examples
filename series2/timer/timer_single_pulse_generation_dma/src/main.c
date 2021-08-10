@@ -131,6 +131,11 @@ void initCmu(void)
   // Enable clock to GPIO and TIMER0
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
+  /* Note: For EFR32xG21 radio devices, library function calls to
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
 }
 
 /**************************************************************************//**

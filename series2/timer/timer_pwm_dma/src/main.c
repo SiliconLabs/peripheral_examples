@@ -77,6 +77,11 @@ void initCmu(void)
   // Enable clock to GPIO and TIMER0
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
+  /* Note: For EFR32xG21 radio devices, library function calls to
+   * CMU_ClockEnable() have no effect as oscillators are automatically turned
+   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
+   * function for EFR32xG21 for library consistency/compatibility.
+   */
 }
 
 /**************************************************************************//**
@@ -92,7 +97,6 @@ void initTimer(void)
 
   // Use PWM mode, which sets output on overflow and clears on compare events
   timerInit.enable = false;
-  timerInit.dmaClrAct = true;
   timerCCInit.mode = timerCCModePWM;
 
   // Configure but do not start the timer
@@ -110,6 +114,9 @@ void initTimer(void)
 
   // Start the timer
   TIMER_Enable(TIMER0, true);
+
+  // Trigger DMA on compare event to set CCVB to update duty cycle on next period
+  TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
 }
 
 /**************************************************************************//**
@@ -131,7 +138,7 @@ void populateBuffer(void)
 *    Configure the channel descriptor to use the default peripheral to
 *    memory transfer descriptor. Modify it to not generate an interrupt
 *    upon transfer completion (we don't need it). Additionally, the transfer
-*    configuration selects the TIMER0_UFOF signal as the trigger for the LDMA
+*    configuration selects the TIMER0_CC0 signal as the trigger for the LDMA
 *    transaction to occur.
 *
 * @note
@@ -150,7 +157,7 @@ void initLdma(void)
 
   // Transfer configuration and trigger selection
   LDMA_TransferCfg_t transferConfig =
-    LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER0_UFOF);
+    LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER0_CC0);
 
   // Channel descriptor configuration
   static LDMA_Descriptor_t descriptor =
