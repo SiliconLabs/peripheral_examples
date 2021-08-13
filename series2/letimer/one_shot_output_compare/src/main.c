@@ -63,7 +63,9 @@ void initGpio(void)
  *****************************************************************************/
 void initCmu(void)
 {
-  // Enable clock to GPIO and LETIMER0
+  /* Enable clock to GPIO and LETIMER0;
+   * Note that writes to clock enable bits are unnecessary and have no effect 
+   * on xG21 devices */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_LETIMER0, true);
 }

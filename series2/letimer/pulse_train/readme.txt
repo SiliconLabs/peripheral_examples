@@ -5,6 +5,9 @@ The project initializes the letimer in free mode, and creates a one
 LFCLK length pulse on each underflow event. The underflow occurs 
 at 1k Hz frequency.
 
+Note that writes to clock enable bits are unnecessary and have no effect on 
+xG21 devices.
+
 How To Test:
 1. Build the project and download to the Starter Kit
 2. Measure waveform on the appropriate pin listed below
@@ -22,3 +25,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - LET0_O0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA0 - LET0_O0 (Expansion Header Pin 5)

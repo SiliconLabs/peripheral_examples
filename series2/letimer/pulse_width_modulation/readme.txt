@@ -2,8 +2,11 @@ letimer_pulse_width_modulation
 
 This project demonstrates pulse width modulation using the LETIMER.
 The project initializes the letimer for PWM with a set 30 percent 
-duty cycle at 1k Hz frequency. The waveform is output on an 
+duty cycle at 1 Hz frequency. The waveform is output on an 
 Expansion Header Pin on the board.
+
+Note that writes to clock enable bits are unnecessary and have no effect on 
+xG21 devices.
 
 How To Test:
 1. Build the project and download to the Starter Kit
@@ -22,3 +25,8 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - LET0_O0 (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PA0 - LET0_O0 (Expansion Header Pin 5)
