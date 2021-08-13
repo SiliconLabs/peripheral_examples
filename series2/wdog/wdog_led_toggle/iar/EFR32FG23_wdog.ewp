@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG22_wdog\Debug\Exe</state>
+          <state>EFR32FG23_wdog\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG22_wdog\Debug\Obj</state>
+          <state>EFR32FG23_wdog\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG22_wdog\Debug\List</state>
+          <state>EFR32FG23_wdog\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48	SiliconLaboratories EFR32FG23A010F512GM48</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -149,7 +149,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48	SiliconLaboratories EFR32FG23A010F512GM48</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -182,7 +182,7 @@
         <option>
           <name>CCDefines</name>
           <state>STR(x)=#x</state>
-          <state>EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -284,7 +284,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -313,9 +313,9 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -484,7 +484,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -582,9 +582,9 @@
         <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -621,7 +621,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG22_wdog.bin</state>
+          <state>EFR32FG23_wdog.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -676,7 +676,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG22_wdog.out</state>
+          <state>EFR32FG23_wdog.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -768,7 +768,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -995,15 +995,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG22_wdog\Release\Exe</state>
+          <state>EFR32FG23_wdog\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG22_wdog\Release\Obj</state>
+          <state>EFR32FG23_wdog\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG22_wdog\Release\List</state>
+          <state>EFR32FG23_wdog\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1067,7 +1067,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48	SiliconLaboratories EFR32FG23A010F512GM48</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1127,7 +1127,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG22C224F512IM40	SiliconLaboratories EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48	SiliconLaboratories EFR32FG23A010F512GM48</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -1161,7 +1161,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>STR(x)=#x</state>
-          <state>EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -1263,7 +1263,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1292,9 +1292,9 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -1464,7 +1464,7 @@
         <option>
           <name>ADefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG22C224F512IM40</state>
+          <state>EFR32FG23A010F512GM48</state>
           <state>RETARGET_VCOM</state>
         </option>
         <option>
@@ -1562,9 +1562,9 @@
         <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -1601,7 +1601,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG22_wdog.bin</state>
+          <state>EFR32FG23_wdog.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1656,7 +1656,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG22_wdog.out</state>
+          <state>EFR32FG23_wdog.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1748,7 +1748,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1966,10 +1966,10 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Source\IAR\startup_efr32mg22.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Source\IAR\startup_efr32fg23.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG22\Source\system_efr32mg22.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Source\system_efr32fg23.c</name>
     </file>
   </group>
   <group>

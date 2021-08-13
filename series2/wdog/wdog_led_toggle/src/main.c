@@ -91,7 +91,6 @@ int main(void)
   EMU_DCDCInit(&dcdcInit);
   #endif
 
-
   // Store the cause of the last reset, and clear the reset cause register 
   resetCause = RMU_ResetCauseGet();
   // Clear Reset causes so we know which reset occurs the next time 
@@ -106,7 +105,7 @@ int main(void)
   // Configure and Initialize the Watchdog timer 
   initWDOG();
 
-  // Check if Power on Reset (POR) triggered the last reset 
+  // Check if Watch Dog (WDOG0) triggered the last reset
   if (resetCause & EMU_RSTCAUSE_WDOG0)
   {
     // Turn LED0 on
@@ -118,16 +117,14 @@ int main(void)
   while (1)
   {
     // Do not feed the WDOG if PB0 is pressed 
-    while(!(GPIO_PinInGet(BSP_GPIO_PB0_PORT,BSP_GPIO_PB0_PIN)))
-    {
-    	;
-    }
-  // Feed the watchdog 
-	WDOG_Feed();
+    while(!(GPIO_PinInGet(BSP_GPIO_PB0_PORT,BSP_GPIO_PB0_PIN)));
 
-	// Toggle LED0 at 10 kHz
-	GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
-	Delay(100);
+    // Feed the watchdog
+    WDOG_Feed();
+
+    // Toggle LED0 at 10 kHz
+    GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
+    Delay(100);
   }
 }
 
@@ -136,7 +133,7 @@ int main(void)
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Enable clock for the GPIO module 
+  // Enable clock for the GPIO module; has no effect on xG21
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure the GPIO pins F4 and F5 for the LEDs as output pins 
@@ -144,7 +141,6 @@ void initGPIO(void)
 
   // Configure PB0 as input  
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPull, 1);
-
 }
 
 /**************************************************************************//**
@@ -152,7 +148,7 @@ void initGPIO(void)
  *****************************************************************************/
 void initWDOG(void)
 {
-  // Enable clock for the WDOG module
+  // Enable clock for the WDOG module; has no effect on xG21
   CMU_ClockEnable(cmuClock_WDOG0, true);
 
   // Watchdog Initialize settings 
