@@ -39,26 +39,35 @@
 #include "em_cmu.h"
 #include "em_gpio.h"
 #include "em_prs.h"
+#include "em_emu.h"
 
 #include "bsp.h"
 
-#define PRS_CH   6
+#define PRS_CH_A   6
+#define PRS_CH_B   1
 
 /**************************************************************************//**
  * @brief GPIO initialization
  *****************************************************************************/
 void initGpio(void)
 {
+  // Enable GPIO clock
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
   // Set Push Buttons as input
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
-  GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPullFilter, 1);
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter,
+                  1);
+  GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPullFilter,
+                  1);
   
   // Configure Push Buttons to create interrupt signals
-  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, 0, 0, false);
-  GPIO_ExtIntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, BSP_GPIO_PB1_PIN, 0, 0, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, 0,
+                    0, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, BSP_GPIO_PB1_PIN, 0,
+                    0, false);
 
-  // Set PC01 as output
-  GPIO_PinModeSet(gpioPortC, 1, gpioModePushPull, 0);
+  // Set LED1 as output
+  GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
@@ -72,21 +81,25 @@ void initPrs(void)
   // Use Push Buttons as PRS source
   // Push Button 0
   PRS_SourceAsyncSignalSet(
-        PRS_CH,
-		PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
+        PRS_CH_B,
+        PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
         BSP_GPIO_PB0_PIN);
 
   // Push Button 1
   PRS_SourceAsyncSignalSet(
-        PRS_CH+1,
-		PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
+        PRS_CH_A,
+        PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
         BSP_GPIO_PB1_PIN);
 
   // Configure PRS logic
-  PRS_Combine(PRS_CH+1, PRS_CH, prsLogic_A_OR_B);
+  PRS_Combine(PRS_CH_A, PRS_CH_B, prsLogic_A_OR_B);
 
-  // Route output to PC01
-  PRS_PinOutput(PRS_CH+1,prsTypeAsync, gpioPortC , 1);
+  // Route output to LED1
+  PRS_PinOutput(PRS_CH_A, prsTypeAsync, BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN);
+  /* Note that there are certain restrictions to where a PRS channel can be
+   *   routed. Consult the datasheet of the device to see if a channel can be
+   *   routed to the requested GPIO pin.
+   */
 }
 
 /**************************************************************************//**
@@ -99,9 +112,13 @@ int main(void)
   // Setup GPIO
   initGpio();
   
-  // Setup PRS to route to output PC01
+  // Setup PRS to route to output on LED1
   initPrs();
 
   // Infinite loop
-  while(1);
+  while(1)
+  {
+    // Stays in EM1 for max power saving
+    EMU_EnterEM1();
+  }
 }
