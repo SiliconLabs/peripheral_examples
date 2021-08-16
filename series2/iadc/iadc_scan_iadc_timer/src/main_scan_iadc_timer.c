@@ -153,7 +153,7 @@ void initIADC (void)
 
   // Scan initialization
   initScan.triggerSelect = iadcTriggerSelTimer;
-  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID2;
+  initScan.dataValidLevel = iadcFifoCfgDvl2;
 
   // Tag FIFO entry with scan table entry id.
   initScan.showId = true;

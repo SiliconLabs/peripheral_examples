@@ -153,7 +153,7 @@ void initIADC (void)
                                                                     init.srcClkPrescale);
 
   // Scan initialization
-  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID2;
+  initScan.dataValidLevel = iadcFifoCfgDvl2;
 
   // Set scan to run continuously
   initScan.triggerAction = iadcTriggerActionContinuous;

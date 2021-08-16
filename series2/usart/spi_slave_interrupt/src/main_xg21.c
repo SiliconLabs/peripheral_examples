@@ -124,7 +124,7 @@ void initUSART0(void)
 
   init.master = false;  // Operate as a slave
   init.msbf = true;     // MSB first transmission for SPI compatibility
-  init.enable = false;  // Do not enable yet
+  init.enable = usartDisable;  // Do not enable yet
 
   // Configure but do not enable USART0
   USART_InitSync(USART0, &init);

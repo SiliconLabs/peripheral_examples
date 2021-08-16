@@ -128,7 +128,7 @@ void initUSART0(void)
 
   init.master = false;  // Operate as a slave
   init.msbf = true;     // MSB first transmission for SPI compatibility
-  init.enable = false;  // Do not enable yet
+  init.enable = usartDisable;  // Do not enable yet
 
   // Route USART0 RX, TX, CLK, and CS to the specified pins.
   GPIO->USARTROUTE[0].TXROUTE = (US0MOSI_PORT << _GPIO_USART_TXROUTE_PORT_SHIFT)

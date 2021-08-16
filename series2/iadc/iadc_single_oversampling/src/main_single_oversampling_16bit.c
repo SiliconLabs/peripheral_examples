@@ -173,7 +173,7 @@ void initIADC(void)
 
 
   // Single initialization
-  initSingle.dataValidLevel = _IADC_SINGLEFIFOCFG_DVL_VALID1;
+  initSingle.dataValidLevel = iadcFifoCfgDvl1;
 
   // Set conversions to run continuously
   initSingle.triggerAction = iadcTriggerActionContinuous;

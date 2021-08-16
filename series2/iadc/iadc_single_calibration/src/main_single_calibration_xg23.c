@@ -70,7 +70,7 @@
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
 #define IADC_INPUT_0_PORT_PIN     iadcPosInputPortDPin4;
-#define IADC_INPUT_1_PORT_PIN     iadcPosInputPortDPin5;
+#define IADC_INPUT_1_PORT_PIN     iadcNegInputPortDPin5;
 
 #define IADC_INPUT_0_BUS          CDBUSALLOC
 #define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
