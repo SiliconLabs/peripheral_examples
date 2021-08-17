@@ -5,8 +5,20 @@ The project initializes the letimer in free mode, and creates a one
 LFCLK length pulse on each underflow event. The underflow occurs 
 at 1k Hz frequency.
 
-Note that writes to clock enable bits are unnecessary and have no effect on 
-xG21 devices.
+Note: On EFR32xG21 devices, oscillators and clock branches are automatically 
+turned on/off based on demand from the peripherals.  As such, writes to clock 
+enable bits are unnecessary and have no effect on xG21 devices. 
+
+Note: On EFR32xG22 devices and later, the DEBUG block on the device is powered 
+off by default in low power modes EM2 and below.  The EM2DBGEN bit in EMU_CTRL
+can be set to keep DEBUG powered on in EM2, and this has been done in the
+example for xG23, where DEBUG and LETIMER are on different power sub-domains.  
+On xG22 devices, DEBUG and LETIMER are on the same power sub-domain, which 
+means that because LETIMER is enabled in EM2, that power sub-domain remains
+powered in EM2, powering both LETIMER and DEBUG.  Thus, the EM2DBGEN bit in 
+EMU_CTRL is not set in the example for xG22.  When the EM2DBGEN bit is set, the 
+device will exhibit slightly higher EM2 current consumption than when EM2DBGEN
+is not set. 
 
 How To Test:
 1. Build the project and download to the Starter Kit

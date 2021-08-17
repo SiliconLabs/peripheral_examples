@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main.c
- * @brief This project demonstrates pulse width modulation using the LETIMER
- * module. Expansion Header Pin 14 is configured for PWM output.
+ * @file main_xg22.c
+ * @brief This project demonstrates output compare in EM2 using the LETIMER.
+ * After 1 second an output pin is set high (see README)
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -43,10 +43,10 @@
 #include "bsp.h"
 
 // Desired frequency in Hz
-#define OUT_FREQ 1
+#define OUT_FREQ 1000
 
-// Duty cycle percentage
-#define DUTY_CYCLE 30
+// Desired repeat count
+#define REPEAT_COUNT 10
 
 /**************************************************************************//**
  * @brief GPIO initialization
@@ -54,7 +54,7 @@
 void initGpio(void)
 {
   // Configure PA6 (Expansion Header 14) as output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 1);
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
@@ -63,9 +63,7 @@ void initGpio(void)
  *****************************************************************************/
 void initCmu(void)
 {
-  /* Enable clock to GPIO and LETIMER0;
-   * Note that writes to clock enable bits are unnecessary and have no effect 
-   * on xG21 devices */
+  // Enable clock to GPIO and LETIMER0;
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_LETIMER0, true);
 }
@@ -92,11 +90,11 @@ void initLetimer(void)
   // Calculate the top value (frequency) based on clock source
   uint32_t topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / OUT_FREQ;
 
-  // Reload top on underflow, PWM output, and run in free mode
+  // Reload top on underflow, set output, and run in one-shot mode
   letimerInit.comp0Top = true;
   letimerInit.topValue = topValue;
-  letimerInit.ufoa0 = letimerUFOAPwm;
-  letimerInit.repMode = letimerRepeatFree;
+  letimerInit.ufoa0 = letimerUFOAToggle;
+  letimerInit.repMode = letimerRepeatOneshot;
 
   // Enable LETIMER0 output0 on PA6
   GPIO->LETIMERROUTE[0].ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
@@ -104,10 +102,10 @@ void initLetimer(void)
       (gpioPortA << _GPIO_LETIMER_OUT0ROUTE_PORT_SHIFT) \
       | (6 << _GPIO_LETIMER_OUT0ROUTE_PIN_SHIFT);
 
-  // Set COMP0 to control duty cycle
-  LETIMER_CompareSet(LETIMER0, 0, topValue * DUTY_CYCLE / 100);
+  // repeat 10
+  LETIMER_RepeatSet(LETIMER0, 0, REPEAT_COUNT);
 
-  // Initialize LETIMER
+  // Initialize and enable LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);
 }
 
@@ -125,7 +123,7 @@ int main(void)
   initGpio();
   initLetimer();
 
-  // Enter low energy state, PWM will continue
+  // Enter low energy state
   while (1)
   {
     EMU_EnterEM2(true);

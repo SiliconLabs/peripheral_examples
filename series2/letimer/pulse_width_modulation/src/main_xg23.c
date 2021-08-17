@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file main_xg23.c
  * @brief This project demonstrates pulse width modulation using the LETIMER
- * module. Expansion Header Pin 14 is configured for PWM output.
+ * module. Expansion Header Pin 5 is configured for PWM output.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -152,7 +152,14 @@ int main(void)
   // Recommended recovery procedure for code in development
   escapeHatch();
 
-  // Enable debug connectivity in EM2
+  /* Note: On EFR32xG22 devices and later, the DEBUG block on the device is 
+     powered off by default in low power modes EM2 and below.  Setting the 
+     EM2DBGEN bit in EMU_CTRL will cause the device to keep DEBUG powered on in
+     EM2.  Because DEBUG and LETIMER are on different power sub-domains on xG23
+     and this example goes into EM2 in a while(1) loop, this is necessary in
+     order to reconnect the debugger for subsequent device erase and
+     programming.  When the EM2DBGEN bit is set, the device will exhibit
+     slightly higher EM2 current consumption than when EM2DBGEN is not set. */
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
 
   // Initializations
