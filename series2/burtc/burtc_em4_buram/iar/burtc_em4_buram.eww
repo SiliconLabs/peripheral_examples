@@ -7,6 +7,9 @@
   <project>
     <path>$WS_DIR$\EFR32xG22_burtc_em4_buram.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32xG23_burtc_em4_buram.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

@@ -32,4 +32,8 @@ Device: EFR32MG22A224F512IM40
 PB00 - yellow LED0 on mainboard
 PD02 - push button PB0
 
-
+Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG23A010F512GM48
+PB02 - yellow LED0 on mainboard
+PB01 - push button PB0

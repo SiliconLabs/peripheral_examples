@@ -124,6 +124,14 @@ int main(void)
   CHIP_Init();
   EMU_UnlatchPinRetention();
 
+  // Init and power-down MX25 SPI flash
+  FlashStatus status;
+  MX25_init();
+  MX25_RSTEN();
+  MX25_RST(&status);
+  MX25_DP();
+  MX25_deinit();
+
   // Init
   RETARGET_SerialInit();
   RETARGET_SerialCrLf(1);
@@ -143,19 +151,11 @@ int main(void)
   BURTC_CounterReset(); // reset BURTC counter to wait full ~3 sec before EM4 wakeup
   printf("-- BURTC counter reset \n");
 
-  /* Init and power-down MX25 SPI flash */
-  FlashStatus status;
-  MX25_init();
-  MX25_RSTEN();
-  MX25_RST(&status);
-  MX25_DP();
-  MX25_deinit();
-
   // Enter EM4
   printf("Entering EM4 and wake on BURTC compare in ~3 seconds \n\n");
   for(volatile uint32_t i=0; i<1000; i++); // delay for printf to finish
-
   EMU_EnterEM4();
+
   // This line should never be reached
   while(1);
 }
