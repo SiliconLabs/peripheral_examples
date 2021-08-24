@@ -7,6 +7,9 @@
   <project>
     <path>$WS_DIR$\EFR32xG22_msc_page_lock.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32xG23_msc_page_lock.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

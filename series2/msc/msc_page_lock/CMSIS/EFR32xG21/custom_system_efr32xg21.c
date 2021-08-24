@@ -34,6 +34,7 @@
 #include <stdint.h>
 #include "em_device.h"
 
+/* Begin code added for 'msc_page_lock' example */
 // Required so that the BSP port/pin definitions macros resolve correctly
 #include "em_gpio.h"
 
@@ -42,6 +43,7 @@
 
 // Bit mask to lock the last page of main flash
 #define LASTLOCK  0x80000000
+/* End code added for 'msc_page_lock' example */ 
 
 /*******************************************************************************
  ******************************   DEFINES   ************************************
@@ -162,6 +164,7 @@ void SystemInit(void)
                  | (3U << 11U * 2U));       /* set CP11 Full Access */
 #endif
 
+/* Begin code added for 'msc_page_lock' example */
   /*
    * Lock the specified main flash program pages.  This is effectively
    * the earliest point in the reset handler, short of modifying the
@@ -171,7 +174,7 @@ void SystemInit(void)
    *
    * If modifying using a local copy of this file (as opposed to a
    * linked copy in the Gecko SDK) is undesirable, then the write to
-   * MSC_PAGELOCK3 below would have to executed as the first
+   * MSC_PAGELOCK3 below needs to be executed as the first
    * instruction in main().
    */
   MSC->PAGELOCK3 = LASTLOCK;
@@ -190,6 +193,7 @@ void SystemInit(void)
 #endif
 
   GPIO->P_SET[BSP_GPIO_LED0_PORT].DOUT = 1 << BSP_GPIO_LED0_PIN;
+  /* End code added for 'msc_page_lock' example */ 
 }
 
 /***************************************************************************//**

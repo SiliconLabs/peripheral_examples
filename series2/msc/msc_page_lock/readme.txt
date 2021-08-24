@@ -47,6 +47,10 @@ the program...
    mscReturnLocked, and
 9. loops to itself assuming both pages were locked as expected.
 
+Note: On EFR32xG21 devices, oscillators and clock branches are automatically 
+turned on/off based on demand from the peripherals.  As such, writes to clock 
+enable bits are unnecessary and have no effect on xG21 devices. 
+
 ================================================================================
 
 Peripherals Used:
@@ -66,10 +70,11 @@ How To Test:
    while(1) loop at the end of main().
 5. To observe how much elapses between issuing critical register
    writes in SystemInit() vs. main(), set an oscilloscope to trigger
-   once on a rising edge with a time scale of 25 or 50 µs/division.
+   once on a rising edge with a time scale of 25 or 50 ï¿½s/division.
 6. Observe the LED0 GPIO pin by probing the anode of LED0 on the WSTK
    mainboard (this is the solder pad just below the letter 'E' of the
-   'LED0' component label).
+   'LED0' component label), or the breakout/expansion header pin indicated
+   below.
 7. Run the demo again and observe the pulse on the oscilloscope.
 
 ================================================================================
@@ -78,12 +83,18 @@ This example is intended to run on the following setup(s):
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-
 Device: EFR32MG21A010F1024IM32 (this code will run unchanged on the radio
 board for any EFR32xG22 variant).
+PB00 - LED0 (WSTK Breakout Header P8, Expansion Header Pin 11)
 
 Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-
 Device: EFR32MG22C224F512 (this code will run unchanged on the radio
 board for any EFR32xG22 variant).
+PD02 - LED0 (WSTK Breakout Header P8, Expansion Header Pin 11)
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+        Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG23A010F512GM48 (this code will run unchanged on the radio
+board for any EFR32xG23 variant).
+PB02 - LED0 (WSTK Breakout Header P19)

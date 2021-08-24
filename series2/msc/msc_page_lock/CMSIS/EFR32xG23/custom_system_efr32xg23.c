@@ -1,12 +1,11 @@
 /***************************************************************************//**
  * @file
- * @brief Custom CMSIS Cortex-M33 system support for EFR32MG22 devices
+ * @brief Custom CMSIS Cortex-M33 system support for EFR32FG23 devices
  * demonstrating how to lock flash pages in the SystemInit() function
  * called immediately after execution begins out of reset.
- * @version 0.0.1
  ******************************************************************************
  * # License
- * <b>Copyright 2019 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -43,7 +42,7 @@
 
 // Bit mask to lock the last page of main flash
 #define LASTLOCK  0x80000000
-/* End code added for 'msc_page_lock' example */ 
+/* End code added for 'msc_page_lock' example */
 
 /*******************************************************************************
  ******************************   DEFINES   ************************************
@@ -64,7 +63,7 @@
 
 #if !defined(HFXO_FREQ)
 /* HFXO frequency */
-#define HFXO_FREQ    (38400000UL)
+#define HFXO_FREQ    (39000000UL)
 #endif
 
 #if !defined(HFRCODPLL_STARTUP_FREQ)
@@ -131,6 +130,7 @@ static uint32_t SystemHFRCODPLLClock = HFRCODPLL_STARTUP_FREQ;
  *   Required CMSIS global variable that must be kept up-to-date.
  */
 uint32_t SystemCoreClock = HFRCODPLL_STARTUP_FREQ;
+
 #endif
 
 /*******************************************************************************
@@ -196,172 +196,7 @@ void SystemInit(void)
 #endif
 
   GPIO->P_SET[BSP_GPIO_LED0_PORT].DOUT = 1 << BSP_GPIO_LED0_PIN;
-/* End code added for 'msc_page_lock' example */  
-}
-
-/***************************************************************************//**
- * @brief
- *   Get the current system clock frequency (SYSCLK).
- *
- * @details
- *   Calculate and get the current core clock frequency based on the current
- *   hardware configuration.
- *
- * @note
- *   This is an EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @return
- *   Current system clock (SYSCLK) frequency in Hz.
- ******************************************************************************/
-uint32_t SystemSYSCLKGet(void)
-{
-  uint32_t ret = 0U;
-
-  /* Find clock source */
-  switch (CMU->SYSCLKCTRL & _CMU_SYSCLKCTRL_CLKSEL_MASK) {
-    case _CMU_SYSCLKCTRL_CLKSEL_HFRCODPLL:
-      ret = SystemHFRCODPLLClockGet();
-      break;
-
-#if (HFXO_FREQ > 0U)
-    case _CMU_SYSCLKCTRL_CLKSEL_HFXO:
-#if defined(SYSTEM_NO_STATIC_MEMORY)
-      ret = HFXO_FREQ;
-#else
-      ret = SystemHFXOClock;
-#endif
-      break;
-#endif
-
-#if (CLKIN0_FREQ > 0U)
-    case _CMU_SYSCLKCTRL_CLKSEL_CLKIN0:
-      ret = CLKIN0_FREQ;
-      break;
-#endif
-
-    case _CMU_SYSCLKCTRL_CLKSEL_FSRCO:
-      ret = FSRCO_FREQ;
-      break;
-
-    default:
-      /* Unknown clock source. */
-      while (1) {
-      }
-  }
-  return ret;
-}
-
-/***************************************************************************//**
- * @brief
- *   Get the current system core clock frequency (HCLK).
- *
- * @details
- *   Calculate and get the current core clock frequency based on the current
- *   configuration. Assuming that the SystemCoreClock global variable is
- *   maintained, the core clock frequency is stored in that variable as well.
- *   This function will however calculate the core clock based on actual HW
- *   configuration. It will also update the SystemCoreClock global variable.
- *
- * @note
- *   This is a EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @return
- *   The current core clock (HCLK) frequency in Hz.
- ******************************************************************************/
-uint32_t SystemHCLKGet(void)
-{
-  uint32_t presc, ret;
-
-  ret = SystemSYSCLKGet();
-
-  presc = (CMU->SYSCLKCTRL & _CMU_SYSCLKCTRL_HCLKPRESC_MASK)
-          >> _CMU_SYSCLKCTRL_HCLKPRESC_SHIFT;
-
-  ret /= presc + 1U;
-
-#if !defined(SYSTEM_NO_STATIC_MEMORY)
-  /* Keep CMSIS system clock variable up-to-date */
-  SystemCoreClock = ret;
-#endif
-
-  return ret;
-}
-
-/***************************************************************************//**
- * @brief
- *   Get the maximum core clock frequency.
- *
- * @note
- *   This is a EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @return
- *   The maximum core clock frequency in Hz.
- ******************************************************************************/
-uint32_t SystemMaxCoreClockGet(void)
-{
-  return(HFRCODPLL_MAX_FREQ > HFXO_FREQ \
-         ? HFRCODPLL_MAX_FREQ : HFXO_FREQ);
-}
-
-/**************************************************************************//**
- * @brief
- *   Get high frequency crystal oscillator clock frequency for target system.
- *
- * @note
- *   This is a EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @return
- *   HFXO frequency in Hz. 0 if the external crystal oscillator is not present.
- *****************************************************************************/
-uint32_t SystemHFXOClockGet(void)
-{
-  /* The external crystal oscillator is not present if HFXO_FREQ==0 */
-#if (HFXO_FREQ > 0U)
-#if defined(SYSTEM_NO_STATIC_MEMORY)
-  return HFXO_FREQ;
-#else
-  return SystemHFXOClock;
-#endif
-#else
-  return 0U;
-#endif
-}
-
-/**************************************************************************//**
- * @brief
- *   Set high frequency crystal oscillator clock frequency for target system.
- *
- * @note
- *   This function is mainly provided for being able to handle target systems
- *   with different HF crystal oscillator frequencies run-time. If used, it
- *   should probably only be used once during system startup.
- *
- * @note
- *   This is a EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @param[in] freq
- *   HFXO frequency in Hz used for target.
- *****************************************************************************/
-void SystemHFXOClockSet(uint32_t freq)
-{
-  /* External crystal oscillator present? */
-#if (HFXO_FREQ > 0) && !defined(SYSTEM_NO_STATIC_MEMORY)
-  SystemHFXOClock = freq;
-
-  /* Update core clock frequency if HFXO is used to clock core */
-  if ((CMU->SYSCLKCTRL & _CMU_SYSCLKCTRL_CLKSEL_MASK)
-      == _CMU_SYSCLKCTRL_CLKSEL_HFXO) {
-    /* This function will update the global variable */
-    SystemHCLKGet();
-  }
-#else
-  (void) freq; /* Unused parameter */
-#endif
+/* End code added for 'msc_page_lock' example */
 }
 
 /**************************************************************************//**
@@ -369,7 +204,7 @@ void SystemHFXOClockSet(uint32_t freq)
  *   Get current HFRCODPLL frequency.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -461,7 +296,7 @@ uint32_t SystemHFRCODPLLClockGet(void)
  *   Set HFRCODPLL frequency value.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @param[in] freq
@@ -476,12 +311,177 @@ void SystemHFRCODPLLClockSet(uint32_t freq)
 #endif
 }
 
+/***************************************************************************//**
+ * @brief
+ *   Get the current system clock frequency (SYSCLK).
+ *
+ * @details
+ *   Calculate and get the current core clock frequency based on the current
+ *   hardware configuration.
+ *
+ * @note
+ *   This is an EFR32FG23 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @return
+ *   Current system clock (SYSCLK) frequency in Hz.
+ ******************************************************************************/
+uint32_t SystemSYSCLKGet(void)
+{
+  uint32_t ret = 0U;
+
+  /* Find clock source */
+  switch (CMU->SYSCLKCTRL & _CMU_SYSCLKCTRL_CLKSEL_MASK) {
+    case _CMU_SYSCLKCTRL_CLKSEL_HFRCODPLL:
+      ret = SystemHFRCODPLLClockGet();
+      break;
+
+#if (HFXO_FREQ > 0U)
+    case _CMU_SYSCLKCTRL_CLKSEL_HFXO:
+#if defined(SYSTEM_NO_STATIC_MEMORY)
+      ret = HFXO_FREQ;
+#else
+      ret = SystemHFXOClock;
+#endif
+      break;
+#endif
+
+#if (CLKIN0_FREQ > 0U)
+    case _CMU_SYSCLKCTRL_CLKSEL_CLKIN0:
+      ret = CLKIN0_FREQ;
+      break;
+#endif
+
+    case _CMU_SYSCLKCTRL_CLKSEL_FSRCO:
+      ret = FSRCO_FREQ;
+      break;
+
+    default:
+      /* Unknown clock source. */
+      while (1) {
+      }
+  }
+  return ret;
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Get the current system core clock frequency (HCLK).
+ *
+ * @details
+ *   Calculate and get the current core clock frequency based on the current
+ *   configuration. Assuming that the SystemCoreClock global variable is
+ *   maintained, the core clock frequency is stored in that variable as well.
+ *   This function will however calculate the core clock based on actual HW
+ *   configuration. It will also update the SystemCoreClock global variable.
+ *
+ * @note
+ *   This is a EFR32FG23 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @return
+ *   The current core clock (HCLK) frequency in Hz.
+ ******************************************************************************/
+uint32_t SystemHCLKGet(void)
+{
+  uint32_t presc, ret;
+
+  ret = SystemSYSCLKGet();
+
+  presc = (CMU->SYSCLKCTRL & _CMU_SYSCLKCTRL_HCLKPRESC_MASK)
+          >> _CMU_SYSCLKCTRL_HCLKPRESC_SHIFT;
+
+  ret /= presc + 1U;
+
+#if !defined(SYSTEM_NO_STATIC_MEMORY)
+  /* Keep CMSIS system clock variable up-to-date */
+  SystemCoreClock = ret;
+#endif
+
+  return ret;
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Get the maximum core clock frequency.
+ *
+ * @note
+ *   This is a EFR32FG23 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @return
+ *   The maximum core clock frequency in Hz.
+ ******************************************************************************/
+uint32_t SystemMaxCoreClockGet(void)
+{
+  return(HFRCODPLL_MAX_FREQ > HFXO_FREQ \
+         ? HFRCODPLL_MAX_FREQ : HFXO_FREQ);
+}
+
+/**************************************************************************//**
+ * @brief
+ *   Get high frequency crystal oscillator clock frequency for target system.
+ *
+ * @note
+ *   This is a EFR32FG23 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @return
+ *   HFXO frequency in Hz. 0 if the external crystal oscillator is not present.
+ *****************************************************************************/
+uint32_t SystemHFXOClockGet(void)
+{
+  /* The external crystal oscillator is not present if HFXO_FREQ==0 */
+#if (HFXO_FREQ > 0U)
+#if defined(SYSTEM_NO_STATIC_MEMORY)
+  return HFXO_FREQ;
+#else
+  return SystemHFXOClock;
+#endif
+#else
+  return 0U;
+#endif
+}
+
+/**************************************************************************//**
+ * @brief
+ *   Set high frequency crystal oscillator clock frequency for target system.
+ *
+ * @note
+ *   This function is mainly provided for being able to handle target systems
+ *   with different HF crystal oscillator frequencies run-time. If used, it
+ *   should probably only be used once during system startup.
+ *
+ * @note
+ *   This is a EFR32FG23 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @param[in] freq
+ *   HFXO frequency in Hz used for target.
+ *****************************************************************************/
+void SystemHFXOClockSet(uint32_t freq)
+{
+  /* External crystal oscillator present? */
+#if (HFXO_FREQ > 0) && !defined(SYSTEM_NO_STATIC_MEMORY)
+  SystemHFXOClock = freq;
+
+  /* Update core clock frequency if HFXO is used to clock core */
+  if ((CMU->SYSCLKCTRL & _CMU_SYSCLKCTRL_CLKSEL_MASK)
+      == _CMU_SYSCLKCTRL_CLKSEL_HFXO) {
+    /* This function will update the global variable */
+    SystemHCLKGet();
+  }
+#else
+  (void) freq; /* Unused parameter */
+#endif
+}
+
 /**************************************************************************//**
  * @brief
  *   Get current CLKIN0 frequency.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -497,7 +497,7 @@ uint32_t SystemCLKIN0Get(void)
  *   Get FSRCO frequency.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -510,10 +510,78 @@ uint32_t SystemFSRCOClockGet(void)
 
 /**************************************************************************//**
  * @brief
+ *   Get current HFRCOEM23 frequency.
+ *
+ * @note
+ *   This is a EFR32FG23 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @return
+ *   HFRCOEM23 frequency in Hz.
+ *****************************************************************************/
+uint32_t SystemHFRCOEM23ClockGet(void)
+{
+  uint32_t ret = 0UL;
+
+  /* Get oscillator frequency band */
+  switch ((HFRCOEM23->CAL & _HFRCO_CAL_FREQRANGE_MASK)
+          >> _HFRCO_CAL_FREQRANGE_SHIFT) {
+    case 0:
+      switch (HFRCOEM23->CAL & _HFRCO_CAL_CLKDIV_MASK) {
+        case HFRCO_CAL_CLKDIV_DIV1:
+          ret = 4000000UL;
+          break;
+
+        case HFRCO_CAL_CLKDIV_DIV2:
+          ret = 2000000UL;
+          break;
+
+        case HFRCO_CAL_CLKDIV_DIV4:
+          ret = 1000000UL;
+          break;
+
+        default:
+          ret = 0UL;
+          break;
+      }
+      break;
+
+    case 6:
+      ret = 13000000UL;
+      break;
+
+    case 7:
+      ret = 16000000UL;
+      break;
+
+    case 8:
+      ret = 19000000UL;
+      break;
+
+    case 10:
+      ret = 26000000UL;
+      break;
+
+    case 11:
+      ret = 32000000UL;
+      break;
+
+    case 12:
+      ret = 40000000UL;
+      break;
+
+    default:
+      break;
+  }
+  return ret;
+}
+
+/**************************************************************************//**
+ * @brief
  *   Get low frequency RC oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -529,7 +597,7 @@ uint32_t SystemLFRCOClockGet(void)
  *   Get ultra low frequency RC oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -546,7 +614,7 @@ uint32_t SystemULFRCOClockGet(void)
  *   Get low frequency crystal oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -576,7 +644,7 @@ uint32_t SystemLFXOClockGet(void)
  *   should probably only be used once during system startup.
  *
  * @note
- *   This is a EFR32MG22 specific function, not part of the
+ *   This is a EFR32FG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @param[in] freq
