@@ -53,7 +53,7 @@ uint32_t slewRate = 6;	// Default slew rate
  *****************************************************************************/
 static void gpioSetup(void)
 {
-  // Enable GPIO clock. Note this is not required for EFR32xG21
+  // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure Button PB0 as input and enable interrupt
@@ -65,18 +65,18 @@ static void gpioSetup(void)
                     true,
                     true);
 
-  // Enable EVEN interrupt to catch button press that changes slew rate
-  NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
-  NVIC_EnableIRQ(GPIO_EVEN_IRQn);
+  // Enable ODD interrupt to catch button press that changes slew rate
+  NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);
+  NVIC_EnableIRQ(GPIO_ODD_IRQn);
 
   // Set PA0 to push-pull output to output 1MHz square wave
   GPIO_PinModeSet(SQUARE_WAVE_PORT, SQUARE_WAVE_PIN, gpioModePushPull, 1);
 
   // Set up GPIO to output CCO 1MHz waveform
   GPIO->TIMERROUTE[0].ROUTEEN |= GPIO_TIMER_ROUTEEN_CC0PEN; 
-  GPIO->TIMERROUTE[0].CC0ROUTE = (SQUARE_WAVE_PORT 
+  GPIO->TIMERROUTE[0].CC0ROUTE = (SQUARE_WAVE_PORT
   								  << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
-  								  | (SQUARE_WAVE_PIN 
+  								  | (SQUARE_WAVE_PIN
   								  << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 }
 
@@ -85,11 +85,10 @@ static void gpioSetup(void)
  *****************************************************************************/
 void timerSetup(void)
 {
-  // Enable Timer0 Clock. Note this is not required for EFR32xG21
+  // Enable Timer0 Clock
   CMU_ClockEnable(cmuClock_TIMER0, true);
 
-  // Set Timer0 to toggle PA0 at 1 MHz 
-  // - Select clock source at fixed 20MHz FSRCO
+  // Set Timer0 to toggle PA0 at 1 MHz - Select clock source at fixed 20MHz FSRCO
   CMU_ClockSelectSet(cmuClock_EM01GRPACLK, cmuSelect_FSRCO); 
   
   // Set compare output
@@ -113,7 +112,7 @@ void timerSetup(void)
 /**************************************************************************//**
  * @brief GPIO Interrupt handler for even pins.
  *****************************************************************************/
-void GPIO_EVEN_IRQHandler(void)
+void GPIO_ODD_IRQHandler(void)
 {
   // Get and clear all pending GPIO interrupts
   uint32_t interruptMask = GPIO_IntGet();

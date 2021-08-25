@@ -1,6 +1,7 @@
-<workspace name="gpio_em4_wakeup">
-  <project name="EFR32xG21_gpio_em4_wakeup"
-           device="EFR32MG21A010F1024IM32">
+<?xml version='1.0' encoding='utf-8'?>
+<workspace name="gpio">
+  <project device="EFR32MG21A010F1024IM32"
+           name="EFR32MG21_switch_led_polled">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -27,15 +28,23 @@
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>
-      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
-      <source>##em-path-emlib##\src\em_rmu.c</source>
-	  <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_iadc.c</source>
+      <source>##em-path-emlib##\src\em_prs.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_timer.c</source>
+      <source>##em-path-emlib##\src\em_usart.c</source>
+      <source>##em-path-drivers##\retargetio.c</source>
+      <source>##em-path-drivers##\retargetserial.c</source>
     </group>
     <group name="Source">
+      <source>$PROJ_DIR$\..\src\main_switch_led_polled_s2.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main_xg21.c</source>
     </group>
+    <cflags>
+      <define>RETARGET_VCOM</define>
+    </cflags>
   </project>
 </workspace>

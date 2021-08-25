@@ -1,6 +1,6 @@
 /***************************************************************************//**
- * @file main_gpio_periph_s2.c
- * @brief Demonstrates outputting clock to a GPIO
+ * @file main_gpio_conf_s2.c
+ * @brief Demonstrates setting up simple input and output on GPIO
  *******************************************************************************
  * # License
  * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
@@ -33,42 +33,37 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_gpio.h"
-#include "em_chip.h"
-
-#define  CMUCLOCKOUT_PORT  gpioPortC
-#define  CMUCLOCKOUT_PIN   3
-#define  SLEW_RATE         7
+#include "bsp.h"
 
 /**************************************************************************//**
  * @brief  Main function
  *****************************************************************************/
 int main(void)
 {
-  // Initialize chip
   CHIP_Init();
-  
-  // Enable clock for GPIO module. Note this is not required for EFR32xG21
+
+  // Enable GPIO clock. Note this step is not required for EFR32xG21 devices
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Set chosen port pin as output  
-  GPIO_PinModeSet(CMUCLOCKOUT_PORT, CMUCLOCKOUT_PIN, gpioModePushPull, 0);
-  
-  // Set slew rate / drive strength so there is no ringing
-  GPIO_SlewrateSet(CMUCLOCKOUT_PORT, SLEW_RATE, SLEW_RATE);
+  // Configure Push Button 0 as input
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInput, 0);
 
-  // Enable Low Frequency RC Oscillator (LFRCO) and 
-  // wait until it is stable
-  CMU_OscillatorEnable(cmuOsc_LFRCO, true, true);
+  // Configure LED0 as a push pull for LED drive
+  GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
 
-  // Select Clock Output 1 as Low Frequency RC(32.768 KHz)
-  CMU->EXPORTCLKCTRL = CMU->EXPORTCLKCTRL | CMU_EXPORTCLKCTRL_CLKOUTSEL1_LFRCO;
-  
-  // Route the clock output to the GPIO port and pin and enable
-  GPIO->CMUROUTE.ROUTEEN |= GPIO_CMU_ROUTEEN_CLKOUT1PEN; 
-  GPIO->CMUROUTE.CLKOUT1ROUTE = (CMUCLOCKOUT_PORT << _GPIO_CMU_CLKOUT1ROUTE_PORT_SHIFT) | (CMUCLOCKOUT_PIN << _GPIO_CMU_CLKOUT1ROUTE_PIN_SHIFT);
-
-  while(1);
+  while (1)
+  {
+    // Check if button is pressed - when pressed, value will be 0
+    if (!GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN))
+    {
+      GPIO_PinOutSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
+    }
+    else
+    {
+      GPIO_PinOutClear(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
+    }
+  }
 }

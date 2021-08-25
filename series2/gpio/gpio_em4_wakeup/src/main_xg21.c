@@ -1,6 +1,7 @@
 /***************************************************************************//**
- * @file main_gpio_periph_s2.c
- * @brief Demonstrates outputting clock to a GPIO
+ * @file main.c
+ * @brief This project demonstrates the ability for a pin to wake the device
+ * from EM4.
  *******************************************************************************
  * # License
  * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
@@ -34,41 +35,73 @@
  ******************************************************************************/
 
 #include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_gpio.h"
-#include "em_chip.h"
+#include "em_emu.h"
+#include "em_rmu.h"
+#include "bsp.h"
 
-#define  CMUCLOCKOUT_PORT  gpioPortC
-#define  CMUCLOCKOUT_PIN   3
-#define  SLEW_RATE         7
+#define EM4WU_PIN           BSP_GPIO_PB0_PIN
+#define EM4WU_PORT          BSP_GPIO_PB0_PORT
+#define EM4WU_EM4WUEN_NUM   (9)                       // PD2 is EM4WUEN pin 9
+#define EM4WU_EM4WUEN_MASK  (1 << EM4WU_EM4WUEN_NUM)
 
 /**************************************************************************//**
- * @brief  Main function
+ * @brief  Initialize GPIOs for push button and LED
+ *****************************************************************************/
+void initGPIO(void)
+{
+  // Configure Button PB0 as input and EM4 wake-up source
+  GPIO_PinModeSet(EM4WU_PORT, EM4WU_PIN, gpioModeInputPullFilter, 1);
+  GPIO_EM4EnablePinWakeup(EM4WU_EM4WUEN_MASK << _GPIO_EM4WUEN_EM4WUEN_SHIFT, 0);
+
+  // Configure LED0 as output
+  GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
+}
+
+/**************************************************************************//**
+ * @brief Toggle LEDs on STK and Radio board indefinitely
+ *****************************************************************************/
+void toggleLEDs(void)
+{
+  while(1)
+  {
+    GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
+
+    // Arbitrary delay between toggles
+	for(volatile uint32_t delay = 0; delay < 0xFFFFF; delay++);
+  }
+}
+
+/**************************************************************************//**
+ * @brief	Main function
  *****************************************************************************/
 int main(void)
 {
-  // Initialize chip
+  // Chip errata
   CHIP_Init();
-  
-  // Enable clock for GPIO module. Note this is not required for EFR32xG21
-  CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Set chosen port pin as output  
-  GPIO_PinModeSet(CMUCLOCKOUT_PORT, CMUCLOCKOUT_PIN, gpioModePushPull, 0);
-  
-  // Set slew rate / drive strength so there is no ringing
-  GPIO_SlewrateSet(CMUCLOCKOUT_PORT, SLEW_RATE, SLEW_RATE);
+  // Initialization
+  // Note for EFR32xG21 devices, clock enabling is not required.
+  initGPIO();
+  EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
+  EMU_EM4Init(&em4Init);
 
-  // Enable Low Frequency RC Oscillator (LFRCO) and 
-  // wait until it is stable
-  CMU_OscillatorEnable(cmuOsc_LFRCO, true, true);
+  // Get the last Reset Cause
+  uint32_t rstCause = RMU_ResetCauseGet();
+  RMU_ResetCauseClear();
 
-  // Select Clock Output 1 as Low Frequency RC(32.768 KHz)
-  CMU->EXPORTCLKCTRL = CMU->EXPORTCLKCTRL | CMU_EXPORTCLKCTRL_CLKOUTSEL1_LFRCO;
-  
-  // Route the clock output to the GPIO port and pin and enable
-  GPIO->CMUROUTE.ROUTEEN |= GPIO_CMU_ROUTEEN_CLKOUT1PEN; 
-  GPIO->CMUROUTE.CLKOUT1ROUTE = (CMUCLOCKOUT_PORT << _GPIO_CMU_CLKOUT1ROUTE_PORT_SHIFT) | (CMUCLOCKOUT_PIN << _GPIO_CMU_CLKOUT1ROUTE_PIN_SHIFT);
+  // If the last Reset was due to leaving EM4, toggle LEDs. Else, enter EM4
+  if(rstCause & EMU_RSTCAUSE_EM4)
+  {
+    toggleLEDs();
+  }
+  else
+  {
+	EMU_EnterEM4();
+  }
 
+  // This line should never be reached
   while(1);
 }
