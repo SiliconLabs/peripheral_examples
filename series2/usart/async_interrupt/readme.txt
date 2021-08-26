@@ -6,6 +6,9 @@ asynchronous mode.  USART1 is configured for asynchronous operation at
 The main loop waits until 80 characters or a carriage return are received
 and then echos these back to the user.
 
+Note: This example uses inclusive lexicon wherever possible. For more
+information, visit https://www.silabs.com/about-us/inclusive-lexicon-project
+
 ================================================================================
 
 Peripherals Used:
@@ -36,45 +39,24 @@ Listed below are the port and pin mappings for working with this example.
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 20 dBm Radio Board (BRD4180A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: EFR32MG21A020F1024IM32 (this code will run unchanged on any
-EFR32MG21 or EFR32BG21 variant so long as the pins used as present).
-
+Device: EFR32MG21A020F1024IM32
 PA5 - USART0_TX (Expansion Header Pin 12)
 PA6 - USART0_RX (Expansion Header Pin 14)
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: EFR32MG21A010F1024IM32 (this code will run unchanged on any
-EFR32MG21 or EFR32BG21 variant so long as the pins used as present).
-
+Device: EFR32MG21A010F1024IM32
 PA5 - USART0_TX (Expansion Header Pin 12)
 PA6 - USART0_RX (Expansion Header Pin 14)
 
 Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Radio Board (BRD4182A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: EFR32MG22C224F512IM40 (this code will run unchanged on any
-EFR32MG22 or EFR32BG212 variant so long as the pins used as present).
-
+Device: EFR32MG22C224F512IM40
 PA5 - USART0_TX (Expansion Header Pin 12)
 PA6 - USART0_RX (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32FG23 868 MHz 14 dBm Radio Board (BRD4263A)
-        + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: EFR32FG23A010F512GM48 (this code will run unchanged on any
-EFR32FG23 variant so long as the pins used as present).
-
-PD2 - USART0_TX (Expansion Header Pin 12)
-PD3 - USART0_RX (Expansion Header Pin 14)
-
 Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
         + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: EFR32FG23A010F512GM48 (this code will run unchanged on any
-EFR32FG23 variant so long as the pins used as present).
-
+Device: EFR32FG23A010F512GM48
 PA8 - USART0_TX (Expansion Header Pin 12)
 PA9 - USART0_RX (Expansion Header Pin 14)
