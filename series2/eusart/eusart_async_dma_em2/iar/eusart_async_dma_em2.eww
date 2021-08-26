@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32xG23_eusart_async_dma_em2.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
