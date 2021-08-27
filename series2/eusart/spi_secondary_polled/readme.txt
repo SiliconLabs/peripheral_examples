@@ -76,7 +76,7 @@ Test Procedure:
 
 4. Before running the example, set a breakpoint at the GPIO_IntClear()
    statement in the main loop.  The buffer[] array contain 0s on initial
-   execution, after which it should holds the values sent by the master
+   execution, after which it should hold the values sent by the main device
    (0 to 9 inclusive).  The secondary example transfers data continuously but
    will not start until PB0 is pressed on the board running the main code.
 

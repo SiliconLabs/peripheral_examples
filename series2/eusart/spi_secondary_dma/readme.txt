@@ -20,7 +20,7 @@ is configured to request a GPIO interrupt on a falling edge.  The main
 device must add setup time after chip select assertion in order for the
 secondary device to exit its low-power state and pre-load the transmit
 buffer if it is expected to shift out a byte of data concurrent with the
-first incoming byte fromt the main (even if this is otherwise ignored).
+first incoming byte from the main (even if this is otherwise ignored).
 The provided EUSART main mode examples do this with simple software delay
 loops.
 
@@ -29,7 +29,7 @@ with 10 bytes of data (which can be changed by modifying BUFLEN).  The
 falling edge interrupt is enabled for the chip select pin, and the device
 waits in the EM1 low-energy mode.  Upon exit from EM1 the receive FIFO is
 cleared.  This step is not necessary in a well-behaved SPI system, but
-because this example is intended to run with one of the master mode
+because this example is intended to run with one of the main mode
 examples, which constantly transmit data, it is required so that data is
 received in the expected order when the main asserts the chip select.
 

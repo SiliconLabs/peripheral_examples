@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file main.c
  * @brief This project demonstrates synchronous (SPI) use of the EUSART in
- * polled main (forrmerly master) mode. The main loop transmits the specified
+ * polled main (formerly master) mode. The main loop transmits the specified
  * number of bytes and receives the byte that is shifted in with each outgoing
  * one.
  *
