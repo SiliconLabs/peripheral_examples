@@ -19,8 +19,8 @@ EUSART1
 
 How To Test:
 1. Build the project and download to the Starter Kit.
-2. Open a terminal program and configure it for N81 operation with desired 
-   baud rate(eg: 115200 & 9600) on the "JLink CDC UART Port" that is provided by 
+2. Open a terminal program and configure it for 8-N-1 operation with desired 
+   baud rate(eg: 115200) on the "JLink CDC UART Port" that is provided by 
    the board controller on the Starter Kit mainboard.
 3. Set a breakpoint at the end of the EUSART1_RX_IRQHandler and run the example 
    project.
@@ -30,6 +30,18 @@ How To Test:
    desired baudrate selected in the terminal program and remove the breakpoint.
 5. Type some characters in the terminal program (they will not show) and
    press Enter to have the MCU echo them.
+
+Note: 
+By default VCOM of WSTK board controller is factory programmed to support 
+115200bps. To use other baud rates, follow the instructions below:
+1. In Simplicity Studio Launcher tab, select the required J-Link adapter in the
+   Debug Adapters window, right-click on it and click on the Launch Console.
+2. When the console appears Switch to the Admin tab at the top, then click 
+   into the input text box at the bottom and press Enter. Now the WSTK> prompt 
+   appears.
+3. To change the Virtual COM port baud rate to the desired baud rate in bps 
+   issue the following command in Admin tab of Launch Console:
+   serial vcom config speed <desired baud rate in bps>
 
 Alternatively, the example may be tested with a USB-to-serial converter,
 such as the Silicon Labs CP2102N-EK.  Refer to the list below for the
