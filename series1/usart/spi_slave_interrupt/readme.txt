@@ -136,39 +136,6 @@ comments and is as follows:
 
 Listed below are the port and pin mappings for working with this example.
 
-Board: Silicon Labs BGM111 Bluetooth Module Radio Board (BRD4300A)
-       + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: BGM111A256V2
-
-PC6 - USART1_TX (MOSI)  - Expansion Header pin 4
-PC7 - USART1_RX (MISO)  - Expansion Header pin 6
-PC8 - USART1_CLK (SCLK) - Expansion Header pin 8
-PC9 - USART1_CS (SSn)   - Expansion Header pin 10
-PA0 - Activity          - Expansion Header pin 12
-
-Board: Silicon Labs BGM121 Bluetooth SiP Module Radio Board (BRD4302A)
-       + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: BGM121A256V2
-
-PC6 - USART1_TX (MOSI)  - Expansion Header pin 4
-PC7 - USART1_RX (MISO)  - Expansion Header pin 6
-PC8 - USART1_CLK (SCLK) - Expansion Header pin 8
-PC9 - USART1_CS (SSn)   - Expansion Header pin 10
-PA0 - Activity          - Expansion Header pin 12
-
-Board: Silicon Labs BGM13P32 Bluetooth Module Radio Board (BRD4306B)
-       + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: BGM13P22F512GA
-
-PC6 - USART1_TX (MOSI)  - Expansion Header pin 4
-PC7 - USART1_RX (MISO)  - Expansion Header pin 6
-PC8 - USART1_CLK (SCLK) - Expansion Header pin 8
-PC9 - USART1_CS (SSn)   - Expansion Header pin 10
-PA0 - Activity          - Expansion Header pin 12
-
 Board: Silicon Labs EFM32 Giant Gecko GG11 Starter Kit (SLSTK3701A)
 
 Device: EFM32GG11B820F2048GL192

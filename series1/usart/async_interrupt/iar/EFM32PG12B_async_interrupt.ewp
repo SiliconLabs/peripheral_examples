@@ -271,7 +271,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -741,7 +741,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1219,7 +1219,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1685,7 +1685,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1925,7 +1925,7 @@
       <name>$PROJ_DIR$\..\src\main_xg1_xg12_xg13_xg14.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme_xg12.txt</name>
+      <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
   </group>
 

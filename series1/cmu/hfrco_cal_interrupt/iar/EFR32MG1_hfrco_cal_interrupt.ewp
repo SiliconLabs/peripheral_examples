@@ -271,7 +271,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -741,7 +741,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1219,7 +1219,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1685,7 +1685,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>

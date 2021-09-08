@@ -2,18 +2,6 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\BGM111_lfrco_cal_polled.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\BGM113_lfrco_cal_polled.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\BGM121_lfrco_cal_polled.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\BGM13_lfrco_cal_polled.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFM32GG11_lfrco_cal_polled.ewp</path>
   </project>
   <project>

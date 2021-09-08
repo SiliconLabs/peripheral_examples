@@ -34,7 +34,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_s1_pg1_efr.c</source>
-      <source>$PROJ_DIR$\..\readme_s1_pg1_efr.txt</source>
+      <source>$PROJ_DIR$\..\readme_pg1_efr.txt</source>
     </group>
     <cflags>
       <define>RETARGET_VCOM</define>

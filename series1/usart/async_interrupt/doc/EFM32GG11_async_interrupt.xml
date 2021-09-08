@@ -35,7 +35,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_gg11.c</source>
-      <source>$PROJ_DIR$\..\readme_gg11.txt</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>

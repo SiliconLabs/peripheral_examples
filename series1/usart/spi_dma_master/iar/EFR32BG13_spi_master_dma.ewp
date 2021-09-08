@@ -168,6 +168,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFR32BG13P632F512GM48</state>
           
         </option>
@@ -359,7 +360,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1115,6 +1116,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFR32BG13P632F512GM48</state>
           
         </option>
@@ -1306,7 +1308,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>

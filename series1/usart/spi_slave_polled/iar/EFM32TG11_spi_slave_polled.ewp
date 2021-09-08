@@ -146,6 +146,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFM32TG11B520F128GM80</state>
           
         </option>
@@ -264,7 +265,7 @@
         </option>
         <option>
           <name>CCLangSelect</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -949,6 +950,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFM32TG11B520F128GM80</state>
           
         </option>
@@ -1067,7 +1069,7 @@
         </option>
         <option>
           <name>CCLangSelect</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>

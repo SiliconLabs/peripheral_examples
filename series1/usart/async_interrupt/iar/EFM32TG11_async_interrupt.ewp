@@ -249,7 +249,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -671,7 +671,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1053,7 +1053,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1475,7 +1475,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1645,7 +1645,7 @@
       <name>$PROJ_DIR$\..\src\main_tg11.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\readme_tg11.txt</name>
+      <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
   </group>
 
