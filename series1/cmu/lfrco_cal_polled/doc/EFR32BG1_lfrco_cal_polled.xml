@@ -14,7 +14,7 @@
     </directories>
     <includepaths>
       <path>##em-path-cmsis##\Include</path>
-      <path>##em-path-device##\EFR32FG1P\Include</path>
+      <path>##em-path-device##\EFR32BG1P\Include</path>
       <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>
       <path>##em-path-drivers##</path>

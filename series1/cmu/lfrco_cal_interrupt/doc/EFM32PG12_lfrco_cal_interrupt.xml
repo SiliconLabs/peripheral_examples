@@ -15,7 +15,7 @@
     </directories>
     <includepaths>
       <path>##em-path-cmsis##\Include</path>
-      <path>##em-path-device##\EFM32PG1B\Include</path>
+      <path>##em-path-device##\EFM32PG12B\Include</path>
       <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>
       <path>##em-path-bsp##</path>
