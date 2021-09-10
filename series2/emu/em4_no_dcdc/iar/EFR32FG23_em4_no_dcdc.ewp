@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32FG23_em4_nodcdc\Debug\Exe</state>
+          <state>EFR32FG23_em4_no_dcdc\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32FG23_em4_nodcdc\Debug\Obj</state>
+          <state>EFR32FG23_em4_no_dcdc\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32FG23_em4_nodcdc\Debug\List</state>
+          <state>EFR32FG23_em4_no_dcdc\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -284,7 +284,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -621,7 +621,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32FG23_em4_nodcdc.bin</state>
+          <state>EFR32FG23_em4_no_dcdc.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -676,7 +676,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32FG23_em4_nodcdc.out</state>
+          <state>EFR32FG23_em4_no_dcdc.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -768,7 +768,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -995,15 +995,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32FG23_em4_nodcdc\Release\Exe</state>
+          <state>EFR32FG23_em4_no_dcdc\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32FG23_em4_nodcdc\Release\Obj</state>
+          <state>EFR32FG23_em4_no_dcdc\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32FG23_em4_nodcdc\Release\List</state>
+          <state>EFR32FG23_em4_no_dcdc\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1263,7 +1263,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1601,7 +1601,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32FG23_em4_nodcdc.bin</state>
+          <state>EFR32FG23_em4_no_dcdc.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1656,7 +1656,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32FG23_em4_nodcdc.out</state>
+          <state>EFR32FG23_em4_no_dcdc.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1748,7 +1748,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>

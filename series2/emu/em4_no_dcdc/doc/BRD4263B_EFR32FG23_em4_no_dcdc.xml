@@ -1,5 +1,5 @@
-<workspace name="em4_nodcdc">
-  <project name="EFR32FG23_em4_nodcdc"
+<workspace name="em4_no_dcdc">
+  <project name="EFR32FG23_em4_no_dcdc"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

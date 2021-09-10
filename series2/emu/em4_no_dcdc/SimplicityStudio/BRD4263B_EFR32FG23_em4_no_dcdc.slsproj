@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="BRD4263B_EFR32FG23_em4_nodcdc" boardCompatibility="brd4263b" partCompatibility=".*efr32fg23a010f512gm48.*" toolchainCompatibility="" contentRoot="../">
+<project name="BRD4263B_EFR32FG23_em4_no_dcdc" boardCompatibility="brd4263b" partCompatibility=".*efr32fg23a010f512gm48.*" toolchainCompatibility="" contentRoot="../">
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>

@@ -1,4 +1,4 @@
-em4_nodcdc
+em4_no_dcdc
 
 This project demonstrates the demonstrates datasheet current consumption 
 configuration and current consumption numbers in EM4 Energy Mode.
