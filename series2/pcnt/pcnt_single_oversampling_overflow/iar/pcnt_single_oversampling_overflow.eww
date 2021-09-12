@@ -2,7 +2,7 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32xG23_pcnt_single_oversampling_overflow.ewp</path>
+    <path>$WS_DIR$\EFR32FG23_pcnt_single_oversampling_overflow.ewp</path>
   </project>
 
   <batchBuild/>

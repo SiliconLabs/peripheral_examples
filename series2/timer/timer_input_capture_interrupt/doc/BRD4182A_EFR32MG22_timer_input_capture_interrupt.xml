@@ -1,5 +1,5 @@
 <workspace name="timer_input_capture_interrupt">
-  <project name="EFR32xG22_timer_input_capture_interrupt"
+  <project name="EFR32MG22_timer_input_capture_interrupt"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

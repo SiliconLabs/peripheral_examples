@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <workspace name="burtc_em4_buram">
-  <project name="EFR32xG23_burtc_em4_buram"
+  <project name="EFR32FG23_burtc_em4_buram"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

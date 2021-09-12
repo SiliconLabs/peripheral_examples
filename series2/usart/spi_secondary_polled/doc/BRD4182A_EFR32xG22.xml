@@ -1,5 +1,5 @@
 <workspace name="usart_spi_secondary_polled">
-  <project name="EFR32xG22_usart_spi_secondary_polled"
+  <project name="EFR32MG22_usart_spi_secondary_polled"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

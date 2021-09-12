@@ -1,5 +1,5 @@
 <workspace name="timer_dma_edge_capture">
-  <project name="EFR32xG23_timer_dma_edge_capture"
+  <project name="EFR32FG23_timer_dma_edge_capture"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

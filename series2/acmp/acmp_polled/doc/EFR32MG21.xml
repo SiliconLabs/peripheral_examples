@@ -1,5 +1,5 @@
 <workspace name="acmp_polled">
-  <project name="EFR32xG21_acmp_polled"
+  <project name="EFR32MG21_acmp_polled"
            device="EFR32MG21A010F1024IM32">
     <targets>
       <name>slsproj</name>

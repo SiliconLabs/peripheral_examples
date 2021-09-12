@@ -1,5 +1,5 @@
 <workspace name="pulse_width_modulation">
-  <project name="EFR32xG23_pulse_width_modulation"
+  <project name="EFR32FG23_pulse_width_modulation"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

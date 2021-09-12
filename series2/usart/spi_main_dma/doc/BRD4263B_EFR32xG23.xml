@@ -1,5 +1,5 @@
 <workspace name="usart_spi_main_dma">
-  <project name="EFR32xG23_usart_spi_main_dma"
+  <project name="EFR32FG23_usart_spi_main_dma"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

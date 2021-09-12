@@ -1,6 +1,6 @@
 <workspace name="lfrco_cal_polled">
   <project device="EFR32FG23A010F512GM48"
-           name="EFR32xG23_lfrco_cal_polled">
+           name="EFR32FG23_lfrco_cal_polled">
     <targets>
       <name>slsproj</name>
       <name>iar</name>

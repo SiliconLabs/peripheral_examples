@@ -1,5 +1,5 @@
 <workspace name="lesense_multi_channel">
-  <project name="EFR32xG23_lesense_multi_channel"
+  <project name="EFR32FG23_lesense_multi_channel"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

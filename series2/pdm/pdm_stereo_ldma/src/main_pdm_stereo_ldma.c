@@ -103,7 +103,7 @@ void initPdm(void)
   pdmInit.dsr = 32;
   pdmInit.gain = 5;
   pdmInit.ch0ClkPolarity = pdmCh0ClkPolarityRisingEdge;  // Normal
-  pdmInit.ch1ClkPolarity = pdmCh0ClkPolarityFallingEdge; // Invert
+  pdmInit.ch1ClkPolarity = pdmCh1ClkPolarityFallingEdge; // Invert
   pdmInit.enableCh0Ch1Stereo = true;
   pdmInit.fifoValidWatermark = pdmFifoValidWatermarkFour;
   pdmInit.dataFormat = pdmDataFormatDouble16;

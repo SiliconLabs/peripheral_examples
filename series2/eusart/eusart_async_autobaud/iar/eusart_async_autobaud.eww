@@ -2,7 +2,7 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32xG23_eusart_async_autobaud.ewp</path>
+    <path>$WS_DIR$\EFR32FG23_eusart_async_autobaud.ewp</path>
   </project>
 
   <batchBuild/>

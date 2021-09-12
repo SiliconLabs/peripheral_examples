@@ -2,16 +2,16 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32xG21_usart_async_polled.ewp</path>
+    <path>$WS_DIR$\EFR32MG21_usart_async_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32xG21_usart_async_polled.ewp</path>
+    <path>$WS_DIR$\EFR32MG21_usart_async_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32xG22_usart_async_polled.ewp</path>
+    <path>$WS_DIR$\EFR32MG22_usart_async_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32xG23_usart_async_polled.ewp</path>
+    <path>$WS_DIR$\EFR32FG23_usart_async_polled.ewp</path>
   </project>
 
   <batchBuild/>

@@ -1,5 +1,5 @@
 <workspace name="prs_logic_unit">
-  <project name="EFR32xG23_prs_logic_unit"
+  <project name="EFR32FG23_prs_logic_unit"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

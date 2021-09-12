@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <workspace name="i2c_leader">
-  <project name="EFR32xG23_i2c_leader"
+  <project name="EFR32FG23_i2c_leader"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

@@ -1,5 +1,5 @@
 <workspace name="one_shot_output_compare">
-  <project name="EFR32xG22_one_shot_output_compare"
+  <project name="EFR32MG22_one_shot_output_compare"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

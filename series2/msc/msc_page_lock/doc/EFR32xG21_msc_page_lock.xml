@@ -1,5 +1,5 @@
 <workspace name="msc_page_lock">
-  <project name="EFR32xG21_msc_page_lock"
+  <project name="EFR32MG21_msc_page_lock"
            device="EFR32MG21A010F1024IM32">
     <targets>
       <name>slsproj</name>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BRD4181A_EFR32MG21_msc_rw" boardCompatibility="brd4181a" partCompatibility=".*efr32mg21a010f1024im32.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_se.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <includePath uri="../../../../util/third_party/crypto/sl_component/se_manager/inc" />
+  <folder name="se_manager">
+    <file name="sl_se_manager.c" uri="../../../../util/third_party/crypto/sl_component/se_manager/src/sl_se_manager.c" />
+    <file name="sl_se_manager_util.c" uri="../../../../util/third_party/crypto/sl_component/se_manager/src/sl_se_manager_util.c" />
+  </folder>
+  <folder name="src">
+    <file name="readme.txt" uri="readme.txt" />
+    <file name="main_xG21.c" uri="src/main_xG21.c" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

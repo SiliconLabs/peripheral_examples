@@ -1,5 +1,5 @@
 <workspace name="pulse_train">
-  <project name="EFR32xG23_pulse_train"
+  <project name="EFR32FG23_pulse_train"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

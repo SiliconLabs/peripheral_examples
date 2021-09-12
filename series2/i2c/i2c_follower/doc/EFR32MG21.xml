@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <workspace name="i2c_follower">
-  <project name="EFR32xG21_i2c_follower"
+  <project name="EFR32MG21_i2c_follower"
            device="EFR32MG21A010F1024IM32">
     <targets>
       <name>slsproj</name>

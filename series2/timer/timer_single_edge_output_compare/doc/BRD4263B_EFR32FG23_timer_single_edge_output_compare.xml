@@ -1,5 +1,5 @@
 <workspace name="timer_single_edge_output_compare">
-  <project name="EFR32xG23_timer_single_edge_output_compare"
+  <project name="EFR32FG23_timer_single_edge_output_compare"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

@@ -1,5 +1,5 @@
 <workspace name="rtcc_interrupt">
-  <project name="EFR32xG22_rtcc_interrupt"
+  <project name="EFR32MG22_rtcc_interrupt"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

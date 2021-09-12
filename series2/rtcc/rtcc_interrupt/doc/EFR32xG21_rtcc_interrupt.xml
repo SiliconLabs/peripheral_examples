@@ -1,5 +1,5 @@
 <workspace name="rtcc_interrupt">
-  <project name="EFR32xG21_rtcc_interrupt"
+  <project name="EFR32MG21_rtcc_interrupt"
            device="EFR32MG21A010F1024IM32">
     <targets>
       <name>slsproj</name>
@@ -35,7 +35,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main.c</source>
+      <source>$PROJ_DIR$\..\src\main_xg21.c</source>
     </group>
   </project>
 </workspace>

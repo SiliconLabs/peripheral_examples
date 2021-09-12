@@ -1,5 +1,5 @@
 <workspace name="euart_echo">
-  <project name="EFR32xG22_euart_echo"
+  <project name="EFR32MG22_euart_echo"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

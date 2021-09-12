@@ -1,5 +1,5 @@
 <workspace name="acmp_interrupt">
-  <project name="EFR32xG21_acmp_interrupt"
+  <project name="EFR32MG21_acmp_interrupt"
            device="EFR32MG21A010F1024IM32">
     <targets>
       <name>slsproj</name>

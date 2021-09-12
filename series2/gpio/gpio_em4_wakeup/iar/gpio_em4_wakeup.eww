@@ -2,13 +2,13 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32xG21_gpio_em4_wakeup.ewp</path>
+    <path>$WS_DIR$\EFR32MG21_gpio_em4_wakeup.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32xG22_gpio_em4_wakeup.ewp</path>
+    <path>$WS_DIR$\EFR32MG22_gpio_em4_wakeup.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32xG23_gpio_em4_wakeup.ewp</path>
+    <path>$WS_DIR$\EFR32FG23_gpio_em4_wakeup.ewp</path>
   </project>
 
   <batchBuild/>

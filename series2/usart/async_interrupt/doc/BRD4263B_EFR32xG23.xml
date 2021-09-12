@@ -1,5 +1,5 @@
 <workspace name="usart_async_interrupt">
-  <project name="EFR32xG23_usart_async_interrupt"
+  <project name="EFR32FG23_usart_async_interrupt"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

@@ -1,5 +1,5 @@
 <workspace name="timer_single_pulse_generation_dma">
-  <project name="EFR32xG22_timer_single_pulse_generation_dma"
+  <project name="EFR32MG22_timer_single_pulse_generation_dma"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

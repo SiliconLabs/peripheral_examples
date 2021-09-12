@@ -1,5 +1,5 @@
 <workspace name="euart_half_duplex">
-  <project name="EFR32xG22_euart_half_duplex"
+  <project name="EFR32MG22_euart_half_duplex"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

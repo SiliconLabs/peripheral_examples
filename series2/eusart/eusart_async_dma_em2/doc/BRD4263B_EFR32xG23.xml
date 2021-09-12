@@ -1,5 +1,5 @@
 <workspace name="eusart_async_dma_em2">
-  <project name="EFR32xG23_eusart_async_dma_em2" device="EFR32FG23A010F512GM48">
+  <project name="EFR32FG23_eusart_async_dma_em2" device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>
       <name>iar</name>

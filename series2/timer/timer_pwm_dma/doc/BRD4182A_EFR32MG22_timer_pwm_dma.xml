@@ -1,5 +1,5 @@
 <workspace name="timer_pwm_dma">
-  <project name="EFR32xG22_timer_pwm_dma"
+  <project name="EFR32MG22_timer_pwm_dma"
            device="EFR32MG22C224F512IM40">
     <targets>
       <name>slsproj</name>

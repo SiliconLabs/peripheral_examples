@@ -1,5 +1,5 @@
 <workspace name="timer_period_measurement_interrupt">
-  <project name="EFR32xG23_timer_period_measurement_interrupt"
+  <project name="EFR32FG23_timer_period_measurement_interrupt"
            device="EFR32FG23A010F512GM48">
     <targets>
       <name>slsproj</name>

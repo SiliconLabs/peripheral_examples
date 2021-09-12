@@ -1,6 +1,6 @@
 <workspace name="lfrco_cal_interrupt">
   <project device="EFR32MG21A010F1024IM32"
-           name="EFR32xG21_lfrco_cal_interrupt">
+           name="EFR32MG21_lfrco_cal_interrupt">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
