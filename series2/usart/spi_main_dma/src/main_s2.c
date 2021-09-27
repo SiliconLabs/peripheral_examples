@@ -104,6 +104,7 @@ void initGPIO(void)
 
   // Configure CS pin as an output and drive inactive high
   GPIO_PinModeSet(US0CS_PORT, US0CS_PIN, gpioModePushPull, 1);
+
   // Configure button 0 pin as an input
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPull, 1);
 
@@ -187,16 +188,20 @@ void initLDMA(void)
   LDMA_Init_t ldmaInit = LDMA_INIT_DEFAULT;
   LDMA_Init(&ldmaInit);
 
-  // Source is outbuf, destination is USART0_TXDATA, and length if BUFLEN
+  // Source is outbuf, destination is USART0_TXDATA, and length is BUFLEN
   ldmaTXDescriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_SINGLE_M2P_BYTE(outbuf, &(USART0->TXDATA), BUFLEN);
+  ldmaTXDescriptor.xfer.blockSize = ldmaCtrlBlockSizeUnit2;    // Transfers 2 units per arbitration
+  ldmaTXDescriptor.xfer.ignoreSrec = 1;    // Ignores single requests
 
-  // Transfer a byte on free space in the USART buffer
+  // Transfer 2 bytes on free space in the USART buffer
   ldmaTXConfig = (LDMA_TransferCfg_t)LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_USART0_TXBL);
 
-  // Source is USART0_RXDATA, destination is inbuf, and length if BUFLEN
+  // Source is USART0_RXDATA, destination is inbuf, and length is BUFLEN
   ldmaRXDescriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_SINGLE_P2M_BYTE(&(USART0->RXDATA), inbuf, BUFLEN);
+  ldmaRXDescriptor.xfer.blockSize = ldmaCtrlBlockSizeUnit2;    // Transfers 2 units per arbitration
+  ldmaRXDescriptor.xfer.ignoreSrec = 1;    // Ignores single requests
 
-  // Transfer a byte on receive data valid
+  // Transfer 2 bytes on receive data valid
   ldmaRXConfig = (LDMA_TransferCfg_t)LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_USART0_RXDATAV);
 }
 
@@ -224,22 +229,23 @@ void LDMA_IRQHandler()
   uint32_t flags = LDMA_IntGet();
 
   // Clear the transmit channel's done flag if set
-  if (flags & (1 << TX_LDMA_CHANNEL))
+  if (flags & (1 << TX_LDMA_CHANNEL)){
     LDMA_IntClear(1 << TX_LDMA_CHANNEL);
-
+  }
+  
   /*
    * Clear the receive channel's done flag if set and change receive
    * state to done.
    */
-  if (flags & (1 << RX_LDMA_CHANNEL))
-  {
+  if (flags & (1 << RX_LDMA_CHANNEL)){
     LDMA_IntClear(1 << RX_LDMA_CHANNEL);
     rx_done = true;
   }
 
   // Stop in case there was an error
-  if (flags & LDMA_IF_ERROR)
+  if (flags & LDMA_IF_ERROR){
     __BKPT(0);
+  }
 }
 
 /**************************************************************************//**
@@ -266,11 +272,9 @@ int main(void)
    */
   EMU_EnterEM1();
 
-  while (1)
-  {
+  while (1){
     // Zero incoming buffer and populate outgoing data array
-    for (i = 0; i < BUFLEN; i++)
-    {
+    for (i = 0; i < BUFLEN; i++){
       inbuf[i] = 0;
       outbuf[i] = (uint8_t)i;
     }
@@ -283,7 +287,8 @@ int main(void)
     LDMA_StartTransfer(TX_LDMA_CHANNEL, &ldmaTXConfig, &ldmaTXDescriptor);
 
     // Wait in EM1 until all data is received
-    while (!rx_done)
+    while (!rx_done){
       EMU_EnterEM1();
+    }
   }
 }

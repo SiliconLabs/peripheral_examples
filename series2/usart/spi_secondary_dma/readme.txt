@@ -35,18 +35,34 @@ examples, which constantly transmit data, it is required so that data is
 received in the expected order when the main asserts the chip select.
 
 Previously, the LDMA has been configured so that (a) one channel moves
-each byte in outbuf[] to the USART0_TXDATA register when there is space
-in the transmit FIFO (USART0_STATUS_TXBL is asserted), and (b) another
+2 bytes in outbuf[] to the USART0_TXDATA register when there is space
+in the transmit FIFO (USART0_STATUS_TXBL is asserted) and (b) another
 channel moves the matching received byte from USART0_RXDATA to inbuf[]
-(upon assertion of USART0_STATUS_RXDATAV).  Transfers are started for
-these channels, and the device enters the EM1 low-energy mode.
+(upon assertion of USART0_STATUS_RXDATAV). TX channel transfers are
+started when the transmit FIFO is empty, and RX channel transfers are
+started when the receive FIFO is full. The device re-enters the EM1
+low-energy mode after transfers are complete.
 
-While the CPU is halted, the LDMA writes each byte from outbuf[] to
-the transmit FIFO as space is available.  The USART0_CLK pin is driven by
-the main so that each pulse causes the byte written to TXDATA to be
-shifted out while an incoming byte is shifted into RXDATA one bit at a
-time.  Once all 8 bits of the incoming byte have been received, the LDMA
-writes each byte from the receive FIFO to inbuf[].
+The transfer descriptor ignoreSrec and blockSize defaults are changed
+so that the LDMA moves 2 bytes of data per request instead of 1
+byte (ignoreSrec = 1). In this way, energy use is reduced because
+each transfer of 2 bytes causes only one set of LDMA register accesses
+to modify the working descriptors instead of doing so for each and every
+byte transferred.
+
+While the CPU is halted, the LDMA writes 2 bytes from outbuf[] to the 
+transmit FIFO. USART0 drives the CLK pin so that each pulse causes the byte 
+written to TXDATA to be shifted out while an incoming byte is shifted into 
+RXDATA one bit at a time. When all 8 bits of the incoming byte have been 
+received, the transmit and receive sequence is repeated because the LDMA moves 
+2 bytes per transfer (ignoreSrec = 1 and blockSize = 2). Reception of the 
+second byte results in a FIFO full condition, and the LDMA reads the 2 bytes 
+in the receive FIFO and writes them to inbuf[].
+
+Note: When BUFLEN is not a multiple of 2 (ldmaCtrlBlockSizeUnit2), the 
+LDMA controller performs sequences of 2-unit (2-byte) transfers until the
+last unit (byte) is remaining to be transferred and then it performs the 
+last unit (byte) transfer at the end of the LDMA cycle.
 
 This process occurs autonomously, and only the LDMA interrupt request
 (assertion of one or more of the LDMA_IF_DONEx flags or LDMA_IF_ERROR in
