@@ -170,6 +170,7 @@ void initIADC (void)
   // Configuration 0 is used by both scan and single conversions by default
   // Use unbuffered AVDD as reference
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
+  initAllConfigs.configs[0].vRef = 3300;
 
   // Divides CLK_SRC_ADC to set the CLK_ADC frequency
   // Default oversampling (OSR) is 2x, and Conversion Time = ((4 * OSR) + 2) / fCLK_ADC
