@@ -135,6 +135,7 @@ int main(void)
   // Init
   RETARGET_SerialInit();
   RETARGET_SerialCrLf(1);
+
   printf("In EM0 \n");
   initGPIO();
   initBURTC();
