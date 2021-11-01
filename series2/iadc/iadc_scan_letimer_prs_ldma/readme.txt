@@ -34,7 +34,7 @@ for more details.
 
 ================================================================================
 
-How To Test:
+In this example, scan table entry 0 may reference port B pin 0, so an
 1. Update the kit's firmware from the Simplicity Studio Launcher, if
    necessary.
 2. Build the project and download to the Starter Kit.
@@ -76,6 +76,14 @@ PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
+PB00 -  IADC input, single-ended, WSTK P15
+PB01 -  IADC input, single-ended, WSTK P17
+PA05 -  GPIO Push/Pull output, Expansion Header Pin 7, WSTK P4
+PB02 -  GPIO Push/Pull output, WSTK P19
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) +
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
 PB00 -  IADC input, single-ended, WSTK P15
 PB01 -  IADC input, single-ended, WSTK P17
 PA05 -  GPIO Push/Pull output, Expansion Header Pin 7, WSTK P4
