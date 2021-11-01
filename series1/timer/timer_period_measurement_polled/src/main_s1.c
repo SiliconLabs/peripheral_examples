@@ -119,7 +119,7 @@ uint32_t calculatePeriod(void)
 
   // Calculate period in microseconds, while compensating for overflows
   // Interrupt latency will affect measurements for periods below 3 microseconds (333 kHz)
-  uint32_t period = (overflowCount * (TIMER_TopGet(TIMER0) + 2)
+  uint32_t period = (overflowCount * (TIMER_TopGet(TIMER0) + 1)
                      - lastCapturedEdge + current_edge)
                      / (HFPERCLK_IN_MHZ * (1 << TIMER0_PRESCALE));
 

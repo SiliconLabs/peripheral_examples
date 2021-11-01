@@ -83,7 +83,7 @@ void TIMER0_IRQHandler(void)
 
     // Calculate period in microseconds, while compensating for overflows
     // Interrupt latency will affect measurements for periods below 3 microseconds (333 kHz)
-    measuredPeriod = (overflowCount * (TIMER_TopGet(TIMER0) + 2)
+    measuredPeriod = (overflowCount * (TIMER_TopGet(TIMER0) + 1)
                       - lastCapturedEdge + current_edge)
                       / (HFPERCLK_IN_MHZ * (1 << timerPrescale1));
 
