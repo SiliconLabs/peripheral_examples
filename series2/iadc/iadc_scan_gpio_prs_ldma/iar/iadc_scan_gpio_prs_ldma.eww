@@ -8,6 +8,9 @@
     <path>$WS_DIR$\EFR32MG22_iadc_scan_gpio_prs_ldma.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG24_iadc_scan_gpio_prs_ldma.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_iadc_scan_gpio_prs_ldma.ewp</path>
   </project>
 

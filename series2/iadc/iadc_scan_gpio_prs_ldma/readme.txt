@@ -84,3 +84,11 @@ PB02 -  IADC input, single-ended, WSTK P19
 PB03 -  IADC input, single-ended, WSTK P21
 PB01 -  GPIO input, pull-up, filtered, WSTK P17, Push Button 0
 PD03 -  GPIO Push/Pull output, WSTK P26, LED1
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) +
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB02 -  IADC input, single-ended, WSTK P19
+PB03 -  IADC input, single-ended, WSTK P21
+PB01 -  GPIO input, pull-up, filtered, WSTK P17, Push Button 0
+PB04 -  GPIO Push/Pull output, WSTK P26, LED1
