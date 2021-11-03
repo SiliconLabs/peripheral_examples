@@ -2,15 +2,16 @@ iadc_scan_continuous_ldma
 
 This project demonstrates use of the IADC to continuously sample two
 single-ended input channels.  The CPU starts the scan while in EM0, and
-operation continues in EM2 with the LDMA saving the results to RAM and 
+operation continues in EM2 with the LDMA saving the results to RAM and
 waking the system with an interrupt request to toggle a GPIO pin.
 
 Careful pin selection for peripherals operating in EM2 is required
 because only port A and B pins remain functional; port C and D pins are
 static in EM2 and cannot be used as peripheral inputs or outputs.  For
 this reason, the IADC scan channel inputs in this example must be port
-A/B pins.  However, LDMA transfer complete toggle is performed in the 
-LDMA ISR, operating in EM0, and may utilize pins on any port.
+A/B pins.  However, any pin can be toggled after all conversion results
+are transferred to RAM because the CPU is executing the LDMA IRQ handler
+and the system is in EM0.
 
 NOTE: To modify this example to take differential external
 measurements, the negative inputs for scan table entries 0 and 1 must
@@ -18,9 +19,9 @@ change.  To take a differential measurement, the analog multiplexer
 selection must consist of one EVEN ABUS channel and one ODD ABUS
 channel.
 
-In this example, scan table entry 0 references port B pin 0, so an
+In this example, scan table entry 0 may reference port B pin 2, so an
 ODD port/pin must be selected for the IADC negative input.  Scan table
-entry 1 references port B pin 1, so the negative IADC input must be
+entry 1 may references port B pin 3, so the negative IADC input must be
 an EVEN port/pin.  As in single-ended mode, the IADC logic will swap the
 multiplexer connections to IADC input, if needed.  See reference manual
 for more details.
@@ -68,6 +69,13 @@ PC05 -  GPIO Push/Pull output, WSTK P27
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
+PB00 -  IADC input, single-ended, WSTK P15
+PB01 -  IADC input, single-ended, WSTK P17
+PC05 -  GPIO Push/Pull output, Expansion Header Pin 15, WSTK P12
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) +
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
 PB00 -  IADC input, single-ended, WSTK P15
 PB01 -  IADC input, single-ended, WSTK P17
 PC05 -  GPIO Push/Pull output, Expansion Header Pin 15, WSTK P12
