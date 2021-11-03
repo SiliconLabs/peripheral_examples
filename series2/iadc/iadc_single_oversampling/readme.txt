@@ -35,6 +35,7 @@ How To Test:
    pins (see below).
 
 ================================================================================
+
 Peripherals Used:
 CMU    - FSRCO @ 20 MHz
 EMU
@@ -58,5 +59,11 @@ PB01 -  GPIO Push/Pull output, Expansion Header Pin 9, WSTK Pin 6
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
+PA05 -  IADC input, single-ended, Expansion Header pin 7, WSTK P4
+PB01 -  GPIO Push/Pull output, WSTK Pin 17
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
 PA05 -  IADC input, single-ended, Expansion Header pin 7, WSTK P4
 PB01 -  GPIO Push/Pull output, WSTK Pin 17

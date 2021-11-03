@@ -8,6 +8,9 @@
     <path>$WS_DIR$\EFR32MG22_iadc_single_window_compare.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG24_iadc_single_window_compare.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_iadc_single_window_compare.ewp</path>
   </project>
 
