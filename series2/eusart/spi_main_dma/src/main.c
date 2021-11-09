@@ -62,7 +62,7 @@
 #define EUS1CS_PORT     gpioPortC
 #define EUS1CS_PIN      0
 
-// LDMA channel for receive and transmit servicing
+// LDMA channels for receive and transmit servicing
 #define RX_LDMA_CHANNEL 0
 #define TX_LDMA_CHANNEL 1
 
@@ -92,7 +92,6 @@ bool rx_done;
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Enable clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure MOSI (TX) pin as an output
@@ -129,7 +128,6 @@ void initGPIO(void)
  *****************************************************************************/
 void initEUSART1(void)
 {
-  // Enable clock
   CMU_ClockEnable(cmuClock_EUSART1, true);
 
   // SPI advanced configuration (part of the initializer)

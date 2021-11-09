@@ -1,6 +1,7 @@
-<workspace name="eusart_spi_main_polled">
-  <project name="EFR32FG23_eusart_spi_main_polled"
-           device="EFR32FG23A010F512GM48">
+<?xml version='1.0' encoding='utf-8'?>
+<workspace name="eusart_spi_main_interrupt">
+  <project name="EFR32MG24_eusart_spi_main_interrupt"
+           device="EFR32MG24A010F1536GM48">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -11,19 +12,19 @@
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
-      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</kitconfig>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG24_BRD4186A\config</kitconfig>
     </directories>
     <includepaths>
       <path>##em-path-cmsis##\Include</path>
-      <path>##em-path-device##\EFR32FG23\Include</path>
+      <path>##em-path-device##\EFR32MG24\Include</path>
       <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>
       <path>##em-path-bsp##</path>
       <path>##em-path-drivers##</path>
     </includepaths>
     <group name="CMSIS">
-      <source>##em-path-device##\EFR32FG23\Source\$IDE$\startup_efr32fg23.s</source>
-      <source>##em-path-device##\EFR32FG23\Source\system_efr32fg23.c</source>
+      <source>##em-path-device##\EFR32MG24\Source\$IDE$\startup_efr32mg24.s</source>
+      <source>##em-path-device##\EFR32MG24\Source\system_efr32mg24.c</source>
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>
@@ -34,14 +35,14 @@
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\readme.txt</source>
       <source>$PROJ_DIR$\..\src\main.c</source>
-      <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script.ld</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
+	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg24_linker_script.ld</source>
     </group>
       <cflags>
 	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
 	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/&gt;</tooloption>
-	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg23_linker_script.ld}"/&gt;</tooloption>
+	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg24_linker_script.ld}"/&gt;</tooloption>
     </cflags>
 </project>
 </workspace>
