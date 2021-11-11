@@ -281,7 +281,7 @@ int main(void)
     // Start at the beginning of the buffer
     bufpos = 0;
 
-    // Enable the falling edge interrupt on the US0CS_PIN
+    // Enable the falling edge interrupt on the EUS1CS_PIN
     GPIO_IntClear(1 << EUS1CS_PIN);
     GPIO_IntEnable(1 << EUS1CS_PIN);
 
@@ -297,17 +297,17 @@ int main(void)
      */
     GPIO->P_SET[TIMEPORT].DOUT = 1 << TIMEPIN;
 
-    /*
-     * Transmit the first byte, then go into EM1.  The IRQ handler will
-     * receive each incoming byte and transmit the next outgoing byte.
-     */
-    EUSART1->TXDATA = (uint16_t)outbuf[bufpos];
-
     // Now enable the EUSART receiver and transmitter
     EUSART_Enable(EUSART1, eusartEnable);
 
     // Enable receive data valid interrupt
     EUSART_IntEnable(EUSART1, EUSART_IEN_RXFL);
+
+    /*
+     * Transmit the first byte, then go into EM1.  The IRQ handler will
+     * receive each incoming byte and transmit the next outgoing byte.
+     */
+    EUSART1->TXDATA = (uint16_t)outbuf[bufpos];
 
     // Drive the activity pin low when ready to receive data
     GPIO->P_CLR[TIMEPORT].DOUT = 1 << TIMEPIN;

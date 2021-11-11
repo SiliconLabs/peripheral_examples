@@ -109,11 +109,11 @@ This example toggles a GPIO pin at critical points during execution so
 that the timing of when the secondary is ready to transmit data or has
 entered the receive data interrupt handler can be seen relative to the
 start and transfer of data from the main.  On Series 2 devices, this is
-always visible on expansion header pin 12.  The length of these pulses
+always visible on expansion header pin 9.  The length of these pulses
 is mostly dependent on the frequency of the HFCLK (and therefore the
 number of wait states required to access flash) but is also impacted by
-the device's CPU core (Cortex M0+ vs. M3 vs. M4) and the delays through
-the pin-to-peripheral routing.
+the device's CPU core (Cortex M0+ vs. M3/4 vs. M33) and the delays
+through the pin-to-peripheral routing.
 
 The sequence of pulses on the activity pin is documented in the code
 comments and is as follows:
@@ -142,6 +142,16 @@ Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG23A010F512GM48 (this code will run unchanged on any
         EFR32FG23 variant so long as the pins used as present).
+PC1 - EUSART1_TX (MOSI)  - Expansion Header pin 4
+PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
+PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8
+PC0 - EUSART1_CS (CSn)   - Expansion Header pin 10
+PD2 - Activity Indicator - Expansion Header pin 9
+
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186A)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32MG24A010F1536GM48 (this code will run unchanged on any
+        EFR32MG24 variant so long as the pins used as present).
 PC1 - EUSART1_TX (MOSI)  - Expansion Header pin 4
 PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
 PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8
