@@ -1,21 +1,15 @@
 /***************************************************************************//**
  * @file main.c
  *
- * @brief This project demonstrates use of auto baud detection in asynchronous
- * mode of the EUSART with interrupts.
+ * @brief This project demonstrates automatic baud detection with
+ * interrupt-driven operation of the EUSART in asynchronous mode.
  *
- * After initialization, the MCU goes into EM1 and waits to see a sync word
- * (0x55 or ASCII character'U') on the RX pin to set the baud rate. Once the 
- * baud rate is set, firmware disables the  Auto Baud Complete interrupt and 
- * enables the RX FIFO Level (RXFL) Interrupt. The RXFL IRQ handler buffers 
- * incoming data until the reception of 80 characters or a CR (carriage return, 
- * ASCII 0x0D).
- *
- * Once the CR or 80 characters is hit, firmware disables the RXFL interrupt
- * and enables the transmit FIFO level (TXFL) interrupt, which is set by default
- * after power-on. Each entry into the transmit interrupt
- * handler causes a character to be sent until all the characters originally
- * received have been echoed.
+ * After initialization, the MCU goes into EM1 and waits to receive the
+ * sync byte 0x55 (ASCII character 'U') to set the baud rate.  Once the
+ * baud rate is set, firmware disables the auto baud complete interrupt
+ * and enables the RX FIFO level (RXFL) interrupt.  The main loop waits
+ * until 80 characters or a carriage return (ASCII character 0x0D) are
+ * received and then echos these back to the user.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -49,6 +43,7 @@
  ******************************************************************************/
 
 #include <stddef.h>
+
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -65,38 +60,32 @@
 // Receive data buffer
 uint8_t buffer[BUFLEN];
 
-// Current position ins buffer
+// Current position in buffer
 uint32_t inpos = 0;
 uint32_t outpos = 0;
 
 // True while receiving data (waiting for CR or BUFLEN characters)
 bool receive = true;
 
-#define RETARGET_TXPORT      BSP_BCC_TXPORT      /* EUSART transmission port */
-#define RETARGET_TXPIN       BSP_BCC_TXPIN       /* EUSART transmission pin */
-#define RETARGET_RXPORT      BSP_BCC_RXPORT      /* EUSART reception port */
-#define RETARGET_RXPIN       BSP_BCC_RXPIN       /* EUSART reception pin */
-
 /**************************************************************************//**
  * @brief
  *    GPIO initialization
  *****************************************************************************/
-void initGpio(void)
+void initGPIO(void)
 {
-  // Enable GPIO Clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure the EUSART TX pin to the board controller as an output
-  GPIO_PinModeSet(RETARGET_TXPORT, RETARGET_TXPIN, gpioModePushPull, 1);
+  GPIO_PinModeSet(BSP_BCC_TXPORT, BSP_BCC_TXPIN, gpioModePushPull, 1);
 
   // Configure the EUSART RX pin to the board controller as an input
-  GPIO_PinModeSet(RETARGET_RXPORT, RETARGET_RXPIN, gpioModeInput, 0);
+  GPIO_PinModeSet(BSP_BCC_RXPORT, BSP_BCC_RXPIN, gpioModeInput, 0);
 
   // Route EUSART1 TX and RX to the board controller TX and RX pins
-  GPIO->EUSARTROUTE[1].TXROUTE = (RETARGET_TXPORT << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
-      | (RETARGET_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
-  GPIO->EUSARTROUTE[1].RXROUTE = (RETARGET_RXPORT << _GPIO_EUSART_RXROUTE_PORT_SHIFT)
-      | (RETARGET_RXPIN << _GPIO_EUSART_RXROUTE_PIN_SHIFT);
+  GPIO->EUSARTROUTE[1].TXROUTE = (BSP_BCC_TXPORT << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
+      | (BSP_BCC_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
+  GPIO->EUSARTROUTE[1].RXROUTE = (BSP_BCC_RXPORT << _GPIO_EUSART_RXROUTE_PORT_SHIFT)
+      | (BSP_BCC_RXPIN << _GPIO_EUSART_RXROUTE_PIN_SHIFT);
 
   // Enable RX and TX signals now that they have been routed
   GPIO->EUSARTROUTE[1].ROUTEEN = GPIO_EUSART_ROUTEEN_RXPEN | GPIO_EUSART_ROUTEEN_TXPEN;
@@ -117,13 +106,14 @@ void initGpio(void)
  * @brief
  *    EUSART1 initialization
  *****************************************************************************/
-void initEusart1(void)
+void initEUSART1(void)
 {
-  // Enable EUSART0 Clock
   CMU_ClockEnable(cmuClock_EUSART1, true);
 
   // Default asynchronous initializer (8N1, no flow control)
   EUSART_UartInit_TypeDef init = EUSART_UART_INIT_DEFAULT_HF;
+
+  // Setting baudrate = 0 enables autobaud detection
   init.baudrate = 0;
 
   // Configure and enable EUSART1 for high-frequency (EM0/1) operation
@@ -145,6 +135,7 @@ void EUSART1_RX_IRQHandler(void)
   // Get the character just received
   buffer[inpos] = EUSART1->RXDATA;
 
+  // Check for autobaud done interrupt
   if(EUSART_IntGet(EUSART1) & EUSART_IF_AUTOBAUDDONE) {
     // Disable Auto Baud Complete interrupt
     EUSART_IntDisable(EUSART1, EUSART_IEN_AUTOBAUDDONE);
@@ -152,6 +143,7 @@ void EUSART1_RX_IRQHandler(void)
     // Enable receive FIFO level interrupt
     EUSART_IntEnable(EUSART1, EUSART_IEN_RXFL);
   }
+  // Otherwise buffer characters on RX FIFO interrupt
   else {
     // Exit loop on new line or buffer full
     if ((buffer[inpos] != '\r') && (inpos < BUFLEN)) {
@@ -166,7 +158,7 @@ void EUSART1_RX_IRQHandler(void)
    * The EUSART differs from the USART in that explicit clearing of
    * RX interrupt flags is required even after emptying the RX FIFO.
    */
-  EUSART_IntClear(EUSART1, EUSART_IF_RXFL|EUSART_IF_AUTOBAUDDONE);
+  EUSART_IntClear(EUSART1, EUSART_IF_RXFL | EUSART_IF_AUTOBAUDDONE);
 }
 
 /**************************************************************************//**
@@ -210,10 +202,10 @@ int main(void)
   CHIP_Init();
 
   // Initialize GPIO and EUSART1
-  initGpio();
-  initEusart1();
+  initGPIO();
+  initEUSART1();
 
-  // Enable Auto Baud Complete interrupt
+  // Enable interrupt on auto baud completion
   EUSART_IntEnable(EUSART1, EUSART_IEN_AUTOBAUDDONE);
 
   while (1) {
