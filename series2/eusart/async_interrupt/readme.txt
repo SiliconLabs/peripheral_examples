@@ -1,6 +1,6 @@
 eusart_async_interrupt
 
-This project demonstrates interrupt-drive operation of the EUSART in
+This project demonstrates interrupt-driven operation of the EUSART in
 asynchronous mode.  EUSART1 is configured for asynchronous operation at
 115200 baud with 8 data bits, no parity, and one stop bit (115200N81).
 The main loop waits until 80 characters or a carriage return are received
@@ -38,6 +38,14 @@ Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG23A010F512GM48 (this code will run unchanged on any
         EFR32FG23 variant so long as the pins used as present).
+PA8 - EUSART0_TX (Expansion Header Pin 12)
+PA9 - EUSART0_RX (Expansion Header Pin 14)
+PB0 - VCOM_ENABLE (WSTK P15)
+
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186A)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32MG24A010F1536GM48 (this code will run unchanged on any
+        EFR32MG24 variant so long as the pins used as present).
 PA8 - EUSART0_TX (Expansion Header Pin 12)
 PA9 - EUSART0_RX (Expansion Header Pin 14)
 PB0 - VCOM_ENABLE (WSTK P15)

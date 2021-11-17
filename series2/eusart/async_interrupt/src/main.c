@@ -63,7 +63,7 @@
 // Receive data buffer
 uint8_t buffer[BUFLEN];
 
-// Current position ins buffer
+// Current position in buffer
 uint32_t inpos = 0;
 uint32_t outpos = 0;
 
