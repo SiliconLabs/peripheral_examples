@@ -27,22 +27,18 @@
       <source>##em-path-device##\EFR32MG22\Source\system_efr32mg22.c</source>
     </group>
   <group name="emlib">
-    <source>##em-path-emlib##\src\em_system.c</source>
-    <source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_wdog.c</source>
-    <source>##em-path-emlib##\src\em_emu.c</source>
     <source>##em-path-emlib##\src\em_cmu.c</source>
+	<source>##em-path-emlib##\src\em_core.c</source>
+	<source>##em-path-emlib##\src\em_emu.c</source>
+	<source>##em-path-emlib##\src\em_gpio.c</source>
     <source>##em-path-emlib##\src\em_rmu.c</source>
-    <source>##em-path-emlib##\src\em_system.c</source>
-    <source>##em-path-emlib##\src\em_core.c</source>
+	<source>##em-path-emlib##\src\em_system.c</source>
+    <source>##em-path-emlib##\src\em_wdog.c</source>
 </group>
   <group name="Source">
     <source>$PROJ_DIR$\..\src\main.c</source>
     <source>$PROJ_DIR$\..\readme.txt</source>
   </group>
-  <cflags>
-    <define>RETARGET_VCOM</define>
-  </cflags>
 
   </project>
 

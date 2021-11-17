@@ -183,7 +183,7 @@
           <name>CCDefines</name>
           <state>STR(x)=#x</state>
           <state>EFR32MG21A010F1024IM32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -485,7 +485,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32MG21A010F1024IM32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1162,7 +1162,7 @@
           <state>NDEBUG</state>
           <state>STR(x)=#x</state>
           <state>EFR32MG21A010F1024IM32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1465,7 +1465,7 @@
           <name>ADefines</name>
           <state>NDEBUG</state>
           <state>EFR32MG21A010F1024IM32</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1975,19 +1975,16 @@
   <group>
     <name>emlib</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_wdog.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rmu.c</name>
@@ -1996,7 +1993,7 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_wdog.c</name>
     </file>
   </group>
   <group>

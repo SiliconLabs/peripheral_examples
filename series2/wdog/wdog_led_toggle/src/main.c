@@ -7,7 +7,7 @@
  * for details.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -36,16 +36,15 @@
  * as a demonstration for evaluation purposes only. This code will be maintained
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
- 
-#include "stdio.h"
-#include "em_gpio.h"
+
 #include "em_device.h"
-#include "em_wdog.h"
+#include "em_chip.h" 
+#include "em_cmu.h" 
 #include "em_emu.h"
-#include "em_cmu.h"
+#include "em_gpio.h"
 #include "em_rmu.h"
-#include "em_chip.h"
 #include "em_system.h"
+#include "em_wdog.h"
 #include "bspconfig.h"
 
 // GLOBAL VARIABLES 
