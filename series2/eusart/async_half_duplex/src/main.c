@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project shows how to configure the EUART for half-duplex
- * communication. See the readme.txt for details.
+ * @brief This project demonstrates use of the EUSART in single-wire,
+ * half-duplex mode.  See the readme.txt for details.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,95 +34,55 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
+#include <stddef.h>
+
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
 #include "em_eusart.h"
 #include "em_gpio.h"
-#include "em_usart.h"
+
+// MAX25 driver to place SPI flash in shutdown mode
 #include "mx25flash_spi.h"
+
+// BSP for board pin macros
 #include "bspconfig.h"
 
 // Size of the buffer for received data
 #define BUFLEN  80
 
 // Receive data buffer
-char buffer[BUFLEN];
+uint8_t buffer[BUFLEN];
 
-// Current position ins buffer
-uint32_t inpos;
-uint32_t outpos;
+// Current position in buffer
+uint32_t bufpos;
 
-#define RETARGET_TXPORT      BSP_BCC_TXPORT      /* EUSART transmission port */
-#define RETARGET_TXPIN       BSP_BCC_TXPIN       /* EUSART transmission pin */
-#define RETARGET_RXPORT      BSP_BCC_RXPORT      /* EUSART reception port */
-#define RETARGET_RXPIN       BSP_BCC_RXPIN       /* EUSART reception pin */
-#define BAUDRATE             9600                /* EUSART baudrate */
+// In low-frequency mode, the maximum EUSART baud rate is 9600
+#define BAUDRATE             9600
 
+/*
+ * As explained in the readme.txt file, this example is designed to
+ * run with one device being the initial transmitter and the other
+ * being the initial receiver before switching roles.  Use the #define
+ * below to select the operating state.
+ */
 #define INITIAL_TRANSMITTER
 //#define INITIAL_RECEIVER
 
 #if defined INITIAL_TRANSMITTER
-  static char txSuccessMsg[] = "Initial TX: Receive success and transmitting now\r\n";
+  static uint8_t txSuccessMsg[] = "Initial TX: Receive success and transmitting now\r\n";
   bool receive = false;
 #elif defined INITIAL_RECEIVER
-  static char txSuccessMsg[] = "Initial RX: Receive success and transmitting now\r\n";
+  static uint8_t txSuccessMsg[] = "Initial RX: Receive success and transmitting now\r\n";
   bool receive = true;
 #endif
 
 /**************************************************************************//**
  * @brief
- *    The EUSART0 receive interrupt saves incoming characters.
- *****************************************************************************/
-void EUSART0_RX_IRQHandler(void)
-{
-  // Get the character just received
-  buffer[inpos] = EUSART_Rx(EUSART0);
-
-  // Exit loop on new line or buffer full
-  if ((buffer[inpos] != '\n') && (inpos < BUFLEN)) {
-    inpos++;
-  }
-  else {
-    receive = false;   // Stop receiving on CR
-    EUSART_IntDisable(EUSART0, EUSART_IEN_RXFL);
-  }
-
-  // Clear the requesting interrupt before exiting the handler
-  EUSART_IntClear(EUSART0, EUSART_IF_RXFL);
-}
-
-/**************************************************************************//**
- * @brief
- *    The EUSART0 transmit interrupt outputs characters.
- *****************************************************************************/
-void EUSART0_TX_IRQHandler(void)
-{
-  // Send a previously received character
-  if (outpos<inpos) {
-    EUSART_Tx(EUSART0,buffer[outpos++]);
-  }
-  else {
-  /*
-   * Need to disable the transmit buffer level interrupt in this IRQ
-   * handler when done or it will immediately trigger again upon exit
-   * even though there is no data left to send.
-   */
-    receive = true;   // Go back into receive when all is sent
-    EUSART_IntDisable(EUSART0, EUSART_IEN_TXC);
-  }
-  
-  // Clear the requesting interrupt before exiting the handler
-  EUSART_IntClear(EUSART0, EUSART_IF_TXC);
-}
-
-/**************************************************************************//**
- * @brief
  *    Clock selection and initialization
  *****************************************************************************/
-void initClock(void)
+void initCMU(void)
 {
   CMU_LFXOInit_TypeDef lfxoInit = CMU_LFXOINIT_DEFAULT;
 
@@ -135,40 +95,52 @@ void initClock(void)
  * @brief
  *    GPIO initialization
  *****************************************************************************/
-void initGpio(void)
+void initGPIO(void)
 {
   // Configure the EUSART TX pin to the board controller as an output
-  GPIO_PinModeSet(RETARGET_TXPORT, RETARGET_TXPIN, gpioModePushPull, 1);
+  GPIO_PinModeSet(BSP_BCC_TXPORT, BSP_BCC_TXPIN, gpioModePushPull, 1);
 
-  // Route EUSART1 TX to the board controller TX pins
-  GPIO->EUSARTROUTE[0].TXROUTE = (RETARGET_TXPORT << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
-      | (RETARGET_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
+  // Route EUSART0 TX to the board controller TX pin
+  GPIO->EUSARTROUTE[0].TXROUTE = (BSP_BCC_TXPORT << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
+      | (BSP_BCC_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
 
-  // Enable RX and TX signals now that they have been routed
+  // Enable TX signal now that it has been routed
   GPIO->EUSARTROUTE[0].ROUTEEN = GPIO_EUSART_ROUTEEN_TXPEN;
+
+  /*
+   * Configure the BCC_ENABLE pin as output and set high.  This enables
+   * the virtual COM port (VCOM) connection to the board controller and
+   * permits serial port traffic over the debug connection to the host
+   * PC.
+   *
+   * To disable the VCOM connection and use only the pins on the kit
+   * expansion (EXP) header, comment out the following line.
+   */
+  GPIO_PinModeSet(BSP_BCC_ENABLE_PORT, BSP_BCC_ENABLE_PIN, gpioModePushPull, 1);
 }
 
 /**************************************************************************//**
  * @brief
- *    EUART initialization
+ *    EUSART initialization
  *****************************************************************************/
-void initEusart0(void)
+void initEUSART0(void)
 {
-  // Enable EUSART0 Clock
   CMU_ClockEnable(cmuClock_EUSART0, true);
 
-  // Initialize the EUSART0 module
+  // Initialize the EUSART0 for low-frequency operation
   EUSART_UartInit_TypeDef init = EUSART_UART_INIT_DEFAULT_LF;
   EUSART_AdvancedInit_TypeDef advance_init = EUSART_ADVANCED_INIT_DEFAULT;
+
   init.baudrate = BAUDRATE;
   init.advancedSettings = &advance_init;
   init.advancedSettings->txAutoTristate = true;
   init.loopbackEnable = eusartLoopbackEnable;
   init.enable = eusartEnable;
+
   EUSART0->TIMINGCFG = EUSART_TIMINGCFG_TXDELAY_TRIPPLE;
   EUSART_UartInitLf(EUSART0, &init);
 
-  // Enable NVIC USART sources
+  // Enable NVIC EUSART sources
   NVIC_ClearPendingIRQ(EUSART0_RX_IRQn);
   NVIC_EnableIRQ(EUSART0_RX_IRQn);
   NVIC_ClearPendingIRQ(EUSART0_TX_IRQn);
@@ -177,10 +149,65 @@ void initEusart0(void)
 
 /**************************************************************************//**
  * @brief
+ *    The EUSART0 receive interrupt saves incoming characters.
+ *****************************************************************************/
+void EUSART0_RX_IRQHandler(void)
+{
+  // Get the character just received
+  buffer[bufpos] = EUSART_Rx(EUSART0);
+
+  // Exit loop on new line or buffer full
+  if ((buffer[bufpos] != '\n') && (bufpos < BUFLEN)) {
+    bufpos++;
+  }
+  else {
+    receive = false;   // Stop receiving on CR
+    EUSART_IntDisable(EUSART0, EUSART_IEN_RXFL);
+  }
+
+  /*
+   * The EUSART differs from the USART in that explicit clearing of
+   * RX interrupt flags is required even after emptying the RX FIFO.
+   */
+  EUSART_IntClear(EUSART0, EUSART_IF_RXFL);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    The EUSART0 transmit interrupt outputs characters.
+ *****************************************************************************/
+void EUSART0_TX_IRQHandler(void)
+{
+  // Stop sending when at string NULL terminator
+  if (buffer[bufpos] != 0) {
+    EUSART_Tx(EUSART0, buffer[bufpos++]);
+  }
+  else {
+  /*
+   * Need to disable the transmit buffer level interrupt in this IRQ
+   * handler when done or it will immediately trigger again upon exit
+   * even though there is no data left to send.
+   */
+    receive = true;   // Go back into receive when all is sent
+    EUSART_IntDisable(EUSART0, EUSART_IEN_TXC);
+  }
+
+  /*
+   * The EUSART differs from the USART in that the TX complete
+   * interrupt flag must be explicitly cleared even after a write to
+   * the FIFO.
+   */
+  EUSART_IntClear(EUSART0, EUSART_IF_TXC);
+}
+
+/**************************************************************************//**
+ * @brief
  *    Main function
  *****************************************************************************/
 int main(void)
 {
+  uint32_t i;
+
   // Chip errata
   CHIP_Init();
 
@@ -188,11 +215,9 @@ int main(void)
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
 
-  EMU_UnlatchPinRetention();
-
   /*
    * When developing or debugging code that enters EM2 or
-   *  lower, it's a good idea to have an "escape hatch" type
+   * lower, it's a good idea to have an "escape hatch" type
    * mechanism, e.g. a way to pause the device so that a debugger can
    * connect in order to erase flash, among other things.
    *
@@ -202,7 +227,9 @@ int main(void)
    * connection to be made.
    */
   CMU_ClockEnable(cmuClock_GPIO, true);
+
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
+
   if (GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == 0) {
     GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
     __BKPT(0);
@@ -221,12 +248,24 @@ int main(void)
   MX25_deinit();
 
   // Initialize Clocks, GPIO and EUSART
-  initClock();
-  initGpio();
-  initEusart0();
+  initCMU();
+  initGPIO();
+  initEUSART0();
 
-  while (1) {
-    // Switch to RX
+  while (1)
+  {
+    // Zero out buffer
+    for (i = 0; i < BUFLEN; i++) {
+      buffer[i] = 0;
+    }
+
+    // Reset buffer index
+    bufpos = 0;
+
+    /*
+     * Enable receiving.  The eusartEnableRx enumeration enables the
+     * receiver only, thus disabling the transmitter.
+     */
     EUSART_Enable(EUSART0, eusartEnableRx);
     EUSART_IntEnable(EUSART0, EUSART_IEN_RXFL);
 
@@ -235,26 +274,27 @@ int main(void)
       EMU_EnterEM2(false);
     }
 
-    inpos = 0;
-    for (uint32_t i = 0 ; txSuccessMsg[i]!=0; i++) {
+    // Copy the outbound message to the buffer
+    for (i = 0 ; txSuccessMsg[i] != 0; i++) {
       buffer[i] = txSuccessMsg[i];
-      ++inpos;
     }
 
-    // Switch to TX
+    // Reset buffer index
+    bufpos = 0;
+
+    /*
+     * Enable transmitting.  The eusartEnableTx enumeration enables the
+     * transmitter only, thus disabling the receiver.  Setting the TXC
+     * flag forces execution of the transmit of the transmit interrupt
+     * handler, which sends the first outgoing byte.
+     */
     EUSART_Enable(EUSART0, eusartEnableTx);
     EUSART_IntEnable(EUSART0, EUSART_IEN_TXC);
     EUSART_IntSet(EUSART0, EUSART_IF_TXC);
 
-    // Wait in EM1 while transmitting to reduce current draw
+    // Wait in EM2 while transmitting to reduce current draw
     while (!receive) {
-      EMU_EnterEM1();
-    }
-
-    // Reset buffer indices
-    inpos = outpos = 0;
-    for (volatile uint32_t i = 0; i < BUFLEN; i++) {
-      buffer[i] = 0;
+      EMU_EnterEM2(true);
     }
   }
 }

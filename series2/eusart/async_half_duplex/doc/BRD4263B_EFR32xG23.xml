@@ -25,12 +25,12 @@
       <source>##em-path-device##\EFR32FG23\Source\system_efr32fg23.c</source>
     </group>
     <group name="emlib">
-      <source>##em-path-emlib##\src\em_core.c</source>
-      <source>##em-path-emlib##\src\em_system.c</source>
       <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
-      <source>##em-path-emlib##\src\em_gpio.c</source>
       <source>##em-path-emlib##\src\em_eusart.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
       <source>##em-path-emlib##\src\em_usart.c</source>
     </group>
     <group name="Drivers">
