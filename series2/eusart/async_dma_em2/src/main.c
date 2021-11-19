@@ -1,12 +1,18 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project shows how to configure the EUSART for using LDMA to write
- * and read to the EUSART transmit/receive registers while remaining in EM2. This
- * example receives input from the serial terminal device and echoes it back.
- * See the readme.txt for details.
+ * @brief This project demonstrates low-frequency operation of the EUSART
+ * using LDMA to receive inbound data and transmit outbound data while
+ * remaining in EM2.
+ *
+ * After initialization, the MCU goes into EM2 where the receive LDMA
+ * channel buffers the specified number of bytes of incoming data.  The
+ * LDMA channel done interrupt wakes the device from EM2.  The CPU starts
+ * the transmit channel and re-enters EM2.  The LDMA services the EUSART
+ * transmit FIFO until the specified number of bytes are sent.  The LDMA
+ * channel done interrupt again wakes the system. and the process repeats.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -36,7 +42,8 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
+#include <stddef.h>
+
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -44,20 +51,39 @@
 #include "em_eusart.h"
 #include "em_gpio.h"
 #include "em_ldma.h"
-#include "mx25flash_spi.h"
-#include "bspconfig.h"
 
-#define RETARGET_TXPORT      BSP_BCC_TXPORT      /* EUSART transmission port */
-#define RETARGET_TXPIN       BSP_BCC_TXPIN       /* EUSART transmission pin */
-#define RETARGET_RXPORT      BSP_BCC_RXPORT      /* EUSART reception port */
-#define RETARGET_RXPIN       BSP_BCC_RXPIN       /* EUSART reception pin */
-#define BAUDRATE             9600                /* EUSART baudrate */
+// MX25 driver to place SPI flash in shutdown mode
+#include "mx25flash_spi.h"
+
+// BSP for board controller pin macros
+#include "bsp.h"
+
+// Size of the buffer for received data
+#define BUFLEN  10
+
+// Receive data buffer
+uint8_t buffer[BUFLEN];
+
+// In low-frequency mode, the maximum EUSART baud rate is 9600
+#define BAUDRATE             9600
+
+// LDMA channels for receive and transmit servicing
+#define RX_LDMA_CHANNEL 0
+#define TX_LDMA_CHANNEL 1
+
+// LDMA descriptor and transfer configuration structures for TX channel
+LDMA_Descriptor_t ldmaTXDescriptor;
+LDMA_TransferCfg_t ldmaTXConfig;
+
+// LDMA descriptor and transfer configuration structures for RX channel
+LDMA_Descriptor_t ldmaRXDescriptor;
+LDMA_TransferCfg_t ldmaRXConfig;
 
 /**************************************************************************//**
  * @brief
  *    Clock selection and initialization
  *****************************************************************************/
-void initClock(void)
+void initCMU(void)
 {
   CMU_LFXOInit_TypeDef lfxoInit = CMU_LFXOINIT_DEFAULT;
 
@@ -70,42 +96,52 @@ void initClock(void)
  * @brief
  *    GPIO initialization
  *****************************************************************************/
-void initGpio(void)
+void initGPIO(void)
 {
   // Configure the EUSART TX pin to the board controller as an output
-  GPIO_PinModeSet(RETARGET_TXPORT, RETARGET_TXPIN, gpioModePushPull, 1);
+  GPIO_PinModeSet(BSP_BCC_TXPORT, BSP_BCC_TXPIN, gpioModePushPull, 1);
 
   // Configure the EUSART RX pin to the board controller as an input
-  GPIO_PinModeSet(RETARGET_RXPORT, RETARGET_RXPIN, gpioModeInput, 0);
+  GPIO_PinModeSet(BSP_BCC_RXPORT, BSP_BCC_RXPIN, gpioModeInput, 0);
 
-  // Route EUSART1 TX and RX to the board controller TX and RX pins
-  GPIO->EUSARTROUTE->TXROUTE = (RETARGET_TXPORT
-                               << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
-                              | (RETARGET_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
-  GPIO->EUSARTROUTE->RXROUTE = (RETARGET_RXPORT
-                               << _GPIO_EUSART_RXROUTE_PORT_SHIFT)
-                              | (RETARGET_RXPIN << _GPIO_EUSART_RXROUTE_PIN_SHIFT);
+  // Route EUSART0 TX and RX to the board controller TX and RX pins
+  GPIO->EUSARTROUTE[0].TXROUTE = (BSP_BCC_TXPORT << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
+      | (BSP_BCC_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
+  GPIO->EUSARTROUTE[0].RXROUTE = (BSP_BCC_RXPORT << _GPIO_EUSART_RXROUTE_PORT_SHIFT)
+      | (BSP_BCC_RXPIN << _GPIO_EUSART_RXROUTE_PIN_SHIFT);
 
   // Enable RX and TX signals now that they have been routed
-  GPIO->EUSARTROUTE->ROUTEEN = GPIO_EUSART_ROUTEEN_TXPEN|GPIO_EUSART_ROUTEEN_RXPEN;
+  GPIO->EUSARTROUTE[0].ROUTEEN = GPIO_EUSART_ROUTEEN_RXPEN |
+                                 GPIO_EUSART_ROUTEEN_TXPEN;
+
+  /*
+   * Configure the BCC_ENABLE pin as output and set high.  This enables
+   * the virtual COM port (VCOM) connection to the board controller and
+   * permits serial port traffic over the debug connection to the host
+   * PC.
+   *
+   * To disable the VCOM connection and use the pins on the kit
+   * expansion (EXP) header, comment out the following line.
+   */
+  GPIO_PinModeSet(BSP_BCC_ENABLE_PORT, BSP_BCC_ENABLE_PIN, gpioModePushPull, 1);
 }
 
 /**************************************************************************//**
  * @brief
  *    EUSART initialization
  *****************************************************************************/
-void initEusart0(void)
+void initEUSART0(void)
 {
-  // Enable EUSART0 Clock
   CMU_ClockEnable(cmuClock_EUSART0, true);
 
   // Initialize the EUSART0 module
   EUSART_UartInit_TypeDef init = EUSART_UART_INIT_DEFAULT_LF;
   EUSART_AdvancedInit_TypeDef advance_init = EUSART_ADVANCED_INIT_DEFAULT;
+
   init.baudrate = BAUDRATE;
   init.advancedSettings = &advance_init;
   init.advancedSettings->dmaWakeUpOnRx = true;
-  init.advancedSettings->dmaWakeUpOnTx = false;
+  init.advancedSettings->dmaWakeUpOnTx = true;
   init.advancedSettings->dmaHaltOnError = true;
 
   // Configure and enable EUSART0 for low-frequency (EM2) operation
@@ -116,33 +152,49 @@ void initEusart0(void)
  * @brief
  *    LDMA initialization
  *****************************************************************************/
-void initLdma(void)
+void initLDMA(void)
 {
-  // Enable LDMA Clock
-  CMU_ClockEnable(cmuClock_LDMA, true);
+  // First, initialize the LDMA unit itself
+  LDMA_Init_t ldmaInit = LDMA_INIT_DEFAULT;
+  LDMA_Init(&ldmaInit);
 
-  // Channel descriptor configuration
-  static LDMA_Descriptor_t descriptor =
-    LDMA_DESCRIPTOR_SINGLE_P2P_BYTE(&(EUSART0->RXDATA), // Peripheral source address
-                                    &(EUSART0->TXDATA), // Peripheral destination address
-                                    4);               // Number of bytes per transfer
-  descriptor.xfer.doneIfs  = 0;               // Don't trigger interrupt when done
-  descriptor.xfer.linkMode = ldmaLinkModeRel; // Relative addressing to get next link
-  descriptor.xfer.link     = 1;               // Enable descriptor linking
-  descriptor.xfer.linkAddr = 0;               // Link to same descriptor
+  // Source is buffer, destination is EUSART0_TXDATA, and length if BUFLEN
+  ldmaTXDescriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_SINGLE_M2P_BYTE(buffer, &(EUSART0->TXDATA), BUFLEN);
 
-  // Transfer configuration and trigger selection
-  LDMA_TransferCfg_t transferConfig =
-    LDMA_TRANSFER_CFG_PERIPHERAL(LDMAXBAR_CH_REQSEL_SIGSEL_EUSART0RXFL | 
-                                            LDMAXBAR_CH_REQSEL_SOURCESEL_EUSART0);
+  // Transfer a byte on free space in the EUSART FIFO
+  ldmaTXConfig = (LDMA_TransferCfg_t)LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_EUSART0_TXFL);
 
-  // LDMA initialization
-  LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init(&init);
+  // Source is EUSART0_RXDATA, destination is buffer, and length if BUFLEN
+  ldmaRXDescriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_SINGLE_P2M_BYTE(&(EUSART0->RXDATA), buffer, BUFLEN);
 
-  // Start the transfer
-  uint32_t channelNum = 0;
-  LDMA_StartTransfer(channelNum, &transferConfig, &descriptor);
+  // Transfer a byte on receive FIFO level event
+  ldmaRXConfig = (LDMA_TransferCfg_t)LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_EUSART0_RXFL);
+}
+
+/**************************************************************************//**
+ * @brief LDMA IRQHandler
+ *****************************************************************************/
+void LDMA_IRQHandler()
+{
+  uint32_t flags = LDMA_IntGet();
+
+  // Clear the transmit channel's done flag if set
+  if (flags & (1 << TX_LDMA_CHANNEL)) {
+    LDMA_IntClear(1 << TX_LDMA_CHANNEL);
+  }
+
+  /*
+   * Clear the receive channel's done flag if set and change receive
+   * state to done.
+   */
+  if (flags & (1 << RX_LDMA_CHANNEL)) {
+    LDMA_IntClear(1 << RX_LDMA_CHANNEL);
+  }
+
+  // Stop in case there was an error
+  if (flags & LDMA_IF_ERROR) {
+    __BKPT(0);
+  }
 }
 
 /**************************************************************************//**
@@ -151,6 +203,8 @@ void initLdma(void)
  *****************************************************************************/
 int main(void)
 {
+  uint32_t i;
+
   // Chip errata
   CHIP_Init();
 
@@ -158,11 +212,9 @@ int main(void)
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
 
-  EMU_UnlatchPinRetention();
-
   /*
    * When developing or debugging code that enters EM2 or
-   *  lower, it's a good idea to have an "escape hatch" type
+   * lower, it's a good idea to have an "escape hatch" type
    * mechanism, e.g. a way to pause the device so that a debugger can
    * connect in order to erase flash, among other things.
    *
@@ -172,7 +224,9 @@ int main(void)
    * connection to be made.
    */
   CMU_ClockEnable(cmuClock_GPIO, true);
+
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
+
   if (GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == 0) {
     GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
     __BKPT(0);
@@ -191,13 +245,27 @@ int main(void)
   MX25_deinit();
 
   // Initialize Clock, GPIO, EUSART and LDMA
-  initClock();
-  initGpio();
-  initEusart0();
-  initLdma();
+  initCMU();
+  initGPIO();
+  initEUSART0();
+  initLDMA();
 
-  while (1) {
-    // Won't exit EM2
-    EMU_EnterEM2(false);
+  while (1)
+  {
+    // Zero out buffer
+    for (i = 0; i < BUFLEN; i++)
+      buffer[i] = 0;
+
+    // Start the LDMA receive channel
+    LDMA_StartTransfer(RX_LDMA_CHANNEL, &ldmaRXConfig, &ldmaRXDescriptor);
+
+    // Wait in EM2 while receiving data
+    EMU_EnterEM2(true);
+
+    // start the LDMA transmit channel
+    LDMA_StartTransfer(TX_LDMA_CHANNEL, &ldmaTXConfig, &ldmaTXDescriptor);
+
+    // Wait in EM2 while transmitting data
+    EMU_EnterEM2(true);
   }
 }
