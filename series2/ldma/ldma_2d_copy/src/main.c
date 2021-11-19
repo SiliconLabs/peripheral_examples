@@ -33,6 +33,7 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
+#include <stdint.h>
 #include "em_chip.h"
 #include "em_device.h"
 #include "em_emu.h"

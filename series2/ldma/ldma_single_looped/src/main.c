@@ -120,15 +120,15 @@ void initLdma(void)
   descLink.xfer.decLoopCnt  = 1;                        // Enable loops
   descLink.xfer.link        = 0;                        // End of linked list
   // Each consecutive transfer uses the previous destination
-  descLink.xfer.dstAddrMode = ldmaCtrlSrcAddrModeRel;   
+  descLink.xfer.dstAddrMode = ldmaCtrlDstAddrModeRel;
   // Set request mode to Block instead of all
-  descLink.xfer.reqMode     = ldmaCtrlReqModeBlock;     
-
-  // Start Transfer
-  LDMA_StartTransfer(LDMA_CHANNEL, (void*)&periTransferTx, (void*)&descLink);
+  descLink.xfer.reqMode     = ldmaCtrlReqModeBlock;
 
   // Start transfers at dstBuffer
   LDMA->CH[LDMA_CHANNEL].DST = (uint32_t)&dstBuffer;
+
+  // Start Transfer
+  LDMA_StartTransfer(LDMA_CHANNEL, (void*)&periTransferTx, (void*)&descLink);
 
   // Send software request
   LDMA->SWREQ |= LDMA_CH_MASK;
