@@ -34,3 +34,11 @@ PB2 - LED0
 PD3 - LED1
 PB1 - Push Button PB0
 PB3 - Push Button PB1
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB2 - LED0
+PB4 - LED1
+PB1 - Push Button PB0
+PB3 - Push Button PB1
