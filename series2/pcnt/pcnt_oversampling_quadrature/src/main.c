@@ -72,7 +72,7 @@
  **************************   GLOBAL VARIABLES   *******************************
  ******************************************************************************/
 
-uint32_t absCnt = 0;         // Counter value valid upon interrupt completion
+int32_t absCnt = 0;         // Counter value valid upon interrupt completion
 uint32_t UFCnt = 0;
 uint32_t OFCnt = 0;
 
@@ -167,6 +167,11 @@ static void initPcnt(void)
   // Use max filter len for GPIO push button
   pcntFilterInit.filtLen = _PCNT_OVSCTRL_FILTLEN_MASK;
   pcntFilterInit.flutterrm = true;
+
+  /*
+   * With flutter removal enabled, counter is only updated if the current and
+   * previous state transition of the rotation are in the same direction.
+   */
 
   // Enable PRS0 input
   PCNT_PRSInputEnable(PCNT0, pcntPRSInputS0, true);
