@@ -10,6 +10,9 @@
   <project>
     <path>$WS_DIR$\EFR32MG22_msc_rw.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_msc_rw.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

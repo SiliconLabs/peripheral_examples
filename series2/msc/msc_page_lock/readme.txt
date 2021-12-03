@@ -53,14 +53,6 @@ enable bits are unnecessary and have no effect on xG21 devices.
 
 ================================================================================
 
-Peripherals Used:
-
-CMU (not required on EFR32xG21)
-GPIO
-MSC
-
-================================================================================
-
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher, if
    necessary.
@@ -79,22 +71,26 @@ How To Test:
 
 ================================================================================
 
-This example is intended to run on the following setup(s):
+Peripherals Used:
+CMU    - FSRCO @ 20 MHz
+MSC
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32MG21A010F1024IM32 (this code will run unchanged on the radio
-board for any EFR32xG22 variant).
+Device: EFR32MG21A010F1024IM32
 PB00 - LED0 (WSTK Breakout Header P8, Expansion Header Pin 11)
 
 Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32MG22C224F512 (this code will run unchanged on the radio
-board for any EFR32xG22 variant).
+Device: EFR32MG22C224F512.
 PD02 - LED0 (WSTK Breakout Header P8, Expansion Header Pin 11)
 
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512GM48 (this code will run unchanged on the radio
-board for any EFR32xG23 variant).
+Device: EFR32FG23A010F512GM48
+PB02 - LED0 (WSTK Breakout Header P19)
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
 PB02 - LED0 (WSTK Breakout Header P19)
