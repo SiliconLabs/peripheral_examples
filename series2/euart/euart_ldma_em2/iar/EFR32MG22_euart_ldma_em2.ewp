@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG22_euart_dma\Debug\Exe</state>
+          <state>EFR32MG22_euart_ldma_em2\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG22_euart_dma\Debug\Obj</state>
+          <state>EFR32MG22_euart_ldma_em2\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG22_euart_dma\Debug\List</state>
+          <state>EFR32MG22_euart_ldma_em2\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -621,7 +621,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG22_euart_dma.bin</state>
+          <state>EFR32MG22_euart_ldma_em2.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -676,7 +676,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG22_euart_dma.out</state>
+          <state>EFR32MG22_euart_ldma_em2.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -995,15 +995,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG22_euart_dma\Release\Exe</state>
+          <state>EFR32MG22_euart_ldma_em2\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG22_euart_dma\Release\Obj</state>
+          <state>EFR32MG22_euart_ldma_em2\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG22_euart_dma\Release\List</state>
+          <state>EFR32MG22_euart_ldma_em2\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1601,7 +1601,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG22_euart_dma.bin</state>
+          <state>EFR32MG22_euart_ldma_em2.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1656,7 +1656,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG22_euart_dma.out</state>
+          <state>EFR32MG22_euart_ldma_em2.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -2008,7 +2008,7 @@
       <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xg2x.c</name>
+      <name>$PROJ_DIR$\..\src\main.c</name>
     </file>
   </group>
 
