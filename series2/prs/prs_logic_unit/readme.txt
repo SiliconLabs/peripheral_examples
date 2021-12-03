@@ -26,6 +26,8 @@ have no effect as oscillators are automatically turned on/off based on demand
 from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
 library consistency/compatibility.
 
+===============================================================================
+
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Starter Kit
@@ -36,30 +38,28 @@ available. You can switch between these logic functions by changing the
 parameters passed when calling PRS_Combine() function in main.c.
 
 Note: For EFR32xG22/xG23 devices, you may choose any asynchronous PRS channel as
-your input B. For EFR32xG21 devices, you have to choose (input A - 1) as your
+your input B. For EFR32xG21/xG24 devices, you have to choose (input A - 1) as your
 input B. This is reflected on the PRS channel selection in the source file
 
+===============================================================================
 
 Peripherals Used:
-FSRCO  - 20 MHz
-PRS (EFR32xG21)  - Channel 0, PB0
-                   Channel 1, PB1 routed to LED1 (Output)
-PRS (EFR32xG22)  - Channel 1, PB0                   
-                   Channel 6, PB1 routed to LED1 (Output)
-PRS (EFR32xG23)  - Channel 1, PB0                   
-                   Channel 6, PB1 routed to LED1 (Output)                   
-                  
-                  
+CMU    - FSRCO @ 20 MHz
+
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
+PRS   - Channel 0, PB0
+        Channel 1, PB1 routed to LED1 (Output)
 PD02  - push button PB0
 PD03  - push button PB1
-PC01  - PRS Channel 1
+PB01  - PRS Channel 1
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
+PRS   - Channel 1, PB0
+        Channel 6, PB1 routed to LED1 (Output)
 PB00  - push button PB0
 PB01  - push button PB1
 PD03  - PRS Channel 6
@@ -67,6 +67,17 @@ PD03  - PRS Channel 6
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
+PRS   - Channel 1, PB0
+        Channel 6, PB1 routed to LED1 (Output)
 PB01  - push button PB0
 PB03  - push button PB1
 PD03  - PRS Channel 6
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PRS   - Channel 0, PB0
+        Channel 1, PB1 routed to LED1 (Output)
+PB01  - push button PB0
+PB03  - push button PB1
+PB04  - PRS Channel 1

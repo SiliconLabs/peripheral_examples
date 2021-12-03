@@ -8,6 +8,9 @@
     <path>$WS_DIR$\EFR32MG22_prs_logic_unit.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG24_prs_logic_unit.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_prs_logic_unit.ewp</path>
   </project>
 
