@@ -16,26 +16,34 @@ Note for EFR32xG21 devices, clock enabling is not required.
 How To Test:
 1. Place a 50uF capacitor between the output pin and GND.
 2. Upload and run the example.
-3. While observing the rise and fall imes of the waveform on the output pin, press
-   PB0 to change the slew rate.
+3. While observing the rise and fall times of the waveform on the output pin, 
+   press PB0 to change the slew rate.
     
 Peripherals Used:
-FSRCO  - 20 MHz
+CMU    - FSRCO @ 20 MHz
+EMU
+TIMER  - Toggles GPIO at 1 MHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
-PD2 - Push Button 0
-PC0 - 1 MHz output (Expansion Header Pin 4)
+PD02 - Push Button 0
+PC00 - 1 MHz output (Expansion Header Pin 4)
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
-PB0 - Push Button 0
-PC0 - 1 MHz output (Expansion Header Pin 4)
+PB00 - Push Button 0
+PC00 - 1 MHz output (Expansion Header Pin 4)
 
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
-PB1 - Push Button 0
-PC0 - 1 MHz output (Expansion Header Pin 10)
+PB01 - Push Button 0
+PC00 - 1 MHz output (Expansion Header Pin 10)
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01 - Push Button PB0
+PC00 - 1 MHz output (Expansion Header Pin 10)

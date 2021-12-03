@@ -3,7 +3,7 @@
  * @brief Demonstrates outputting clock to a GPIO
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -40,6 +40,7 @@
 
 #define  CMUCLOCKOUT_PORT  gpioPortC
 #define  CMUCLOCKOUT_PIN   3
+#define  CMUCLOCK_OUTPUT   0  // CMU.CLKOUT0 & CMU.CLKOUT1 are available for PC3
 #define  SLEW_RATE         7
 
 /**************************************************************************//**
@@ -53,8 +54,9 @@ int main(void)
   // Enable clock for GPIO module. Note this is not required for EFR32xG21
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Set chosen port pin as output  
-  GPIO_PinModeSet(CMUCLOCKOUT_PORT, CMUCLOCKOUT_PIN, gpioModePushPull, 0);
+  // Configure defined pin for LFRCO output
+  CMU_ClkOutPinConfig(CMUCLOCK_OUTPUT, cmuSelect_LFRCO , 1, CMUCLOCKOUT_PORT,
+                      CMUCLOCKOUT_PIN);
   
   // Set slew rate / drive strength so there is no ringing
   GPIO_SlewrateSet(CMUCLOCKOUT_PORT, SLEW_RATE, SLEW_RATE);
@@ -62,13 +64,6 @@ int main(void)
   // Enable Low Frequency RC Oscillator (LFRCO) and 
   // wait until it is stable
   CMU_OscillatorEnable(cmuOsc_LFRCO, true, true);
-
-  // Select Clock Output 1 as Low Frequency RC(32.768 KHz)
-  CMU->EXPORTCLKCTRL = CMU->EXPORTCLKCTRL | CMU_EXPORTCLKCTRL_CLKOUTSEL1_LFRCO;
-  
-  // Route the clock output to the GPIO port and pin and enable
-  GPIO->CMUROUTE.ROUTEEN |= GPIO_CMU_ROUTEEN_CLKOUT1PEN; 
-  GPIO->CMUROUTE.CLKOUT1ROUTE = (CMUCLOCKOUT_PORT << _GPIO_CMU_CLKOUT1ROUTE_PORT_SHIFT) | (CMUCLOCKOUT_PIN << _GPIO_CMU_CLKOUT1ROUTE_PIN_SHIFT);
 
   while(1);
 }

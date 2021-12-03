@@ -20,7 +20,7 @@ How To Test:
 5. Press PB1 to toggle LED1
 
 Peripherals Used:
-FSRCO  - 20 MHz
+CMU    - FSRCO @ 20 MHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

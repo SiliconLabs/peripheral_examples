@@ -8,29 +8,24 @@
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
     <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_gpio.c" />
-    <include pattern="emlib/em_iadc.c" />
-    <include pattern="emlib/em_prs.c" />
     <include pattern="emlib/em_system.c" />
-    <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_timer.c" />
-    <include pattern="emlib/em_usart.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
-    <include pattern="Drivers/retargetio.c" />
-    <include pattern="Drivers/retargetserial.c" />
+    <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
-  <macroDefinition name="RETARGET_VCOM" />
   <folder name="src">
-    <file name="main_gpio_slew_rate_xG23.c" uri="src/main_gpio_slew_rate_xG23.c" />
+    <file name="main_gpio_slew_rate_pb0_odd_s2.c" uri="src/main_gpio_slew_rate_pb0_odd_s2.c" />
     <file name="readme.txt" uri="readme.txt" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>

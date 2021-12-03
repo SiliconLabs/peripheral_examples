@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg22.c
+ * @file main_xg23_xg24.c
  * @brief This project demonstrates the ability for a pin to wake the device
  * from EM4.
  *******************************************************************************
@@ -43,20 +43,16 @@
 #include "mx25flash_spi.h"
 #include "bsp.h"
 
-#define GPIO_EM4_WAKEUP_PORT  gpioPortC
-#define GPIO_EM4_WAKEUP_PIN   5
-#define GPIO_EM4_WAKEUP_NUM   7
-
 /**************************************************************************//**
  * A JEDEC standard SPI flash boots up in standby mode in order to
  * provide immediate access, such as when used it as a boot memory.
  *
  * Typical current draw in standby mode for the MX25R8035F device used
- * on EFR32 radio boards is 5 �A.
+ * on EFR32 radio boards is 5 µA.
  *
  * JEDEC standard SPI flash memories have a lower current deep power-down mode,
  * which can be entered after sending the relevant commands.  This is on the
- * order of 0.007 �A for the MX25R8035F.
+ * order of 0.007 µA for the MX25R8035F.
  *****************************************************************************/
 void powerDownSpiFlash(void)
 {
@@ -122,8 +118,9 @@ int main(void)
 
   //Initialization
   initGPIO();
+  
   /**********************************************************************//**
-   * When developing/debugging code on xG23 that enters EM2 or lower,
+   * When developing/debugging code on xG23/xG24 that enters EM2 or lower,
    * it's a good idea to have an "escape hatch" type mechanism, e.g. a
    * way to pause the device so that a debugger can connect in order
    * to erase flash, among other things.
@@ -162,8 +159,10 @@ int main(void)
 
     // Switch from DCDC regulation mode to bypass mode.
     EMU_DCDCModeSet(emuDcdcMode_Bypass);
+
     // Use default settings for EM4, XO's and DCDC
     EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
+
     // Enable Pin Retention through EM4 and wakeup
     em4Init.pinRetentionMode = emuPinRetentionLatch;
 

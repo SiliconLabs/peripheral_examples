@@ -28,23 +28,15 @@
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
-      <source>##em-path-emlib##\src\em_iadc.c</source>
-      <source>##em-path-emlib##\src\em_prs.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
-      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_timer.c</source>
-      <source>##em-path-emlib##\src\em_usart.c</source>
-      <source>##em-path-drivers##\retargetio.c</source>
-      <source>##em-path-drivers##\retargetserial.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_gpio_slew_rate_s2.c</source>
+      <source>$PROJ_DIR$\..\src\main_gpio_slew_rate_pb0_even_s2.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
-    <cflags>
-      <define>RETARGET_VCOM</define>
-    </cflags>
   </project>
 </workspace>

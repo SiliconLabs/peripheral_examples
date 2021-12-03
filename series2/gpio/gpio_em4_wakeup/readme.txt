@@ -3,11 +3,11 @@ gpio_em4_wakeup
 This project uses GPIO to wake the device from EM4 mode and thus trigger a 
 reset.
 Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/
-PB1 (on EFR32xG22 and EFR32xG23) will wake the device from EM4 and cause 
-the LEDs on the STK/Radio board to toggle indefinitely. PB0 on EFR32xG22 and
-EFR32xG23 is used as an "escape hatch". This is a way to pause the device
-so that a debugger can connect in order to erase flash, among other things. 
-Before proceeding with this example, make sure PB0 is not pressed.
+PB1 (on EFR32xG22, EFR32xG23, and EFR32xG24) will wake the device from EM4 and 
+cause the LEDs on the STK/Radio board to toggle indefinitely. PB0 on EFR32xG22,
+EFR32xG23, and EFR32xG24 is used as an "escape hatch". This is a way to pause 
+the device so that a debugger can connect in order to erase flash, among other 
+things. Before proceeding with this example, make sure PB0 is NOT pressed.
 
 Note for EFR32xG21 devices, clock enabling is not required.
 
@@ -25,12 +25,15 @@ How To Test:
    c) Under Device Hardware, enter the appropriate Target Part (shown below 
    under Device)
    Observe the current consumption by connecting to the board after this. 
-5. Press PB0 (on EFR32xG21)/PB1 (on EFR32xG22 and EFR32xG23) to exit EM4.
+5. Press PB0 (on EFR32xG21)/PB1 (on EFR32xG22/EFR32xG23/EFR32xG24) to exit EM4.
 4. Observe the LEDs blinking, indicating that the last reset cause was exit 
    from EM4. Capture current consumption which implies device is in EM0.
 
 Peripherals Used:
-FSRCO  - 20 MHz
+CMU    - FSRCO @ 20 MHz
+EMU
+RMU
+USART  - used only to power down onboard SPI flash
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
@@ -53,3 +56,11 @@ PB02 - LED0
 PD03 - LED1
 PB01 - Push Button PB0
 PB03 - Push Button PB1
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01 - Push Button PB0
+PB02 - LED0
+PB03 - Push Button PB1
+PB04 - LED1

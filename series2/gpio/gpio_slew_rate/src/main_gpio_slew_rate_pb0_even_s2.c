@@ -1,9 +1,9 @@
 /***************************************************************************//**
- * @file main_gpio_slew_rate_s2.c
+ * @file main_gpio_slew_rate_pb0_even_s2.c
  * @brief Demonstrates setting slew rate and drive strength for a GPIO port pin
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib

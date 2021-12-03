@@ -8,8 +8,9 @@
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
     <include pattern="emlib/em_cmu.c" />
-    <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />

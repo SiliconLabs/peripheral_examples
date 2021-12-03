@@ -12,7 +12,7 @@ How To Test:
 3. Release PB0 to turn LED0 off
 
 Peripherals Used:
-FSRCO  - 20 MHz
+CMU    - FSRCO @ 20 MHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

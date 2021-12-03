@@ -1,9 +1,9 @@
 /***************************************************************************//**
- * @file main_gpio_slew_rate_s2.c
+ * @file main_gpio_slew_rate_pb0_odd_s2.c
  * @brief Demonstrates setting slew rate and drive strength for a GPIO port pin
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -43,8 +43,8 @@
 #define SQUARE_WAVE_PORT gpioPortC
 #define SQUARE_WAVE_PIN  0
 
-#define OUTPUT_FREQ_Hz (1000000UL)
-#define TIMER_PRESCALER 2
+#define OUTPUT_FREQ_Hz   (1000000UL)
+#define TIMER_PRESCALER  2
 
 uint32_t slewRate = 6;	// Default slew rate
 
