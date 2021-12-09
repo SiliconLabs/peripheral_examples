@@ -5,11 +5,17 @@ particular frequency (10 kHz by default). The project uses the LDMA to write to
 the CH0F buffer. This project operates in EM1 because the timer can't operate in 
 EM2/EM3.
 
-This example used approximately 950 uA. After commenting out the line of code 
-that puts the board in EM1, this example used approximately 1.2 mA.
-Note: this energy measurement was done using Simplicity Studio's
-built-in energy profiler for BRD4263B with a Debug build configuration and
-optimization gcc -g3.
+Approximate current consumption measurements are provided below using Simplicity
+Studio's built-in energy profiler. Projects were built with the default import
+configuration - Debug build configuration (-g3) and no optimization (gcc -O0). 
+Refer to device specific datasheets for more details about low energy mode 
+currents.
+
+Board     | avg current EM1 | avg current EM0 (Enter EM1 code commented out)
+================================================================================
+BRD4263B  |          950 uA |          1200 uA
+BRD4186A  |          750 uA |           915 uA
+BRD4186C  |          760 uA |           920 uA
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
@@ -25,8 +31,11 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-HFRCODPLL - 19 MHz
-VDAC  - internal 1.25V reference, continuous mode
+CMU    - FSRCO @ 20 MHz, HFRCODPLL @ 19 MHz via EM01GRPCCLK
+EMU
+LDMA   - memory to peripheral data transfer
+TIMER  - TIMER0 @ 320 kHz (WAVEFORM_FREQ * SINE_TABLE_SIZE)
+VDAC   - internal 1.25V reference, continuous mode
 
 ================================================================================
 
@@ -40,4 +49,14 @@ Listed below are the port and pin mappings for working with this example.
 
 Board:  Silicon Labs EFR32FG23 Starter Kit (BRD4263B)
 Device: EFR32FG23A010F512GM48
-PB0 - VDAC0 CH0 Main Output (Pin 15 of breakout pads)
+PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24B210F1536IM48
+PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)

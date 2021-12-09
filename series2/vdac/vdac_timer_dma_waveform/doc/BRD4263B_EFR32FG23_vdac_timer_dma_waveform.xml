@@ -31,9 +31,9 @@
 	  <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_ldma.c</source>
-      <source>##em-path-emlib##\src\em_vdac.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
       <source>##em-path-emlib##\src\em_timer.c</source>
+      <source>##em-path-emlib##\src\em_vdac.c</source>
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_vdac_timer_dma_waveform.c</source>

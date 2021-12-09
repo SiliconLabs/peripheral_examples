@@ -284,7 +284,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -312,12 +312,12 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$/../../../../..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\EFR32FG23_BRD4263B\config</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -581,12 +581,12 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state>$PROJ_DIR$/../../../../..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\EFR32FG23_BRD4263B\config</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -768,7 +768,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1263,7 +1263,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1291,12 +1291,12 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$/../../../../..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\EFR32FG23_BRD4263B\config</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -1561,12 +1561,12 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state>$PROJ_DIR$/../../../../..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
-          <state>$PROJ_DIR$/../../../../..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\EFR32FG23_BRD4263B\config</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$/../../../../..\hardware\kit\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -1748,7 +1748,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1963,49 +1963,49 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\Device\SiliconLabs\EFR32FG23\Source\IAR\startup_efr32fg23.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Source\IAR\startup_efr32fg23.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\Device\SiliconLabs\EFR32FG23\Source\system_efr32fg23.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG23\Source\system_efr32fg23.c</name>
     </file>
   </group>
   <group>
     <name>emlib</name>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_cmu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_core.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_emu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_gpio.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_usart.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_vdac.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/../../../../..\platform\emlib\src\em_system.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_vdac.c</name>
     </file>
   </group>
   <group>
     <name>Drivers</name>
     <file>
-      <name>$PROJ_DIR$/../../../../..\hardware\kit\common\drivers\mx25flash_spi.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\mx25flash_spi.c</name>
     </file>
   </group>
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$/..\src\main_vdac_continuous.c</name>
+      <name>$PROJ_DIR$\..\src\main_vdac_continuous.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$/..\readme.txt</name>
+      <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
   </group>
 

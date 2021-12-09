@@ -11,9 +11,9 @@
     <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_ldma.c" />
-    <include pattern="emlib/em_vdac.c" />
     <include pattern="emlib/em_system.c" />
     <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_vdac.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />

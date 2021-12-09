@@ -93,6 +93,7 @@ void initVdac(void)
   //The EM01GRPACLK is chosen as VDAC clock source since the VDAC will be
   // operating in EM1
   CMU_ClockSelectSet(cmuClock_VDAC0, cmuSelect_EM01GRPACLK);
+
   // Enable the VDAC clocks
   CMU_ClockEnable(cmuClock_VDAC0, true);
   /*
@@ -106,6 +107,7 @@ void initVdac(void)
 
   // Calculate the VDAC clock prescaler value resulting in a 1 MHz VDAC clock.
   init.prescaler = VDAC_PrescaleCalc(VDAC0, (uint32_t)CLK_VDAC_FREQ);
+
   // Set reference to internal 1.25V low noise reference
   init.reference = vdacRef1V25;
 
@@ -127,6 +129,8 @@ void initVdac(void)
  *****************************************************************************/
 void initTimer(void)
 {
+  uint32_t timerFreq, topValue;
+
   // Enable clock for TIMER0 module
   CMU_ClockEnable(cmuClock_TIMER0, true);
 
@@ -138,8 +142,11 @@ void initTimer(void)
 
   // Set top (reload) value for the timer
   // Note: the timer runs off of the EM01GRPACLK clock
-  uint32_t topValue = CMU_ClockFreqGet(cmuClock_EM01GRPACLK) / TIMER0_FREQ;
-  TIMER_TopBufSet(TIMER0, topValue);
+  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (init.prescale + 1);
+  topValue = (timerFreq / TIMER0_FREQ);
+
+  // Set top value to overflow at the desired TIMER0_FREQ frequency
+  TIMER_TopSet(TIMER0, topValue);
 
   // Enable TIMER0
   TIMER_Enable(TIMER0, true);
@@ -175,6 +182,7 @@ void initLdma(void)
 
   // Don't trigger interrupt when transfer is done
   loopDescriptor.xfer.doneIfs = 0;
+
   // Transfer halfwords (VDAC data register is 12 bits)
   loopDescriptor.xfer.size = ldmaCtrlSizeHalf;
 

@@ -3,7 +3,7 @@
  * @brief This project uses the DAC and the internal sine wave generator to
  * produce a 16-point sine wave at a frequency of f_sinewave Hz centered at the
  * reference voltage divided by 2. This project operates in EM1. By default,
- * this program outputs a sinewave at 31,250 Hz.
+ * this program outputs a sine wave at 31,250 Hz.
  * f_sinewave = f_HFPERCLK / (32 * (PRESCALE + 1))
  *******************************************************************************
  * # License
@@ -81,6 +81,7 @@ void initVdac(void)
   // Sine mode is supported only for the fastest configuration of the VDAC in
   // continuous mode. Hence select the EM01GRPACLK as the source of the VDAC0
   CMU_ClockSelectSet(cmuClock_VDAC0, cmuSelect_EM01GRPACLK);
+
   // Enable the VDAC clocks
   CMU_ClockEnable(cmuClock_VDAC0, true);
   /*
@@ -94,16 +95,20 @@ void initVdac(void)
 
   // Calculate the VDAC clock prescaler value resulting in a 1 MHz VDAC clock.
   init.prescaler = VDAC_PrescaleCalc(VDAC0, (uint32_t)CLK_VDAC_FREQ);
+
   // Set reference to internal 1.25V reference
   init.reference = vdacRef1V25;
+
   //Enable sine mode
   init.sineEnable = true;
 
   // Set the output mode to continuous as required for the sine mode
   initChannel.sampleOffMode = false;
+
   // Since the minimum load requirement for high capacitance mode is 25 nF, turn
   // this mode off
   initChannel.highCapLoadEnable = false;
+
   // Trigger mode and refresh source should be programmed to None for the sine
   // mode to avoid interference in sine output generation from other triggers
   initChannel.trigMode = vdacTrigModeNone;
