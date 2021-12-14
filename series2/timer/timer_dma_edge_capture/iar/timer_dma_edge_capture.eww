@@ -8,6 +8,9 @@
     <path>$WS_DIR$\EFR32MG22_timer_dma_edge_capture.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG24_timer_dma_edge_capture.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_timer_dma_edge_capture.ewp</path>
   </project>
 

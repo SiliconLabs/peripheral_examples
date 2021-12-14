@@ -22,12 +22,6 @@ library consistency/compatibility.
 
 ================================================================================
 
-Peripherals Used:
-HFRCO  - 19 MHz
-TIMER0 - HFPERCLK (19 MHz for series 2 boards)
-
-================================================================================
-
 How To Test:
 1. Build the project and download it to the Starter Kit
 2. Connect a periodic signal to the GPIO pin specified below
@@ -36,7 +30,9 @@ How To Test:
 
 ================================================================================
 
-Listed below are the port and pin mappings for working with this example.
+Peripherals Used:
+CMU    - HFRCO @ 19 MHz
+TIMER0 - HFPERCLK (19 MHz for series 2 boards)
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
@@ -51,4 +47,9 @@ PA6 - TIM0_CC0 (Expansion Header Pin 14)
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
+PA6 - TIM0_CC0 (Expansion Header Pin 11)
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)

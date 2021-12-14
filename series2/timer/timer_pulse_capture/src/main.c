@@ -49,12 +49,12 @@
 volatile uint32_t firstEdge;
 volatile uint32_t secondEdge;
 
-#ifdef BSP_WSTK_BRD4263B
-// HFXO frequency for BRD4263B
-#define HFXO_FREQ               39000000
-#else
-// HFXO frequency set for most common radio configurations
+#if defined(BSP_WSTK_BRD4181A) || defined(BSP_WSTK_BRD4182A)
+// HFXO frequency set for BRD4181A and BRD4182A
 #define HFXO_FREQ               38400000
+#else
+// HFXO frequency for rest of radio boards
+#define HFXO_FREQ               39000000
 #endif
 
 /**************************************************************************//**

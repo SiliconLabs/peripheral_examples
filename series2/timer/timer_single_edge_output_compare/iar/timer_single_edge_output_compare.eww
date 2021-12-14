@@ -8,6 +8,9 @@
     <path>$WS_DIR$\EFR32MG22_timer_single_edge_output_compare.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG24_timer_single_edge_output_compare.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_timer_single_edge_output_compare.ewp</path>
   </project>
 
