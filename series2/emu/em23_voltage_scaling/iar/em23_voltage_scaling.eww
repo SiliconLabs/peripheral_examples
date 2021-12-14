@@ -2,10 +2,13 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG23_em23_voltage_scaling.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG22_em23_voltage_scaling.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG23_em23_voltage_scaling.ewp</path>
+    <path>$WS_DIR$\EFR32MG24_em23_voltage_scaling.ewp</path>
   </project>
 
   <batchBuild/>

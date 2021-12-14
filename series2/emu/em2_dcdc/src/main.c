@@ -85,7 +85,7 @@ int main(void)
     CMU_ClockEnable(cmuClock_GPIO, false);
   }
 
-  // Enable voltage downscaling in EM mode 3(VSCALE0)
+  // Enable voltage downscaling in EM mode 2(VSCALE0)
   EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
   em23Init.vScaleEM23Voltage = emuVScaleEM23_LowPower;
 

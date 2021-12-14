@@ -32,19 +32,19 @@
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
       <source>##em-path-emlib##\src\em_rmu.c</source>
-	  <source>##em-path-emlib##\src\em_system.c</source>
-	  <source>##em-path-emlib##\src\em_usart.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_usart.c</source>
     </group>
-	<group name="Drivers">
+    <group name="Drivers">
     <source>##em-path-drivers##\mx25flash_spi.c</source>
-	</group>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main_xg23.c</source>
-	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script_16kb_ram_retention.ld</source>
+      <source>$PROJ_DIR$\..\src\main.c</source>
+      <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script_16kb_ram_retention.ld</source>
     </group>
-	<cflags>
-	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
       <linkerfile only_ide="slsproj">src/xg23_linker_script_16kb_ram_retention.ld</linkerfile>
     </cflags>
   </project>

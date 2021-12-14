@@ -21,11 +21,6 @@ the debugger connection can be resumed to erase flash, etc.
 
 ================================================================================
 
-Peripherals Used:
-CMU
-
-================================================================================
-
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Wireless Starter Kit, then exit
@@ -36,10 +31,27 @@ How To Test:
 
 ================================================================================
 
-This is example is intended to run on the following setup(s):
+Peripherals Used:
+CMU    - FSRCO @ 20 MHz, LFRCO @ 32.768 kHz
+BURTC  - 32.768 kHz LFRCO clock source
+USART0 - 8 Mbits/s
 
 Board: Silicon Labs EFR32FG23 868-915 MHz 14 dBm Board (BRD4263B)
        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG23A010F512
+PB01  - push button PB0
+PB02  - LED0
+PC01  - USART0 MOSI
+PC02  - USART0 MISO
+PC03  - USART0 SCLK
+PC04  - USART0 CS
 
-Device: EFR32FG23A010F512 (this code will run unchanged on the radio
-board for any EFR32xG23 variant).
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01  - push button PB0
+PB02  - LED0
+PC01  - USART0 MOSI
+PC02  - USART0 MISO
+PC03  - USART0 SCLK
+PC04  - USART0 CS

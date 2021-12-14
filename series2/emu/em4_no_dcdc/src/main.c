@@ -57,7 +57,7 @@
  *   Parameter:
  *     EM4H. Hibernate Mode.@n
  *   Condition:
- *     BURTC, 128 byte RAM, 32.768 kHz LFRCO.@n
+ *     BURTC, 128 byte RAM, 32.768 kHz LFXO.@n
  *
  ******************************************************************************/
 void em_EM4_LfxoBURTC(void)

@@ -23,12 +23,6 @@ and 1.0V core operating voltage levels.
 
 ================================================================================
 
-Peripherals Used:
-GPIO
-CMU
-
-================================================================================
-
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Wireless Starter Kit, then exit
@@ -40,16 +34,20 @@ How To Test:
 
 ================================================================================
 
-This is example is intended to run on the following setup(s):
+Peripherals Used:
+CMU    - FSRCO @ 20 MHz, HFRCO @ 38MHz
 
 Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
-
-Device: EFR32MG22C224F512 (this code will run unchanged on the radio
-board for any EFR32xG22 variant).
+Device: EFR32MG22C224F512
+PB00  - push button PB0
 
 Board: Silicon Labs EFR32FG23 868-915 MHz 14 dBm Board (BRD4263B)
        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG23A010F512
+PB01  - push button PB0
 
-Device: EFR32FG23A010F512 (this code will run unchanged on the radio
-board for any EFR32xG23 variant).
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01  - push button PB0
