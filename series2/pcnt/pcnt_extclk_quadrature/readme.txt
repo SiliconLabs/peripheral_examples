@@ -13,6 +13,8 @@ peripheral, upward counting corresponds to the BTN0 -> BTN1 sequence).
 Use Simplicity Studio's Energy Profiler to observe current consumption while
 example runs in low energy mode.
 
+================================================================================
+
 How To Test:
 1. Build the project and download to the Starter Kit
 2. Press BTN1, hold it
@@ -33,8 +35,10 @@ How To Test:
    generator; This requires modification in code where you need to remove all 
    PRS functions, and may also require a socket board.
 
+================================================================================
+
 Peripherals Used:
-LFRCO - 32768 Hz - On-demand clock used temporarily for configuring PCNT
+CMU   - LFRCO @ 32768 Hz - On-demand clock used temporarily for configuring PCNT
 External Clock - Push Button 0
 PCNT
 
@@ -45,3 +49,11 @@ PB01 - Push Button PB0
 PB02 - LED0
 PB03 - Push Button PB1
 PD03 - LED1
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01 - Push Button PB0
+PB02 - LED0
+PB03 - Push Button PB1
+PB04 - LED1

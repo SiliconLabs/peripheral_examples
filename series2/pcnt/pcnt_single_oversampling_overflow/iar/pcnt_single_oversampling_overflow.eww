@@ -2,6 +2,9 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32MG24_pcnt_single_oversampling_overflow.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_pcnt_single_oversampling_overflow.ewp</path>
   </project>
 

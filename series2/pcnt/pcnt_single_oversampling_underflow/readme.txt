@@ -13,19 +13,28 @@ register is counting down whenever BTN0 is pressed.
 Use Simplicity Studio's Energy Profiler to observe current consumption while
 example runs in low energy mode.
 
+================================================================================
+
 How To Test:
 1. Build the project and download to the Starter Kit
-2. Press Button 0 once to escape the debugging catch
-3. Press Button 0 six times
-4. Observe LED0 toggle
-5. Repeat steps 3 thru 5
+2. Press Button 0 six times
+3. Observe LED0 toggle
+4. Repeat steps 2 thru 4
+
+================================================================================
 
 Peripherals Used:
-LFRCO - 32768 Hz
+CMU  - LFRCO @ 32768 Hz
 PCNT
 
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
-PB1 - Push Button PB0
-PB2 - LED0
+PB01 - Push Button PB0
+PB02 - LED0
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01 - Push Button PB0
+PB02 - LED0
