@@ -11,7 +11,7 @@ wakes from EM3 to EM0 to handle the interrupt. An interrupt handler checks if th
 was for a rising or falling edge of the ACMP output, and sets or clears a GPIO output pin 
 accordingly before returning to EM3.
 
-How To Test:
+How To Test (EFR32xG21):
 1.  Open Simplicity Studio and update the kit's firmware from the Simplicity Launcher (if necessary)
 2.  Build the project and download to the Starter Kit
 3.  In Project Explorer, right click on the main project directory
@@ -29,6 +29,21 @@ How To Test:
 13. Connect an external supply to ACMP pos input GPIO (with voltage <= IOVDD 3.3V)
 14. Repeat steps 7 thru 12, but instead of using PB1, vary the external supply voltage above
     and below 1.25V
+    
+How To Test (EFR32xG23 and EFR32xG24):   
+1.  Open Simplicity Studio and update the kit's firmware from the Simplicity Launcher (if necessary)
+2.  Build the project and download to the Starter Kit
+3.  Flash the firmware hex or binary to the target device
+4.  Apply a voltage source or waveform to the ACMP input pin and observe LED/GPIO
+    status indicator using an osciloscope
+    (LED ON/pin high when Vin > Vref, LED OFF/pin low when Vin < Vref)
+    
+    NOTE: Although push button 0 can be used to supply an input signal to the ACMP,
+          mechanical button bounce may cause extra rising and/or falling edges 
+          on the ACMP input, resulting in confusing or undefined behavior on the 
+          output indicator pin.  For best results, please use a clean input signal 
+          to the ACMP positive input. 
+ 
 
 Peripherals Used:
 ACMP         - Full input range from 0 to Vdd
@@ -48,3 +63,9 @@ Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) +
 Device: EFR32FG23A010F512GM48
 PB01 - ACMP positive input, push button PB0
 PB02 - LED1, Expansion Header Pin 13, WSTK Pin 10
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01 - ACMP positive input, push button PB0, WSTK Pin 17
+PB02 - LED0, WSTK Pin 19

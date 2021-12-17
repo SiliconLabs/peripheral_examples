@@ -1,13 +1,13 @@
 /***************************************************************************//**
- * @file main.c
+ * @file main_xg21.c
  * @brief This project demonstrates a simple analog comparison of push button 1
  * (PD03) to the 1.25V internal VREF; if the button is pushed, this pulls the
  * input voltage to GND, and the comparator output low. The comparator output is
- * routed to a GPIO. The MCU core is in sleep mode in EM3, but the analog
- * comparator remains running.
+ * routed to a GPIO EXP_HEADER14. The MCU core is in sleep mode in EM3, but the
+ * analog comparator remains running.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -46,14 +46,6 @@
 #include "em_burtc.h"
 #include "bsp.h"
 
-#define LED0_PORT           gpioPortB
-#define LED0_PIN            2
-#define ACMP_OUTPUT_PORT    gpioPortB
-#define ACMP_OUTPUT_PIN     3
-#define ACMP_INPUT_PORT     gpioPortB
-#define ACMP_INPUT_PIN      1
-#define ACMP_INPUT_PORT_PIN acmpInputPB1
-
 /*******************************************************************************
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
@@ -66,12 +58,9 @@
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure GPIO Clock
-  CMU_ClockEnable(cmuClock_GPIO, true);
-
   // Configure push button and GPIO output
-  GPIO_PinModeSet(ACMP_INPUT_PORT, ACMP_INPUT_PIN, gpioModeInput, 1);
-  GPIO_PinModeSet(LED0_PORT, LED0_PIN, gpioModePushPull, 0);
+  GPIO_PinModeSet(gpioPortD, 3, gpioModeInput, 1);
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
@@ -79,32 +68,121 @@ void initGPIO(void)
  *****************************************************************************/
 void initACMP(void)
 {
-  // Configure ACMP0 Clock
-  CMU_ClockEnable(cmuClock_ACMP0, true);
-
   // Initialize with default settings
   ACMP_Init_TypeDef init = ACMP_INIT_DEFAULT;
   ACMP_Init(ACMP0, &init);
 
   // Allocate CDODD0 to ACMP0 to be able to use the input
-  GPIO->BBUSALLOC = GPIO_BBUSALLOC_BODD0_ACMP0;
+  GPIO->CDBUSALLOC = GPIO_CDBUSALLOC_CDODD0_ACMP0;
 
   // In this example we want to compare an analog input to the 1.25 V
   // internal reference. The default settings resets the divider for
   // acmpInputVREFDIV1V25, which we can use as a 1.25 V reference.
-  // Now we select the two inputs to compare. Here we compare the analog
-  // input to the internal 1.25V reference. When the input is lower than
-  // 1.25 V then the ACMP output is 0 and when the input is higher than
+  // Now we select the two inputs to compare. Here we compare the acmpInputPD3
+  // input to the internal 1.25V reference. When acmpInputPD3 is lower than
+  // 1.25 V then the ACMP output is 0 and when acmpInputPD3 is higher than
   // 1.25 V then the ACMP output is 1.
-  ACMP_ChannelSet(ACMP0, acmpInputVREFDIV1V25, ACMP_INPUT_PORT_PIN);
+  ACMP_ChannelSet(ACMP0, acmpInputVREFDIV1V25, acmpInputPD3);
 
   // To be able to probe the output we can send the ACMP output to a pin.
   // The second argument to this function is the pin location which is
   // device dependent.
-  ACMP_GPIOSetup(ACMP0, LED0_PORT, LED0_PIN, true, false);
+  ACMP_GPIOSetup(ACMP0, gpioPortA, 6, true, false);
 
   // Wait for warm-up
   while (!(ACMP0->IF & ACMP_IF_ACMPRDY));
+}
+
+/***************************************************************************//**
+ * @brief   Disable high frequency clocks
+ ******************************************************************************/
+static void disableHFClocks(void)
+{
+  // Make sure all high frequency peripherals are disabled
+  USART0->EN_CLR = 0x1;
+  USART1->EN_CLR = 0x1;
+  USART2->EN_CLR = 0x1;
+  TIMER0->EN_CLR = 0x1;
+  TIMER1->EN_CLR = 0x1;
+  TIMER2->EN_CLR = 0x1;
+  TIMER3->EN_CLR = 0x1;
+  ACMP1->EN_CLR = 0x1;
+  IADC0->EN_CLR = 0x1;
+  I2C0->EN_CLR = 0x1;
+  I2C1->EN_CLR = 0x1;
+  GPCRC->EN_CLR = 0x1;
+
+  CMU_ClockSelectSet(cmuClock_SYSCLK, cmuSelect_FSRCO);
+
+  // Check that HFRCODPLL and HFXO are not requested
+  while (((HFRCO0->STATUS & _HFRCO_STATUS_ENS_MASK) != 0U)
+         || ((HFXO0->STATUS & _HFXO_STATUS_ENS_MASK) != 0U));
+}
+
+/***************************************************************************//**
+ * @brief   Disable low frequency clocks
+ ******************************************************************************/
+static void disableLFClocks(void)
+{
+  // Make sure all low frequency peripherals are disabled
+  RTCC->EN_CLR = 0x1;
+  WDOG0->EN_CLR = 0x1;
+  WDOG1->EN_CLR = 0x1;
+  LETIMER0->EN_CLR = 0x1;
+  BURTC->EN_CLR = 0x1;
+
+  // Check that all low frequency oscillators are stopped
+  while ((LFRCO->STATUS != 0U) && (LFXO->STATUS != 0U));
+}
+
+/***************************************************************************//**
+ * @brief   Disable all clocks to achieve lowest current consumption numbers.
+ ******************************************************************************/
+static void disableClocks(void)
+{
+  // Disable High Frequency Clocks
+  disableHFClocks();
+
+  // Disable Low Frequency Clocks
+  disableLFClocks();
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Enter EM3 with BURTC running on ULFRCO.
+ *
+ * @param[in] powerdownRam
+ *   Power down all RAM except the first 16 kB block or retain full RAM.
+ *
+ * @details
+ *   Parameter:
+ *     EM3. Stop Mode.@n
+ *   Condition:
+ *     BURTC, Full RAM, 1kHz ULFRCO.@n
+ *
+ * @note
+ *   To better understand disabling clocks and oscillators for specific modes,
+ *   see Reference Manual section EMU-Energy Management Unit and Table 9.2.
+ ******************************************************************************/
+void em_EM3_UlfrcoBURTC(bool powerdownRam)
+{
+  // Make sure clocks are disabled
+  disableClocks();
+
+  // Select ULFRCO as the BURTC clock source
+  CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_ULFRCO);
+
+  // Setup BURTC
+  BURTC_Init_TypeDef burtcInit = BURTC_INIT_DEFAULT;
+  BURTC_Init(&burtcInit);
+
+  // Power down all RAM blocks except block 1
+  if (powerdownRam) {
+    EMU_RamPowerDown(SRAM_BASE, 0);
+  }
+
+  // Enter EM3
+  EMU_EnterEM3(false);
 }
 
 /**************************************************************************//**
@@ -133,6 +211,8 @@ int main(void)
   // Infinite loop
   while(1)
   {
-    EMU_EnterEM3(false);
+    // Enter EM3 with BURTC running from ULFRCO clock - current consumption 
+	// mode defined in DS
+    em_EM3_UlfrcoBURTC(true);
   }
 }

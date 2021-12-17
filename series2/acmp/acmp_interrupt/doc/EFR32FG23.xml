@@ -33,10 +33,14 @@
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
+	  <source>##em-path-emlib##\src\em_usart.c</source>
     </group>
+    <group name="drivers">
+      <source>##em-path-drivers##\mx25flash_spi.c</source>
+    </group>	
     <group name="Source">
       <source>$PROJ_DIR$\..\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main_xg23.c</source>
+      <source>$PROJ_DIR$\..\src\main.c</source>
       <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script.ld</source>
     </group>
     <cflags>

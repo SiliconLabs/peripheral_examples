@@ -14,12 +14,13 @@
     <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
-    <exclude pattern=".*" />
+    <include pattern="Drivers/mx25flash_spi.c" />
   </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
@@ -27,7 +28,7 @@
   </module>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
-    <file name="main_xg23.c" uri="src/main_xg23.c" />
+    <file name="main.c" uri="src/main.c" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>

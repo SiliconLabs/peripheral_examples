@@ -1992,6 +1992,15 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
+    </file>
+  </group>
+  <group>
+    <name>drivers</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\mx25flash_spi.c</name>
+    </file>
   </group>
   <group>
     <name>Source</name>
@@ -1999,7 +2008,7 @@
       <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xg23.c</name>
+      <name>$PROJ_DIR$\..\src\main.c</name>
     </file>
   </group>
 

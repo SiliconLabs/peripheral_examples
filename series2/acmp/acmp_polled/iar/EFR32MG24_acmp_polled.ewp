@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG21_acmp_interrupt\Debug\Exe</state>
+          <state>EFR32MG24_acmp_polled\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG21_acmp_interrupt\Debug\Obj</state>
+          <state>EFR32MG24_acmp_polled\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG21_acmp_interrupt\Debug\List</state>
+          <state>EFR32MG24_acmp_polled\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48	SiliconLaboratories EFR32MG24A010F1536GM48</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -149,7 +149,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48	SiliconLaboratories EFR32MG24A010F1536GM48</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -182,7 +182,7 @@
         <option>
           <name>CCDefines</name>
           <state>STR(x)=#x</state>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48</state>
           
         </option>
         <option>
@@ -313,9 +313,9 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG24\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG24_BRD4186A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -484,7 +484,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48</state>
           
         </option>
         <option>
@@ -582,9 +582,9 @@
         <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG24\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG24_BRD4186A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -621,7 +621,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG21_acmp_interrupt.bin</state>
+          <state>EFR32MG24_acmp_polled.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -676,7 +676,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG21_acmp_interrupt.out</state>
+          <state>EFR32MG24_acmp_polled.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -995,15 +995,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG21_acmp_interrupt\Release\Exe</state>
+          <state>EFR32MG24_acmp_polled\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG21_acmp_interrupt\Release\Obj</state>
+          <state>EFR32MG24_acmp_polled\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG21_acmp_interrupt\Release\List</state>
+          <state>EFR32MG24_acmp_polled\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1067,7 +1067,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48	SiliconLaboratories EFR32MG24A010F1536GM48</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1127,7 +1127,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG21A010F1024IM32	SiliconLaboratories EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48	SiliconLaboratories EFR32MG24A010F1536GM48</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -1161,7 +1161,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>STR(x)=#x</state>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48</state>
           
         </option>
         <option>
@@ -1292,9 +1292,9 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG24\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG24_BRD4186A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -1464,7 +1464,7 @@
         <option>
           <name>ADefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG21A010F1024IM32</state>
+          <state>EFR32MG24A010F1536GM48</state>
           
         </option>
         <option>
@@ -1562,9 +1562,9 @@
         <option>
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG24\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG24_BRD4186A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
@@ -1601,7 +1601,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG21_acmp_interrupt.bin</state>
+          <state>EFR32MG24_acmp_polled.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1656,7 +1656,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG21_acmp_interrupt.out</state>
+          <state>EFR32MG24_acmp_polled.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1963,10 +1963,10 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Source\IAR\startup_efr32mg21.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG24\Source\IAR\startup_efr32mg24.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Source\system_efr32mg21.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG24\Source\system_efr32mg24.c</name>
     </file>
   </group>
   <group>
@@ -1975,19 +1975,13 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_acmp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_burtc.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
@@ -1999,7 +1993,7 @@
       <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xg21.c</name>
+      <name>$PROJ_DIR$\..\src\main.c</name>
     </file>
   </group>
 

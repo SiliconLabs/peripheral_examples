@@ -15,10 +15,16 @@ How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Starter Kit
 3. Toggle push button PB0 on WSTK
-4. Observe LED1; observe ACMP output GPIO using an oscilloscope
+4. Observe LED; observe ACMP output GPIO using an oscilloscope
 5. Connect an external supply to ACMP pos input GPIO (with voltage <= IOVDD 3.3V)
 6. Vary the external supply voltage above and below 1.25V
-7. Observe LED1; observe ACMP output GPIO using an oscilloscope
+7. Observe LED; observe ACMP output GPIO using an oscilloscope
+
+    NOTE: Although push button 0 can be used to supply an input signal to the ACMP,
+          mechanical button bounce may cause extra rising and/or falling edges 
+          on the ACMP input, resulting in confusing or undefined behavior on the 
+          output indicator pin.  For best results, please use a clean input signal 
+          to the ACMP positive input.  
 
 Peripherals Used:
 ACMP         - Full input range from 0 to Vdd
@@ -41,3 +47,9 @@ Device: EFR32FG23A010F512GM48
 PB01 - ACMP positive input, push button PB0
 PB03 - ACMP output, push button PB1
 PB02 - LED1, Expansion Header Pin 13, WSTK Pin 10
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PB01 - ACMP positive input, push button PB0, WSTK Pin 17
+PB02 - LED0, WSTK Pin 19
