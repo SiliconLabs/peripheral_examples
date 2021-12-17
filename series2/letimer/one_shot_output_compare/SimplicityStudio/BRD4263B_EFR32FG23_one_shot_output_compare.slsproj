@@ -26,7 +26,7 @@
   </module>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
-    <file name="main_xg23.c" uri="src/main_xg23.c" />
+    <file name="main_xg23_xg24.c" uri="src/main_xg23_xg24.c" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>

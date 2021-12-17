@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg23.c
+ * @file main_xg23_xg24.c
  * @brief This project demonstrates pulse width modulation using the LETIMER
  * module. Expansion Header Pin 5 is configured for PWM output.
  *******************************************************************************
@@ -49,7 +49,7 @@
 #define DUTY_CYCLE 30
 
 // LET0_O0 port/pin defs (Only ports A and B are available for LET0_O0 output)
-// PA0 = (Expansion Header 5 (4263B/C), Expansion Header 11 (4263A))
+// PA0 = (Expansion Header 5 (4263B/C, 4186A), Expansion Header 11 (4263A))
 #define LET0OUT0PORT	gpioPortA
 #define LET0OUT0PIN		0
 

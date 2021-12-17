@@ -1,8 +1,7 @@
 /***************************************************************************//**
- * @file main_xg23.c
- * @brief This project demonstrates generating a pulse train using the LETIMER
- * module. Expansion Header Pin 5 is configured for output compare and toggles
- * EH Pin 5 on each overflow event at a set frequency.
+ * @file main_xg23_xg24.c
+ * @brief This project demonstrates output compare in EM2 using the LETIMER.
+ * After 1 second an output pin is set high (see README)
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -46,8 +45,11 @@
 // Desired frequency in Hz
 #define OUT_FREQ 1000
 
+// Desired repeat count
+#define REPEAT_COUNT 10
+
 // LET0_O0 port/pin defs (Only ports A and B are available for LET0_O0 output)
-// PA0 = (Expansion Header 5 (4263B/C), Expansion Header 11 (4263A))
+// PA0 = (Expansion Header 5 (4263B/C, 4186A), Expansion Header 11 (4263A))
 #define LET0OUT0PORT	gpioPortA
 #define LET0OUT0PIN		0
 
@@ -84,7 +86,7 @@ void escapeHatch(void)
 void initGpio(void)
 {
   // Configure LET0_O0 output
-  GPIO_PinModeSet(LET0OUT0PORT, LET0OUT0PIN, gpioModePushPull, 1);
+  GPIO_PinModeSet(LET0OUT0PORT, LET0OUT0PIN, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
@@ -120,17 +122,20 @@ void initLetimer(void)
   // Calculate the top value (frequency) based on clock source
   uint32_t topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / OUT_FREQ;
 
-  // Reload top on underflow, pulse output, and run in free mode
+  // Reload top on underflow, set output, and run in one-shot mode
   letimerInit.comp0Top = true;
   letimerInit.topValue = topValue;
-  letimerInit.ufoa0 = letimerUFOAPulse;
-  letimerInit.repMode = letimerRepeatFree;
+  letimerInit.ufoa0 = letimerUFOAToggle;
+  letimerInit.repMode = letimerRepeatOneshot;
 
-  // Enable LETIMER0 output0 on PA6
+  // Enable LETIMER0 output0 on PA0
   GPIO->LETIMERROUTE.ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
   GPIO->LETIMERROUTE.OUT0ROUTE = \
       (LET0OUT0PORT << _GPIO_LETIMER_OUT0ROUTE_PORT_SHIFT) \
       | (LET0OUT0PIN << _GPIO_LETIMER_OUT0ROUTE_PIN_SHIFT);
+
+  // repeat 10
+  LETIMER_RepeatSet(LETIMER0, 0, REPEAT_COUNT);
 
   // Initialize and enable LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);
@@ -143,7 +148,7 @@ int main(void)
 {
   // Chip errata
   CHIP_Init();
-
+  
   // Recommended recovery procedure for code in development
   escapeHatch();
 
@@ -156,14 +161,14 @@ int main(void)
      programming.  When the EM2DBGEN bit is set, the device will exhibit
      slightly higher EM2 current consumption than when EM2DBGEN is not set. */
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
-
+  
   // Initializations
   initCmu();
   initClock();
   initGpio();
   initLetimer();
 
-  // Enter low energy state, pulse train will continue
+  // Enter low energy state
   while (1)
   {
     EMU_EnterEM2(true);

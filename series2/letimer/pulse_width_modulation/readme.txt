@@ -42,3 +42,8 @@ Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PA0 - LET0_O0 (Expansion Header Pin 5)
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24A010F1536GM48
+PA0 - LET0_O0 (Expansion Header Pin 5)
