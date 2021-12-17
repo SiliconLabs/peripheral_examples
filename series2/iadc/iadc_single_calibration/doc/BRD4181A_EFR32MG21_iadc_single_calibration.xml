@@ -35,7 +35,7 @@
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_single_calibration.c</source>
+      <source>$PROJ_DIR$\..\src\main_single_calibration_xg21_xg22.c</source>
 	  <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
     <cflags>

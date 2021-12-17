@@ -4,7 +4,7 @@
  * single set of differential inputs
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,7 +34,6 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -46,7 +45,7 @@
  ******************************************************************************/
 
 // Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
+#define CLK_SRC_ADC_FREQ          20000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
 
 /*
@@ -90,13 +89,14 @@ void initIADC (void)
   IADC_SingleInput_t initSingleInput = IADC_SINGLEINPUT_DEFAULT;
 
   // Enable IADC0 and GPIO clock branches
-  CMU_ClockEnable(cmuClock_IADC0, true);
-  CMU_ClockEnable(cmuClock_GPIO, true);
+
   /* Note: For EFR32xG21 radio devices, library function calls to 
    * CMU_ClockEnable() have no effect as oscillators are automatically turned
    * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
    * function for EFR32xG21 for library consistency/compatibility.
    */
+  CMU_ClockEnable(cmuClock_IADC0, true);
+  CMU_ClockEnable(cmuClock_GPIO, true);
    
   // Reset IADC to reset configuration in case it has been modified by
   // other code
@@ -112,7 +112,7 @@ void initIADC (void)
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Use unbuffered AVDD (supply voltage in mV) as reference
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
 

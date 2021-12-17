@@ -5,34 +5,42 @@ analog measurement. The main program polls continuously for conversions,
 then stores the IADC raw result and a voltage conversion of the result into two 
 global variables.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
-effect as oscillators are automatically turned on/off based on demand from the peripherals;
-CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
+Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
+have no effect as oscillators are automatically turned on/off based on demand 
+from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
+library consistency/compatibility.
+
+================================================================================
 
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Starter Kit
 3. Open the Simplicity Debugger and add "singleResult" to the Expressions Window
-4. Set a breakpoint at the first function within the infinite while loop (IADC_command)
+4. Set a breakpoint at the first function within the infinite while loop 
+   (IADC_command)
 5. Run the example project
-6. At the breakpoint, observe the measured voltage in the Expressions Window
-and how it responds to different voltage values on the corresponding pins (see below).
+6. At the breakpoint, observe the measured voltage in the Expressions Window and
+   how it responds to different voltage values on the corresponding pins (see 
+   below).
 
-The first time the program halts at the breakpoint, the values in the Expression Window
-will be zero (default values). Each subsequent break will show the previous conversion
-loop results within the Expressions Window.
+The first time the program halts at the breakpoint, the values in the Expression
+Window will be zero (default values). Each subsequent break will show the 
+previous conversion loop results within the Expressions Window.
 
-Note: If you want to view the raw result from the IADC instead of the converted voltage,
-you can watch "sample" in addition to the "singleResult" in the Expressions window.
+Note: If you want to view the raw result from the IADC instead of the converted 
+voltage, you can watch "sample" in addition to the "singleResult" in the 
+Expressions window.
+
+================================================================================
 
 Peripherals Used:
-CLK_CMU_ADC  - 20 MHz FSRCO clock for Series 2
-CLK_SRC_ADC  - 10 MHz for Series 2
-CLK_ADC      - 10 MHz for Series 2
-IADC         - 12-bit resolution, Automatic Two's Complement (differential = bipolar) 
-               unbuffered 3.3V (AVDD) IADC voltage reference
-               IADC and reference kept in warmup mode
-			 - Conversions triggered by firmware
+CMU     - FSRCO @ 20 MHz
+GPIO
+IADC    - 12-bit resolution, 
+        - Automatic Two's Complement (differential = bipolar) 
+        - Unbuffered 3.3V (AVDD) IADC voltage reference
+        - IADC and reference kept in warmup mode
+        - Conversions triggered by firmware
                
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

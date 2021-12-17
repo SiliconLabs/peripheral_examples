@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main_scan_gpio_prs_ldma.c
+ * @file main_scan_letimer_prs_ldma.c
  *
  * @brief Use the IADC to take repeated, non-blocking measurements on
- * two external inputs.  A general-purpose input triggers conversions
- * via the PRS, and the LDMA transfers the results to RAM, all while
- * remaining in EM2.
+ * two external inputs.  The LETIMER triggers conversions via the PRS,
+ * and the LDMA transfers the results to RAM, all while remaining in
+ * EM2.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -46,6 +46,7 @@
 #include "em_gpio.h"
 #include "em_prs.h"
 #include "em_ldma.h"
+#include "em_letimer.h"
 
 #include "bspconfig.h"
 
@@ -53,7 +54,7 @@
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
-// Set CLK_ADC to 10 MHz
+// Set CLK_ADC to 10MHz
 #define CLK_SRC_ADC_FREQ    20000000  // CLK_SRC_ADC
 #define CLK_ADC_FREQ        10000000  // CLK_ADC - 10 MHz max in normal mode
 
@@ -71,25 +72,32 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortBPin2;
-#define IADC_INPUT_1_PORT_PIN     iadcPosInputPortBPin3;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin0;
+#define IADC_INPUT_1_PORT_PIN     iadcPosInputPortAPin5;
 
-#define IADC_INPUT_0_BUS          BBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_BBUSALLOC_BEVEN0_ADC0
-#define IADC_INPUT_1_BUS          BBUSALLOC
-#define IADC_INPUT_1_BUSALLOC     GPIO_BBUSALLOC_BODD0_ADC0
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AEVEN0_ADC0
+#define IADC_INPUT_1_BUS          ABUSALLOC
+#define IADC_INPUT_1_BUSALLOC     GPIO_ABUSALLOC_AODD0_ADC0
+
+// Desired LETIMER frequency in Hz
+#define LETIMER_FREQ              1
+
+// LETIMER GPIO toggle port/pin (toggled in EM2; requires port A/B GPIO)
+#define LETIMER_OUTPUT_0_PORT     gpioPortA
+#define LETIMER_OUTPUT_0_PIN      6
 
 // Use specified LDMA/PRS channel
 #define IADC_LDMA_CH              0
 #define PRS_CHANNEL               0
 
-// How many samples to capture
+// How many samples to take
 #define NUM_SAMPLES               10
 
 /*
- * This example enters EM2 in the main while() loop. Setting this
- * #define to 1 enables debug connectivity in EM2, which increases
- * current consumption by about 0.5 uA.
+ * This example enters EM2 in the main while() loop; Setting this #define
+ * to 1 enables debug connectivity in EM2, which increases current
+ * consumption by about 0.5 uA.
  */
 #define EM2DEBUG                  1
 
@@ -106,37 +114,34 @@ uint32_t scanBuffer[NUM_SAMPLES];
 /**************************************************************************//**
  * @brief  GPIO initialization
  *****************************************************************************/
-void initGPIO(void)
+void initGPIO (void)
 {
-  // Enable GPIO clock branch
+  /*
+   * Note: On EFR32xG21 devices, CMU_ClockEnable() calls have no effect
+   * as clocks are enabled/disabled on-demand in response to peripheral
+   * requests.  Deleting such lines is safe on xG21 devices and will
+   * provide a small reduction in code size.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Show sample completion state on LED1
-  GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, 0);
+  // Show sample completion state on LED0
+  GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 
-  // Configure push button 0 as input
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
-
-  // Enable PB0 pin routing for external interrupt, but NOT the interrupts
-  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT,
-                    BSP_GPIO_PB0_PIN,
-                    BSP_GPIO_PB0_PIN,
-                    false,
-                    false,
-                    false);
+  // Show LETIMER activity
+  GPIO_PinModeSet(LETIMER_OUTPUT_0_PORT, LETIMER_OUTPUT_0_PIN, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
  * @brief  PRS initialization
  *****************************************************************************/
-void initPRS(void)
+void initPRS (void)
 {
   CMU_ClockEnable(cmuClock_PRS, true);
 
-  // Connect the specified PRS channel to the GPIO producer
+  // Connect the specified PRS channel to the LETIMER producer
   PRS_SourceAsyncSignalSet(PRS_CHANNEL,
-                           PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
-                           BSP_GPIO_PB0_PIN);
+                           PRS_ASYNC_CH_CTRL_SOURCESEL_LETIMER0,
+                           PRS_LETIMER0_CH0);
 
   // Connect the specified PRS channel to the IADC as the consumer
   PRS_ConnectConsumer(PRS_CHANNEL,
@@ -147,7 +152,7 @@ void initPRS(void)
 /**************************************************************************//**
  * @brief  IADC initialization
  *****************************************************************************/
-void initIADC(void)
+void initIADC (void)
 {
   // Declare initialization structures
   IADC_Init_t init = IADC_INIT_DEFAULT;
@@ -182,14 +187,13 @@ void initIADC(void)
   initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
 
   /*
-   * CLK_SRC_ADC must be prescaled by some value greater than 1 to
-   * derive the intended CLK_ADC frequency.
+   * CLK_SRC_ADC is prescaled to derive the intended CLK_ADC frequency.
    *
    * Based on the default 2x oversampling rate (OSRHS)...
    *
    * conversion time = ((4 * OSRHS) + 2) / fCLK_ADC
    *
-   * ...which results in a maximum sampling rate of 833 ksps with the
+   * ...which, results in a maximum sampling rate of 833 ksps with the
    * 2-clock input multiplexer switching time is included.
    */
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
@@ -214,7 +218,7 @@ void initIADC(void)
    * trigger event.
    */
   initScan.triggerSelect = iadcTriggerSelPrs0PosEdge;
-  initScan.dataValidLevel = iadcFifoCfgDvl2;
+  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID2;
   initScan.fifoDmaWakeup = true;
   initScan.start = true;
 
@@ -239,6 +243,38 @@ void initIADC(void)
   // Allocate the analog bus for ADC0 inputs
   GPIO->IADC_INPUT_0_BUS |= IADC_INPUT_0_BUSALLOC;
   GPIO->IADC_INPUT_1_BUS |= IADC_INPUT_1_BUSALLOC;
+}
+
+/**************************************************************************//**
+ * @brief LETIMER initialization
+ *****************************************************************************/
+void initLETIMER(void)
+{
+  CMU_LFXOInit_TypeDef lfxoInit = CMU_LFXOINIT_DEFAULT;
+  LETIMER_Init_TypeDef letimerInit = LETIMER_INIT_DEFAULT;
+
+  // Initialize the LFXO and use it as the EM23GRPACLK source
+  CMU_LFXOInit(&lfxoInit);
+  CMU_ClockSelectSet(cmuClock_EM23GRPACLK, cmuSelect_LFXO);
+
+  CMU_ClockEnable(cmuClock_LETIMER0, true);
+
+  // Calculate the top value (frequency) based on clock source
+  uint32_t topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / LETIMER_FREQ;
+
+  // Reload top on underflow, pulse output, and run in free mode
+  letimerInit.comp0Top = true;
+  letimerInit.topValue = topValue;
+  letimerInit.ufoa0 = letimerUFOAPulse;
+  letimerInit.repMode = letimerRepeatFree;
+
+  // Enable LETIMER0 output0
+  GPIO->LETIMERROUTE[0].ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
+  GPIO->LETIMERROUTE[0].OUT0ROUTE = (LETIMER_OUTPUT_0_PORT << _GPIO_LETIMER_OUT0ROUTE_PORT_SHIFT) |
+                                    (LETIMER_OUTPUT_0_PIN << _GPIO_LETIMER_OUT0ROUTE_PIN_SHIFT);
+
+  // Initialize LETIMER
+  LETIMER_Init(LETIMER0, &letimerInit);
 }
 
 /**************************************************************************//**
@@ -272,23 +308,23 @@ void initLDMA(uint32_t *buffer, uint32_t size)
   LDMA_Init(&init);
 
   /*
-   * Start the LDMA channel.  The first transfer will not occur until
-   * the falling GPIO edge is detected that generates a pulse that is
-   * routed to the IADC scan trigger input via the PRS.
+   * Start the LDMA channel.  The first transfer will not occurs until
+   * the LETIMER counts down to 0 and generates a pulse that is
+   * routed to the IADC scan trigger input via the PRS. 
    */
   LDMA_StartTransfer(IADC_LDMA_CH, &transferCfg, &descriptor);
 }
 
 /**************************************************************************//**
- * @brief  LDMA IRQ Handler
+ * @brief  LDMA Handler
  *****************************************************************************/
 void LDMA_IRQHandler(void)
 {
   // Clear interrupt flags
-  LDMA_IntClear(1 << IADC_LDMA_CH);
+  LDMA_IntClear(LDMA_IF_DONE0);
 
-  // Toggle LED1 to notify that transfers are complete
-  GPIO_PinOutToggle(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN);
+  // Toggle LED0 to notify that transfers are complete
+  GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
 }
 
 /**************************************************************************//**
@@ -304,7 +340,11 @@ int main(void)
 
   initIADC();
 
+  // Initialize LDMA
   initLDMA(scanBuffer, NUM_SAMPLES);
+
+  // Initialize the LETIMER (starts conversions)
+  initLETIMER();
 
 #ifdef EM2DEBUG
 #if (EM2DEBUG == 1)

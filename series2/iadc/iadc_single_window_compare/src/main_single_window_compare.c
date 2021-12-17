@@ -1,11 +1,10 @@
 /***************************************************************************//**
- * @file main_single_window_compare.c
  * @brief Uses the IADC as a window comparator on a single pin. Input is taken
  * on PC05 and PB01 (WSTK LED0) toggles on each comparator trigger. The most
  * recent sample within the window comparison is also stored globally.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,8 +33,7 @@
  * as a demonstration for evaluation purposes only. This code will be maintained
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
- 
-#include <stdio.h>
+
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -48,7 +46,7 @@
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
-// Set CLK_ADC to 100kHz (this corresponds to a sample rate of 10ksps)
+// Set CLK_ADC to 100 kHz (this corresponds to a sample rate of 10 ksps)
 #define CLK_SRC_ADC_FREQ        9600000  // CLK_SRC_ADC
 #define CLK_ADC_FREQ            100000   // CLK_ADC
 
@@ -96,12 +94,13 @@ static volatile double singleResult;
 void initGPIO (void)
 {
   // Enable GPIO clock branch
-  CMU_ClockEnable(cmuClock_GPIO, true);
+
   /* Note: For EFR32xG21 radio devices, library function calls to 
    * CMU_ClockEnable() have no effect as oscillators are automatically turned
    * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
    * function for EFR32xG21 for library consistency/compatibility.
    */
+  CMU_ClockEnable(cmuClock_GPIO, true);
    
   // Configure LED0 as output; enable WSTK LED0
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
@@ -143,11 +142,11 @@ void initIADC (void)
   init.lessThanEqualThres = WINDOW_UPPER_BOUND;
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Use unbuffered AVDD (supply voltage in mV) as reference
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
 
-  // Divides CLK_SRC_ADC to set the CLK_ADC frequency for desired sample rate
+  // Divide CLK_SRC_ADC to set the CLK_ADC frequency for desired sample rate
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
                                                                     CLK_ADC_FREQ,
                                                                     0,
@@ -201,7 +200,7 @@ void initHFXO(void)
 }
 
 /**************************************************************************//**
- * @brief  ADC Handler
+ * @brief  IADC interrupt handler
  *****************************************************************************/
 void IADC_IRQHandler(void)
 {

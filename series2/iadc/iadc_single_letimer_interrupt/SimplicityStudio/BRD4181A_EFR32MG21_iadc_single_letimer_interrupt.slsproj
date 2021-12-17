@@ -26,7 +26,7 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <folder name="src">
-    <file name="main_single_letimer_interrupt.c" uri="src/main_single_letimer_interrupt.c" />
+    <file name="main_single_letimer_interrupt_xg21_xg22.c" uri="src/main_single_letimer_interrupt_xg21_xg22.c" />
     <file name="readme.txt" uri="readme.txt" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>

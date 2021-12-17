@@ -41,7 +41,7 @@
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_single_letimer_prs_ldma.c</source>
+      <source>$PROJ_DIR$\..\src\main_single_letimer_prs_ldma_xg21_xg22.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>	  
     </group>
     <cflags>

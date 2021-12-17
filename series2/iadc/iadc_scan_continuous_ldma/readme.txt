@@ -1,36 +1,55 @@
 iadc_scan_continuous_ldma
 
-This project demonstrates using the IADC peripheral in conjunction with the LDMA
-to continuously sample two single-ended input channels, all while remaining in 
-EM2. Sample results are stored in an internal array. Sample rate is 833 ksps, 
-and the ADC reads GPIO pins PB00 and PB01 as inputs. With each LDMA completed 
-transfer, a GPIO PC05 is toggled.
+This project demonstrates use of the IADC to continuously sample two
+single-ended input channels.  The CPU starts the scan while in EM0, and
+operation continues in EM2 with the LDMA saving the results to RAM and 
+waking the system with an interrupt request to toggle a GPIO pin.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
-effect as oscillators are automatically turned on/off based on demand from the peripherals;
-CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
+Careful pin selection for peripherals operating in EM2 is required
+because only port A and B pins remain functional; port C and D pins are
+static in EM2 and cannot be used as peripheral inputs or outputs.  For
+this reason, the IADC scan channel inputs in this example must be port
+A/B pins.  However, LDMA transfer complete toggle is performed in the 
+LDMA ISR, operating in EM0, and may utilize pins on any port.
+
+NOTE: To modify this example to take differential external
+measurements, the negative inputs for scan table entries 0 and 1 must
+change.  To take a differential measurement, the analog multiplexer
+selection must consist of one EVEN ABUS channel and one ODD ABUS
+channel.
+
+In this example, scan table entry 0 references port B pin 0, so an
+ODD port/pin must be selected for the IADC negative input.  Scan table
+entry 1 references port B pin 1, so the negative IADC input must be
+an EVEN port/pin.  As in single-ended mode, the IADC logic will swap the
+multiplexer connections to IADC input, if needed.  See reference manual
+for more details.
+
+================================================================================
 
 How To Test:
-1. Update the kit's firmware from the Simplicity Launcher (if necessary)
-2. Build the project and download to the Starter Kit
-3. Open the Simplicity Debugger and add "scanBuffer" to the Expressions Window
-4. Monitor GPIO output (see below) on the Wireless Starter Kit and watch output
-   toggle with each LDMA transfer completion.
-5. Suspend the debugger; observe the raw data array in the Expressions Window 
-corresponding to the two input pins (see below)
+1. Update the kit's firmware from the Simplicity Studio Launcher, if
+   necessary.
+2. Build the project and download to the Starter Kit.
+3. Open the Debugger and add "scanBuffer" to the Expressions window.
+4. Run the project.
+5. Monitor the PC05 GPIO output on the Wireless Starter Kit, which
+   toggles after each LDMA transfer sequence is completed.
+6. Set a breakpoint at the end of the LDMA_IRQHandler.
+7. At the breakpoint, observe the measured voltages in the Expressions
+   window and how they respond to different voltage values on the
+   corresponding pins.
+
+================================================================================
 
 Peripherals Used:
-CLK_CMU_ADC  - 20 MHz FSRCO clock for Series 2
-CLK_SRC_ADC  - 10 MHz for Series 2
-CLK_ADC      - 10 MHz for Series 2
-IADC         - 12-bit resolution, Automatic Two's Complement (single-ended = unipolar) 
-               unbuffered 3.3V (AVDD) IADC voltage reference
-               IADC and reference kept in warmup mode 
-			 - Conversions initiated by firmware and triggered continuously
-			   (when a conversion completes a new one is requested immediately without 
-			   requiring a new trigger)
-LDMA         - 32-bit transfer from IADC to buffer, loop continuously until NUM_SAMPLES
-               are captured triggering LDMA interrupt; LDMA data transfer continues.
+CMU     -  FSRCO @ 20 MHz
+EMU
+GPIO
+IADC    - 12-bit resolution (2x oversampling)
+        - unbuffered AVDD reference (3.3V)
+        - continuous scan triggering
+LDMA    - CH0
                			   
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

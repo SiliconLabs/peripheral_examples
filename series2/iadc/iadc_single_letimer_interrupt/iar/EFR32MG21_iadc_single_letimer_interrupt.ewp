@@ -1996,7 +1996,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_single_letimer_interrupt.c</name>
+      <name>$PROJ_DIR$\..\src\main_single_letimer_interrupt_xg21_xg22.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

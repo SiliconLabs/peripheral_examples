@@ -2002,7 +2002,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_single_letimer_prs_ldma.c</name>
+      <name>$PROJ_DIR$\..\src\main_single_letimer_prs_ldma_xg21_xg22.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

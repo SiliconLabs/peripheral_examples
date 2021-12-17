@@ -2008,7 +2008,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_single_low_current_xG23.c</name>
+      <name>$PROJ_DIR$\..\src\main_single_low_current.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

@@ -1,11 +1,12 @@
 /***************************************************************************//**
  * @file main_scan_letimer_interrupt.c
- * @brief Use the IADC to take repeated nonblocking scan measurements on two
- * single-ended external inputs and six internal supplies, requested
- * periodically by LETIMER interrupt
+ *
+ * @brief Use the IADC to take repeated, non-blocking measurements on
+ * two external inputs and six supply voltages, requested periodically
+ * by an LETIMER interrupt.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -35,24 +36,24 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_core.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_iadc.h"
 #include "em_gpio.h"
+#include "em_iadc.h"
 #include "em_letimer.h"
-#include "bsp.h"
+
+#include "bspconfig.h"
 
 /*******************************************************************************
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
-// Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
-#define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
+// Set CLK_ADC to 10 MHz
+#define CLK_SRC_ADC_FREQ        20000000  // CLK_SRC_ADC
+#define CLK_ADC_FREQ            10000000  // CLK_ADC - 10 MHz max in normal mode
 
 // Number of scan channels
 #define NUM_INPUTS 8
@@ -71,28 +72,22 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortBPin0;
-#define IADC_INPUT_1_PORT_PIN     iadcPosInputPortBPin1;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin0;
+#define IADC_INPUT_1_PORT_PIN     iadcPosInputPortAPin5;
 
-#define IADC_INPUT_0_BUS          BBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_BBUSALLOC_BEVEN0_ADC0
-#define IADC_INPUT_1_BUS          BBUSALLOC
-#define IADC_INPUT_1_BUSALLOC     GPIO_BBUSALLOC_BODD0_ADC0
-
-// IADC scan complete GPIO toggle port/pin
-#define IADC_OUTPUT_0_PORT        gpioPortD
-#define IADC_OUTPUT_0_PIN         2
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AEVEN0_ADC0
+#define IADC_INPUT_1_BUS          ABUSALLOC
+#define IADC_INPUT_1_BUSALLOC     GPIO_ABUSALLOC_AODD0_ADC0
 
 // Desired LETIMER frequency in Hz
 #define LETIMER_FREQ              1
 
-// LETIMER GPIO toggle port/pin (toggled in EM2; requires port A/B GPIO)
-#define LETIMER_OUTPUT_0_PORT     gpioPortA
-#define LETIMER_OUTPUT_0_PIN      5
-
-/* This example enters EM2 in the infinite while loop; Setting this define to 1
- * enables debug connectivity in the EMU_CTRL register, which will consume about
- * 0.5uA additional supply current */
+/*
+ * This example enters EM2 in the main while() loop. Setting this
+ * #define to 1 enables debug connectivity in EM2, which increases
+ * current consumption by about 0.5 uA.
+ */
 #define EM2DEBUG                  1
 
 /*******************************************************************************
@@ -102,199 +97,222 @@
 static volatile double scanResult[NUM_INPUTS];  // Volts
 
 /**************************************************************************//**
- * @brief  GPIO Initializer
+ * @brief  GPIO initialization
  *****************************************************************************/
-void initGPIO (void)
+void initGPIO(void)
 {
-  // Enable GPIO clock branch
-  CMU_ClockEnable(cmuClock_GPIO, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to 
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
+  /*
+   * GPIO register clock.
+   *
+   * Note: On EFR32xG21 devices, CMU_ClockEnable() calls have no effect
+   * as clocks are enabled/disabled on-demand in response to peripheral
+   * requests.  Deleting such lines is safe on xG21 devices and will
+   * reduce provide a small reduction in code size.
    */
-   
-  // Configure IADC/LETIMER as outputs
-  GPIO_PinModeSet(IADC_OUTPUT_0_PORT, IADC_OUTPUT_0_PIN, gpioModePushPull, 0);
-  GPIO_PinModeSet(LETIMER_OUTPUT_0_PORT, LETIMER_OUTPUT_0_PIN, gpioModePushPull, 0);
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
+  // Show sample completion state on LED0
+  GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
- * @brief  IADC Initializer
+ * @brief  IADC initialization
  *****************************************************************************/
-void initIADC (void)
+void initIADC(void)
 {
-  // Declare init structs
+  // Declare initialization structures
   IADC_Init_t init = IADC_INIT_DEFAULT;
   IADC_AllConfigs_t initAllConfigs = IADC_ALLCONFIGS_DEFAULT;
   IADC_InitScan_t initScan = IADC_INITSCAN_DEFAULT;
-  IADC_ScanTable_t initScanTable = IADC_SCANTABLE_DEFAULT;    // Scan Table
 
-  // Enable IADC0 clock branch
+  // Scan table structure
+  IADC_ScanTable_t scanTable = IADC_SCANTABLE_DEFAULT;
+
   CMU_ClockEnable(cmuClock_IADC0, true);
 
-  // Reset IADC to reset configuration in case it has been modified by
-  // other code
-  IADC_reset(IADC0);
+  // Use the FSRC0 as the IADC clock so it can run in EM2
+  CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_FSRCO);
 
-  // Select clock for IADC
-  CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_FSRCO);  // FSRCO - 20MHz
-
-  // Modify init structs and initialize
-  init.warmup = iadcWarmupNormal;
-
-  // Set the HFSCLK prescale value here
+  // Set the prescaler needed for the intended IADC clock frequency
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Shutdown between conversions to reduce current
+  init.warmup = iadcWarmupNormal;
+
+  /*
+   * Configuration 0 is used by both scan and single conversions by
+   * default.  Use unbuffered AVDD as reference and specify the
+   * AVDD supply voltage in mV.
+   *
+   * Resolution is not configurable directly but is based on the
+   * selected oversampling ratio (osrHighSpeed), which defaults to
+   * 2x and generates 12-bit results.
+   */
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
+  initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
 
-  // Divides CLK_SRC_ADC to set the CLK_ADC frequency
+  /*
+   * CLK_SRC_ADC is prescaled to derive the intended CLK_ADC frequency.
+   *
+   * Based on the default 2x oversampling rate (OSRHS)...
+   *
+   * conversion time = ((4 * OSRHS) + 2) / fCLK_ADC
+   *
+   * ...which, results in a maximum sampling rate of 833 ksps with the
+   * 2-clock input multiplexer switching time is included.
+   */
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
-                                             CLK_ADC_FREQ,
-                                             0,
-                                             iadcCfgModeNormal,
-                                             init.srcClkPrescale);
+                                                                     CLK_ADC_FREQ,
+                                                                     0,
+                                                                     iadcCfgModeNormal,
+                                                                     init.srcClkPrescale);
 
-  // Scan initialization
-  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID4;     // Set the SCANFIFODVL flag when 4 entries in the scan FIFO are valid;
-                                                              // Not used as an interrupt or to wake up LDMA; flag is ignored
-
-  // Tag FIFO entry with scan table entry id.
+  /*
+   * Set the SCANFIFODVL flag when there are 4 entries in the scan
+   * FIFO.
+   *
+   * Tag FIFO entries with scan table entry IDs.
+   *
+   * Allow a scan conversion sequence to start as soon as there is a
+   * trigger event.
+   */
+  initScan.dataValidLevel = iadcFifoCfgDvl4;
   initScan.showId = true;
+  initScan.start = true;
 
-  // Configure entries in scan table, CH0 is single-ended from input 0, CH1 is
-  // single-ended from input 1
-  initScanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
-  initScanTable.entries[0].negInput = iadcNegInputGnd;
-  initScanTable.entries[0].includeInScan = true;
+  /*
+   * Configure entries in scan table.  CH0 is single-ended from
+   * input 0; CH1 is single-ended from input 1.
+   */
+  scanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
+  scanTable.entries[0].negInput = iadcNegInputGnd;
+  scanTable.entries[0].includeInScan = true;
 
-  initScanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
-  initScanTable.entries[1].negInput = iadcNegInputGnd;
-  initScanTable.entries[1].includeInScan = true;
+  scanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
+  scanTable.entries[1].negInput = iadcNegInputGnd;
+  scanTable.entries[1].includeInScan = true;
 
-  initScanTable.entries[2].posInput = iadcPosInputAvdd;      // Add AVDD to scan for demonstration purposes
-  initScanTable.entries[2].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
-  initScanTable.entries[2].includeInScan = true;
+  scanTable.entries[2].posInput = iadcPosInputAvdd;      // Add AVDD to scan for demonstration purposes
+  scanTable.entries[2].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+  scanTable.entries[2].includeInScan = true;
 
-  initScanTable.entries[3].posInput = iadcPosInputVddio;     // Add VDDIO to scan for demonstration purposes
-  initScanTable.entries[3].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
-  initScanTable.entries[3].includeInScan = true;
+  scanTable.entries[3].posInput = iadcPosInputVddio;     // Add VDDIO to scan for demonstration purposes
+  scanTable.entries[3].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+  scanTable.entries[3].includeInScan = true;
 
-  initScanTable.entries[4].posInput = iadcPosInputVss;       // Add VSS to scan for demonstration purposes
-  initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
-  initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
+  scanTable.entries[4].posInput = iadcPosInputVss;       // Add VSS to scan for demonstration purposes
+  scanTable.entries[4].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+  scanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
 
-  initScanTable.entries[5].posInput = iadcPosInputVssaux;    // Add Vssaux to scan for demonstration purposes
-  initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
-  initScanTable.entries[5].includeInScan = false;
+  scanTable.entries[5].posInput = iadcPosInputVssaux;    // Add VSSAUX (same as VSS) to scan for demonstration purposes
+  scanTable.entries[5].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+  scanTable.entries[5].includeInScan = false;
 
-  initScanTable.entries[6].posInput = iadcPosInputDvdd;      // Add DVDD to scan for demonstration purposes
-  initScanTable.entries[6].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
-  initScanTable.entries[6].includeInScan = false;
+  scanTable.entries[6].posInput = iadcPosInputDvdd;      // Add DVDD to scan for demonstration purposes
+  scanTable.entries[6].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+  scanTable.entries[6].includeInScan = false;
 
-  initScanTable.entries[7].posInput = iadcPosInputDecouple;  // Add Decouple to scan for demonstration purposes
-  initScanTable.entries[7].negInput = iadcNegInputGnd | 1;   // when measuring a supply, PINNEG needs to be odd (1, 3, 5,...)
-  initScanTable.entries[7].includeInScan = false;
+  scanTable.entries[7].posInput = iadcPosInputDecouple;  // Add DECOUPLE to scan for demonstration purposes
+  scanTable.entries[7].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+  scanTable.entries[7].includeInScan = false;
 
   // Initialize IADC
   IADC_init(IADC0, &init, &initAllConfigs);
 
-  // Initialize Scan
-  IADC_initScan(IADC0, &initScan, &initScanTable);
+  // Initialize scan
+  IADC_initScan(IADC0, &initScan, &scanTable);
 
-  // Allocate the analog bus for ADC0 inputs
+  // Allocate the analog bus for IADC0 inputs
   GPIO->IADC_INPUT_0_BUS |= IADC_INPUT_0_BUSALLOC;
   GPIO->IADC_INPUT_1_BUS |= IADC_INPUT_1_BUSALLOC;
 
   // Clear any previous interrupt flags
   IADC_clearInt(IADC0, _IADC_IF_MASK);
 
-  // Enable Scan interrupts
+  // Enable scan interrupts
   IADC_enableInt(IADC0, IADC_IEN_SCANTABLEDONE);
 
-  // Enable ADC interrupts
+  // Enable IADC interrupts
   NVIC_ClearPendingIRQ(IADC_IRQn);
   NVIC_EnableIRQ(IADC_IRQn);
 }
 
 /**************************************************************************//**
- * @brief  ADC Handler
+ * @brief  IADC interrupt handler
  *****************************************************************************/
 void IADC_IRQHandler(void)
 {
   IADC_Result_t result = {0, 0};
 
-  // Toggle GPIO
-  GPIO_PinOutToggle(IADC_OUTPUT_0_PORT, IADC_OUTPUT_0_PIN);
+  // Toggle LED0 to notify that transfers are complete
+  GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
 
-  // Get ADC results
-  while(IADC_getScanFifoCnt(IADC0))
+  // While the FIFO count is non-zero...
+  while (IADC_getScanFifoCnt(IADC0))
   {
-    // Read data from the scan FIFO
+    // Pull a scan result from the FIFO
     result = IADC_pullScanFifoResult(IADC0);
 
-    // Calculate input voltage:
-    //  For single-ended the result range is 0 to +Vref, i.e.,
-    //  for Vref = AVDD = 3.30V, 12 bits represents 3.30V full scale IADC range.
+    /*
+     * Calculate the voltage converted as follows:
+     *
+     * For single-ended conversions, the result can range from 0 to
+     * +Vref, i.e., for Vref = AVDD = 3.30 V, 0xFFF represents the
+     * full scale value of 3.30 V.
+     */
     scanResult[result.id] = result.data * 3.3 / 0xFFF;
 
-    if((result.id > 1) && (result.id < 7))      // supply voltages other than vddlv are connected through a 1/4 voltage divider
-    {
-        scanResult[result.id] *= 4;             // rectify voltage divider to get actual voltage
+    /*
+     * Scan results 2 - 6 are for external supply voltages, which are
+     * presented to the IADC divided by 4 for conversion.  Back this
+     * out to get the correct result in volts.  Note that DECOUPLE,
+     * scan table entry 7 in this example, is an internal supply (the
+     * output of the core supply regulator) and is connected directly
+     * to the IADC without a divide-by-4 stage.
+     */
+    if ((result.id > 1) && (result.id < 7)) {
+      scanResult[result.id] *= 4;
     }
   }
 
-  if(result.id == 3) // first set of table entries
-  {
-      IADC_setScanMask(IADC0, 0x00F0);  // configure scan mask to measure second set of table entries
-  } else
-  {
-      IADC_setScanMask(IADC0, 0x000F);  // configure scan mask to measure first set of table entries
+  // Alternate between the first and second set of scan table entries.
+  if (result.id == 3) {
+    IADC_setScanMask(IADC0, 0x00F0);
+  }
+  else {
+    IADC_setScanMask(IADC0, 0x000F);
   }
 
-  // Clear scan interrupt flag
-  IADC_clearInt(IADC0, IADC_IF_SCANTABLEDONE); // flags are sticky; must be cleared in software
-}
-
-/**************************************************************************//**
- * @brief Clock initialization
- *****************************************************************************/
-void initClock(void)
-{
-  CMU_LFXOInit_TypeDef lfxoInit = CMU_LFXOINIT_DEFAULT;
-
-  // Select LFXO for the LETIMER
-  CMU_LFXOInit(&lfxoInit);
-  CMU_ClockSelectSet(cmuClock_EM23GRPACLK, cmuSelect_LFXO);
+  /*
+   * Clear the scan table complete interrupt.  Reading FIFO results
+   * does not do this automatically.
+   */
+  IADC_clearInt(IADC0, IADC_IF_SCANTABLEDONE);
 }
 
 /**************************************************************************//**
  * @brief LETIMER initialization
  *****************************************************************************/
-void initLetimer(void)
+void initLETIMER(void)
 {
+  CMU_LFXOInit_TypeDef lfxoInit = CMU_LFXOINIT_DEFAULT;
   LETIMER_Init_TypeDef letimerInit = LETIMER_INIT_DEFAULT;
 
-  // Enable LETIMER0 clock tree
+  // Initialize the LFXO and use it as the EM23GRPACLK source
+  CMU_LFXOInit(&lfxoInit);
+  CMU_ClockSelectSet(cmuClock_EM23GRPACLK, cmuSelect_LFXO);
+
   CMU_ClockEnable(cmuClock_LETIMER0, true);
 
   // Calculate the top value (frequency) based on clock source
   uint32_t topValue = CMU_ClockFreqGet(cmuClock_LETIMER0) / LETIMER_FREQ;
 
-  // Reload top on underflow, toggle output, and run in free mode
+  // Reload top on underflow, pulse output, and run in free mode
   letimerInit.comp0Top = true;
   letimerInit.topValue = topValue;
-  letimerInit.ufoa0 = letimerUFOAToggle;
+  letimerInit.ufoa0 = letimerUFOAPulse;
   letimerInit.repMode = letimerRepeatFree;
-
-  // Enable LETIMER0 output0
-  GPIO->LETIMERROUTE[0].ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
-  GPIO->LETIMERROUTE[0].OUT0ROUTE = \
-      (LETIMER_OUTPUT_0_PORT << _GPIO_LETIMER_OUT0ROUTE_PORT_SHIFT) \
-      | (LETIMER_OUTPUT_0_PIN << _GPIO_LETIMER_OUT0ROUTE_PIN_SHIFT);
 
   // Initialize LETIMER
   LETIMER_Init(LETIMER0, &letimerInit);
@@ -311,7 +329,7 @@ void initLetimer(void)
 }
 
 /**************************************************************************//**
- * @brief  LETIMER Handler
+ * @brief  LETIMER IRQ Handler
  *****************************************************************************/
 void LETIMER0_IRQHandler(void)
 {
@@ -331,21 +349,17 @@ int main(void)
 {
   CHIP_Init();
 
-  // Initialize GPIO
   initGPIO();
 
-  // Initialize the IADC
   initIADC();
 
-  // Initialize LFXO
-  initClock();
-
-  // Initialize the LETIMER
-  initLetimer();
+  initLETIMER();
 
 #ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
   // Enable debug connectivity in EM2
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 #endif
 
   while (1)

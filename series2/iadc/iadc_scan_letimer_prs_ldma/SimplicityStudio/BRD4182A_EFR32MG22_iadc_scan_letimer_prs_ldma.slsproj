@@ -28,7 +28,7 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <folder name="src">
-    <file name="main_scan_letimer_prs_ldma.c" uri="src/main_scan_letimer_prs_ldma.c" />
+    <file name="main_scan_letimer_prs_ldma_xg21_xg22.c" uri="src/main_scan_letimer_prs_ldma_xg21_xg22.c" />
     <file name="readme.txt" uri="readme.txt" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>

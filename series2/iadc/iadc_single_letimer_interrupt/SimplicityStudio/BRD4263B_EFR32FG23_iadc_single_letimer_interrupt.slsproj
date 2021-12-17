@@ -26,7 +26,7 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <folder name="src">
-    <file name="main_single_letimer_interrupt_xg23.c" uri="src/main_single_letimer_interrupt_xg23.c" />
+    <file name="main_single_letimer_interrupt.c" uri="src/main_single_letimer_interrupt.c" />
     <file name="readme.txt" uri="readme.txt" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>

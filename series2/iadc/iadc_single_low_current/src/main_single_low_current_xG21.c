@@ -86,13 +86,20 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin5;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin5;
 
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AODD0_ADC0
 
 // Push-buttons are active-low
 #define PB_PRESSED (0)
+
+/*
+ * This example enters EM2 in the infinite while loop; Setting this define to 1
+ * enables debug connectivity in the EMU_CTRL register, which will consume about
+ * 0.5uA additional supply current; defaults off for Energy Profiler
+ */
+#define EM2DEBUG                  0
 
 /*******************************************************************************
  ***************************   GLOBAL VARIABLES   *******************************
@@ -275,6 +282,13 @@ int main(void)
 
   // Turn off push button 0 GPIO input
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
+
+#ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
+  // Enable debug connectivity in EM2
+  EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
+#endif
 
   /* Initialize RTCC; Attempting to match datasheet current consumption test
    * condition - RTCC running from LFRCO; full RAM retention

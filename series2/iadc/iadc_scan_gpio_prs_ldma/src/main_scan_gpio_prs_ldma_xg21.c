@@ -1,13 +1,13 @@
 /***************************************************************************//**
  * @file main_scan_gpio_prs_ldma.c
- * @brief Use the IADC to take repeated nonblocking measurements on two external
- * inputs which in turn triggers the LDMA to transfer the IADC measurement to
- * memory, all while remaining in EM2. IADC conversion is triggered through GPIO
- * via PRS. After NUM_SAMPLES conversions the LDMA will trigger an interrupt
- * from EM2 and toggle a GPIO on the WSTK.
+ *
+ * @brief Use the IADC to take repeated, non-blocking measurements on
+ * two external inputs.  A general-purpose input triggers conversions
+ * via the PRS, and the LDMA transfers the results to RAM, all while
+ * remaining in EM2.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -37,7 +37,6 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_core.h"
@@ -47,15 +46,14 @@
 #include "em_gpio.h"
 #include "em_prs.h"
 #include "em_ldma.h"
-#include "bsp.h"
 
 /*******************************************************************************
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
 // Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
-#define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
+#define CLK_SRC_ADC_FREQ    20000000  // CLK_SRC_ADC
+#define CLK_ADC_FREQ        10000000  // CLK_ADC - 10 MHz max in normal mode
 
 /*
  * Specify the IADC input using the IADC_PosInput_t typedef.  This
@@ -94,9 +92,11 @@
 #define BUTTON_0_PORT             gpioPortA
 #define BUTTON_0_PIN              5
 
-/* This example enters EM2 in the infinite while loop; Setting this define to 1
- * enables debug connectivity in the EMU_CTRL register, which will consume about
- * 0.5uA additional supply current */
+/*
+ * This example enters EM2 in the main while() loop. Setting this
+ * #define to 1 enables debug connectivity in EM2, which increases
+ * current consumption by about 0.5 uA.
+ */
 #define EM2DEBUG                  1
 
 /*******************************************************************************
@@ -110,110 +110,130 @@ LDMA_Descriptor_t descriptor;
 uint32_t scanBuffer[NUM_SAMPLES];
 
 /**************************************************************************//**
- * @brief  GPIO Initializer
+* @brief  GPIO initialization
  *****************************************************************************/
-void initGPIO (void)
+void initGPIO(void)
 {
-  // Enable GPIO clock branch
-  CMU_ClockEnable(cmuClock_GPIO, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to 
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
-   
   // Configure LDMA as outputs
   GPIO_PinModeSet(LDMA_OUTPUT_0_PORT, LDMA_OUTPUT_0_PIN, gpioModePushPull, 0);
 
-  // Configure pushbutton 0 as input and enable interrupt
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
-  GPIO_PinModeSet(BUTTON_0_PORT, BUTTON_0_PIN, gpioModeInputPull, 1);
+  // Configure push button 0 as input
+  GPIO_PinModeSet(BUTTON_0_PORT, BUTTON_0_PIN, gpioModeInputPullFilter, 1);
+
+  // Enable PB0 pin routing for external interrupt, but NOT the interrupts
   GPIO_ExtIntConfig(BUTTON_0_PORT,
                     BUTTON_0_PIN,
                     BUTTON_0_PIN,
                     false,
-                    true,
-                    true);
+                    false,
+                    false);
 }
 
 /**************************************************************************//**
- * @brief  PRS Initializer
+ * @brief  PRS initialization
  *****************************************************************************/
-void initPRS (void)
+void initPRS(void)
 {
-  // Use LETIMER0 as async PRS to trigger IADC in EM2
-  CMU_ClockEnable(cmuClock_PRS, true);
+  // Connect the specified PRS channel to the GPIO producer
+  PRS_SourceAsyncSignalSet(PRS_CHANNEL,
+						   PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
+						   BUTTON_0_PIN);
 
-  /* Set up PRS GPIO and IADC as producer and consumer respectively */
-  PRS_SourceAsyncSignalSet(PRS_CHANNEL, PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO, BUTTON_0_PIN);
-  PRS_ConnectConsumer(PRS_CHANNEL, prsTypeAsync, prsConsumerIADC0_SCANTRIGGER);
+  // Connect the specified PRS channel to the IADC as the consumer
+  PRS_ConnectConsumer(PRS_CHANNEL,
+                      prsTypeAsync,
+                      prsConsumerIADC0_SCANTRIGGER);
 }
 
 /**************************************************************************//**
- * @brief  IADC Initializer
+* @brief  IADC initialization
  *****************************************************************************/
-void initIADC (void)
+void initIADC(void)
 {
-  // Declare init structs
+  // Declare initialization structures
   IADC_Init_t init = IADC_INIT_DEFAULT;
   IADC_AllConfigs_t initAllConfigs = IADC_ALLCONFIGS_DEFAULT;
   IADC_InitScan_t initScan = IADC_INITSCAN_DEFAULT;
-  IADC_ScanTable_t initScanTable = IADC_SCANTABLE_DEFAULT; // Scan Table
 
-  // Enable IADC0 clock branch
-  CMU_ClockEnable(cmuClock_IADC0, true);
+  // Scan table structure
+  IADC_ScanTable_t scanTable = IADC_SCANTABLE_DEFAULT;
 
-  // Reset IADC to reset configuration in case it has been modified
-  IADC_reset(IADC0);
+  // Use the FSRC0 as the IADC clock so it can run in EM2
+  CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_FSRCO);
 
-  // Configure IADC clock source for use while in EM2
-  CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_FSRCO);  // FSRCO - 20MHz
-
-  // Modify init structs and initialize
-  init.warmup = iadcWarmupNormal;
-
-  // Set the HFSCLK prescale value here
+  // Set the prescaler needed for the intended IADC clock frequency
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Shutdown between conversions to reduce current
+  init.warmup = iadcWarmupNormal;
+
+  /*
+   * Configuration 0 is used by both scan and single conversions by
+   * default.  Use unbuffered AVDD as reference and specify the
+   * AVDD supply voltage in mV.
+   *
+   * Resolution is not configurable directly but is based on the
+   * selected oversampling ratio (osrHighSpeed), which defaults to
+   * 2x and generates 12-bit results.
+   */
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
+  initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
 
-  // Divides CLK_SRC_ADC to set the CLK_ADC frequency
-  // Default oversampling (OSR) is 2x, and Conversion Time = ((4 * OSR) + 2) / fCLK_ADC
-  // Combined with the 2 cycle delay when switching input channels, total sample rate is 833ksps
+  /*
+   * CLK_SRC_ADC must be prescaled by some value greater than 1 to
+   * derive the intended CLK_ADC frequency.
+   *
+   * Based on the default 2x oversampling rate (OSRHS)...
+   *
+   * conversion time = ((4 * OSRHS) + 2) / fCLK_ADC
+   *
+   * ...which results in a maximum sampling rate of 833 ksps with the
+   * 2-clock input multiplexer switching time is included.
+   */
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
                                                                     CLK_ADC_FREQ,
                                                                     0,
                                                                     iadcCfgModeNormal,
                                                                     init.srcClkPrescale);
 
-  // Scan initialization
+  /*
+   * Trigger conversions on the PRS0 rising edge input (PRS0 is not a
+   * specific channel but simply the dedicated trigger input for scan
+   * conversions; PRS1 serves the same purpose for single conversions).
+   *
+   * Set the SCANFIFODVL flag when there are 2 entries in the scan
+   * FIFO.  Note that in this example, the interrupt associated with
+   * the SCANFIFODVL flag in the IADC_IF register is not used.
+   *
+   * Enable DMA wake-up to save the results when the specified FIFO
+   * level is hit.
+   *
+   * Allow a scan conversion sequence to start as soon as there is a
+   * trigger event.
+   */
   initScan.triggerSelect = iadcTriggerSelPrs0PosEdge;
-  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID2;
-
-  // Enable triggering of scan conversion
+  initScan.dataValidLevel = iadcFifoCfgDvl2;
+  initScan.fifoDmaWakeup = true;
   initScan.start = true;
 
-  // Set to run in EM2
-  initScan.fifoDmaWakeup = true;
+  /*
+   * Configure entries in scan table.  CH0 is single-ended from
+   * input 0; CH1 is single-ended from input 1.
+   */
+  scanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
+  scanTable.entries[0].negInput = iadcNegInputGnd;
+  scanTable.entries[0].includeInScan = true;
 
-  // Configure entries in scan table, CH0 is single-ended from input 0, CH1 is
-  // single-ended from input 1
-  initScanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
-  initScanTable.entries[0].negInput = iadcNegInputGnd;
-  initScanTable.entries[0].includeInScan = true;
-
-  initScanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
-  initScanTable.entries[1].negInput = iadcNegInputGnd;
-  initScanTable.entries[1].includeInScan = true;
+  scanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
+  scanTable.entries[1].negInput = iadcNegInputGnd;
+  scanTable.entries[1].includeInScan = true;
 
   // Initialize IADC
   IADC_init(IADC0, &init, &initAllConfigs);
 
-  // Initialize Scan
-  IADC_initScan(IADC0, &initScan, &initScanTable);
+  // Initialize scan
+  IADC_initScan(IADC0, &initScan, &scanTable);
 
   // Allocate the analog bus for ADC0 inputs
   GPIO->IADC_INPUT_0_BUS |= IADC_INPUT_0_BUSALLOC;
@@ -222,10 +242,10 @@ void initIADC (void)
 
 /**************************************************************************//**
  * @brief
- *   LDMA Initializer
+ *   LDMA initialization
  *
  * @param[in] buffer
- *   pointer to the array where ADC data will be stored.
+ *   pointer to the array where ADC results will be stored.
  * @param[in] size
  *   size of the array
  *****************************************************************************/
@@ -233,36 +253,38 @@ void initLDMA(uint32_t *buffer, uint32_t size)
 {
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
 
-  // Configure LDMA for transfer from IADC to memory
-  // LDMA will loop continuously
+  // Trigger LDMA transfer on IADC scan completion
   LDMA_TransferCfg_t transferCfg =
     LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_IADC0_IADC_SCAN);
 
-  // Set up descriptors for dual buffer transfer
-  descriptor = (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_WORD(&IADC0->SCANFIFODATA, buffer, size, 0);
-
-  // Loop of NUM_SAMPLES, run continuously
-  descriptor.xfer.decLoopCnt = 0;
-  descriptor.xfer.xferCnt = NUM_SAMPLES - 1; // 1 less than desired transfer count
-
-  // Interrupt upon transfer complete
-  descriptor.xfer.doneIfs = 1;
-  descriptor.xfer.ignoreSrec = 0;
+  /*
+   * Set up a linked descriptor to save scan results to the
+   * user-specified buffer.  By linking the descriptor to itself
+   * (the last argument is the relative jump in terms of the number of
+   * descriptors), transfers will run continuously until firmware
+   * otherwise stops them.
+   */
+  descriptor =
+    (LDMA_Descriptor_t)LDMA_DESCRIPTOR_LINKREL_P2M_WORD(&(IADC0->SCANFIFODATA), buffer, size, 0);
 
   // Initialize LDMA with default configuration
   LDMA_Init(&init);
 
-  // Start transfer, LDMA will sample the IADC NUM_SAMPLES time, and then interrupt
+  /*
+   * Start the LDMA channel.  The first transfer will not occur until
+   * the falling GPIO edge is detected that generates a pulse that is
+   * routed to the IADC scan trigger input via the PRS.
+   */
   LDMA_StartTransfer(IADC_LDMA_CH, &transferCfg, &descriptor);
 }
 
 /**************************************************************************//**
- * @brief  LDMA Handler
+ * @brief  LDMA IRQ Handler
  *****************************************************************************/
 void LDMA_IRQHandler(void)
 {
   // Clear interrupt flags
-  LDMA_IntClear(LDMA_IF_DONE0);
+  LDMA_IntClear(1 << IADC_LDMA_CH);
 
   // Toggle LED0 to notify that transfers are complete
   GPIO_PinOutToggle(LDMA_OUTPUT_0_PORT, LDMA_OUTPUT_0_PIN);
@@ -275,21 +297,19 @@ int main(void)
 {
   CHIP_Init();
 
-  // Initialize GPIO
   initGPIO();
 
-  // Initialize PRS
   initPRS();
 
-  // Initialize the IADC
   initIADC();
 
-  // Initialize LDMA
   initLDMA(scanBuffer, NUM_SAMPLES);
 
 #ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
   // Enable debug connectivity in EM2
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 #endif
 
   while (1)

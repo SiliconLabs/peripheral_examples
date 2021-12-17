@@ -1993,7 +1993,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_single_calibration_xg23.c</name>
+      <name>$PROJ_DIR$\..\src\main_single_calibration.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

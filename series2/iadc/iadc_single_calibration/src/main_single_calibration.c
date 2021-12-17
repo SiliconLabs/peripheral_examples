@@ -1,11 +1,10 @@
 /***************************************************************************//**
- * @file main_single_calibration.c
  * @brief Use the IADC and an external supply to calibrate the gain and offset,
  * then take repeated blocking differential measurements on single set of
  * differential inputs
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -35,13 +34,11 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
 #include "em_iadc.h"
 #include "em_gpio.h"
-#include "em_ldma.h"
 #include "bsp.h"
 
 /*******************************************************************************
@@ -52,7 +49,7 @@
 #define NUM_SAMPLES                 1024
 
 // Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ            10000000 // CLK_SRC_ADC
+#define CLK_SRC_ADC_FREQ            20000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ                10000000 // CLK_ADC - 10MHz max in normal mode
 
 /*
@@ -69,8 +66,8 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin4;
-#define IADC_INPUT_1_PORT_PIN     iadcNegInputPortCPin5;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortDPin4;
+#define IADC_INPUT_1_PORT_PIN     iadcNegInputPortDPin5;
 
 #define IADC_INPUT_0_BUS          CDBUSALLOC
 #define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDEVEN0_ADC0
@@ -97,12 +94,7 @@ void initGPIO (void)
 {
   // Enable GPIO clock branch
   CMU_ClockEnable(cmuClock_GPIO, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to 
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
-   
+
   // Configure push button PB0 as a user input; will use as a toggle to indicate when inputs are ready
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
 
@@ -134,7 +126,7 @@ void initIADC (void)
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Use unbuffered AVDD (supply voltage in mV) as reference
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
 
@@ -205,6 +197,9 @@ void IADCRescale(uint32_t newScale)
     // Disable the IADC
     IADC0->EN_CLR = IADC_EN_EN;
 
+    // wait for IADC to disable
+    while((IADC0->EN & _IADC_EN_DISABLING_MASK) == IADC_EN_DISABLING);
+
     // configure new scale settings
     IADC0->CFG[0].SCALE = newScale;
 
@@ -244,7 +239,7 @@ int main(void)
   // Take multiple conversions and average to reduce system-level noise
   result_fullscale = IADCAverageConversion(NUM_SAMPLES);
 
-  // Apply a zero differential input to the IADC (short P25-P27)
+  // Apply a zero differential input to the IADC (short P25-P24)
   // Wait until differential voltage is applied
   while(GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) != PB_PRESSED); // user feedback
   while(GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == PB_PRESSED);

@@ -1,10 +1,9 @@
 /***************************************************************************//**
- * @file main_single_letimer_interrupt.c
- * @brief Use the IADC to take repeated nonblocking measurements on single
+ * @brief Use the IADC to take repeated non-blocking measurements on single
  * input, requested periodically by LETIMER interrupt
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,7 +33,6 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_core.h"
@@ -50,7 +48,7 @@
  ******************************************************************************/
 
 // Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
+#define CLK_SRC_ADC_FREQ          20000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
 
 /*
@@ -67,10 +65,10 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin5;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin5;
 
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AODD0_ADC0
 
 // Desired LETIMER frequency in Hz
 #define LETIMER_FREQ              1
@@ -79,9 +77,11 @@
 #define LETIMER_OUTPUT_0_PORT     gpioPortB
 #define LETIMER_OUTPUT_0_PIN      1
 
-/* This example enters EM2 in the infinite while loop; Setting this define to 1
- * enables debug connectivity in the EMU_CTRL register, which will consume about
- * 0.5uA additional supply current */
+/*
+ * This example enters EM2 in the main while() loop; Setting this #define to 1
+ * enables debug connectivity in EM2, which increases current consumption by
+ * about 0.5uA
+ */
 #define EM2DEBUG                  1
 
 /*******************************************************************************
@@ -99,12 +99,7 @@ void initGPIO (void)
 {
   // Enable GPIO clock branch
   CMU_ClockEnable(cmuClock_GPIO, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to 
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
-   
+
   // Configure LED0/LETIMER as outputs
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
   GPIO_PinModeSet(LETIMER_OUTPUT_0_PORT, LETIMER_OUTPUT_0_PIN, gpioModePushPull, 0);
@@ -138,7 +133,7 @@ void initIADC (void)
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Use unbuffered AVDD (supply voltage in mV) as reference
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
 
@@ -174,7 +169,7 @@ void initIADC (void)
 }
 
 /**************************************************************************//**
- * @brief  IADC Handler
+ * @brief  IADC interrupt handler
  *****************************************************************************/
 void IADC_IRQHandler(void)
 {
@@ -226,8 +221,8 @@ void initLetimer(void)
   letimerInit.repMode = letimerRepeatFree;
 
   // Enable LETIMER0 output0
-  GPIO->LETIMERROUTE[0].ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
-  GPIO->LETIMERROUTE[0].OUT0ROUTE = \
+  GPIO->LETIMERROUTE.ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
+  GPIO->LETIMERROUTE.OUT0ROUTE = \
       (LETIMER_OUTPUT_0_PORT << _GPIO_LETIMER_OUT0ROUTE_PORT_SHIFT) \
       | (LETIMER_OUTPUT_0_PIN << _GPIO_LETIMER_OUT0ROUTE_PIN_SHIFT);
 
@@ -246,7 +241,7 @@ void initLetimer(void)
 }
 
 /**************************************************************************//**
- * @brief  LETIMER Handler
+ * @brief  LETIMER interrupt handler
  *****************************************************************************/
 void LETIMER0_IRQHandler(void)
 {
@@ -279,8 +274,10 @@ int main(void)
   initLetimer();
 
 #ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
   // Enable debug connectivity in EM2
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 #endif
 
   while (1)

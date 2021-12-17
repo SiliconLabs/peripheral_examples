@@ -1,33 +1,48 @@
 iadc_scan_iadc_timer
 
-This project demonstrates using the IADC peripheral to take single-ended
-analog measurements of two input channels. IADC interrupt handles 
-completed conversions and stores them in a global array. The IADC conversion
-is triggered using the IADC internal timer, which is configured to occur every
-1ms. A GPIO is also toggled on each conversion.
+This project demonstrates use of the IADC to take single-ended analog
+analog measurements of two input channels.  The IADC operates in EM0
+with its local timer triggering scan sequences.  An interrupt is
+requested when the specified FIFO data valid level is reached, and the
+conversion results are converted to volts and stored in a global array.
+A GPIO is toggled during the IADC interrupt handler to signal the end
+of the most recent scan.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
-effect as oscillators are automatically turned on/off based on demand from the peripherals;
-CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
+NOTE: To modify this example to take differential external
+measurements, the negative inputs for scan table entries 0 and 1 must
+change.  To take a differential measurement, the analog multiplexer
+selection must consist of one EVEN ABUS channel and one ODD ABUS
+channel.
+
+In this example, scan table entry 0 references port B pin 0, so an
+ODD port/pin must be selected for the IADC negative input.  Scan table
+entry 1 references port B pin 1, so the negative IADC input must be
+an EVEN port/pin.  As in single-ended mode, the IADC logic will swap the
+multiplexer connections to IADC input, if needed.  See reference manual
+for more details.
+
+================================================================================
 
 How To Test:
-1. Update the kit's firmware from the Simplicity Launcher (if necessary)
-2. Build the project and download to the Starter Kit
-3. Open the Simplicity Debugger and add "scanResult" to the Expressions Window
-4. Observe GPIO output using an oscilloscope; toggles occur on every conversion (every 1ms)
-output appears as 500HZ, 50% duty cycle clock
-5. Suspend the debugger, observe the measured voltages in the Expressions Window
-and how they respond to different voltage values on the corresponding pins (see below)
+1. Update the kit's firmware from the Simplicity Studio Launcher, if
+   necessary.
+2. Build the project and download it to the Starter Kit.
+3. Open the Debugger and add "scanResult" to the Expressions window.
+4. Using an oscilloscope, monitor the GPIO output, which toggles after
+   each scan is complete (every 1 ms).
+5. Set a breakpoint at the end of the IADC_IRQHandler.
+6. At the breakpoint, observe the measured voltages in the Expressions
+   window and how they respond to different voltage values on the
+   corresponding pins (see below).
+
+================================================================================
 
 Peripherals Used:
-CLK_CMU_ADC  - 80 MHz HFRCODPLL for Series 2
-CLK_SRC_ADC  - 40 MHz for Series 2
-CLK_ADC      - 10 MHz for Series 2 
-timerCycles  - 40000 CLK_SRC_ADC cycles -> 1ms Timer
-IADC         - 12-bit resolution, Automatic Two's Complement (single-ended = unipolar) 
-               unbuffered 3.3V (AVDD) IADC voltage reference
-               IADC and reference kept in warmup mode
-			 - Conversions triggered by local IADC timer
+CMU     - HFRCO @ 80 MHz
+GPIO
+IADC    - 12-bit resolution (2x oversampling)
+        - unbuffered AVDD reference (3.3V)
+        - local timer triggering at 1 kHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

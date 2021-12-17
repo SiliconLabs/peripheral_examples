@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file main_scan_iadc_timer.c
- * @brief Use the ADC to take repeated nonblocking measurements on multiple
- * inputs using IADC local timer to trigger conversions.
+ * @brief Use the IADC to take repeated, non-blocking measurements on
+ * multiple inputs using IADC local timer to trigger conversions.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,23 +34,22 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
-#include "em_iadc.h"
 #include "em_gpio.h"
+#include "em_iadc.h"
 
 /*******************************************************************************
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
 // Set HFRCODLL clock to 80MHz
-#define HFRCODPLL_FREQ            cmuHFRCODPLLFreq_80M0Hz
+#define HFRCODPLL_FREQ          cmuHFRCODPLLFreq_80M0Hz
 
-// Set CLK_ADC to 40MHz
-#define CLK_SRC_ADC_FREQ          40000000 // CLK_SRC_ADC
-#define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
+// Set CLK_ADC to 40 MHz
+#define CLK_SRC_ADC_FREQ        40000000  // CLK_SRC_ADC - 40 MHz max
+#define CLK_ADC_FREQ            10000000  // CLK_ADC - 10 MHz max in normal mode
 
 // Number of scan channels
 #define NUM_INPUTS 2
@@ -82,107 +81,145 @@
 #define GPIO_OUTPUT_0_PIN         5
 
 /*******************************************************************************
- ***************************   LOCAL VARIABLES   *******************************
+***************************   GLOBAL VARIABLES   *******************************
  ******************************************************************************/
 
 static volatile double scanResult[NUM_INPUTS];
 
 /**************************************************************************//**
- * @brief  GPIO Initializer
+ * @brief  CMU initialization
  *****************************************************************************/
-void initGPIO (void)
+void initCMU(void)
 {
-  // Enable GPIO clock branch
-  CMU_ClockEnable(cmuClock_GPIO, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to 
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
+  /*
+   * Switch to the specified HFRCODPLL frequency band using the
+   * tuning value measured during production calibration.
    */
-   
-  // Configure GPIO as output, will be set when IADC conversion completes
-  GPIO_PinModeSet(GPIO_OUTPUT_0_PORT, GPIO_OUTPUT_0_PIN, gpioModePushPull, 0);
-}
-
-/**************************************************************************//**
- * @brief  IADC Initializer
- *****************************************************************************/
-void initIADC (void)
-{
-  // Declare init structs
-  IADC_Init_t init = IADC_INIT_DEFAULT;
-  IADC_AllConfigs_t initAllConfigs = IADC_ALLCONFIGS_DEFAULT;
-  IADC_InitScan_t initScan = IADC_INITSCAN_DEFAULT;
-  IADC_ScanTable_t initScanTable = IADC_SCANTABLE_DEFAULT;  // Scan Table
-
-  // Enable IADC0 clock branch
-  CMU_ClockEnable(cmuClock_IADC0, true);
-
-  // Reset IADC to reset configuration in case it has been modified by
-  // other code
-  IADC_reset(IADC0);
-
-  // Set HFRCODPLL band and the tuning value based on the value in the calibration table made during production.
   CMU_HFRCODPLLBandSet(HFRCODPLL_FREQ);
 
   // Select HFRCODPLL as the EM01GRPA clock
   CMU_ClockSelectSet(cmuClock_EM01GRPACLK, cmuSelect_HFRCODPLL);
+}
 
-  // Select clock for IADC
+/**************************************************************************//**
+ * @brief  GPIO initialization
+ *****************************************************************************/
+void initGPIO(void)
+{
+  /*
+   * On EFR32xG21 devices, CMU_ClockEnable() calls have no effect as
+   * clocks are enabled/disabled on-demand in response to peripheral
+   * requests.  Deleting such lines is safe on xG21 devices and will
+   * provide a small reduction in code size.
+   */
+  CMU_ClockEnable(cmuClock_GPIO, true);
+   
+  // Output toggled upon completing each IADC scan sequence
+  GPIO_PinModeSet(GPIO_OUTPUT_0_PORT, GPIO_OUTPUT_0_PIN, gpioModePushPull, 0);
+}
+
+/**************************************************************************//**
+ * @brief  IADC initialization
+ *****************************************************************************/
+void initIADC(void)
+{
+  // Declare initialization structures
+  IADC_Init_t init = IADC_INIT_DEFAULT;
+  IADC_AllConfigs_t initAllConfigs = IADC_ALLCONFIGS_DEFAULT;
+  IADC_InitScan_t initScan = IADC_INITSCAN_DEFAULT;
+
+  // Scan table structure
+  IADC_ScanTable_t scanTable = IADC_SCANTABLE_DEFAULT;
+
+  CMU_ClockEnable(cmuClock_IADC0, true);
+
+  // Use the EM01GRPACLK as the IADC clock
   CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_EM01GRPACLK);
 
-  // Modify init structs and initialize
-  init.warmup = iadcWarmupKeepWarm;
+  // Shutdown between conversions to reduce current
+  init.warmup = iadcWarmupNormal;
 
   // Set the HFSCLK prescale value here
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // 25ns per cycle, 40000 cycles make 1ms timer event
+  /*
+   * The IADC local timer runs at CLK_SRC_ADC_FREQ, which is at least
+   * 2x CLK_ADC_FREQ.  Each local timer tick is 25 ns when running at
+   * the example default of CLK_SRC_ADC_FREQ = 40 MHz, so 40,000 ticks
+   * result in a trigger every 1 ms (1 kHz sample rate).
+   */
   init.timerCycles = 40000;
 
-  // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  /*
+   * Configuration 0 is used by both scan and single conversions by
+   * default.  Use unbuffered AVDD as the reference and specify the
+   * AVDD supply voltage in mV.
+   *
+   * Resolution is not configurable directly but is based on the
+   * selected oversampling ratio (osrHighSpeed), which defaults to
+   * 2x and generates 12-bit results.
+   */
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
+  initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
   
-  // Divides CLK_SRC_ADC to set the CLK_ADC frequency
+  /*
+   * CLK_SRC_ADC must be prescaled by some value greater than 1 to
+   * derive the intended CLK_ADC frequency.
+   *
+   * Based on the default 2x oversampling rate (OSRHS)...
+   *
+   * conversion time = ((4 * OSRHS) + 2) / fCLK_ADC
+   *
+   * ...which results in a maximum sampling rate of 833 ksps with the
+   * 2-clock input multiplexer switching time is included.
+   */
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
-                                             CLK_ADC_FREQ,
-                                             0,
-                                             iadcCfgModeNormal,
-                                             init.srcClkPrescale);
+                                                                     CLK_ADC_FREQ,
+                                                                     0,
+                                                                     iadcCfgModeNormal,
+                                                                     init.srcClkPrescale);
 
-  // Scan initialization
+  /*
+   * The IADC local timer triggers conversions.
+   *
+   * Set the SCANFIFODVL flag when scan FIFO holds 2 entries.  In this
+   * example, the interrupt associated with the SCANFIFODVL flag in
+   * the IADC_IF register is not used.
+   *
+   * Tag each FIFO entry with scan table entry ID.
+   */
   initScan.triggerSelect = iadcTriggerSelTimer;
   initScan.dataValidLevel = iadcFifoCfgDvl2;
-
-  // Tag FIFO entry with scan table entry id.
   initScan.showId = true;
 
-  // Configure entries in scan table, CH0 is single ended from input 0, CH1 is
-  // single ended from input 1
-  initScanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
-  initScanTable.entries[0].negInput = iadcNegInputGnd;
-  initScanTable.entries[0].includeInScan = true;
+  /*
+   * Configure entries in the scan table.  CH0 is single-ended from
+   * input 0; CH1 is single-ended from input 1.
+   */
+  scanTable.entries[0].posInput = IADC_INPUT_0_PORT_PIN;
+  scanTable.entries[0].negInput = iadcNegInputGnd;
+  scanTable.entries[0].includeInScan = true;
 
-  initScanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
-  initScanTable.entries[1].negInput = iadcNegInputGnd;
-  initScanTable.entries[1].includeInScan = true;
+  scanTable.entries[1].posInput = IADC_INPUT_1_PORT_PIN;
+  scanTable.entries[1].negInput = iadcNegInputGnd;
+  scanTable.entries[1].includeInScan = true;
 
   // Initialize IADC
   IADC_init(IADC0, &init, &initAllConfigs);
 
-  // Initialize Scan
-  IADC_initScan(IADC0, &initScan, &initScanTable);
+  // Initialize scan
+  IADC_initScan(IADC0, &initScan, &scanTable);
 
-  // Enable the IADC timer - can only be done after the IADC has been enabled
+  // Enable the IADC timer (must be after the IADC is initialized)
   IADC_command(IADC0, iadcCmdEnableTimer);
 
   // Allocate the analog bus for ADC0 inputs
   GPIO->IADC_INPUT_0_BUS |= IADC_INPUT_0_BUSALLOC;
   GPIO->IADC_INPUT_1_BUS |= IADC_INPUT_1_BUSALLOC;
   
-  // Enable Scan interrupts
+  // Enable scan interrupts
   IADC_enableInt(IADC0, IADC_IEN_SCANFIFODVL);
 
   // Enable ADC interrupts
@@ -191,29 +228,36 @@ void initIADC (void)
 }
 
 /**************************************************************************//**
- * @brief  ADC Handler
+ * @brief  IADC interrupt handler
  *****************************************************************************/
 void IADC_IRQHandler(void)
 {
   IADC_Result_t sample;
 
-  // Toggle GPIO to signal compare event
+  // Toggle GPIO to signal scan completion
   GPIO_PinOutToggle(GPIO_OUTPUT_0_PORT, GPIO_OUTPUT_0_PIN);
 
-  // Get ADC results
-  while(IADC_getScanFifoCnt(IADC0))
+  // While the FIFO count is non-zero...
+  while (IADC_getScanFifoCnt(IADC0))
   {
-    // Read data from the scan FIFO
+    // Pull a scan result from the FIFO
     sample = IADC_pullScanFifoResult(IADC0);
 
-    // Calculate input voltage:
-    //  For single-ended the result range is 0 to +Vref, i.e.,
-    //  for Vref = AVDD = 3.30V, 12 bits represents 3.30V full scale IADC range.
+    /*
+     * Calculate the voltage converted as follows:
+     *
+     * For single-ended conversions, the result can range from 0 to
+     * +Vref, i.e., for Vref = AVDD = 3.30 V, 0xFFF represents the
+     * full scale value of 3.30 V.
+     */
     scanResult[sample.id] = sample.data * 3.3 / 0xFFF;
   }
 
-  // Clear IADC interrupt flags
-  IADC_clearInt(IADC0, IADC_IF_SCANFIFODVL); // flags are sticky; must be cleared in software
+  /*
+   * Clear the scan table complete interrupt.  Reading from the FIFO
+   * does not do this automatically.
+   */
+  IADC_clearInt(IADC0, IADC_IF_SCANFIFODVL);
 }
 
 /**************************************************************************//**
@@ -223,15 +267,15 @@ int main(void)
 {
   CHIP_Init();
 
-  // Initialize GPIO
+  initCMU();
+
   initGPIO();
 
-  // Initialize the IADC
   initIADC();
 
-  // Start first conversion
+  // Start scan
   IADC_command(IADC0, iadcCmdStartScan);
 
   // Infinite loop
-  while(1);
+  while (1);
 }

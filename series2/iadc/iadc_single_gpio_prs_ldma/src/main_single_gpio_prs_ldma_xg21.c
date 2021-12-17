@@ -54,7 +54,7 @@
  ******************************************************************************/
 
 // Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
+#define CLK_SRC_ADC_FREQ          20000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
 
 /*
@@ -71,10 +71,10 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin5;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin0;
 
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AEVEN0_ADC0
 
 // Use specified LDMA/PRS channel
 #define IADC_LDMA_CH              0
@@ -87,9 +87,11 @@
 #define BUTTON_0_PORT             gpioPortA
 #define BUTTON_0_PIN              5
 
-/* This example enters EM2 in the infinite while loop; Setting this define to 1
+/*
+ * This example enters EM2 in the infinite while loop; Setting this define to 1
  * enables debug connectivity in the EMU_CTRL register, which will consume about
- * 0.5uA additional supply current */
+ * 0.5uA additional supply current
+ */
 #define EM2DEBUG                  1
 
 /*******************************************************************************
@@ -120,13 +122,13 @@ void initGPIO (void)
 
   // Configure pushbutton 0 as input and enable interrupt
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
-  GPIO_PinModeSet(BUTTON_0_PORT, BUTTON_0_PIN, gpioModeInputPull, 1);
+  GPIO_PinModeSet(BUTTON_0_PORT, BUTTON_0_PIN, gpioModeInputPullFilter, 1);
   GPIO_ExtIntConfig(BUTTON_0_PORT,
                     BUTTON_0_PIN,
                     BUTTON_0_PIN,
                     false,
-                    true,
-                    true);
+                    false,
+                    false);
 }
 
 /**************************************************************************//**
@@ -273,8 +275,10 @@ int main(void)
   initLDMA(singleBuffer, NUM_SAMPLES);
 
 #ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
   // Enable debug connectivity in EM2
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 #endif
 
   while (1)

@@ -54,8 +54,11 @@
  ******************************************************************************/
 
 // Set CLK_ADC to 10MHz
-#define CLK_SRC_ADC_FREQ          10000000 // CLK_SRC_ADC
+#define CLK_SRC_ADC_FREQ          20000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
+
+// Number of scan channels
+#define NUM_INPUTS 8
 
 /*
  * Specify the IADC input using the IADC_PosInput_t typedef.  This
@@ -119,12 +122,7 @@ void initGPIO (void)
 {
   // Enable GPIO clock branch
   CMU_ClockEnable(cmuClock_GPIO, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to 
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
-   
+
   // Configure LDMA/LETIMER as outputs
   GPIO_PinModeSet(LDMA_OUTPUT_0_PORT, LDMA_OUTPUT_0_PIN, gpioModePushPull, 0);
   GPIO_PinModeSet(LETIMER_OUTPUT_0_PORT, LETIMER_OUTPUT_0_PIN, gpioModePushPull, 0);
@@ -246,8 +244,8 @@ void initLetimer(void)
   letimerInit.repMode = letimerRepeatFree;
 
   // Enable LETIMER0 output0
-  GPIO->LETIMERROUTE[0].ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
-  GPIO->LETIMERROUTE[0].OUT0ROUTE = \
+  GPIO->LETIMERROUTE.ROUTEEN = GPIO_LETIMER_ROUTEEN_OUT0PEN;
+  GPIO->LETIMERROUTE.OUT0ROUTE = \
       (LETIMER_OUTPUT_0_PORT << _GPIO_LETIMER_OUT0ROUTE_PORT_SHIFT) \
       | (LETIMER_OUTPUT_0_PIN << _GPIO_LETIMER_OUT0ROUTE_PIN_SHIFT);
 
@@ -329,8 +327,10 @@ int main(void)
   initLetimer();
 
 #ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
   // Enable debug connectivity in EM2
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 #endif
 
   while (1)

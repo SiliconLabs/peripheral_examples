@@ -7,7 +7,7 @@
  * as input.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -37,7 +37,6 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
@@ -74,18 +73,20 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin5;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin5;
 
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AODD0_ADC0
 
 // GPIO output toggle to notify IADC conversion complete
 #define GPIO_OUTPUT_0_PORT        gpioPortB
 #define GPIO_OUTPUT_0_PIN         1
 
-/* This example enters EM2 in the infinite while loop; Setting this define to 1
- * enables debug connectivity in the EMU_CTRL register, which will consume about
- * 0.5uA additional supply current */
+/*
+ * This example enters EM2 in the main while() loop; Setting this #define to 1
+ * enables debug connectivity in EM2, which increases current consumption by
+ * about 0.5uA
+ */
 #define EM2DEBUG                  1
 
 /*******************************************************************************
@@ -102,12 +103,13 @@ static volatile double singleResult;
 void initGPIO(void)
 {
   // Enable GPIO clock branch
-  CMU_ClockEnable(cmuClock_GPIO, true);
+
   /* Note: For EFR32xG21 radio devices, library function calls to 
    * CMU_ClockEnable() have no effect as oscillators are automatically turned
    * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
    * function for EFR32xG21 for library consistency/compatibility.
    */
+  CMU_ClockEnable(cmuClock_GPIO, true);
    
   // Configure GPIO as output, will indicate when conversions are being performed
   GPIO_PinModeSet(GPIO_OUTPUT_0_PORT, GPIO_OUTPUT_0_PIN, gpioModePushPull, 0);
@@ -156,7 +158,7 @@ void initIADC(void)
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
+  // Use unbuffered AVDD (supply voltage in mV) as reference
   initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
   initAllConfigs.configs[0].vRef = 3300;
 
@@ -206,7 +208,7 @@ void initIADC(void)
 }
 
 /**************************************************************************//**
- * @brief  ADC Handler
+ * @brief  IADC interrupt handler
  *****************************************************************************/
 void IADC_IRQHandler(void)
 {
@@ -237,8 +239,10 @@ int main(void)
   initIADC();
 
 #ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
   // Enable debug connectivity in EM2
   EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
 #endif
 
   // Start single

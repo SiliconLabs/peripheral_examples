@@ -1,69 +1,73 @@
 iadc_scan_interrupt
 
-This project demonstrates using the IADC peripheral to take single-ended
-analog measurements across two different external inputs and six of the internal
-voltage supply channels. The IADC operates in EM2 and IADC interrupts wake to 
-EM0 to handle completed conversions and store the converted voltage results in a
-global array. Due to the IADC operating in scan mode, external inputs have been
-selected from ports A/B as these ports remain fully functional in EM2 and the 
-analog multiplexers can switch between external inputs during the scan. 
+This project demonstrates use of the IADC to take single-ended analog
+measurements across two different external inputs and six of the
+internal voltage supply channels.  The IADC operates in EM2 and wakes
+the device to save the completed conversion results, convert them to
+volts, and store them in a global array.  Because the example runs in
+EM2, only ports A and B remain fully functional and can be used for
+the external scan inputs.
 
-Note: To utilize differential-ended analog measurements for the external inputs,
-the negative inputs for scan table entries 0 and 1 must be modified for an
-external port/pin. Analog multiplexer selection must consist of one EVEN ABUS
-selection and one ODD ABUS selection for differential mode to operate correctly: 
-*For scan table entry 0 which references Port B Pin 0, an ODD Port/Pin selection
-must be used for IADC negative input.
-*For scan table entry 1 which references Port B Pin 1, an EVEN Port/Pin
-selection must be used for IADC negative input. 
-As with singled-ended mode, the IADC logic will automatically swap the multiplexer
-connections to IADC input if needed. See reference manual for more details. 
+NOTE: To modify this example to take differential external
+measurements, the negative inputs for scan table entries 0 and 1 must
+change.  To take a differential measurement, the analog multiplexer
+selection must consist of one EVEN ABUS channel and one ODD ABUS
+channel.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() have no
-effect as oscillators are automatically turned on/off based on demand from the peripherals;
-CMU_ClockEnable() is a dummy function for EFR32xG21 for library consistency/compatibility.
+In this example, scan table entry 0 references port B pin 0, so an ODD
+port/pin must be selected for the IADC negative input.  Scan table
+entry 1 references port B pin 1, so the negative IADC input must be an
+EVEN port/pin.  As in single-ended mode, the IADC logic will swap the
+multiplexer connections to IADC input, if needed.  See reference manual
+for more details.
+
+================================================================================
 
 How To Test:
-1. Update the kit's firmware from the Simplicity Launcher (if necessary)
-2. Build the project and download to the Starter Kit
-3. Open the Simplicity Debugger and add "scanResult" to the Expressions Window
-4. Set a breakpoint at the end of the IADC_IRQHandler (IADC_command)
-5. Run the example project
-6. At the breakpoint, observe the measured voltages in the Expressions Window
-and how they respond to different voltage values on the corresponding pins (see below)
+1. Update the kit's firmware from the Simplicity Studio Launcher, if
+   necessary.
+2. Build the project and download to the Starter Kit.
+3. Open the Debugger and add "scanResult" to the Expressions window.
+4. Set a breakpoint at the end of the IADC_IRQHandler.
+5. Run the project.
+6. At the breakpoint, observe the measured voltages in the Expressions
+   window and how they respond to different voltage values on the
+   corresponding pins and external supply inputs (see below).
 
-The IADC FIFO buffers are only four result elements deep, so the IADC scan table is set 
-with only 4 channels enabled at a time to avoid FIFO buffer overflow. The IADC interrupts
-on the scan table completion, and the IADC interrupt handler reads the conversions from 
-the FIFO and toggles the scan table mask to enable the next set of channels in the scan table.
-The scan table entry IDs are used to log results to the proper channel within the results array.
-  
-The first time the program halts at the breakpoint, the values in the Expression Window
-will contain the first set of scan table results. The second will fill the remaining
-four channels' results.
+Because IADC FIFO depth varies across Series 2 EFM32/EFR32 devices, the
+IADC scan table is configued to process 4 channels enabled at a time to
+avoid FIFO overflow.  The IADC interrupts on scan table completion, and
+the IRQ handler reads the conversion results from the FIFO and swaps the
+mask to alternate between each set of four channels in the scan table.
+The scan table entry IDs are used to save the results to the proper
+channel entry within the results array.
+
+The first time the program halts at the breakpoint, the values in the
+Expression window will contain the first set of scan table results. The
+second time through will fill the remaining four channels' results.
+
+================================================================================
 
 Peripherals Used:
-CLK_CMU_ADC  - 20 MHz FSRCO clock for Series 2
-CLK_SRC_ADC  - 10 MHz for Series 2 derived from 20MHz FSRCO clock
-CLK_ADC      - 10 MHz for Series 2
-IADC         - 12-bit resolution, Automatic Two's Complement (single-ended = unipolar) 
-               unbuffered 3.3V (AVDD) IADC voltage reference
-               IADC and reference kept in warmup mode
-			 - Conversions triggered by firmware
+CMU     - FSRCO @ 20 MHz
+EMU
+GPIO
+IADC    - 12-bit resolution (2x oversampling)
+        - unbuffered AVDD reference (3.3V)
 
-Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
+Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
 PB00 -  IADC input, single-ended, Expansion Header Pin 11, WSTK P8
 PB01 -  IADC input, single-ended, Expansion Header Pin 13, WSTK P10
 
-Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
+Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22A224F512IM40
 PB00 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4
 PB01 -  IADC input, single-ended, Expansion Header Pin 9, WSTK P6
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PB00 -  IADC input, single-ended, WSTK P15

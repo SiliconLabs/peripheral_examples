@@ -58,7 +58,7 @@
 // How many samples to capture
 #define NUM_SAMPLES               1024
 
-// Set CLK_ADC to 1 MHz (set to max for shortest IADC conversion/power-up time)
+// Set CLK_ADC to 1 MHz
 #define CLK_SRC_ADC_FREQ          5000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              1000000 // CLK_ADC
 
@@ -83,13 +83,20 @@
  *
  * ...for port A, port B, and port C/D pins, even and odd, respectively.
  */
-#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortCPin5;
+#define IADC_INPUT_0_PORT_PIN     iadcPosInputPortAPin5;
 
-#define IADC_INPUT_0_BUS          CDBUSALLOC
-#define IADC_INPUT_0_BUSALLOC     GPIO_CDBUSALLOC_CDODD0_ADC0
+#define IADC_INPUT_0_BUS          ABUSALLOC
+#define IADC_INPUT_0_BUSALLOC     GPIO_ABUSALLOC_AODD0_ADC0
 
 // Push-buttons are active-low
 #define PB_PRESSED (0)
+
+/*
+ * This example enters EM2 in the infinite while loop; Setting this define to 1
+ * enables debug connectivity in the EMU_CTRL register, which will consume about
+ * 0.5uA additional supply current; defaults off for Energy Profiler
+ */
+#define EM2DEBUG                  0
 
 /*******************************************************************************
  ***************************   GLOBAL VARIABLES   *******************************
@@ -297,6 +304,13 @@ int main(void)
 
   // Initialize EM mode 2/3
   EMU_EM23Init(&em23Init);
+
+#ifdef EM2DEBUG
+#if (EM2DEBUG == 1)
+  // Enable debug connectivity in EM2
+  EMU->CTRL_SET = EMU_CTRL_EM2DBGEN;
+#endif
+#endif
 
   // Initialize and power-down MX25 SPI flash
   MX25_init();
