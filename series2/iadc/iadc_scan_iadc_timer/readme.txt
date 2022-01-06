@@ -38,7 +38,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU     - HFRCO @ 80 MHz
+CMU     - HFXO
 GPIO
 IADC    - 12-bit resolution (2x oversampling)
         - unbuffered AVDD reference (3.3V)

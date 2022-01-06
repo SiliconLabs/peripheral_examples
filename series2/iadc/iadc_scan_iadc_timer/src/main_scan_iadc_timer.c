@@ -39,15 +39,14 @@
 #include "em_cmu.h"
 #include "em_gpio.h"
 #include "em_iadc.h"
+#include "bsp.h"
 
 /*******************************************************************************
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
-// Set HFRCODLL clock to 80MHz
-#define HFRCODPLL_FREQ          cmuHFRCODPLLFreq_80M0Hz
-
-// Set CLK_ADC to 40 MHz
+// Set CLK_ADC to 40 MHz - this will be adjusted to HFXO frequency in the
+// initialization process
 #define CLK_SRC_ADC_FREQ        40000000  // CLK_SRC_ADC - 40 MHz max
 #define CLK_ADC_FREQ            10000000  // CLK_ADC - 10 MHz max in normal mode
 
@@ -80,6 +79,14 @@
 #define GPIO_OUTPUT_0_PORT        gpioPortC
 #define GPIO_OUTPUT_0_PIN         5
 
+#if defined(BSP_WSTK_BRD4181A) || defined(BSP_WSTK_BRD4182A)
+// HFXO frequency set for BRD4181A and BRD4182A
+#define HFXO_FREQ               38400000
+#else
+// HFXO frequency for rest of radio boards
+#define HFXO_FREQ               39000000
+#endif
+
 /*******************************************************************************
 ***************************   GLOBAL VARIABLES   *******************************
  ******************************************************************************/
@@ -91,14 +98,29 @@ static volatile double scanResult[NUM_INPUTS];
  *****************************************************************************/
 void initCMU(void)
 {
-  /*
-   * Switch to the specified HFRCODPLL frequency band using the
-   * tuning value measured during production calibration.
-   */
-  CMU_HFRCODPLLBandSet(HFRCODPLL_FREQ);
+  // Initialization structure for HFXO configuration
+  CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_DEFAULT;
 
-  // Select HFRCODPLL as the EM01GRPA clock
-  CMU_ClockSelectSet(cmuClock_EM01GRPACLK, cmuSelect_HFRCODPLL);
+  // Check if device has HFXO configuration information in DEVINFO page
+  if (DEVINFO->MODULEINFO & DEVINFO_MODULEINFO_HFXOCALVAL) {
+    // Use the DEVINFO page's CTUNE values
+    hfxoInit.ctuneXoAna = (DEVINFO->MODXOCAL & DEVINFO_MODXOCAL_HFXOCTUNEXOANA_DEFAULT)
+        >> _DEVINFO_MODXOCAL_HFXOCTUNEXOANA_SHIFT;
+    hfxoInit.ctuneXiAna = (DEVINFO->MODXOCAL & DEVINFO_MODXOCAL_HFXOCTUNEXIANA_DEFAULT)
+        >> _DEVINFO_MODXOCAL_HFXOCTUNEXIANA_SHIFT;
+  }
+
+  // Configure HFXO settings
+  CMU_HFXOInit(&hfxoInit);
+
+  // Set system HFXO frequency
+  SystemHFXOClockSet(HFXO_FREQ);
+
+  // Enable HFXO oscillator, and wait for it to be stable
+  CMU_OscillatorEnable(cmuOsc_HFXO, true, true);
+
+  // Select HFXO as the EM01GRPA clock
+  CMU_ClockSelectSet(cmuClock_EM01GRPACLK, cmuSelect_HFXO);
 }
 
 /**************************************************************************//**
@@ -142,14 +164,17 @@ void initIADC(void)
   // Set the HFSCLK prescale value here
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // 25ns per cycle, 40000 cycles make 1ms timer event
   /*
    * The IADC local timer runs at CLK_SRC_ADC_FREQ, which is at least
-   * 2x CLK_ADC_FREQ.  Each local timer tick is 25 ns when running at
-   * the example default of CLK_SRC_ADC_FREQ = 40 MHz, so 40,000 ticks
-   * result in a trigger every 1 ms (1 kHz sample rate).
+   * 2x CLK_ADC_FREQ. CLK_SRC_ADC_FREQ in this example is equal to the
+   * HFXO frequency. Dividing the frequency of the HFXO by 1000 will give
+   * the tick count for 1 ms trigger rate.
+   * For example - if HFXO freq = 38.4 MHz,
+   *
+   * ticks for 1 ms trigger = 38400000 / 1000
+   * ticks =  38400
    */
-  init.timerCycles = 40000;
+  init.timerCycles = CMU_ClockFreqGet(cmuClock_IADCCLK)/1000;
 
   /*
    * Configuration 0 is used by both scan and single conversions by
