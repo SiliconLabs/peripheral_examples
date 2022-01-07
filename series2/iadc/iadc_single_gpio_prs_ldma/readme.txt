@@ -1,7 +1,7 @@
 iadc_single_gpio_prs_ldma
 
 This project demonstrates using the IADC peripheral to take single-ended
-analog measurements using a single external input, triggered by falling edge of
+analog measurements using a single external input, triggered by rising edge of
 GPIO via PRS. Upon completion, an LDMA data transfer occurs storing the raw data
 to memory. The IADC/LDMA operate in EM2; LDMA interrupts wake to EM0 to toggle a
 GPIO before returning to EM2. Since the IADC conversion is done in EM2, only
@@ -47,7 +47,7 @@ IADC    - 12-bit resolution,
         - Automatic Two's Complement (single-ended = unipolar) 
         - Unbuffered 3.3V (AVDD) IADC voltage reference
         - IADC and reference in normal mode
-        - Conversions triggered by falling GPIO via PRS
+        - Conversions triggered by rising GPIO via PRS
 LDMA    - CH0
         - 32-bit transfer from IADC to buffer, loop continuously until 
           NUM_SAMPLES are captured triggering LDMA interrupt which toggles LED
