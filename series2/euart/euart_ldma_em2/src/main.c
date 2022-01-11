@@ -147,7 +147,7 @@ void initEUART0(void)
   init.baudrate = BAUDRATE;
   init.advancedSettings = &advance_init;
   init.advancedSettings->dmaWakeUpOnRx = true;
-  init.advancedSettings->dmaWakeUpOnTx = true;
+  init.advancedSettings->dmaWakeUpOnTx = false;
   init.advancedSettings->dmaHaltOnError = true;
 
   // Configure and enable EUART0 for low-frequency (EM2) operation

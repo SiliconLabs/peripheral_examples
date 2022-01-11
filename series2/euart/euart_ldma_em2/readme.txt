@@ -45,10 +45,14 @@ divisor necessary to derive the desired baud rate.
 
 How To Test:
 1. Build the project and download to the Starter Kit.
-2. Open a terminal program and configure it for 9600N81 operation on the
+2. Configure the JLink CDC to use 9600 baud by issuing the command
+   "serial vcom config speed 9600" in the Admin console.  See this link
+   for more information:
+   https://community.silabs.com/s/article/wstk-virtual-com-port-baudrate-setting
+3. Open a terminal program and configure it for 9600N81 operation on the
    "JLink CDC UART Port" that is provided by the board controller on the
    Starter Kit mainboard.
-3. Type some characters in the terminal program (they will not show) and
+4. Type some characters in the terminal program (they will not show) and
    press Enter to have the MCU echo them.
 
 Alternatively, the example may be tested with a USB-to-serial converter,
