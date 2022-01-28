@@ -178,7 +178,7 @@ void SystemInit(void)
    * instruction in main().
    */
   CMU->CLKEN1_SET = CMU_CLKEN1_MSC;
-  MSC->PAGELOCKWORD5 = LASTLOCK;
+  MSC->PAGELOCK5 = LASTLOCK;
 
   /*
    * To see how soon this happens relative to writing to one of the
