@@ -146,6 +146,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFM32G890F128</state>
           
         </option>
@@ -947,6 +948,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFM32G890F128</state>
           
         </option>
@@ -1616,6 +1618,9 @@
     <name>emlib</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
