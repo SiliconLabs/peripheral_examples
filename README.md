@@ -46,12 +46,14 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 - EFR32FG22
 - EFR32MG22
 - EFR32FG23
+- EFR32BG24
+- EFR32MG24
 
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
 2. Simplicity Studio 5 or IAR Workbech IDE
 3. Gecko SDK Suite 4.0.0 and 32-bit MCU SDK 6.2.0.0, available via Simplicity Studio
-4. This repo, cloned to to `C:\SiliconLabs\SimplicityStudio\v5\developer\repos\`, where #.# is the Gecko SDK suite version number
+4. This repo cloned to `C:\SiliconLabs\SimplicityStudio\v5\developer\repos\`
 
 ## How to import to Simplicity Studio IDE ##
 1. In Simplicity Studio: 
