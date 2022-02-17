@@ -52,8 +52,16 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
 2. Simplicity Studio 5 or IAR Workbech IDE
-3. Gecko SDK Suite 4.0.0 and 32-bit MCU SDK 6.2.0.0, available via Simplicity Studio
-4. This repo cloned to `C:\SiliconLabs\SimplicityStudio\v5\developer\repos\`
+3. Gecko SDK Suite 4.0.1 and 32-bit MCU SDK 6.2.1.0, available via Simplicity Studio
+4. This repo cloned to `C:\SiliconLabs\SimplicityStudio\v5\developer\repos\` 
+
+## Additional Requirements for IAR ##
+5. Open Windows Command Prompt and navigate to the GSDK directory, 
+   which can be found by opening Simplicity Studio and navigating to
+   Preferences -> Simplicity Studio -> SDKs
+6. Run the following command: `mklink /J <path to GSDK>\peripheral_examples <path to peripheral_examples repo>`
+   For example, if the GSDK is located in `C:\Users\myUserName\SimplicityStudio\SDKs`, then the command would be
+   `mklink /J C:\Users\myUserName\SimplicityStudio\SDKs\peripheral_examples C:\SiliconLabs\SimplicityStudio\v5\developer\repos\peripheral_examples`
 
 ## How to import to Simplicity Studio IDE ##
 1. In Simplicity Studio: 
