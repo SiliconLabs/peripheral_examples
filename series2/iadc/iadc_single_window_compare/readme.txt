@@ -54,8 +54,8 @@ Device: EFR32FG23A010F512GM48
 PB02 -  GPIO Push/Pull output, WSTK P19, LED0
 PC05 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
+Device: EFR32MG24B210F1536IM48
 PB02 -  GPIO Push/Pull output, WSTK P19, LED0
 PC05 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12

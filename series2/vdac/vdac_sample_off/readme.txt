@@ -22,7 +22,6 @@ circuit (filter) and load.
           | avg current consumption in EM3; refresh rates in VDAC_REFRESH_CLKs
 Board     | 32 clks | 64 clks | 128 clks | 256 clks
 ================================================================================
-BRD4186A  |   48 uA |   42 uA |    39 uA |    37 uA 
 BRD4186C  |   22 uA |   17 uA |    14 uA |    13 uA 
 
 RMS output|  380 mV |  265 mV |   185 mV |   130 mV
@@ -55,11 +54,6 @@ Listed below are the devices that do not have a VDAC module
 ================================================================================
 
 Listed below are the port and pin mappings for working with this example.
-
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
-PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard

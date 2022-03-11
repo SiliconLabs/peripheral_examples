@@ -21,7 +21,7 @@ How To Test:
 2. Build the project and download to the Starter Kit.
 3. Open the Simplicity Debugger and add "sample" and "singleResult" to the 
    Expressions Window.
-4. Apply a voltage to the IADC input pin (PC05).
+4. Apply a voltage to the IADC input pin (PA05).
 5. Observe the sample field as it will display as a:
    16-bit result - "singleResult" is obtained by the formula: sample*VREF/(2^16)
    20-bit result - "singleResult" is obtained by the formula: sample*VREF/(2^20)
@@ -62,8 +62,8 @@ Device: EFR32FG23A010F512GM48
 PA05 -  IADC input, single-ended, Expansion Header pin 7, WSTK P4
 PB01 -  GPIO Push/Pull output, WSTK Pin 17
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
+Device: EFR32MG24B210F1536IM48
 PA05 -  IADC input, single-ended, Expansion Header pin 7, WSTK P4
 PB01 -  GPIO Push/Pull output, WSTK Pin 17

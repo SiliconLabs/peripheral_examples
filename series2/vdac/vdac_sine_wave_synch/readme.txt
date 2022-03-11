@@ -41,7 +41,6 @@ currents.
 Board     | avg current EM1 | avg current EM0 (Enter EM1 code commented out)
 ================================================================================
 BRD4263B  |          900 uA |          1100 uA
-BRD4186A  |          690 uA |           860 uA
 BRD4186C  |          680 uA |           840 uA
 
 ================================================================================
@@ -69,11 +68,6 @@ Listed below are the port and pin mappings for working with this example.
 
 Board:  Silicon Labs EFR32FG23 Starter Kit (BRD4263B)
 Device: EFR32FG23A010F512GM48
-PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
-
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
 PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 

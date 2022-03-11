@@ -151,3 +151,11 @@ PC0 - USART0_TX (MOSI)  - Expansion Header pin 10
 PC1 - USART0_RX (MISO)  - Expansion Header pin 4
 PC2 - USART0_CLK (SCLK) - Expansion Header pin 6
 PC3 - USART0_CS (CSn)   - Expansion Header pin 8
+
+Board:  Silicon Labs EFR32MG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32MG24B210F1536IM48
+PC0 - USART0_TX (MOSI)  - Expansion Header pin 10
+PC1 - USART0_RX (MISO)  - Expansion Header pin 4
+PC2 - USART0_CLK (SCLK) - Expansion Header pin 6
+PC3 - USART0_CS (CSn)   - Expansion Header pin 8

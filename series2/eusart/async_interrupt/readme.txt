@@ -42,9 +42,9 @@ PA8 - EUSART0_TX (Expansion Header Pin 12)
 PA9 - EUSART0_RX (Expansion Header Pin 14)
 PB0 - VCOM_ENABLE (WSTK P15)
 
-Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186A)
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32MG24A010F1536GM48 (this code will run unchanged on any
+Device: EFR32MG24B210F1536IM48 (this code will run unchanged on any
         EFR32MG24 variant so long as the pins used as present).
 PA8 - EUSART0_TX (Expansion Header Pin 12)
 PA9 - EUSART0_RX (Expansion Header Pin 14)

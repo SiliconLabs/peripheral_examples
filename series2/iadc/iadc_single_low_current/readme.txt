@@ -39,7 +39,7 @@ How To Test:
     EM2
 8.  Observe in Energy Profiler the drop in current consumption while in EM2; for
     this example's configuration (100 samples/second) the EM2 current should 
-    drop EFR32xG21 ~45uA; EFR32xG22 ~23uA; EFR32xG23 ~23uA
+    drop EFR32xG21 ~45uA; EFR32xG22 ~23uA; EFR32xG23 ~23uA, EFR32xG24 ~23uA
     *There is some part-to-part/board-to-board variance; this is a rough typical
     current*	
 9.  After completing NUM_SAMPLES conversions, the LDMA will wake the MCU from 
@@ -94,9 +94,9 @@ PB02  - GPIO Push/Pull output, WSTK Pin 19, LED0
 PA05  - IADC input, single-ended, Expansion Header pin 7, WSTK P4
 PB01  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
+Device: EFR32MG24B210F1536IM48
 BURTC - 32768 Hz LFRCO clock source, 256 prescaler
 PB02  - GPIO Push/Pull output, WSTK Pin 19, LED0
 PA05  - IADC input, single-ended, Expansion Header pin 7, WSTK P4

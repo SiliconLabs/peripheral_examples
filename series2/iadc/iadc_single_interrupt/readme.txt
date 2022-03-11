@@ -65,7 +65,7 @@ Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) +
 Device: EFR32FG23A010F512GM48
 PA05 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) +
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
         Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
+Device: EFR32MG24B210F1536IM48
 PA05 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4

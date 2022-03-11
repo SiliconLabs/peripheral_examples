@@ -109,9 +109,9 @@ PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
 PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8
 PC0 - EUSART1_CS (CSn)   - Expansion Header pin 10
 
-Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186A)
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32MG24A010F1536GM48 (this code will run unchanged on any
+Device: EFR32MG24B210F1536IM48 (this code will run unchanged on any
         EFR32MG24 variant so long as the pins used as present).
 PC1 - EUSART1_TX (MOSI)  - Expansion Header pin 4
 PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6

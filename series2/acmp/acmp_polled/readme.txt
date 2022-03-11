@@ -48,8 +48,8 @@ PB01 - ACMP positive input, push button PB0
 PB03 - ACMP output, push button PB1
 PB02 - LED1, Expansion Header Pin 13, WSTK Pin 10
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
+Device: EFR32MG24B210F1536IM48
 PB01 - ACMP positive input, push button PB0, WSTK Pin 17
 PB02 - LED0, WSTK Pin 19

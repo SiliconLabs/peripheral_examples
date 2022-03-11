@@ -2,6 +2,15 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32MG21_iadc_scan_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_iadc_scan_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_iadc_scan_interrupt.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG23_iadc_scan_interrupt.ewp</path>
   </project>
 

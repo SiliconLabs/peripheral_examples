@@ -14,7 +14,6 @@ currents.
 Board     | avg current EM1 | avg current EM0 (Enter EM1 code commented out)
 ================================================================================
 BRD4263B  |          950 uA |          1200 uA
-BRD4186A  |          750 uA |           915 uA
 BRD4186C  |          760 uA |           920 uA
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
@@ -49,11 +48,6 @@ Listed below are the port and pin mappings for working with this example.
 
 Board:  Silicon Labs EFR32FG23 Starter Kit (BRD4263B)
 Device: EFR32FG23A010F512GM48
-PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
-
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186A) + 
-        Wireless Starter Kit Mainboard
-Device: EFR32MG24A010F1536GM48
 PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 

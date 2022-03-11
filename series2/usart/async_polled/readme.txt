@@ -61,8 +61,8 @@ Device: EFR32FG23A010F512GM48
 PA8 - USART0_TX (Expansion Header Pin 12)
 PA9 - USART0_RX (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32MG24 2.4 GHz 10 dBm Radio Board (BRD4186A)
+Board:  Silicon Labs EFR32MG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32MG24A010F1536GM48
+Device: EFR32MG24B210F1536IM48
 PA8 - USART0_TX (Expansion Header Pin 12)
 PA9 - USART0_RX (Expansion Header Pin 14)
