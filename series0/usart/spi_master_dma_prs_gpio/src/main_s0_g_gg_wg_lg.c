@@ -80,7 +80,7 @@ void initGpio(void)
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
 
   // Configure interrupt on push button PB1 for rising edge but not enabled - PRS sensing instead
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, false, false);
 
   // Clear pending gpio interrupts
   NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);

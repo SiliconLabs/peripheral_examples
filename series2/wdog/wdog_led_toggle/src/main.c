@@ -119,7 +119,7 @@ int main(void)
     while(!(GPIO_PinInGet(BSP_GPIO_PB0_PORT,BSP_GPIO_PB0_PIN)));
 
     // Feed the watchdog
-    WDOG_Feed();
+    WDOGn_Feed(DEFAULT_WDOG);
 
     // Toggle LED0 at 10 kHz
     GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
@@ -158,5 +158,5 @@ void initWDOG(void)
   wdogInit.perSel = wdogPeriod_2k; // 2049 clock cycles of a 1kHz clock  ~2 seconds period
 
   // Initializing watchdog with chosen settings 
-  WDOG_Init(&wdogInit);
+  WDOGn_Init(DEFAULT_WDOG, &wdogInit);
 }

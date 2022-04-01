@@ -125,7 +125,7 @@ static void setupGpio(void)
   GPIO_PinModeSet(gpioPortC, 5, gpioModePushPull, 0);
 
   /* Enable BTN0 interrupt */
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, 0, 1, true);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, true, true);
 }
 
 /***************************************************************************//**

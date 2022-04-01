@@ -124,7 +124,7 @@ int main(void)
       EMU_EnterEM3(true);
     }
   // Feed the watchdog 
-	WDOG_Feed();
+  WDOGn_Feed(DEFAULT_WDOG);
 
 	// Toggle LED0 and LED1 at 10 kHz 
 	GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
@@ -164,5 +164,5 @@ void initWDOG(void)
   wdogInit.perSel = wdogPeriod_2k; // 2049 clock cycles of a 1kHz clock  ~2 seconds period
 
   // Initializing watchdog with chosen settings 
-  WDOG_Init(&wdogInit);
+  WDOGn_Init(DEFAULT_WDOG, &wdogInit);
 }

@@ -99,7 +99,7 @@ void initUSART2 (void)
 
     // Enable push button 0 to generate interrupt signals so it can supply a signal to our prs
     // but we turn off all of it's normal interrupt modes to avoid unwanted interrupt triggers
-    GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, 0, 0, false);
+    GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, false, false);
 
     // Clear pending gpio interrupts
     NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);

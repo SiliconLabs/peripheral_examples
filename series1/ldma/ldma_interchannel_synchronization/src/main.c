@@ -101,8 +101,8 @@ static void gpioPrsSetup(void)
   GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPullFilter, 1);
 
   /* Configure interrupt on push buttons for rising edge but not enabled - PRS sensing instead */
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, true, false, false);
-  GPIO_IntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, true, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, true, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, BSP_GPIO_PB1_PIN, true, false, false);
 
   /* Select GPIO as PRS source and push button BTN1 as signal for PRS channel */
   CMU_ClockEnable(cmuClock_PRS, true);

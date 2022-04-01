@@ -85,7 +85,7 @@ void initGpio(void)
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInput, 0);
 
   // Configure Push Button 0 to create PRS interrupt signals only
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, false, false);
 
   // Use GPIO PB0 as async PRS to trigger ADC in EM2
   CMU_ClockEnable(cmuClock_PRS, true);
@@ -147,7 +147,7 @@ void initAdc(void)
   CMU->ADCCTRL = CMU_ADCCTRL_ADC0CLKSEL_AUXHFRCO;
 
   // Set AUXHFRCO frequency and use it to setup the ADC
-  CMU_AUXHFRCOFreqSet(cmuAUXHFRCOFreq_4M0Hz);
+  CMU_AUXHFRCOBandSet(cmuAUXHFRCOFreq_4M0Hz);
   init.timebase = ADC_TimebaseCalc(CMU_AUXHFRCOBandGet());
   init.prescale = ADC_PrescaleCalc(ADC_FREQ, CMU_AUXHFRCOBandGet());
 

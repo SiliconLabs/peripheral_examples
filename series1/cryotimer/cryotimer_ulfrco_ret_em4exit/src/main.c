@@ -183,7 +183,7 @@ void initGpio(void)
   else {
     NVIC_EnableIRQ(GPIO_ODD_IRQn);
   }
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, true, true);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, true, true);
 }
 
 /**************************************************************************//**

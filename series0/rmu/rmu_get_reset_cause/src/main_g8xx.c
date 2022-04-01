@@ -152,7 +152,7 @@ void initGPIO(void)
 
   // Configure PB0 as input and enable interrupt
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPull, 1);
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, true, true);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, true, true);
 
   // Enable GPIO_ODD interrupt
   NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);

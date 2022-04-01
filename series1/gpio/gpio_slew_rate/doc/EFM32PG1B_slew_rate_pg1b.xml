@@ -20,7 +20,6 @@
       <source>##em-path-cmsis##\Device\SiliconLabs\EFM32PG1B\Source\system_efm32pg1b.c</source>
     </group>
     <group name="emlib">
-      <source>##em-path-cmsis##\emlib\src\em_assert.c</source>
       <source>##em-path-cmsis##\emlib\src\em_wdog.c</source>
       <source>##em-path-cmsis##\emlib\src\em_rmu.c</source>
       <source>##em-path-cmsis##\emlib\src\em_cmu.c</source>

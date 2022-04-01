@@ -81,7 +81,7 @@ void initGpio(void)
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInput, 0);
 
   // Enable push button 0 to generate PRS interrupt signals
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, false, false);
 
   // Enable and configure PRS
   CMU_ClockEnable(cmuClock_PRS, true);

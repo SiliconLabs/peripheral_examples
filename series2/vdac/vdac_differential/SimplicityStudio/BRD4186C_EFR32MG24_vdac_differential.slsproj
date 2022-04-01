@@ -3,6 +3,9 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -25,6 +28,10 @@
   <folder name="Drivers">
     <file name="mx25flash_spi.c" uri="../../kit/common/drivers/mx25flash_spi.c" />
   </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
+  <toolListOption value="-c -fmessage-length=0"/>
+  <toolListOption value="-mcmse"/>
+</toolOption>>
   <folder name="src">
     <file name="main_vdac_differential.c" uri="src/main_vdac_differential.c" />
     <file name="readme.txt" uri="readme.txt" />

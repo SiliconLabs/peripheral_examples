@@ -56,7 +56,7 @@ void initGpio(void)
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
 
   // Enable falling-edge interrupts for PB pins
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, 1, 0, true);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, true, false, true);
 
   // Enable IRQ for even numbered GPIO pins
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);

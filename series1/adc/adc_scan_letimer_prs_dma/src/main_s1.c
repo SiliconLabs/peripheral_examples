@@ -166,7 +166,7 @@ void initAdc(void)
   CMU->ADCCTRL = CMU_ADCCTRL_ADC0CLKSEL_AUXHFRCO;
 
   // Set AUXHFRCO frequency and use it to setup the ADC
-  CMU_AUXHFRCOFreqSet(cmuAUXHFRCOFreq_4M0Hz);
+  CMU_AUXHFRCOBandSet(cmuAUXHFRCOFreq_4M0Hz);
   init.timebase = ADC_TimebaseCalc(CMU_AUXHFRCOBandGet());
   init.prescale = ADC_PrescaleCalc(ADC_FREQ, CMU_AUXHFRCOBandGet());
 

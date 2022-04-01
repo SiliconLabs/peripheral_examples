@@ -192,7 +192,7 @@ void initWDOG(void)
   wdogInit.clkSel = wdogClkSelULFRCO; // ULFRCO (1 kHz) as clock source
   wdogInit.perSel = wdogPeriod_8k;    // 8193 clock cycles of a 1 kHz clock  ~8 seconds period
   // Initializing watchdog with chosen settings 
-  WDOG_Init(&wdogInit);
+  WDOGn_Init(DEFAULT_WDOG, &wdogInit);
   // Enbale the WDOG 
-  WDOG_Enable(true);
+  WDOGn_Enable(DEFAULT_WDOG, true);
 }

@@ -18,6 +18,7 @@
     </cflags>
     <includepaths>
       <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-platform##\common\inc</path>
       <path>##em-path-device##\EFR32MG1P\Include</path>
       <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>

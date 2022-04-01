@@ -3,6 +3,9 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -22,6 +25,10 @@
   <folder name="CMSIS">
     <file name="custom_system_efr32xg23.c" uri="CMSIS/EFR32xG23/custom_system_efr32xg23.c" />
   </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
+  <toolListOption value="-c -fmessage-length=0"/>
+  <toolListOption value="-mcmse"/>
+</toolOption>>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main.c" uri="src/main.c" />

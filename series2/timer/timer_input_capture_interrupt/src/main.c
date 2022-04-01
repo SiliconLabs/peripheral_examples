@@ -87,7 +87,7 @@ void initGpio(void)
 
   // Select button 0 as the interrupt source
   // (configure as disabled since using PRS)
-  GPIO_IntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, false, false);
 }
 
 /**************************************************************************//**

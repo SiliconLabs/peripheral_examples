@@ -3,11 +3,13 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
-    <include pattern="emlib/em_assert.c" />
     <include pattern="emlib/em_wdog.c" />
     <include pattern="emlib/em_rmu.c" />
     <include pattern="emlib/em_cmu.c" />
