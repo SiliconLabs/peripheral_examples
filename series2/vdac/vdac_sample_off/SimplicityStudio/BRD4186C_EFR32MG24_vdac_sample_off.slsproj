@@ -3,9 +3,6 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
-  <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
-  </module>
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -18,6 +15,9 @@
     <include pattern="emlib/em_usart.c" />
     <include pattern="emlib/em_vdac.c" />
   </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
@@ -28,15 +28,15 @@
   <folder name="Drivers">
     <file name="mx25flash_spi.c" uri="../../kit/common/drivers/mx25flash_spi.c" />
   </folder>
-<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
-  <toolListOption value="-c -fmessage-length=0"/>
-  <toolListOption value="-mcmse"/>
-</toolOption>>
   <folder name="src">
     <file name="main_vdac_sample_off.c" uri="src/main_vdac_sample_off.c" />
     <file name="readme.txt" uri="readme.txt" />
     <file name="xg24_linker_script.ld" uri="../../linker_scripts/xg24_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
+  <toolListOption value="-c -fmessage-length=0"/>
+  <toolListOption value="-mcmse"/>
+</toolOption>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg24_linker_script.ld}"/>

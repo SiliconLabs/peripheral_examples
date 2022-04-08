@@ -10,6 +10,7 @@
       <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG14_BRD4169B\config</kitconfig>
     </directories>
     <includepaths>

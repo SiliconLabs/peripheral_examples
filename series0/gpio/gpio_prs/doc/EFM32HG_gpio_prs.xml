@@ -6,6 +6,7 @@
       <cmsis>$PROJ_DIR$\..\..\..\..\..\platform</cmsis>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3400A_EFM32HG\config</kitconfig>
     </directories>
     <includepaths>

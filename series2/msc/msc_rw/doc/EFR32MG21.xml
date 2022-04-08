@@ -13,6 +13,7 @@
 	  <se_manager>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager</se_manager>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</kitconfig>
     </directories>
     <includepaths>
@@ -42,5 +43,11 @@
       <source>$PROJ_DIR$\..\readme.txt</source>
       <source>$PROJ_DIR$\..\src\main_xG21.c</source>
     </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-c -fmessage-length=0"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
+    </cflags>
   </project>
 </workspace>
