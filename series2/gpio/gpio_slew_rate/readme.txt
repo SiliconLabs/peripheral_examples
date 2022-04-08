@@ -47,3 +47,9 @@ Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
 Device: EFR32MG24B210F1536IM48
 PB01 - Push Button PB0
 PC00 - 1 MHz output (Expansion Header Pin 10)
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 - Push Button PB0
+PC00 - 1 MHz output (Expansion Header Pin 10)

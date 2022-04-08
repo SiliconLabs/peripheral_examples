@@ -183,7 +183,15 @@ void RETARGET_SerialInit(void)
   RETARGET_PERIPHERAL_ENABLE();
 
   CMU_ClockEnable(RETARGET_CLK, true);
-  CMU_ClockSelectSet(RETARGET_CLK, cmuSelect_EM01GRPACLK);
+  switch (RETARGET_CLK) {
+    case cmuClock_EUSART0:
+      CMU_ClockSelectSet(cmuClock_EM01GRPCCLK, cmuSelect_HFRCODPLL);
+      CMU_ClockSelectSet(RETARGET_CLK, cmuSelect_EM01GRPCCLK);
+      break;
+    default:
+      CMU_ClockSelectSet(RETARGET_CLK, cmuSelect_HFRCODPLL);
+      break;
+  }
 
   /* Configure USART for basic async operation */
   init.enable = eusartDisable;

@@ -17,23 +17,29 @@ CMU    - HFRCODPLL @ 19 MHz
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
-PB0 - LED0
-PD2 - Push Button PB0
+PB00 - LED0
+PD02 - Push Button PB0
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
-PD2 - LED0
-PB0 - Push Button PB0
+PD02 - LED0
+PB00 - Push Button PB0
 
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
-PB2 - LED0
-PB1 - Push Button PB0
+PB02 - LED0
+PB01 - Push Button PB0
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
-PB2 - LED0
-PB1 - Push Button PB0
+PB02 - LED0
+PB01 - Push Button PB0
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PC06 - LED0
+PB00 - Push Button PB0
