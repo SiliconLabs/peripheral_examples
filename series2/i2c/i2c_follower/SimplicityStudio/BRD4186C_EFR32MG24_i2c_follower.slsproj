@@ -18,6 +18,9 @@
   <module id="com.silabs.sdk.exx32.common.platform">
     <exclude pattern=".*" />
   </module>
+  <module id="com.silabs.sdk.exx32.common.peripheral">
+    <include pattern=".*/peripheral_sysrtc.c" />
+  </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
@@ -25,10 +28,6 @@
   <includePath uri="../../kit/EFR32MG24_BRD4186C" />
   <includePath uri="../../kit/common/bsp" />
   <includePath uri="../../kit/common/drivers" />
-  <includePath uri="../../../../platform/peripheral/inc" />
-  <folder name="peripheral">
-    <file name="peripheral_sysrtc.c" uri="../../../../platform/peripheral/src/peripheral_sysrtc.c" />
-  </folder>
   <folder name="Drivers">
     <file name="mx25flash_spi.c" uri="../../kit/common/drivers/mx25flash_spi.c" />
   </folder>
