@@ -86,3 +86,11 @@ PB02 - LED0, WSTK Pin 19
 PB04 - LED1, WSTK Pin 26
 PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
 PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PC06 - LED0, WSTK Pin 27
+PC07 - LED1, WSTK Pin 26
+PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
+PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
