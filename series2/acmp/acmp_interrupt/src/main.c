@@ -49,8 +49,8 @@
 #include "mx25flash_spi.h"
 #include "bsp.h"
 
-#define LED0_PORT           gpioPortB
-#define LED0_PIN            2
+#define LED0_PORT           BSP_GPIO_LED0_PORT
+#define LED0_PIN            BSP_GPIO_LED0_PIN
 #define ACMP_INPUT_PORT     gpioPortB
 #define ACMP_INPUT_PIN      1
 #define ACMP_INPUT_PORT_PIN acmpInputPB1
