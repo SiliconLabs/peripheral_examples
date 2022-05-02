@@ -146,6 +146,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFM32TG11B520F128GM80</state>
           
         </option>
@@ -264,7 +265,7 @@
         </option>
         <option>
           <name>CCLangSelect</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -280,7 +281,7 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
@@ -488,7 +489,7 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
@@ -949,6 +950,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFM32TG11B520F128GM80</state>
           
         </option>
@@ -1067,7 +1069,7 @@
         </option>
         <option>
           <name>CCLangSelect</name>
-          <state>0</state>
+          <state>3</state>
         </option>
         <option>
           <name>CCLibConfigHeader</name>
@@ -1083,7 +1085,7 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
@@ -1291,7 +1293,7 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32TG11B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>

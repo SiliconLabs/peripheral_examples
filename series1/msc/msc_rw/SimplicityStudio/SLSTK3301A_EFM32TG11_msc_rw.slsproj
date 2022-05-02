@@ -3,9 +3,6 @@
   <module id="com.silabs.sdk.exx32.board">
     <exclude pattern=".*" />
   </module>
-  <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
-  </module>
   <module id="com.silabs.sdk.exx32.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -16,6 +13,9 @@
     <include pattern="emlib/em_msc.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">

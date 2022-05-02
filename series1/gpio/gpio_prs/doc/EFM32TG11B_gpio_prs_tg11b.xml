@@ -2,37 +2,40 @@
 <workspace name="gpio">
   <project device="EFM32TG11B520F128GM80"
            name="EFM32TG11B_gpio_prs_tg11b">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
     <directories>
-      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform</cmsis>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32TG11\config</kitconfig>
     </directories>
-    <targets>
-      <name>iar</name>
-      <name>arm</name>
-      <name>slsproj</name>
-    </targets>
+
     <includepaths>
-      <path>##em-path-cmsis##\CMSIS\Include</path>
-      <path>##em-path-cmsis##\Device\SiliconLabs\EFM32TG11B\Include</path>
-      <path>##em-path-cmsis##\emlib\inc</path>
+      <path>##em-path-cmsis##\Core\Include</path>
+      <path>##em-path-platform##\common\inc</path>
+      <path>##em-path-device##\EFM32TG11B\Include</path>
+      <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>
       <path>##em-path-bsp##</path>
     </includepaths>
     <group name="CMSIS">
-      <source>##em-path-cmsis##\Device\SiliconLabs\EFM32TG11B\Source\$IDE$\startup_efm32tg11b.s</source>
-      <source>##em-path-cmsis##\Device\SiliconLabs\EFM32TG11B\Source\system_efm32tg11b.c</source>
+      <source>##em-path-device##\EFM32TG11B\Source\$IDE$\startup_efm32tg11b.s</source>
+      <source>##em-path-device##\EFM32TG11B\Source\system_efm32tg11b.c</source>
     </group>
     <group name="emlib">
-      <source>##em-path-cmsis##\emlib\src\em_adc.c</source>
-      <source>##em-path-cmsis##\emlib\src\em_cmu.c</source>
-	  <source>##em-path-cmsis##\emlib\src\em_core.c</source>
-      <source>##em-path-cmsis##\emlib\src\em_gpio.c</source>
-      <source>##em-path-cmsis##\emlib\src\em_emu.c</source>
-      <source>##em-path-cmsis##\emlib\src\em_prs.c</source>
-      <source>##em-path-cmsis##\emlib\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_adc.c</source>
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+	  <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_prs.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_gpio_prs.c</source>

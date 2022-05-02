@@ -1,12 +1,9 @@
 /***************************************************************************//**
  * @file
- * @brief Custom CMSIS Cortex-M33 system support for EFR32MG22 devices
- * demonstrating how to lock flash pages in the SystemInit() function
- * called immediately after execution begins out of reset.
- * @version 0.0.1
+ * @brief CMSIS Cortex-M33 system support for EFR32MG22 devices.
  ******************************************************************************
  * # License
- * <b>Copyright 2019 Silicon Laboratories, Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories, Inc. www.silabs.com</b>
  ******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -131,7 +128,13 @@ static uint32_t SystemHFRCODPLLClock = HFRCODPLL_STARTUP_FREQ;
  *   Required CMSIS global variable that must be kept up-to-date.
  */
 uint32_t SystemCoreClock = HFRCODPLL_STARTUP_FREQ;
+
 #endif
+
+/*---------------------------------------------------------------------------
+ * Exception / Interrupt Vector table
+ *---------------------------------------------------------------------------*/
+extern const tVectorEntry __VECTOR_TABLE[16 + EXT_IRQ_COUNT];
 
 /*******************************************************************************
  **************************   GLOBAL FUNCTIONS   *******************************
@@ -151,18 +154,55 @@ uint32_t SystemCoreClock = HFRCODPLL_STARTUP_FREQ;
  *****************************************************************************/
 void SystemInit(void)
 {
-#if defined(__VTOR_PRESENT) && (__VTOR_PRESENT == 1U)
-  SCB->VTOR = (uint32_t) &__Vectors;
+#if defined (__VTOR_PRESENT) && (__VTOR_PRESENT == 1U)
+  SCB->VTOR = (uint32_t) (&__VECTOR_TABLE[0]);
 #endif
 
 #if defined(UNALIGNED_SUPPORT_DISABLE)
   SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
 #endif
 
-#if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
+#if (__FPU_PRESENT == 1)
   SCB->CPACR |= ((3U << 10U * 2U)           /* set CP10 Full Access */
                  | (3U << 11U * 2U));       /* set CP11 Full Access */
 #endif
+
+/* Secure app takes care of moving between the security states.
+ * SL_TRUSTZONE_SECURE MACRO is for secure access.
+ * SL_TRUSTZONE_NONSECURE MACRO is for non-secure access.
+ * When both the MACROS are not defined, during start-up below code makes sure
+ * that all the peripherals are accessed from non-secure address except SMU,
+ * as SMU is used to configure the trustzone state of the system. */
+#if !defined(SL_TRUSTZONE_SECURE) && !defined(SL_TRUSTZONE_NONSECURE) \
+  && defined(__TZ_PRESENT)
+
+#if (_SILICON_LABS_32B_SERIES_2_CONFIG >= 2)
+  CMU->CLKEN1_SET = CMU_CLKEN1_SMU;
+#endif
+
+  /* config SMU to Secure and other peripherals to Non-Secure. */
+  SMU->PPUSATD0_CLR = _SMU_PPUSATD0_MASK;
+#if defined (SEMAILBOX_PRESENT)
+  SMU->PPUSATD1_CLR = (_SMU_PPUSATD1_MASK & (~SMU_PPUSATD1_SMU & ~SMU_PPUSATD1_SEMAILBOX));
+#else
+  SMU->PPUSATD1_CLR = (_SMU_PPUSATD1_MASK & ~SMU_PPUSATD1_SMU);
+#endif
+
+  /* SAU treats all accesses as non-secure */
+#if defined(__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
+  SAU->CTRL = SAU_CTRL_ALLNS_Msk;
+  __DSB();
+  __ISB();
+#else
+  #error "The startup code requires access to the CMSE toolchain extension to set proper SAU settings."
+#endif /* __ARM_FEATURE_CMSE */
+
+/* Clear and Enable the SMU PPUSEC and BMPUSEC interrupt. */
+  NVIC_ClearPendingIRQ(SMU_SECURE_IRQn);
+  SMU->IF_CLR = SMU_IF_PPUSEC | SMU_IF_BMPUSEC;
+  NVIC_EnableIRQ(SMU_SECURE_IRQn);
+  SMU->IEN = SMU_IEN_PPUSEC | SMU_IEN_BMPUSEC;
+#endif /*SL_TRUSTZONE_SECURE */
 
 /* Begin code added for 'msc_page_lock' example */
   /*
@@ -196,7 +236,119 @@ void SystemInit(void)
 #endif
 
   GPIO->P_SET[BSP_GPIO_LED0_PORT].DOUT = 1 << BSP_GPIO_LED0_PIN;
-/* End code added for 'msc_page_lock' example */  
+/* End code added for 'msc_page_lock' example */
+}
+
+/**************************************************************************//**
+ * @brief
+ *   Get current HFRCODPLL frequency.
+ *
+ * @note
+ *   This is a EFR32MG22 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @return
+ *   HFRCODPLL frequency in Hz.
+ *****************************************************************************/
+uint32_t SystemHFRCODPLLClockGet(void)
+{
+#if !defined(SYSTEM_NO_STATIC_MEMORY)
+  return SystemHFRCODPLLClock;
+#else
+  uint32_t ret = 0UL;
+
+  /* Get oscillator frequency band */
+  switch ((HFRCO0->CAL & _HFRCO_CAL_FREQRANGE_MASK)
+          >> _HFRCO_CAL_FREQRANGE_SHIFT) {
+    case 0:
+      switch (HFRCO0->CAL & _HFRCO_CAL_CLKDIV_MASK) {
+        case HFRCO_CAL_CLKDIV_DIV1:
+          ret = 4000000UL;
+          break;
+
+        case HFRCO_CAL_CLKDIV_DIV2:
+          ret = 2000000UL;
+          break;
+
+        case HFRCO_CAL_CLKDIV_DIV4:
+          ret = 1000000UL;
+          break;
+
+        default:
+          ret = 0UL;
+          break;
+      }
+      break;
+
+    case 3:
+      ret = 7000000UL;
+      break;
+
+    case 6:
+      ret = 13000000UL;
+      break;
+
+    case 7:
+      ret = 16000000UL;
+      break;
+
+    case 8:
+      ret = 19000000UL;
+      break;
+
+    case 10:
+      ret = 26000000UL;
+      break;
+
+    case 11:
+      ret = 32000000UL;
+      break;
+
+    case 12:
+      ret = 38000000UL;
+      break;
+
+    case 13:
+      ret = 48000000UL;
+      break;
+
+    case 14:
+      ret = 56000000UL;
+      break;
+
+    case 15:
+      ret = 64000000UL;
+      break;
+
+    case 16:
+      ret = 80000000UL;
+      break;
+
+    default:
+      break;
+  }
+  return ret;
+#endif
+}
+
+/**************************************************************************//**
+ * @brief
+ *   Set HFRCODPLL frequency value.
+ *
+ * @note
+ *   This is a EFR32MG22 specific function, not part of the
+ *   CMSIS definition.
+ *
+ * @param[in] freq
+ *   HFRCODPLL frequency in Hz.
+ *****************************************************************************/
+void SystemHFRCODPLLClockSet(uint32_t freq)
+{
+#if !defined(SYSTEM_NO_STATIC_MEMORY)
+  SystemHFRCODPLLClock = freq;
+#else
+  (void) freq; /* Unused parameter */
+#endif
 }
 
 /***************************************************************************//**
@@ -359,118 +511,6 @@ void SystemHFXOClockSet(uint32_t freq)
     /* This function will update the global variable */
     SystemHCLKGet();
   }
-#else
-  (void) freq; /* Unused parameter */
-#endif
-}
-
-/**************************************************************************//**
- * @brief
- *   Get current HFRCODPLL frequency.
- *
- * @note
- *   This is a EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @return
- *   HFRCODPLL frequency in Hz.
- *****************************************************************************/
-uint32_t SystemHFRCODPLLClockGet(void)
-{
-#if !defined(SYSTEM_NO_STATIC_MEMORY)
-  return SystemHFRCODPLLClock;
-#else
-  uint32_t ret = 0UL;
-
-  /* Get oscillator frequency band */
-  switch ((HFRCO0->CAL & _HFRCO_CAL_FREQRANGE_MASK)
-          >> _HFRCO_CAL_FREQRANGE_SHIFT) {
-    case 0:
-      switch (HFRCO0->CAL & _HFRCO_CAL_CLKDIV_MASK) {
-        case HFRCO_CAL_CLKDIV_DIV1:
-          ret = 4000000UL;
-          break;
-
-        case HFRCO_CAL_CLKDIV_DIV2:
-          ret = 2000000UL;
-          break;
-
-        case HFRCO_CAL_CLKDIV_DIV4:
-          ret = 1000000UL;
-          break;
-
-        default:
-          ret = 0UL;
-          break;
-      }
-      break;
-
-    case 3:
-      ret = 7000000UL;
-      break;
-
-    case 6:
-      ret = 13000000UL;
-      break;
-
-    case 7:
-      ret = 16000000UL;
-      break;
-
-    case 8:
-      ret = 19000000UL;
-      break;
-
-    case 10:
-      ret = 26000000UL;
-      break;
-
-    case 11:
-      ret = 32000000UL;
-      break;
-
-    case 12:
-      ret = 38000000UL;
-      break;
-
-    case 13:
-      ret = 48000000UL;
-      break;
-
-    case 14:
-      ret = 56000000UL;
-      break;
-
-    case 15:
-      ret = 64000000UL;
-      break;
-
-    case 16:
-      ret = 80000000UL;
-      break;
-
-    default:
-      break;
-  }
-  return ret;
-#endif
-}
-
-/**************************************************************************//**
- * @brief
- *   Set HFRCODPLL frequency value.
- *
- * @note
- *   This is a EFR32MG22 specific function, not part of the
- *   CMSIS definition.
- *
- * @param[in] freq
- *   HFRCODPLL frequency in Hz.
- *****************************************************************************/
-void SystemHFRCODPLLClockSet(uint32_t freq)
-{
-#if !defined(SYSTEM_NO_STATIC_MEMORY)
-  SystemHFRCODPLLClock = freq;
 #else
   (void) freq; /* Unused parameter */
 #endif

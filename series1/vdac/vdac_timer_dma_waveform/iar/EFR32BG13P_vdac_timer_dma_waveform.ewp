@@ -168,6 +168,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
+          <state>STR(x)=#x</state>
           <state>EFR32BG13P632F512GM48</state>
           
         </option>
@@ -298,7 +299,7 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG13P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
@@ -361,7 +362,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -560,7 +561,7 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG13P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
@@ -1119,6 +1120,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
+          <state>STR(x)=#x</state>
           <state>EFR32BG13P632F512GM48</state>
           
         </option>
@@ -1249,7 +1251,7 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG13P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
@@ -1312,7 +1314,7 @@
         </option>
         <option>
           <name>IccLang</name>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>IccCDialect</name>
@@ -1507,7 +1509,7 @@
         </option>
         <option>
           <name>AUserIncludes</name>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32BG13P\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>

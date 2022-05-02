@@ -2,8 +2,14 @@
 <workspace name="gpio">
   <project device="EFR32MG12P432F1024GL125"
            name="EFR32MG12P_gpio_periph_mg12p">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
     <directories>
-      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform</cmsis>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
@@ -11,13 +17,10 @@
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</kitconfig>
     </directories>
-    <targets>
-      <name>iar</name>
-      <name>arm</name>
-      <name>slsproj</name>
-    </targets>
+
     <includepaths>
-      <path>##em-path-cmsis##\CMSIS\Include</path>
+      <path>##em-path-cmsis##\Core\Include</path>
+      <path>##em-path-platform##\common\inc</path>
       <path>##em-path-device##\EFR32MG12P\Include</path>
       <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>

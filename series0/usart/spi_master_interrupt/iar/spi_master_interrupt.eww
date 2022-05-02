@@ -2,6 +2,24 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFM32GG_spi_master_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32G_spi_master_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32HG_spi_master_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32LG_spi_master_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32TG_spi_master_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFM32WG_spi_master_interrupt.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFM32ZG_spi_master_interrupt.ewp</path>
   </project>
 

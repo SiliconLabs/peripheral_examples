@@ -16,7 +16,7 @@
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</kitconfig>
     </directories>
     <includepaths>
-      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
       <path>##em-path-device##\EFR32FG23\Include</path>
       <path>##em-path-emlib##\inc</path>

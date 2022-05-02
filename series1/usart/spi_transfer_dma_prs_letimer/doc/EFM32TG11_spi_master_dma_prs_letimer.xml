@@ -15,7 +15,7 @@
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3301A_EFM32tg11\config</kitconfig>
     </directories>
     <includepaths>
-      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
       <path>##em-path-device##\EFM32TG11B\Include</path>
       <path>##em-path-emlib##\inc</path>

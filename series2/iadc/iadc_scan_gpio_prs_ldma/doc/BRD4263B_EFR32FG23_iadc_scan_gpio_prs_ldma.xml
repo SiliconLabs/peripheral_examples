@@ -23,7 +23,7 @@
       <diagsuppress only_ide="iar">Pe188</diagsuppress>
     </cflags>
     <includepaths>
-      <path>##em-path-cmsis##\Include</path>
+      <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
       <path>##em-path-device##\EFR32FG23\Include</path>
       <path>##em-path-emlib##\inc</path>
