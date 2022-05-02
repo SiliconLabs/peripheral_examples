@@ -5,7 +5,7 @@
  * use the BURAM retention registers to have data persist between resets.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -143,7 +143,7 @@ int main(void)
 
   // Enter EM4
   printf("Entering EM4 and wake on BURTC compare in ~3 seconds \n\n");
-  for(volatile uint32_t i=0; i<1000; i++); // delay for printf to finish
+  RETARGET_SerialFlush(); // delay for printf to finish
   EMU_EnterEM4();
 
   // This line should never be reached
