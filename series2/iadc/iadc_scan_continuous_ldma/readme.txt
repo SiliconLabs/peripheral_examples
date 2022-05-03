@@ -48,7 +48,7 @@ CMU     -  FSRCO @ 20 MHz
 EMU
 GPIO
 IADC    - 12-bit resolution (2x oversampling)
-        - unbuffered AVDD reference (3.3V)
+        - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
         - continuous scan triggering
 LDMA    - CH0
                			   

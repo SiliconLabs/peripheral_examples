@@ -34,7 +34,6 @@ for more details.
 
 ================================================================================
 
-In this example, scan table entry 0 may reference port B pin 0, so an
 1. Update the kit's firmware from the Simplicity Studio Launcher, if
    necessary.
 2. Build the project and download to the Starter Kit.
@@ -52,7 +51,7 @@ CMU     - FSRCO @ 20 MHz, LFXO @ 32.768 kHz
 EMU
 GPIO
 IADC    - 12-bit resolution (2x oversampling)
-        - unbuffered AVDD reference (3.3V)
+        - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
         - PRS scan trigger input 
 LDMA    - CH0
 LETIMER - underflow output on PRS to IADC
@@ -79,7 +78,7 @@ Device: EFR32FG23A010F512GM48
 PB00 -  IADC input, single-ended, WSTK P15
 PB01 -  IADC input, single-ended, WSTK P17
 PA05 -  GPIO Push/Pull output, Expansion Header Pin 7, WSTK P4
-PB02 -  GPIO Push/Pull output, WSTK P19
+PD02 -  GPIO Push/Pull output, Expansion Header Pin 9, WSTK P6
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
         Wireless Starter Kit Mainboard

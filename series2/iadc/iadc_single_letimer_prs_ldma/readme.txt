@@ -48,7 +48,7 @@ How To Test:
 Peripherals Used:
 CMU     - FSRCO @ 20 MHz, LFXO @ 32.768 kHz
 IADC    - 12-bit resolution (2x oversampling)
-        - unbuffered AVDD reference (3.3V)
+        - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
         - PRS single conversion trigger input 
 LDMA    - CH0
 LETIMER - underflow output on PRS to IADC

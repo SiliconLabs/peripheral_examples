@@ -41,7 +41,7 @@ Peripherals Used:
 CMU     - HFXO
 GPIO
 IADC    - 12-bit resolution (2x oversampling)
-        - unbuffered AVDD reference (3.3V)
+        - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
         - local timer triggering at 1 kHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 

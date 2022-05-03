@@ -38,7 +38,7 @@ CMU     - FSRCO @ 20 MHz
 GPIO
 IADC    - 12-bit resolution, 
         - Automatic Two's Complement (differential = bipolar) 
-        - Unbuffered 3.3V (AVDD) IADC voltage reference
+        - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
         - IADC and reference kept in warmup mode
         - Conversions triggered by firmware
                

@@ -62,7 +62,7 @@ second time through will fill the remaining four channels' results.
 Peripherals Used:
 CMU    - FSRCO @ 20 MHz, LFXO @ 32.768 kHz
 IADC   - 12-bit resolution, Automatic Two's Complement (single-ended = unipolar) 
-       - unbuffered 3.3V (AVDD) IADC voltage reference
+       - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
        - IADC and reference in normal mode
        - Conversions triggered by firmware
 LETIMER - 1 Hz interrupt

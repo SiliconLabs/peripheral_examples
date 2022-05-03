@@ -169,16 +169,17 @@ void initIADC(void)
 
   /*
    * Configuration 0 is used by both scan and single conversions by
-   * default.  Use unbuffered AVDD as reference and specify the
-   * AVDD supply voltage in mV.
+   * default.  Use internal bandgap as the reference and specify the
+   * reference voltage in mV.
    *
    * Resolution is not configurable directly but is based on the
    * selected oversampling ratio (osrHighSpeed), which defaults to
    * 2x and generates 12-bit results.
    */
-  initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
-  initAllConfigs.configs[0].vRef = 3300;
+  initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
+  initAllConfigs.configs[0].vRef = 1210;
   initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
+  initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
   /*
    * CLK_SRC_ADC must be prescaled by some value greater than 1 to

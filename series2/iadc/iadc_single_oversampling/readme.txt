@@ -43,7 +43,7 @@ GPIO
 IADC   - 16-bit resolution, OVS 32X 
        - 20-bit resolution, OVS 512
        - Automatic Two's Complement (single-ended = unipolar) 
-       - Unbuffered 3.3V (AVDD) IADC voltage reference
+       - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
        - IADC and reference kept in warmup mode
        - Conversions initiated by firmware and triggered continuously
          (when a conversion completes a new one is requested immediately

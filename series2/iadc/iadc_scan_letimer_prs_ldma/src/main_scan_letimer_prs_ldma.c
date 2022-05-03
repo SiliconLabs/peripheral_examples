@@ -167,10 +167,19 @@ void initIADC (void)
   // Set the HFSCLK prescale value here
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD as reference
-  initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
-  initAllConfigs.configs[0].vRef = 3300;
+  /*
+   * Configuration 0 is used by both scan and single conversions by
+   * default.  Use internal bandgap as the reference and specify the
+   * reference voltage in mV.
+   *
+   * Resolution is not configurable directly but is based on the
+   * selected oversampling ratio (osrHighSpeed), which defaults to
+   * 2x and generates 12-bit results.
+   */
+  initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
+  initAllConfigs.configs[0].vRef = 1210;
+  initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
+  initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
   // Divides CLK_SRC_ADC to set the CLK_ADC frequency
   // Default oversampling (OSR) is 2x, and Conversion Time = ((4 * OSR) + 2) / fCLK_ADC

@@ -122,16 +122,17 @@ void initIADC(void)
 
   /*
    * Configuration 0 is used by both scan and single conversions by
-   * default.  Use unbuffered AVDD as reference and specify the
-   * AVDD supply voltage in mV.
+   * default.  Use internal bandgap as the reference and specify the
+   * reference voltage in mV.
    *
    * Resolution is not configurable directly but is based on the
    * selected oversampling ratio (osrHighSpeed), which defaults to
    * 2x and generates 12-bit results.
    */
-  initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
-  initAllConfigs.configs[0].vRef = 3300;
+  initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
+  initAllConfigs.configs[0].vRef = 1210;
   initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
+  initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
   /*
    * CLK_SRC_ADC must be prescaled by some value greater than 1 to
@@ -189,10 +190,10 @@ void IADC_IRQHandler(void)
    * Calculate the voltage converted as follows:
    *
    * For single-ended conversions, the result can range from 0 to
-   * +Vref, i.e., for Vref = AVDD = 3.30 V, 0xFFF represents the
-   * full scale value of 3.30 V.
+   * +Vref, i.e., for Vref = VBGR = 1.21V, and with analog gain = 0.5
+   * 0xFFF represents the full scale value of 2.42V.
    */
-  singleResult = sample.data * 3.3 / 0xFFF;
+  singleResult = sample.data * 2.42 / 0xFFF;
 
   /*
    * Clear the single conversion complete interrupt.  Reading FIFO

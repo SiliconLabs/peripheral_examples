@@ -112,9 +112,10 @@ void initIADC (void)
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD (supply voltage in mV) as reference
-  initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
-  initAllConfigs.configs[0].vRef = 3300;
+  // Use internal bandgap (supply voltage in mV) as reference
+  initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
+  initAllConfigs.configs[0].vRef = 1210;
+  initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
   // Divides CLK_SRC_ADC to set the CLK_ADC frequency
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
@@ -162,8 +163,9 @@ int main(void)
     sample = IADC_pullSingleFifoResult(IADC0).data;
 
     // Calculate input voltage:
-    //  For differential inputs, the resultant range is from -Vref to +Vref, i.e.,
-    //  for Vref = AVDD = 3.30V, 12 bits represents 6.60V full scale IADC range.
-    singleResult = (sample * 6.6) / 0xFFF;
+    // For differential inputs, the resultant range is from -Vref to +Vref, i.e.,
+    // for Vref = VBGR = 2.42V, and with analog gain = 0.5, 12 bits represents
+    // 4.84V full scale IADC range.
+    singleResult = (sample * 4.84) / 0xFFF;
   }
 }

@@ -52,8 +52,8 @@
 
 // Upper and lower bound for Window Comparator
 // 16-bit left-justified format; 12-bit conversion result compared to upper 12-bits of window comparator
-#define WINDOW_UPPER_BOUND      0xC000   // 2.475V
-#define WINDOW_LOWER_BOUND      0x4000   // 0.825V
+#define WINDOW_UPPER_BOUND      0xC000   // 1.815V
+#define WINDOW_LOWER_BOUND      0x4000   // 0.605V
 
 /*
  * Specify the IADC input using the IADC_PosInput_t typedef.  This
@@ -142,9 +142,10 @@ void initIADC (void)
   init.lessThanEqualThres = WINDOW_UPPER_BOUND;
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD (supply voltage in mV) as reference
-  initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
-  initAllConfigs.configs[0].vRef = 3300;
+  // Use internal bandgap (supply voltage in mV) as reference
+  initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
+  initAllConfigs.configs[0].vRef = 1210;
+  initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
   // Divide CLK_SRC_ADC to set the CLK_ADC frequency for desired sample rate
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
@@ -210,9 +211,10 @@ void IADC_IRQHandler(void)
   sample = IADC_readSingleResult(IADC0);
 
   // Calculate input voltage:
-  //  For single-ended the result range is 0 to +Vref, i.e.,
-  //  for Vref = AVDD = 3.30V, 12 bits represents 3.30V full scale IADC range.
-  singleResult = sample.data * 3.3 / 0xFFF;
+  // For single-ended the result range is 0 to +Vref, i.e.,
+  // for Vref = VBGR = 1.21V, and with analog gain = 0.5,
+  // 12 bits represents 2.42V full scale IADC range.
+  singleResult = sample.data * 2.42 / 0xFFF;
 
   // Toggle WSTK LED0 to signal compare event
   GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);

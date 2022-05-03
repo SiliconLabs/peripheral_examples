@@ -157,9 +157,10 @@ void initIADC(void)
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
   // Configuration 0 is used by both scan and single conversions by default
-  // Use unbuffered AVDD (supply voltage in mV) as reference
-  initAllConfigs.configs[0].reference = iadcCfgReferenceVddx;
-  initAllConfigs.configs[0].vRef = 3300;
+  // Use internal bandgap (supply voltage in mV) as reference
+  initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
+  initAllConfigs.configs[0].vRef = 1210;
+  initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
   // Divides CLK_SRC_ADC to set the CLK_ADC frequency for desired sample rate
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
@@ -216,7 +217,7 @@ void IADC_IRQHandler(void)
 
   // For single-ended the result range is 0 to +Vref, i.e., 16 bits for the
   // conversion value.
-  singleResult = sample.data * 3.3 / 0xFFFF;
+  singleResult = sample.data * 2.42 / 0xFFFF;
 
   IADC_clearInt(IADC0, IADC_IF_SINGLEDONE);
 }

@@ -45,7 +45,7 @@ EMU
 GPIO
 IADC    - 12-bit resolution, 
         - Automatic Two's Complement (single-ended = unipolar) 
-        - Unbuffered 3.3V (AVDD) IADC voltage reference
+        - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)
         - IADC and reference in normal mode
         - Conversions triggered by rising GPIO via PRS
 LDMA    - CH0
