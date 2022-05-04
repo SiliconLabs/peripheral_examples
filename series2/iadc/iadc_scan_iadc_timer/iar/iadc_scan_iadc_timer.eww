@@ -13,6 +13,9 @@
   <project>
     <path>$WS_DIR$\EFR32FG23_iadc_scan_iadc_timer.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_iadc_scan_iadc_timer.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

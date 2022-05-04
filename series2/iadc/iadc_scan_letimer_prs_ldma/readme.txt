@@ -87,3 +87,11 @@ PB00 -  IADC input, single-ended, WSTK P15
 PB01 -  IADC input, single-ended, WSTK P17
 PA05 -  GPIO Push/Pull output, Expansion Header Pin 7, WSTK P4
 PD02 -  GPIO Push/Pull output, Expansion Header Pin 9, WSTK P6
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 -  IADC input, single-ended, WSTK P17
+PB01 -  IADC input, single-ended, WSTK P21
+PA05 -  GPIO Push/Pull output, Expansion Header Pin 7, WSTK P4
+PC05 -  GPIO Push/Pull output, WSTK P33

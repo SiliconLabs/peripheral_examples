@@ -72,25 +72,32 @@ Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) +
 Device: EFR32MG21A010F1024IM32
 PA00 -  IADC input, single-ended, WSTK P14
 PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
-PB00 -  GPIO Push/Pull output, Expansion Header Pin 11 WSTK P8
+PB00 -  GPIO Push/Pull output, Expansion Header Pin 11 WSTK P8, LED0
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22A224F512IM40
 PA00 -  IADC input, single-ended, WSTK P14
 PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
-PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8
+PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8, LED0
 
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PA00 -  IADC input, single-ended, Expansion Header Pin 5, WSTK P2
 PA05 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4
-PB02 -  GPIO Push/Pull output, WSTK P19
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PA00 -  IADC input, single-ended, Expansion Header Pin 5, WSTK P2
 PA05 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4
-PB02 -  GPIO Push/Pull output, WSTK P19
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PA00 -  IADC input, single-ended, Expansion Header Pin 5, WSTK P2
+PA05 -  IADC input, single-ended, Expansion Header Pin 7, WSTK P4
+PC06 -  GPIO Push/Pull output, WSTK P27, LED0
