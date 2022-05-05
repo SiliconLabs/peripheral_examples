@@ -1,6 +1,6 @@
 <workspace name="lfrco_cal_interrupt">
-  <project device="EFR32FG23A010F512GM48"
-           name="EFR32FG23_lfrco_cal_interrupt">
+  <project device="EFR32FG25B222F1920IM56"
+           name="EFR32FG25_lfrco_cal_interrupt">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -11,19 +11,19 @@
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <drivers>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</drivers>
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
-      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</kitconfig>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG25_BRD4270B\config</kitconfig>
     </directories>
     <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
-      <path>##em-path-device##\EFR32FG23\Include</path>
+      <path>##em-path-device##\EFR32FG25\Include</path>
       <path>##em-path-emlib##\inc</path>
       <path>##em-path-kitconfig##</path>
       <path>##em-path-drivers##</path>
     </includepaths>
     <group name="CMSIS">
-      <source>##em-path-device##\EFR32FG23\Source\$IDE$\startup_efr32fg23.s</source>
-      <source>##em-path-device##\EFR32FG23\Source\system_efr32fg23.c</source>
+      <source>##em-path-device##\EFR32FG25\Source\$IDE$\startup_efr32fg25.s</source>
+      <source>##em-path-device##\EFR32FG25\Source\system_efr32fg25.c</source>
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_system.c</source>
@@ -36,7 +36,7 @@
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_xg23_xg25.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
-	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script.ld</source>
+	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg25_linker_script.ld</source>
     </group>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
@@ -45,7 +45,7 @@
       <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/&gt;</tooloption>
-      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg23_linker_script.ld}"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg25_linker_script.ld}"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

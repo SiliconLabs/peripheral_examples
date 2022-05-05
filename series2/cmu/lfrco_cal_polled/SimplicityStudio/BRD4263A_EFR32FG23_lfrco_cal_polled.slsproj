@@ -25,7 +25,7 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <folder name="src">
-    <file name="main_xg23.c" uri="src/main_xg23.c" />
+    <file name="main_xg23_xg25.c" uri="src/main_xg23_xg25.c" />
     <file name="readme.txt" uri="readme.txt" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>

@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main_xg23.c
+ * @file main_xg23_xg25.c
  * @brief Demonstrates interrupt-driven calibration of the LFRCO against
  *        the HFXO with output to a pin.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
