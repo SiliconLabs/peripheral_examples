@@ -72,7 +72,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz
+CMU    - HFRCODPLL @ 19 MHz
 MSC
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 

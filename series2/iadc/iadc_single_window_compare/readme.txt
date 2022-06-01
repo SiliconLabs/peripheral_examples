@@ -27,7 +27,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU     - FSRCO @ 20 MHz
+CMU     - HFXO
 GPIO
 IADC    - 12-bit resolution, Automatic 2's Complement (single-ended = unipolar) 
         - Internal VBGR reference with 0.5x analog gain (1.21V / 0.5 = 2.42V)

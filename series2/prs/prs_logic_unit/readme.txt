@@ -44,7 +44,7 @@ input B. This is reflected on the PRS channel selection in the source file
 ===============================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz
+CMU    - HFRCODPLL @ 19 MHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

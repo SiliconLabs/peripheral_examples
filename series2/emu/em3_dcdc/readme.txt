@@ -31,7 +31,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, LFRCO @ 32.768 kHz
+CMU    - HFRCODPLL @ 19 MHz, LFRCO @ 32.768 kHz
 BURTC  - 32.768 kHz LFRCO clock source
 USART0 - 8 Mbits/s
 

@@ -52,7 +52,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, HFRCODPLL @ 19 MHz via EM01GRPCCLK
+CMU    - HFRCODPLL @ 19 MHz via EM01GRPCCLK
 EMU
 VDAC   - internal 1.25V reference, continuous mode
 

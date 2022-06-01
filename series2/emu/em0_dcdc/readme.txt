@@ -22,7 +22,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, HFRCO @ 38 MHz
+CMU    - HFRCODPLL @ 38 MHz
 
 Board: Silicon Labs EFR32FG23 868-915 MHz 14 dBm Board (BRD4263B)
        + Wireless Starter Kit Mainboard (BRD4001A)

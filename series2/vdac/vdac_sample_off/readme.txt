@@ -40,7 +40,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, LFRCO @ 32.768 kHz via EM23GRPACLK
+CMU    - HFRCODPLL @ 19 MHz, LFRCO @ 32.768 kHz via EM23GRPACLK
 EMU
 USART  - used only to power down onboard SPI flash
 VDAC   - internal 1.25V reference, sample/off mode

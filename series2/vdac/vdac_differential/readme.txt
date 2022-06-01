@@ -35,7 +35,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, HFRCOEM23 @ 19 MHz
+CMU    - HFRCODPLL @ 19 MHz, HFRCOEM23 @ 19 MHz
 EMU
 USART  - used only to power down onboard SPI flash
 VDAC   - internal 1.25V reference, continuous mode

@@ -54,7 +54,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-FSRCO       - 20 MHz
+HFRCODPLL   - 19 MHz
 I2C0        - 100 kHz
 RTCC/SYSRTC - 32.768 kHz
 

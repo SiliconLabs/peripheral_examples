@@ -10,7 +10,7 @@ How To Test:
 2. Connect an oscilloscope to pin PC3 and observe the LFRCO signal
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, LFRCO @ 32.768 kHz
+CMU    - HFRCODPLL @ 19 MHz, LFRCO @ 32.768 kHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

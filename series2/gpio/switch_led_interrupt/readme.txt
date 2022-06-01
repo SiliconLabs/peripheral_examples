@@ -17,7 +17,7 @@ How To Test:
 3. Press PB1 to toggle LED1
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz
+CMU    - HFRCODPLL @ 19 MHz
 EMU
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 

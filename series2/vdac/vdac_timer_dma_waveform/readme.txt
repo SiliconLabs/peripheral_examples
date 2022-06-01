@@ -30,7 +30,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, HFRCODPLL @ 19 MHz via EM01GRPCCLK
+CMU    - HFRCODPLL @ 19 MHz via EM01GRPCCLK
 EMU
 LDMA   - memory to peripheral data transfer
 TIMER  - TIMER0 @ 320 kHz (WAVEFORM_FREQ * SINE_TABLE_SIZE)

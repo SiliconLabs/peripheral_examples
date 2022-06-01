@@ -20,7 +20,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz
+CMU    - HFRCODPLL @ 19 MHz
 MSC
 SE (xG21 only)
 

@@ -20,9 +20,9 @@ How To Test:
    press PB0 to change the slew rate.
     
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz
+CMU    - HFRCODPLL @ 19 MHz
 EMU
-TIMER  - Toggles GPIO at 1 MHz
+TIMER  - FSRCO @ 20 MHz, Toggles GPIO at 1 MHz
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard

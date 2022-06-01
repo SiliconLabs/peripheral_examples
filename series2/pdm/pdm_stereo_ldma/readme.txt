@@ -14,7 +14,6 @@ How To Test:
 3. Suspend the debugger; observe the data buffers in the Expressions Window
 
 Peripherals Used:
-FSRCO     - 20 MHz
 HFRCODPLL - 19 MHz
 
 Board:  Silicon Labs EFR32BG22 Thunderboard (BRD4184A)

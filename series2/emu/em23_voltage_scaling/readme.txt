@@ -45,7 +45,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz, ULFRCO @ 1 kHz
+CMU    - HFRCODPLL @ 19 MHz, ULFRCO @ 1 kHz
 BURTC  - 1 kHz ULFRCO clock source
 USART0 - 8 Mbits/s
 

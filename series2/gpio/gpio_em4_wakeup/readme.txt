@@ -30,7 +30,7 @@ How To Test:
    from EM4. Capture current consumption which implies device is in EM0.
 
 Peripherals Used:
-CMU    - FSRCO @ 20 MHz
+CMU    - HFRCODPLL @ 19 MHz
 EMU
 RMU
 USART  - used only to power down onboard SPI flash
