@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg23_xg24.c
+ * @file main.c
  * @brief This project demonstrates output compare in EM2 using the LETIMER.
  * After 1 second an output pin is set high (see README)
  *******************************************************************************

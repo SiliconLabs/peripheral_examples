@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg23_xg24.c
+ * @file main.c
  * @brief This project demonstrates pulse width modulation using the LETIMER
  * module. Expansion Header Pin 5 is configured for PWM output.
  *******************************************************************************

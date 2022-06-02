@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg23_xg24.c
+ * @file main.c
  * @brief This project demonstrates generating a pulse train using the LETIMER
  * module. Expansion Header Pin 5 is configured for output compare and toggles
  * EH Pin 5 on each overflow event at a set frequency.

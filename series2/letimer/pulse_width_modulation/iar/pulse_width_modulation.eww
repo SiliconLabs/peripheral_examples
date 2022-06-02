@@ -13,6 +13,9 @@
   <project>
     <path>$WS_DIR$\EFR32MG24_pulse_width_modulation.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_pulse_width_modulation.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>
