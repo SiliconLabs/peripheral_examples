@@ -7,7 +7,7 @@
  * for details.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -135,7 +135,7 @@ void initGPIO(void)
   // Enable clock for the GPIO module; has no effect on xG21
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Configure the GPIO pins F4 and F5 for the LEDs as output pins 
+  // Configure LED0 
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 
   // Configure PB0 as input  
