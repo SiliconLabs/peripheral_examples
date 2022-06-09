@@ -13,6 +13,9 @@
   <project>
     <path>$WS_DIR$\EFR32MG24_msc_page_lock.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_msc_page_lock.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

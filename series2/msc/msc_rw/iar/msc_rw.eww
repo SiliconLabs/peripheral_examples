@@ -5,6 +5,9 @@
     <path>$WS_DIR$\EFR32FG23_msc_rw.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32FG25_msc_rw.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG21_msc_rw.ewp</path>
   </project>
   <project>

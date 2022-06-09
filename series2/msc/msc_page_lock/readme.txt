@@ -94,3 +94,8 @@ Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PB02 - LED0 (WSTK Breakout Header P19)
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PC6 - LED0 (WSTK Breakout Header P27)
