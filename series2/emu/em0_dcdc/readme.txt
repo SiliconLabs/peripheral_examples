@@ -1,7 +1,7 @@
 em0_dcdc
 
-This project demonstrates the demonstrates datasheet current consumption 
-configuration and current consumption numbers in EM1 Energy Mode.
+This project demonstrates the datasheet current consumption 
+configuration and current consumption numbers in EM0 Energy Mode.
 
 Note: Default project gives EM0 current consumption numbers when DCDC is enabled 
 with all peripherals disabled, HFRCO running at 38 MHz and CPU running while loop

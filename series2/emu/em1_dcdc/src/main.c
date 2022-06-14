@@ -5,7 +5,7 @@
  * and current consumption numbers in EM1 Energy Mode.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -41,9 +41,6 @@
 #include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_gpio.h"
-#include "em_burtc.h"
-#include "em_usart.h"
 #include "bspconfig.h"
 
 /**************************************************************************/
