@@ -1,8 +1,10 @@
 /***************************************************************************//**
- * @file main_vdac_differential.c
- * @brief This project uses the VDAC in continuous mode with differential output
- * to output a difference of 0.5V between two pins in EM3. See readme.txt for
- * details.
+ * @file main_vdac_sine_wave_synch_xg25.c
+ * @brief This project uses the DAC and the internal sine wave generator to
+ * produce a 16-point sine wave at a frequency of f_sinewave Hz centered at the
+ * reference voltage divided by 2. This project operates in EM1. By default,
+ * this program outputs a sine wave at 31,250 Hz.
+ * f_sinewave = f_HFPERCLK / (32 * (PRESCALE + 1))
  *******************************************************************************
  * # License
  * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
@@ -39,11 +41,18 @@
 #include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_vdac.h"
 #include "em_gpio.h"
-#include "mx25flash_spi.h"
+#include "em_vdac.h"
+
+// Note: The sine wave will always be output on Channel 0 but Channel 1 can
+// still be used independently as a single-ended DAC output. Channel 1 settings
+// are ignored if the differential mode is enabled.
+#define CHANNEL_NUM 0
 
 // Set the VDAC to max frequency of 1 MHz
+// Note in this example: f_sinewave = f_EM01GRPACLK / (32 * (PRESCALE + 1))
+// The default value of the f_EM01GRPACLK is 19 MHz and PRESCALE is 18 for the
+// fastest VDAC clock which makes f_sinewave ~ 31 kHz
 #define CLK_VDAC_FREQ              1000000
 
 /*
@@ -56,35 +65,24 @@
  * 4  Port D selected
  *
  * The VDAC port pin settings do not need to be set when the main output is
- * used. Refer to the device Reference Manual and Datasheet for more details.
- * We will be selecting the CH0 main output PB00 and CH1 main output PB001 for
- * this example.
+ * used. Refer to the device Reference Manual and Datasheet for more details. We
+ * will be selecting the CH0 auxiliary output PA06 for this example.
  */
 
 /**************************************************************************//**
  * @brief
- *    Powers down the SPI flash on the radio board
- *
- * @details
- *    A JEDEC standard SPI flash boots up in standby mode in order to
- *    provide immediate access, such as when used it as a boot memory.
- *
- *    Typical current draw in standby mode for the MX25R8035F device used
- *    on EFR32 radio boards is 5 µA.
- *
- *    JEDEC standard SPI flash memories have a lower current deep power-down
- *    mode, which can be entered after sending the relevant commands. This is on
- *    the order of 0.007 µA for the MX25R8035F.
+ *    GPIO initialization
  *****************************************************************************/
-void powerDownSpiFlash(void)
+void initGpio(void)
 {
-  FlashStatus status;
+  // Enable the GPIO clock
+  CMU_ClockEnable(cmuClock_GPIO, true);
 
-  MX25_init();
-  MX25_RSTEN();
-  MX25_RST(&status);
-  MX25_DP();
-  MX25_deinit();
+  // Disable PA06 input
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeDisabled, 0);
+
+  // Connect VDAC0 CH0 to an even pin on Port A via the ABUS
+  GPIO->ABUSALLOC = GPIO_ABUSALLOC_AEVEN0_VDAC0CH0;
 }
 
 /**************************************************************************//**
@@ -97,11 +95,11 @@ void initVdac(void)
   VDAC_Init_TypeDef        init        = VDAC_INIT_DEFAULT;
   VDAC_InitChannel_TypeDef initChannel = VDAC_INITCHANNEL_DEFAULT;
 
-  // Use the HFRCOEM23 to clock the VDAC in order to operate in EM3 mode
-  CMU_ClockSelectSet(cmuClock_VDAC0, cmuSelect_HFRCOEM23);
+  // Sine mode is supported only for the fastest configuration of the VDAC in
+  // continuous mode. Hence select the EM01GRPACLK as the source of the VDAC0
+  CMU_ClockSelectSet(cmuClock_VDAC0, cmuSelect_EM01GRPACLK);
 
-  // Enable the HFRCOEM23 and VDAC clocks
-  CMU_ClockEnable(cmuClock_HFRCOEM23, true);
+  // Enable the VDAC clocks
   CMU_ClockEnable(cmuClock_VDAC0, true);
   /*
    * Note: For EFR32xG21 radio devices, library function calls to
@@ -112,51 +110,43 @@ void initVdac(void)
    * Also note that there's no VDAC peripheral on xG21 and xG22
    */
 
-  // Calculate the VDAC clock prescaler value resulting in a 1 MHz VDAC clock
-  init.prescaler = VDAC_PrescaleCalc(VDAC0, CLK_VDAC_FREQ);
+  // Calculate the VDAC clock prescaler value resulting in a 1 MHz VDAC clock.
+  init.prescaler = VDAC_PrescaleCalc(VDAC0, (uint32_t)CLK_VDAC_FREQ);
 
-  // Set the output mode to differential instead of single-ended
-  init.diff = true;
+  // Set reference to internal 1.25V reference
+  init.reference = vdacRef1V25;
 
-  // Clocking is requested on demand
-  init.onDemandClk = false;
+  // Enable sine mode
+  init.sineEnable = true;
 
-  // Disable High Capacitance Load mode
+  // Set the output mode to continuous as required for the sine mode
+  initChannel.sampleOffMode = false;
+
+  // Since the minimum load requirement for high capacitance mode is 25 nF, turn
+  // this mode off
   initChannel.highCapLoadEnable = false;
 
-  // Use Low Power mode
-  initChannel.powerMode = vdacPowerModeLowPower;
+  // Trigger mode and refresh source should be programmed to None for the sine
+  // mode to avoid interference in sine output generation from other triggers
+  initChannel.trigMode = vdacTrigModeNone;
+  initChannel.chRefreshSource = vdacRefreshSrcNone;
+
+  // Disable Main output
+  initChannel.mainOutEnable = false;
+
+  // Enable Auxiliary output
+  initChannel.auxOutEnable = true;
+
+  // Output to PA06
+  initChannel.port = vdacChPortA;
+  initChannel.pin = 6;
 
   // Initialize the VDAC and VDAC channel
   VDAC_Init(VDAC0, &init);
-  VDAC_InitChannel(VDAC0, &initChannel, 0);
-  VDAC_InitChannel(VDAC0, &initChannel, 1);
+  VDAC_InitChannel(VDAC0, &initChannel, CHANNEL_NUM);
 
   // Enable the VDAC
-  VDAC_Enable(VDAC0, 0, true);
-  VDAC_Enable(VDAC0, 1, true);
-}
-
-/**************************************************************************//**
- * @brief
- *    Calculate the digital value that maps to the desired output voltage
- *
- * @note
- *    The vRef parameter must match the reference voltage selected during
- *    initialization
- *
- * @param [in] vOut
- *    Desired output voltage
- *
- * @param [in] vRef
- *    Reference voltage used by the VDAC
- *
- * @return
- *    The digital value that maps to the desired output voltage
- *****************************************************************************/
-uint32_t getVdacValue(float vOut, float vRef)
-{
-  return (uint32_t)((vOut * 2047) / vRef);
+  VDAC_Enable(VDAC0, CHANNEL_NUM, true);
 }
 
 /**************************************************************************//**
@@ -164,35 +154,26 @@ uint32_t getVdacValue(float vOut, float vRef)
  *****************************************************************************/
 int main(void)
 {
-  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
-  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
-
   // Chip errata
   CHIP_Init();
+
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
 
   // Enable DC-DC converter
   EMU_DCDCInit(&dcdcInit);
 
-  // Enable voltage downscaling in energy modes EM2 and EM3
-  em23Init.vScaleEM23Voltage = emuVScaleEM23_LowPower;
-
-  // Initialize energy modes EM2 and EM3
-  EMU_EM23Init(&em23Init);
-
-  // Power down the SPI flash
-  powerDownSpiFlash();
+  // Initialize the GPIO
+  initGpio();
 
   // Initialize the VDAC
   initVdac();
 
-  // Calculate the 12-bit output value for 0.5 V
-  uint32_t vdacValue = getVdacValue(0.5, 1.25);
-
-  // Write the output value to VDAC DATA register
-  VDAC_ChannelOutputSet(VDAC0, 0, vdacValue);
+  // Start sine mode
+  VDAC_SineModeStart(VDAC0, true);
 
   while (1) {
-    // Enter EM3 while the VDAC is doing continuous conversions
-    EMU_EnterEM3(false);
+    // Enter EM1 (won't exit)
+    EMU_EnterEM1();
   }
 }
+

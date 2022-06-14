@@ -9,6 +9,11 @@ filter, e.g.) depending on the intended application. Suitable filter design and
 VDAC refresh rate and hold times can be adjusted based on the amount of output
 ripple tolerated by the application.
 
+Note: The BRD4270B's VDAC CH0 Main output is connected to an external pullup
+resistor, capacitor, and pushbutton on the WSTK. To avoid interference from
+these components, the EFR32xG25 example uses the VDAC CH0 Auxiliary output to 
+output to a pin on the ABUS.
+
 Approximate current consumption measurements are provided below using Simplicity
 Studio's built-in energy profiler. Projects were built with the default import
 configuration - Debug build configuration (-g3) and no optimization (gcc -O0). 
@@ -19,10 +24,17 @@ slower refresh rate uses less energy, this example uses a fixed output hold time
 and thus the voltage can dissipate between refresh cycles depending on external
 circuit (filter) and load.
 
+Note: The energy profiler only measures the VMCU current. For BRD4270B, VMCU
+only powers IOVDD and the serial flash. The 3.6V LDO powers the rest of the
+radio board. To measure the 3.6V LDO current, replace R247 with ammeter
+connections. The current provided below is the combination of the VMCU and 3.6V
+current.
+
           | avg current consumption in EM3; refresh rates in VDAC_REFRESH_CLKs
 Board     | 32 clks | 64 clks | 128 clks | 256 clks
 ================================================================================
-BRD4186C  |   22 uA |   17 uA |    14 uA |    13 uA 
+BRD4186C  |   22 uA |   17 uA |    14 uA |    13 uA
+BRD4270B  |   17 uA |   11 uA |     8 uA |     7 uA 
 
 RMS output|  380 mV |  265 mV |   185 mV |   130 mV
 
@@ -59,3 +71,8 @@ Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PA06 -  VDAC0 CH0 Auxiliary Output (Pin 8 of breakout pads)

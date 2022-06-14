@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main.c
+ * @file main_vdac_sine_wave_synch.c
  * @brief This project uses the DAC and the internal sine wave generator to
  * produce a 16-point sine wave at a frequency of f_sinewave Hz centered at the
  * reference voltage divided by 2. This project operates in EM1. By default,
@@ -7,7 +7,7 @@
  * f_sinewave = f_HFPERCLK / (32 * (PRESCALE + 1))
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -99,7 +99,7 @@ void initVdac(void)
   // Set reference to internal 1.25V reference
   init.reference = vdacRef1V25;
 
-  //Enable sine mode
+  // Enable sine mode
   init.sineEnable = true;
 
   // Set the output mode to continuous as required for the sine mode

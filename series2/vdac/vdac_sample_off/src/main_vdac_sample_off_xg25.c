@@ -1,8 +1,7 @@
 /***************************************************************************//**
- * @file main_vdac_differential.c
- * @brief This project uses the VDAC in continuous mode with differential output
- * to output a difference of 0.5V between two pins in EM3. See readme.txt for
- * details.
+ * @file main_vdac_sample_off_xg25.c
+ * @brief This project uses the VDAC in sample/off mode to output 0.5V to a pin
+ * in EM3. See readme.txt for details.
  *******************************************************************************
  * # License
  * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
@@ -39,12 +38,17 @@
 #include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_vdac.h"
 #include "em_gpio.h"
+#include "em_vdac.h"
 #include "mx25flash_spi.h"
 
-// Set the VDAC to max frequency of 1 MHz
-#define CLK_VDAC_FREQ              1000000
+// Note: change this to change which channel the VDAC outputs to. This value can
+// be either a zero or one
+#define CHANNEL_NUM 0
+
+// The DAC clock speed is set to 32.768 kHz. The clock source for the DAC in
+// this example is the EM23GRPACLK, sourced by default by 32.768 kHz LFRCO.
+#define CLK_VDAC_FREQ             32768
 
 /*
  * The port and pin for the VDAC output is set in VDAC_OUTCTRL register. The
@@ -56,12 +60,11 @@
  * 4  Port D selected
  *
  * The VDAC port pin settings do not need to be set when the main output is
- * used. Refer to the device Reference Manual and Datasheet for more details.
- * We will be selecting the CH0 main output PB00 and CH1 main output PB001 for
- * this example.
+ * used. Refer to the device Reference Manual and Datasheet for more details. We
+ * will be selecting the CH0 auxiliary output PA06 for this example.
  */
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @brief
  *    Powers down the SPI flash on the radio board
  *
@@ -75,7 +78,7 @@
  *    JEDEC standard SPI flash memories have a lower current deep power-down
  *    mode, which can be entered after sending the relevant commands. This is on
  *    the order of 0.007 µA for the MX25R8035F.
- *****************************************************************************/
+ ******************************************************************************/
 void powerDownSpiFlash(void)
 {
   FlashStatus status;
@@ -89,19 +92,36 @@ void powerDownSpiFlash(void)
 
 /**************************************************************************//**
  * @brief
- *    VDAC initialization
+ *    GPIO initialization
  *****************************************************************************/
+void initGpio(void)
+{
+  // Enable the GPIO clock
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
+  // Disable PA06 input
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeDisabled, 0);
+
+  // Connect VDAC0 CH0 to an even pin on Port A via the ABUS
+  GPIO->ABUSALLOC = GPIO_ABUSALLOC_AEVEN0_VDAC0CH0;
+}
+
+/***************************************************************************//**
+ * @brief
+ *    VDAC initialization
+ ******************************************************************************/
 void initVdac(void)
 {
   // Use default settings
   VDAC_Init_TypeDef        init        = VDAC_INIT_DEFAULT;
   VDAC_InitChannel_TypeDef initChannel = VDAC_INITCHANNEL_DEFAULT;
 
-  // Use the HFRCOEM23 to clock the VDAC in order to operate in EM3 mode
-  CMU_ClockSelectSet(cmuClock_VDAC0, cmuSelect_HFRCOEM23);
+  // Since this example showcases the low power mode of the VDAC, the device is
+  // clocked off the EM23GRPACLK. This clock is recommended only when the VDAC
+  // is expected to do very slow sample conversions/refresh.
+  CMU_ClockSelectSet(cmuClock_VDAC0, cmuSelect_EM23GRPACLK);
 
-  // Enable the HFRCOEM23 and VDAC clocks
-  CMU_ClockEnable(cmuClock_HFRCOEM23, true);
+  // Enable the VDAC clocks
   CMU_ClockEnable(cmuClock_VDAC0, true);
   /*
    * Note: For EFR32xG21 radio devices, library function calls to
@@ -112,32 +132,64 @@ void initVdac(void)
    * Also note that there's no VDAC peripheral on xG21 and xG22
    */
 
-  // Calculate the VDAC clock prescaler value resulting in a 1 MHz VDAC clock
-  init.prescaler = VDAC_PrescaleCalc(VDAC0, CLK_VDAC_FREQ);
+  // Calculate the VDAC prescaler value resulting in a 32.768 kHz VDAC clock.
+  init.prescaler = VDAC_PrescaleCalc(VDAC0, (uint32_t)CLK_VDAC_FREQ);
 
-  // Set the output mode to differential instead of single-ended
-  init.diff = true;
+  // Set reference to internal 1.25V low noise reference
+  init.reference = vdacRef1V25;
 
-  // Clocking is requested on demand
-  init.onDemandClk = false;
+  /* When using EM23GRPACLK, the clock source cannot be made "on demand";
+   * Setting this bool/bitfield to true/logic 1 disables "on demand"
+   */
+  init.onDemandClk = true;
 
-  // Disable High Capacitance Load mode
+  // Set VDAC channel refresh period
+  init.refresh = vdacRefresh32;
+
+  // Since the VDAC runs in EM3, low power mode should be enabled
+  initChannel.powerMode = vdacPowerModeLowPower;
+
+  // Set the output mode to sample/off. In sample/off mode, the VDAC will only
+  // drive the output for a limited time per conversion.
+  initChannel.sampleOffMode = true;
+
+  // The VDAC will drive the output for 10 prescaled VDAC clock cycles before
+  // tri-stating the output again
+  initChannel.holdOutTime = 10;
+
+  // Set the trigger mode to SW so that the internal timer or a software
+  // trigger will trigger the VDAC conversion
+  initChannel.trigMode = vdacTrigModeSw;
+
+  // A conversion will start on an overflow of the refresh timer. This is an
+  // internal low power refresh timer that is automatically started. It will
+  // count the number of clock refresh cycles programmed in the init
+  // configuration before wrapping and generating a refresh trigger.
+  initChannel.chRefreshSource = vdacRefreshSrcRefreshTimer;
+
+  // Since the minimum load requirement for high capacitance mode is 25 nF, turn
+  // this mode off
   initChannel.highCapLoadEnable = false;
 
-  // Use Low Power mode
-  initChannel.powerMode = vdacPowerModeLowPower;
+  // Disable Main output
+  initChannel.mainOutEnable = false;
+
+  // Enable Auxiliary output
+  initChannel.auxOutEnable = true;
+
+  // Output to PA06
+  initChannel.port = vdacChPortA;
+  initChannel.pin = 6;
 
   // Initialize the VDAC and VDAC channel
   VDAC_Init(VDAC0, &init);
-  VDAC_InitChannel(VDAC0, &initChannel, 0);
-  VDAC_InitChannel(VDAC0, &initChannel, 1);
+  VDAC_InitChannel(VDAC0, &initChannel, CHANNEL_NUM);
 
   // Enable the VDAC
-  VDAC_Enable(VDAC0, 0, true);
-  VDAC_Enable(VDAC0, 1, true);
+  VDAC_Enable(VDAC0, CHANNEL_NUM, true);
 }
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @brief
  *    Calculate the digital value that maps to the desired output voltage
  *
@@ -153,22 +205,23 @@ void initVdac(void)
  *
  * @return
  *    The digital value that maps to the desired output voltage
- *****************************************************************************/
+ ******************************************************************************/
 uint32_t getVdacValue(float vOut, float vRef)
 {
-  return (uint32_t)((vOut * 2047) / vRef);
+  return (uint32_t)((vOut * 4095) / vRef);
 }
 
-/**************************************************************************//**
+/***************************************************************************//**
  * @brief
- *****************************************************************************/
+ *    Output 0.5 volts to VDAC channel 0
+ ******************************************************************************/
 int main(void)
 {
-  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
-  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
-
   // Chip errata
   CHIP_Init();
+
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
+  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
 
   // Enable DC-DC converter
   EMU_DCDCInit(&dcdcInit);
@@ -182,6 +235,9 @@ int main(void)
   // Power down the SPI flash
   powerDownSpiFlash();
 
+  // Initialize the GPIO
+  initGpio();
+
   // Initialize the VDAC
   initVdac();
 
@@ -189,10 +245,11 @@ int main(void)
   uint32_t vdacValue = getVdacValue(0.5, 1.25);
 
   // Write the output value to VDAC DATA register
-  VDAC_ChannelOutputSet(VDAC0, 0, vdacValue);
+  VDAC_ChannelOutputSet(VDAC0, CHANNEL_NUM, vdacValue);
 
   while (1) {
-    // Enter EM3 while the VDAC is doing continuous conversions
+      // Enter EM3 while the VDAC is doing continuous conversions
     EMU_EnterEM3(false);
   }
 }
+

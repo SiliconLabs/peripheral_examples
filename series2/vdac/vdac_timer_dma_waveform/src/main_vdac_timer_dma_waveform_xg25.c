@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_vdac_timer_dma_waveform.c
+ * @file main_vdac_timer_dma_waveform_xg25.c
  * @brief This project uses the VDAC and TIMER0 to output a 32 point sine wave
  * at a particular frequency (10 kHz by default). This project operates in EM1.
  *******************************************************************************
@@ -38,6 +38,7 @@
 #include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
+#include "em_gpio.h"
 #include "em_vdac.h"
 #include "em_timer.h"
 #include "em_ldma.h"
@@ -77,8 +78,24 @@ static const uint16_t sineTable[SINE_TABLE_SIZE] = {
  *
  * The VDAC port pin settings do not need to be set when the main output is
  * used. Refer to the device Reference Manual and Datasheet for more details. We
- * will be selecting the CH0 main output PB00 for this example.
+ * will be selecting the CH0 auxiliary output PA06 for this example.
  */
+
+/**************************************************************************//**
+ * @brief
+ *    GPIO initialization
+ *****************************************************************************/
+void initGpio(void)
+{
+  // Enable the GPIO clock
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
+  // Disable PA06 input
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeDisabled, 0);
+
+  // Connect VDAC0 CH0 to an even pin on Port A via the ABUS
+  GPIO->ABUSALLOC = GPIO_ABUSALLOC_AEVEN0_VDAC0CH0;
+}
 
 /**************************************************************************//**
  * @brief
@@ -114,6 +131,16 @@ void initVdac(void)
   // Since the minimum load requirement for high capacitance mode is 25 nF, turn
   // this mode off
   initChannel.highCapLoadEnable = false;
+
+  // Disable Main output
+  initChannel.mainOutEnable = false;
+
+  // Enable Auxiliary output
+  initChannel.auxOutEnable = true;
+
+  // Output to PA06
+  initChannel.port = vdacChPortA;
+  initChannel.pin = 6;
 
   // Initialize the VDAC and VDAC channel
   VDAC_Init(VDAC0, &init);
@@ -215,7 +242,8 @@ int main(void)
   // Enable DC-DC converter
   EMU_DCDCInit(&dcdcInit);
 
-  // Initialize the VDAC, LDMA and Timer
+  // Initialize the GPIO, VDAC, LDMA and Timer
+  initGpio();
   initVdac();
   initLdma();
   initTimer();

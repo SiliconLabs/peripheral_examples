@@ -7,6 +7,9 @@
   <project>
     <path>$WS_DIR$\EFR32FG23_vdac_sine_wave_synch.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_vdac_sine_wave_synch.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

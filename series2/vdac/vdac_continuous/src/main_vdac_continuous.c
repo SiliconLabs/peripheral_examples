@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main.c
+ * @file main_vdac_continuous.c
  * @brief This project uses the VDAC in continuous mode to output 0.5V to a pin
  * in EM3. See readme.txt for details.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib

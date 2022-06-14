@@ -15,10 +15,17 @@ configuration - Debug build configuration (-g3) and no optimization (gcc -O0).
 Refer to device specific datasheets for more details about low energy mode 
 currents.
 
+Note: The energy profiler only measures the VMCU current. For BRD4270B, VMCU
+only powers IOVDD and the serial flash. The 3.6V LDO powers the rest of the
+radio board. To measure the 3.6V LDO current, replace R247 with ammeter
+connections. The current provided below is the combination of the VMCU and 3.6V
+current.
+
 Board     | avg current EM3 | avg current EM0 (Enter EM3 code commented out)
 ================================================================================
 BRD4263B  |           60 uA |           950 uA
 BRD4186C  |           60 uA |           725 uA
+BRD4270B  |           55 uA |           905 uA
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
@@ -62,3 +69,9 @@ Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
 Device: EFR32MG24B210F1536IM48
 PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
 PB01 -  VDAC0 CH1 Main Output (Pin 17 of breakout pads)
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 -  VDAC0 CH0 Main Output (Pin 17 of breakout pads)
+PB01 -  VDAC0 CH1 Main Output (Pin 21 of breakout pads)
