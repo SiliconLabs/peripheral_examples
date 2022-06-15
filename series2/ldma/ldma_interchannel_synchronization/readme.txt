@@ -64,3 +64,9 @@ Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
 Device: EFR32MG24B210F1536IM48
 PB01 - push button PB0, WSTK Pin 17
 PB03 - push button PB1, WSTK Pin 21
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 - Push Button PB0, WSTK Pin 17
+PB01 - Push Button PB1, WSTK Pin 21
