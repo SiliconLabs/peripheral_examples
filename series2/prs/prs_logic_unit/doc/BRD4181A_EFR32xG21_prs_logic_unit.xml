@@ -37,7 +37,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main_xg21_xg24.c</source>
+      <source>$PROJ_DIR$\..\src\main_ch0_ch1.c</source>
     </group>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>

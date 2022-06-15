@@ -2000,7 +2000,7 @@
       <name>$PROJ_DIR$\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xg21_xg24.c</name>
+      <name>$PROJ_DIR$\..\src\main_ch0_ch1.c</name>
     </file>
   </group>
 

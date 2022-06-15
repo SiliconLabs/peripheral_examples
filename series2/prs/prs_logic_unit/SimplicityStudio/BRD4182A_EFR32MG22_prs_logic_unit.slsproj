@@ -29,7 +29,7 @@
   </module>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
-    <file name="main_xg22_xg23.c" uri="src/main_xg22_xg23.c" />
+    <file name="main_chA_chB.c" uri="src/main_chA_chB.c" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
   <toolListOption value="-c -fmessage-length=0"/>

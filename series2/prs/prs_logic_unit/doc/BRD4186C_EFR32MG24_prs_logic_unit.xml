@@ -36,7 +36,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\readme.txt</source>
-      <source>$PROJ_DIR$\..\src\main_xg21_xg24.c</source>
+      <source>$PROJ_DIR$\..\src\main_ch0_ch1.c</source>
       <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg24_linker_script.ld</source>
     </group>
     <cflags>

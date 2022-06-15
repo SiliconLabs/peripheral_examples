@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg22_xg23.c
+ * @file main_chA_chB.c
  * @brief This project demonstrates the built-in PRS logic functions between
  * channels.
  *******************************************************************************

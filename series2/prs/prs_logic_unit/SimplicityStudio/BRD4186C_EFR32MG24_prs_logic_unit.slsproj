@@ -27,7 +27,7 @@
   <includePath uri="../../kit/common/drivers" />
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
-    <file name="main_xg21_xg24.c" uri="src/main_xg21_xg24.c" />
+    <file name="main_ch0_ch1.c" uri="src/main_ch0_ch1.c" />
     <file name="xg24_linker_script.ld" uri="../../linker_scripts/xg24_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
