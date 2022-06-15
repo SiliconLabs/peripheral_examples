@@ -1,6 +1,6 @@
 em3_dcdc
 
-This project demonstrates the demonstrates datasheet current consumption 
+This project demonstrates the datasheet current consumption 
 configuration and current consumption numbers in EM3 Energy Mode.
 
 Note: Default project gives EM3 current consumption numbers when DCDC is enabled

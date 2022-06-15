@@ -1,6 +1,6 @@
 em2_dcdc
 
-This project demonstrates the demonstrates datasheet current consumption 
+This project demonstrates the datasheet current consumption 
 configuration and current consumption numbers in EM2 Energy Mode.
 
 Note: Default project gives EM2 current consumption numbers when DCDC is enabled

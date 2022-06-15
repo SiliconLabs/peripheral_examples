@@ -1,6 +1,6 @@
 em4_no_dcdc
 
-This project demonstrates the demonstrates datasheet current consumption 
+This project demonstrates the datasheet current consumption 
 configuration and current consumption numbers in EM4 Energy Mode.
 
 Note: Default project gives EM4 current consumption numbers with no BURTC. 

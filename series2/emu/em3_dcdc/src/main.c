@@ -5,7 +5,7 @@
  * and power consumption numbers in EM3 Energy Mode.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -43,7 +43,6 @@
 #include "em_emu.h"
 #include "em_gpio.h"
 #include "em_burtc.h"
-#include "em_usart.h"
 #include "mx25flash_spi.h"
 #include "bspconfig.h"
 #define POWER_DOWN_RAM  (1)
