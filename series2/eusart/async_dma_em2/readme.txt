@@ -51,9 +51,21 @@ How To Test:
 3. Type 10 characters (will not show if it is less than 10) in the terminal
    program and watch the characters echo back from the terminal.
 
+NOTE: The WSTK board controller defaults to 115200 baud for the virtual
+COM port (JLink CDC UART Port).  Follow these steps to switch to 9600
+baud:
+1. From the Simplicity Studio Launcher, select the J-Link adapter in the
+   Debug Adapters window, right-click on it and select Launch Console.
+2. When the console appears, switch to the Admin tab, click in the input
+   area, and press Enter.  The WSTK> prompt will appear.
+3. To change the virtual COM (VCOM) port baud rate, enter the following
+   command:
+
+   serial vcom config speed 9600
+
 Alternatively, the example may be tested with a USB-to-serial converter,
 such as the Silicon Labs CP2102N-EK.  Refer to the list below for the
-mapping of EUSART signals to Expansion (EXP) Header pins.
+mapping of USART signals to Expansion (EXP) Header pins.
 
 ================================================================================
 
@@ -72,4 +84,12 @@ Device: EFR32MG24B210F1536IM48 (this code will run unchanged on any
         EFR32MG24 variant so long as the pins used as present).
 PA8 - EUSART0_TX (Expansion Header Pin 12)
 PA9 - EUSART0_RX (Expansion Header Pin 14)
+PB0 - VCOM_ENABLE (WSTK P15)
+
+Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
+        EFR32FG25 variant so long as the pins used as present).
+PA8 - EUSART1_TX (Expansion Header Pin 12)
+PA9 - EUSART1_RX (Expansion Header Pin 14)
 PB0 - VCOM_ENABLE (WSTK P15)

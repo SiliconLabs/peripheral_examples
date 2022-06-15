@@ -107,3 +107,11 @@ Device: EFR32MG24B210F1536IM48 (this code will run unchanged on any
 PA8 - EUSART1_TX (Expansion Header Pin 12)
 PA9 - EUSART1_RX (Expansion Header Pin 14)
 PB0 - VCOM_ENABLE (WSTK P15)
+
+Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
+        EFR32FG25 variant so long as the pins used as present).
+PA8 - EUSART1_TX (Expansion Header Pin 12)
+PA9 - EUSART1_RX (Expansion Header Pin 14)
+PB0 - VCOM_ENABLE (WSTK P15)

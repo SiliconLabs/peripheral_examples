@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_s2.c
+ * @file main.c
  *
  * @brief This project demonstrates use of the EUSART in polled mode. The main
  * loop waits until 80 characters or a carriage return are received and then
