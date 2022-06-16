@@ -20,7 +20,6 @@
       <path>##em-path-emlib##\inc</path>
       <path>$PROJ_DIR$\..\..\..\kit\EFR32MG24_BRD4186C</path>
       <path>$PROJ_DIR$\..\..\..\kit\common\bsp</path>
-      <path>$PROJ_DIR$\..\..\..\kit\common\drivers</path>
     </includepaths>
     <group name="CMSIS">
       <source>##em-path-device##\EFR32MG24\Source\$IDE$\startup_efr32mg24.s</source>

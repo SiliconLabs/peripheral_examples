@@ -157,3 +157,13 @@ PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
 PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8
 PC0 - EUSART1_CS (CSn)   - Expansion Header pin 10
 PD2 - Activity Indicator - Expansion Header pin 9
+
+Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
+        EFR32FG25 variant so long as the pins used as present).
+PC0 - EUSART1_TX (MOSI)  - Expansion Header pin 4
+PC1 - EUSART1_RX (MISO)  - Expansion Header pin 6
+PC2 - EUSART1_CLK (SCLK) - Expansion Header pin 8
+PB4 - EUSART1_CS (CSn)   - Expansion Header pin 10
+PA8 - Activity Indicator - Expansion Header pin 12
