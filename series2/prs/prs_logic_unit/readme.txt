@@ -37,9 +37,10 @@ Note: Various other logic functions like AND, NAND, NOR, XOR, NOT etc are
 available. You can switch between these logic functions by changing the 
 parameters passed when calling PRS_Combine() function in main.c.
 
-Note: For EFR32xG22/xG23 devices, you may choose any asynchronous PRS channel as
-your input B. For EFR32xG21/xG24 devices, you have to choose (input A - 1) as your
-input B. This is reflected on the PRS channel selection in the source file
+Note: For EFR32xG22/xG23/xG25 devices, you may choose any asynchronous PRS 
+channel as your input B. For EFR32xG21/xG24 devices, you have to choose 
+(input A - 1) as your input B. This is reflected on the PRS channel selection 
+in the source file.
 
 ===============================================================================
 
@@ -81,3 +82,12 @@ PRS   - Channel 0, PB0
 PB01  - push button PB0
 PB03  - push button PB1
 PB04  - PRS Channel 1
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PRS   - Channel 1, PB0
+        Channel 6, PB1 routed to LED1 (Output)
+PB00 - push button PB0
+PB01 - push button PB1
+PC07 - PRS Channel 6
