@@ -1,12 +1,9 @@
 lesense_single_channel
 
 This project demonstrates the usage of LESENSE to sample a single channel
-using ACMP on the EFR32FG23 device. The LESENSE uses the ACMP peripheral to
-sample the input state of push button 0, and will trigger an interrupt to
-toggle LED0 when push button 0 is pressed.
-
-Use Simplicity Studio's Energy Profiler to observe current consumption while
-example runs in low energy mode.
+using ACMP. The LESENSE uses the ACMP peripheral to sample the input state of 
+push button 0, and will trigger an interrupt to toggle LED0 when push button 0
+is pressed.
 
 Note: In project where the device enters EM2 or lower, an escapeHatch
       routine is usually recommended to prevent device lock-up. This example has
@@ -23,7 +20,7 @@ How to test:
 6. Repeat step 3 and observe the interrupt handler firing each time.
 
 Peripheral Used:
-LFRCO - 32768 Hz
+CMU   - LFRCO @ 32768 Hz
 ACMP  - used to sample push-button 0 input state
 GPIO  - LED0 configured as output
 LESENSE - controls ACMP to sample push-button 0 on selected LESENSE channel
@@ -32,7 +29,5 @@ Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PB01 - Push Button PB0
-PB02 - LED0
 PB03 - Push Button PB1
-
-
+PB02 - LED0

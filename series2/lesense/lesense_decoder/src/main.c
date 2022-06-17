@@ -1,9 +1,9 @@
 /***************************************************************************//**
  * @file
- * @brief LESENSE decoder demo for EFR32FG23. This example uses LESENSE
- *        to scan two ACMP channel in low energy mode. The LESENSE is able to
- *        detect when the input signal crosses over a certain threshold and will
- *        update the decoder states based on different input
+ * @brief This example uses LESENSE to scan two ACMP channel in low energy mode.
+ *        The LESENSE is able to detect when the input signal crosses over a
+ *        certain threshold and will update the decoder states based on 
+ *        different input
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -53,11 +53,19 @@
 #define SCAN_FREQ         8  // 8 Hz
 #define STATE_LED         1  // state transition LED demo, turn off to view
                              // state transition current consumption
-
 #define NO_TURN           0
 #define LEFT_TURN         1
 #define RIGHT_TURN        2
 #define BOTH_TURN         3
+
+// Determine the BBUSALLOC to allocate to ACMP0
+#if (BSP_GPIO_PB0_PIN % 2 == 0 && BSP_GPIO_PB1_PIN % 2 == 0)
+  #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BEVEN0_ACMP0
+#elseif (BSP_GPIO_PB0_PIN % 2 != BSP_GPIO_PB1_PIN % 2)
+  #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BEVEN0_ACMP0 | GPIO_BBUSALLOC_BODD0_ACMP0
+#else
+  #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BODD0_ACMP0
+#endif
 
 uint32_t decoder_state;
 
@@ -121,7 +129,7 @@ void initACMP(void)
   ACMP_Init(ACMP0, &initACMP);
 
   // Allocate BODD0 to ACMP0 to be able to use the input
-  GPIO->BBUSALLOC_SET = GPIO_BBUSALLOC_BODD0_ACMP0;
+  GPIO->BBUSALLOC_SET = GPIO_BBUSALLOC;
 
   // Select 1.25V internal as the reference voltage for ACMP negative input
   ACMP0->INPUTCTRL_SET = ACMP_INPUTCTRL_NEGSEL_VREFDIV1V25;
@@ -306,11 +314,12 @@ void initLESENSE(void)
   LESENSE->EN_CLR = LESENSE_EN_EN;
   while (LESENSE->EN & _LESENSE_EN_DISABLING_MASK);
 
-  // LESENSE offset 1 = ACMP PB + 1 = ACMP input PB1 which is push button 0
-  // LESENSE offset 3 = ACMP PB + 3 = ACMP input PB3 which is push button 1
-  LESENSE->CH_SET[0].INTERACT = (0x1 << _LESENSE_CH_INTERACT_OFFSET_SHIFT);
-  LESENSE->CH_SET[1].INTERACT = (0x3 << _LESENSE_CH_INTERACT_OFFSET_SHIFT);
-  LESENSE->EN_SET = LESENSE_EN_EN;  // Enable LESENSE
+  // LESENSE offset is set to the ACMP input pin numbers
+  LESENSE->CH_SET[0].INTERACT = (BSP_GPIO_PB0_PIN << _LESENSE_CH_INTERACT_OFFSET_SHIFT);
+  LESENSE->CH_SET[1].INTERACT = (BSP_GPIO_PB1_PIN << _LESENSE_CH_INTERACT_OFFSET_SHIFT);
+
+  // Enable LESENSE
+  LESENSE->EN_SET = LESENSE_EN_EN;
   while(LESENSE -> SYNCBUSY);         // SYNCBUSY check;
 
   // Enable decoder interrupt and interrupt in NVIC

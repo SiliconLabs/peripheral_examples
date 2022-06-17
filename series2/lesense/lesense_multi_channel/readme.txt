@@ -25,15 +25,13 @@ Note: In project where the device enters EM2 or lower, an escapeHatch
 
 How to test:
 1.  Build the project and download it to the starter kit
-2.  Run the code, connect LESENSE channel 2 pin (see below) to 3.3V (Pin 2/20 on 
-    Expansion Header)
+2.  Run the code, connect LESENSE channel 2 pin (see below) to 3.3V
 3.  Observe LED0 toggle once (from ON to OFF)
-4.  Connect LESENSE channel 2 pin back to GND (Pin 1/19 on Expansion Header)
+4.  Connect LESENSE channel 2 pin back to GND
 5.  Observe LED0 toggle once (from OFF to ON)
-6.  Connect LESENSE channel 3 pin (see below) to 3.3V (Pin 2/20 on Expansion
-    Header)
+6.  Connect LESENSE channel 3 pin (see below) to 3.3V 
 7.  Observe LED1 toggle once (from ON to OFF)
-8.  Connect LESENSE channel 3 pin back to GND (Pin 1/19 on Expansion Header)
+8.  Connect LESENSE channel 3 pin back to GND
 9.  Observe LED1 toggle once (from OFF to ON)
 10. Press Push Button 0 and hold down
 11. Observe LED0 toggle once (from ON to OFF)
@@ -46,26 +44,23 @@ How to test:
 18. Repeat the process on any of the four LESENSE channel pins
 
 Peripheral Used:
-LFRCO      - 32768 Hz
-EM23GRACLK - 1 MHz
-IADC       - 12-bit resolution, Unipolar (single-ended), unbuffered 3.3V (AVDD) 
+CMU     - LFRCO @ 32768 Hz
+        - EM23GRACLK - 1 MHz
+IADC    - 12-bit resolution, Unipolar (single-ended), unbuffered 3.3V (AVDD) 
              IADC voltage reference, 2X OSR, IADC and reference running in 
              normal mode; 5 us warmup before each conversion 
-           - Conversions initiated by LESENSE; LESENSE channels 0-3 correspond
+        - Conversions initiated by LESENSE; LESENSE channels 0-3 correspond
              to IADC scan table entries 0-3
 GPIO
-LESENSE    - 32 Hz scan rate; LESENSE scans all enabled channels per scan cycle:
+LESENSE - 32 Hz scan rate; LESENSE scans all enabled channels per scan cycle:
              32 samples per second per channel
 
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
-PB1 - Push Button PB0 - LESENSE Channel 0
-PB3 - Push Button PB1 - LESENSE Channel 1
-PB2 - LED0
-PD3 - LED1
-PA6 - LESENSE Channel 2 (Expansion Header 11)
-PA7 - LESENSE Channel 3 (Expansion Header 13)
-
-
-
+PB01 - LESENSE Channel 0 (Push Button PB0)
+PB03 - LESENSE Channel 1 (Push Button PB1)
+PA06 - LESENSE Channel 2 (Expansion Header 11)
+PA07 - LESENSE Channel 3 (Expansion Header 13)
+PB02 - LED0
+PD03 - LED1

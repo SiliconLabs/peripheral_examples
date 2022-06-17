@@ -2015,7 +2015,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xG23.c</name>
+      <name>$PROJ_DIR$\..\src\main.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

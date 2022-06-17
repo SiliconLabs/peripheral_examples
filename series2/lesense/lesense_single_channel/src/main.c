@@ -1,9 +1,8 @@
 /***************************************************************************//**
  * @file
- * @brief LESENSE single channel demo for EFR32FG23. This example uses LESENSE
- *        to scan one ACMP channel in low energy mode. The LESENSE is able to
- *        detect when the input signal crosses over a certain threshold and will
- *        trigger an interrupt to toggle the LED.
+ * @brief This example uses LESENSE to scan one ACMP channel in low energy mode.
+ *         The LESENSE is able to detect when the input signal crosses over a
+ *         certain threshold and will trigger an interrupt to toggle the LED.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
@@ -52,6 +51,13 @@
 #define PD01REGNORETAIN  0  // EM0/1 peripheral register retention
 #define EM2_DEBUG        1  // EM2 debug enable
 #define SCAN_FREQ        8  // 8 Hz
+
+// Determine the BBUSALLOC to allocate to ACMP0
+#if (BSP_GPIO_PB1_PIN % 2 == 0)
+  #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BEVEN0_ACMP0
+#else
+  #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BODD0_ACMP0
+#endif
 
 /**************************************************************************//**
  * @brief LESENSE interrupt handler
@@ -112,7 +118,7 @@ void initACMP(void)
   ACMP_Init(ACMP0, &initACMP);
 
   // Allocate BODD0 to ACMP0 to be able to use the input
-  GPIO->BBUSALLOC_SET = GPIO_BBUSALLOC_BODD0_ACMP0;
+  GPIO->BBUSALLOC_SET = GPIO_BBUSALLOC;
 
   // Select 1.25V internal as the reference voltage for ACMP negative input
   ACMP0->INPUTCTRL_SET = ACMP_INPUTCTRL_NEGSEL_VREFDIV1V25;
@@ -169,6 +175,7 @@ void initLESENSE(void)
   initLesenseCh.sampleDelay = 0x1; // 1+1 LF Clock cycle sample delay
   initLesenseCh.sampleMode = lesenseSampleModeACMP;
   initLesenseCh.intMode = lesenseSetIntPosEdge;  // Interrupt on sensor posEdge
+  initLesenseCh.offset = BSP_GPIO_PB0_PIN; //Set LESENSE offset
 
   //Initialize LESENSE interface
   LESENSE_Init(&initLesense, true);
@@ -182,12 +189,6 @@ void initLESENSE(void)
   // Wait for SYNCBUSY clear
   while(LESENSE->SYNCBUSY);
 
-  // Disable LESENSE, needed in order to configure the offset and internal timer
-  LESENSE->EN_CLR = LESENSE_EN_EN;
-  while (LESENSE->EN & _LESENSE_EN_DISABLING_MASK);
-
-  // LESENSE offset 1 = ACMP PB + 1 = ACMP input PB1 which is push button 0
-  LESENSE->CH_SET[0].INTERACT = (1 << _LESENSE_CH_INTERACT_OFFSET_SHIFT);
   LESENSE->EN_SET = LESENSE_EN_EN;  // Enable LESENSE
   while(LESENSE->SYNCBUSY);         // SYNCBUSY check;
 

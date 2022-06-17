@@ -1,11 +1,11 @@
 lesense_decoder
 
 This project demonstrates the usage of LESENSE to sample two channels
-using ACMP on the EFR32FG23 device. The LESENSE uses the ACMP peripheral to
-sample the input state of push button 0 and 1. The dedicated LESENSE decoder is
-used to read the sensor state and update its internal state machine according to
-the user configuration. Upon valid transition, the LESENSE interrupt will fire
-and read its current state to update the LEDs.
+using ACMP. The LESENSE uses the ACMP peripheral to sample the input state of 
+push button 0 and 1. The dedicated LESENSE decoder is used to read the sensor 
+state and update its internal state machine according to the user configuration. 
+Upon valid transition, the LESENSE interrupt will fire and read its
+current state to update the LEDs.
 
 Total states in the state machine: 4
 Total arcs used: 16
@@ -34,14 +34,16 @@ Each state can have four different transitions or arcs, therefore a total of 16
 arcs are used here. Also note that this is a Moore state machine, so the output
 will only depend on the state, not the input.
 
-Use Simplicity Studio's Energy Profiler to observe current consumption while
-example runs in low energy mode.
-
 Note: In project where the device enters EM2 or lower, an escapeHatch
       routine is usually recommended to prevent device lock-up. This example has
       implemented a escapeHatch, where if the user holds down push-button 1 when
       resetting the device, the escapeHatch will hold the device in EM0 state
       to allow debug connection
+
+To observe current consumption,
+1. In main.c, set EM2_DEBUG to 0
+2. Build the project and use Energy Profiler to observe current consumption
+3. Current consumption should be around 3.8uA for EFR32FG23
 
 How to test:
 1. Build the project and enter debug mode
@@ -53,13 +55,8 @@ How to test:
 7. Continue running the example and try different push button configuration
 8. Observe the decoder_state variable
 
-To observe current consumption,
-1. In main_xG23.c, set EM2_DEBUG to 0
-2. Build the project and use Energy Profiler to observe current consumption
-3. Current consumption should be around 3.8uA
-
 Peripheral Used:
-LFRCO - 32768 Hz
+CMU   - LFRCO @ 32768 Hz
 ACMP  - used to sample push-button 0 and push-button 1 input state
 GPIO  - LED0 and LED1 configured as push-pull output
 LESENSE - controls ACMP to sample push-button 0/1 on selected LESENSE channel
@@ -71,5 +68,3 @@ PB01 - Push Button PB0
 PB03 - Push Button PB1
 PB02 - LED0
 PD03 - LED1
-
-
