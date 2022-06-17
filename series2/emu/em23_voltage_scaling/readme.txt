@@ -44,10 +44,37 @@ How To Test:
 
 ================================================================================
 
+Note for Testing on xG25:
+Simplicity Studio's Energy Profiler tool only measures the VMCU current. VMCU 
+only powers IOVDD0-1 and the serial flash on BRD4270B. The 3.6 V LDO powers the
+rest of the rails on the radio board. In the datasheet, the current 
+consumption with DCDC test conditions requires IOVDD0-2, RFVDD, and DVDD to be 
+powered by the output of the DCDC. Keep in mind, due to the design of the radio
+board (BRD4270B), this example does not replicate the datasheet test conditions
+followed for current consumption with DCDC. Although RFVDD and DVDD are powered 
+by the output of the DCDC, IOVDD0-1 is powered by VMCU on the radio board and 
+IOVDD2 is powered by the USB_VREG. To measure the 3.6V LDO current, the 
+following extra steps must be taken.
+1. Complete Steps 1 and 2 from the "How to Test" section above.
+2. Select the device in the Debug Adapters pane within the Simplicity Studio
+   Launcher view. 
+2. Select the Documentation tab, then check the Schematic and Layout file 
+   resource checkbox. Open the schematic and assembly files for BRD4270B.
+3. Resistor R247 is a 0 Ohm resistor that can be removed to  measure the 
+   current consumption of the device. Search for this resistor in the assembly 
+   file to determine its position on the board. This resistor is present on the 
+   underside of BRD4270B. 
+4. Remove R247 and solder two leads to each pad where R247 was previously. 
+   Connect these leads to a multimeter to measure the current consumption of the 
+   device. 
+   
+================================================================================
+
 Peripherals Used:
 CMU    - HFRCODPLL @ 19 MHz, ULFRCO @ 1 kHz
 BURTC  - 1 kHz ULFRCO clock source
-USART0 - 8 Mbits/s
+USART0 - 8 Mbits/s 
+EUSART - 8 Mbits/s (xG25)
 
 Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
@@ -78,3 +105,13 @@ PC01  - USART0 MOSI
 PC02  - USART0 MISO
 PC03  - USART0 SCLK
 PC04  - USART0 CS
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00  - push button PB0
+PC06  - LED0
+PC00  - FLASH MOSI
+PC01  - FLASH MISO
+PC02  - FLASH SCLK
+PC03  - FLASH CS

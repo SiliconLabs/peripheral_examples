@@ -5,6 +5,9 @@
     <path>$WS_DIR$\EFR32FG23_em2_dcdc.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32FG25_em2_dcdc.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG24_em2_dcdc.ewp</path>
   </project>
 
