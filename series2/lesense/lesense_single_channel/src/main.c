@@ -53,7 +53,7 @@
 #define SCAN_FREQ        8  // 8 Hz
 
 // Determine the BBUSALLOC to allocate to ACMP0
-#if (BSP_GPIO_PB1_PIN % 2 == 0)
+#if (BSP_GPIO_PB0_PIN % 2 == 0)
   #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BEVEN0_ACMP0
 #else
   #define GPIO_BBUSALLOC   GPIO_BBUSALLOC_BODD0_ACMP0

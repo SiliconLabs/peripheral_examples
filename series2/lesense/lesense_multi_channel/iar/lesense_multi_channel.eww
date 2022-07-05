@@ -4,6 +4,9 @@
   <project>
     <path>$WS_DIR$\EFR32FG23_lesense_multi_channel.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_lesense_multi_channel.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

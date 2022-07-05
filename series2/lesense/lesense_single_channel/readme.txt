@@ -13,7 +13,8 @@ Note: In project where the device enters EM2 or lower, an escapeHatch
 
 How to test:
 1. Build the project and download it to the starter kit.
-2. The LED0 should be off right now with a current consumption of around 3.8uA.
+2. The LED0 should be off right now with lower current consumption(~3.8 for xG23 
+   and ~5.6uA for xG25).
 3. Press push button 0, LED0 should turn on.
 4. Release push button 0 and press it again, LED0 should turn off.
 5. Enter debug mode and place a break point inside the LESENSE_IRQHandler().
@@ -31,3 +32,10 @@ Device: EFR32FG23A010F512GM48
 PB01 - Push Button PB0
 PB03 - Push Button PB1
 PB02 - LED0
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 - Push Button PB0
+PB01 - Push Button PB1
+PC06 - LED0

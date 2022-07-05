@@ -64,3 +64,13 @@ PA06 - LESENSE Channel 2 (Expansion Header 11)
 PA07 - LESENSE Channel 3 (Expansion Header 13)
 PB02 - LED0
 PD03 - LED1
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 - LESENSE Channel 0 (Push Button PB0)
+PB01 - LESENSE Channel 1 (Push Button PB1)
+PA06 - LESENSE Channel 2 (Expansion Header 11)
+PA07 - LESENSE Channel 3 (Expansion Header 13)
+PC06 - LED0
+PC07 - LED1

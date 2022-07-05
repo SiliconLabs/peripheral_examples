@@ -43,7 +43,15 @@ Note: In project where the device enters EM2 or lower, an escapeHatch
 To observe current consumption,
 1. In main.c, set EM2_DEBUG to 0
 2. Build the project and use Energy Profiler to observe current consumption
-3. Current consumption should be around 3.8uA for EFR32FG23
+
+Note: The energy profiler only measures the VMCU current. For BRD4270B, VMCU
+only powers IOVDD and the serial flash. The 3.6V LDO powers the rest of the
+radio board. To measure the 3.6V LDO current, replace R247 with ammeter
+connections. The current provided below is the combination of the VMCU and 3.6V
+current.
+Board     | avg EM2 current  
+BRD4263B  |          3.8 uA 
+BRD4270B  |          5.6 uA
 
 How to test:
 1. Build the project and enter debug mode
@@ -68,3 +76,11 @@ PB01 - Push Button PB0
 PB03 - Push Button PB1
 PB02 - LED0
 PD03 - LED1
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB01 - Push Button PB0
+PB01 - Push Button PB1
+PC06 - LED0
+PC07 - LED1
