@@ -87,3 +87,11 @@ PB02 -  GPIO Push/Pull output, WSTK P19, LED0
 PD04 -  IADC positive differential input, J102->Pin 6 of BRD4001, WSTK P25
 PD05 -  IADC negative differential input, J102->Pin 5 of BRD4001, WSTK P24
 PB01 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PC06 -  GPIO Push/Pull output, WSTK P19, LED0
+PD04 -  IADC positive differential input, WSTK P24
+PD05 -  IADC negative differential input, WSTK P31
+PB00 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK

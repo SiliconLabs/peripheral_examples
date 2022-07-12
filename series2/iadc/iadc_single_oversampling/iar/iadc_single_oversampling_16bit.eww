@@ -19,6 +19,12 @@
   <project>
     <path>$WS_DIR$\EFR32FG23_iadc_single_oversampling_20bit.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_iadc_single_oversampling_16bit.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_iadc_single_oversampling_20bit.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

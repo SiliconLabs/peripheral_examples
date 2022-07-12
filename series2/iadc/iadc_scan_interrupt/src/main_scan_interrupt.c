@@ -173,13 +173,23 @@ void initIADC (void)
   initScanTable.entries[3].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
   initScanTable.entries[3].includeInScan = true;
 
-  initScanTable.entries[4].posInput = iadcPosInputVss;       // Add VSS to scan for demonstration purposes
-  initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
-  initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
+  #ifndef EFR32FG25B222F1920IM56
+    initScanTable.entries[4].posInput = iadcPosInputVss;       // Add VSS to scan for demonstration purposes
+    initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+    initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
 
-  initScanTable.entries[5].posInput = iadcPosInputVssaux;    // Add VSSAUX (same as VSS) to scan for demonstration purposes
-  initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
-  initScanTable.entries[5].includeInScan = false;
+    initScanTable.entries[5].posInput = iadcPosInputVssaux;    // Add VSSAUX (same as VSS) to scan for demonstration purposes
+    initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+    initScanTable.entries[5].includeInScan = false;
+  #else // EFR32FG25B222F1920IM56
+    initScanTable.entries[4].posInput = iadcPosInputVddio;     // VSS is not available on FG25, use VDDIO instead
+    initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // See entry 3
+    initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
+
+    initScanTable.entries[5].posInput = iadcPosInputDvdd;      // VSSAUX is not available on FG25, use DVDD instead
+    initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // See entry 6
+    initScanTable.entries[5].includeInScan = false;
+  #endif
 
   initScanTable.entries[6].posInput = iadcPosInputDvdd;      // Add DVDD to scan for demonstration purposes
   initScanTable.entries[6].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
