@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates the use of the TIMER module for interrupt
- * based input capture. After button 0 is pressed, the PRS routes this signal to
- * the timer to indicate that an input capture needs to occur. An interrupt then
- * occurs because the Compare/Capture channel interrupt flag is set. The
- * captured timer value is then stored in the user's buffer.
+ *
+ * @brief This project demonstrates interrupt-driven input capture using
+ * the TIMER module.  The count at which each push button 0 press is
+ * detected is captured by the input capture logic and saved in a buffer
+ * during the interrupt handler.
  *
  * The example also has instructions on using polled mode for input capture.
  *******************************************************************************
@@ -45,90 +45,45 @@
 #include "em_chip.h"
 #include "em_gpio.h"
 #include "em_timer.h"
-#include "em_prs.h"
+
 #include "bsp.h"
 
-// Buffer size
+// Needs to be volatile so compiler does not optimize it away
 #define BUFFER_SIZE 8
-#define GPIO_PRS_CHANNEL    1
-
-// Buffer to hold input capture values
-// Note: needs to be volatile or else the compiler will optimize it out
 static volatile uint32_t buffer[BUFFER_SIZE];
-
-/**************************************************************************//**
- * @brief
- *    GPIO initialization
- *
- * @details
- *    Since the external interrupts are asynchronous, they are sensitive to
- *    noise. As a result, the filter option is enabled for the button 0 GPIO
- *    pin.
- *
- * @note
- *    Furthermore, the button needs to be pulled up to prevent unintended
- *    triggers to the PRS (i.e. not pulling up the button can result in
- *    capture events before the button is even pressed).
- *
- * @note
- *    We need to configure an external interrupt using GPIO_ExtIntConfig()
- *    since the GPIO_EXTIPSEL[3:0] bits tell the PRS which port to listen to.
- *    PRS_SourceSignalSet() tells the PRS it needs to route an incoming GPIO
- *    signal on a specific pin, but it doesn't tell the PRS which port to listen
- *    to. Thus, we use GPIO_ExtIntConfig() to trigger an interrupt flag, but we
- *    don't actually need an interrupt handler so we won't enable GPIO
- *    interrupts and won't enable either edge.
- *****************************************************************************/
-void initGpio(void)
-{
-  // Configure button 0 as input
-  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN,
-                  gpioModeInputPullFilter, 1);
-
-  // Select button 0 as the interrupt source
-  // (configure as disabled since using PRS)
-  GPIO_ExtIntConfig(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, BSP_GPIO_PB0_PIN, false, false, false);
-}
 
 /**************************************************************************//**
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO, TIMER0, and PRS
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  CMU_ClockEnable(cmuClock_PRS, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
  * @brief
- *    PRS initialization
- *
- * @details
- *    prsLogic_A is chosen because GPIO produces a level signal and the timer
- *    CC0 input can accept either a pulse or level. Thus, we do not need the PRS
- *    module to generate a pulse from the GPIO level signal (we can just leave
- *    it as it is). See the PRS chapter in the Reference Manual for further
- *    details on Producers and Consumers.
+ *    GPIO initialization
  *****************************************************************************/
-void initPrs(void)
+void initGPIO(void)
 {
-  // Select GPIO as source and button 0 GPIO pin as signal for PRS channel 0
-  PRS_SourceAsyncSignalSet(GPIO_PRS_CHANNEL, PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
-                            BSP_GPIO_PB0_PIN);
+  // Configure PB0 pin as input with the pull-up and filter enabled.
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN,
+                  gpioModeInputPullFilter, 1);
 
-  // Do not apply any logic on the PRS Channel
-  PRS_Combine (GPIO_PRS_CHANNEL, GPIO_PRS_CHANNEL, prsLogic_A);
-
-  // Select PRS channel for Timer 0
-  PRS_ConnectConsumer(GPIO_PRS_CHANNEL, prsTypeAsync, prsConsumerTIMER0_CC0);
+  // Route the PB0 pin to TIMER0 capture/compare channel 0 and enable
+  GPIO->TIMERROUTE[0].CC0ROUTE = (BSP_GPIO_PB0_PORT << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
+                               | (BSP_GPIO_PB0_PIN << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
+  GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
 }
 
 /**************************************************************************//**
@@ -136,25 +91,22 @@ void initPrs(void)
  *    TIMER initialization
  *
  * @note
- *    Making the timer prescale value this large is unnecessary. The clock is
- *    prescaled by 1024 (each clock tick is slowed down by a factor of 1024) to
- *    more easily show the user that the difference between timer capture values
- *    is reasonably correct.
+ *    Prescaling the TIMER clock may or may not be necessary in a given
+ *    application.  Here, prescaling the clock by 1024 (each TIMER tick
+ *    is 1024 HFPERLKs) makes it easier to see the difference between
+ *    successive capture values.
  *****************************************************************************/
-void initTimer(void)
+void initTIMER0(void)
 {
-  // Initialize timer with largest prescale setting
+  // Initialize TIMER0
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for input capture of PRS channel 0
-  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
-
-  timerInit.enable = false;
   timerInit.prescale = timerPrescale1024;
-  timerCCInit.prsSel = GPIO_PRS_CHANNEL;
+  timerInit.enable = false;               // Don't start the timer yet
+
+  // Configure TIMER0 capture/compare channel 0 for input capture
+  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
   timerCCInit.edge = timerEdgeFalling;
   timerCCInit.mode = timerCCModeCapture;
-  timerCCInit.prsInput = true;
-  timerCCInit.prsInputType = timerPrsInputAsyncLevel;
 
   TIMER_Init(TIMER0, &timerInit);
 
@@ -171,7 +123,7 @@ void initTimer(void)
    *
    *****************************************************************************/
 
-  // Enable TIMER0 interrupts for Capture/Compare on channel 0
+  // Enable interrupts on capture/compare channel 0
   TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
   NVIC_EnableIRQ(TIMER0_IRQn);
 
@@ -183,9 +135,8 @@ void initTimer(void)
  * POLLED MODE INSTRUCTIONS
  * -------------------------
  *
- * To use this example in polled mode instead of interrupt mode -
- *
- * 1. Remove TIMER0_IRQHandler(void)
+ * To use this example in polled mode instead of interrupt mode, remove
+ * the TIMER0_IRQHandler(void) function.
  *
  *****************************************************************************/
 
@@ -221,19 +172,20 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
-  initGpio();
-  initPrs();
-  initTimer();
+  initCMU();
+  initGPIO();
+  initTIMER0();
 
   /**************************************************************************//**
   * POLLED MODE INSTRUCTIONS
   * -------------------------
   *
-  * To use this example in polled mode instead of interrupt mode -
+  * To use this example in polled mode instead of interrupt mode,
+  * insert...
   *
-  * 1. Declare uint32_t i = 0;
+  * uint32_t i = 0;
+  *
+  * ...here, before the while loop that follows.
   *
   *****************************************************************************/
 
@@ -242,7 +194,7 @@ int main(void)
    * POLLED MODE INSTRUCTIONS
    * -------------------------
    *
-   * To use this example in polled mode instead of interrupt mode -
+   * To use this example in polled mode instead of interrupt mode.
    *
    * 1. Remove EMU_EnterEM1();
    *
@@ -261,4 +213,3 @@ int main(void)
     EMU_EnterEM1(); // Enter EM1 (won't exit)
   }
 }
-

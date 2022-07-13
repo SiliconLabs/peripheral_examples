@@ -1,37 +1,36 @@
 timer_input_capture_interrupt
 
-This project demonstrates the use of the TIMER module for interrupt
-based input capture. After button 0 is pressed, the PRS routes this signal
-to the timer to indicate that an input capture needs to occur. An interrupt
-then occurs because the Compare/Capture channel interrupt flag is set.
-The captured timer value is then stored in the user's buffer.
+This project demonstrates use of the TIMER module for interrupt-driven
+input capture.  Button 0 is presses are captured and stored in a buffer
+in the TIMER interrupt handler.
 
-Note: This project triggers a capture on a falling edge because the buttons
-are negative logic (i.e. the pin value goes low when the button is pressed).
+Note: This example captures falling edge because one side of each
+STK push button switch is grounded while the other is intended to be
+pulled high by the GPIO pin to which it is connected.
 
-The example also has comments that show how polled mode can be used for input 
-capture.
+Comments are provided in the example that explain how to convert the
+code from interrupt-driven to polled operation.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
-have no effect as oscillators are automatically turned on/off based on demand 
-from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
-library consistency/compatibility.
+Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no effect
+as clocks are automatically turned on/off in response to on-demand
+requests from the peripherals.  CMU_ClockEnable() is a dummy function
+on EFR32xG21 present for software compatibility.
 
 ================================================================================
 
 How To Test:
-1. Build the project and download it to the Starter Kit
-2. Go into debug mode and click run
-3. Press button 0 to trigger the input capture and have the value be recorded
-4. Pause the debugger to check if the value was recorded in the global
-   `buffer` variable
+1. Build the project and download it to the Wireless Starter Kit.
+2. Go into debug mode and click Run.
+3. Press button 0 to trigger the input capture and have the value recorded.
+4. Pause the debugger, add the buffer[] variable to the Expressions
+   pane, and expand the array to see each the value of the counter for
+   rach edge (button press) captured.
 
 ================================================================================
 
 Peripherals Used:
 CMU    - HFRCO @ 19 MHz
-TIMER0 - HFPERCLK (19 MHz for series 2 boards)
-PRS    - (route GPIO signal to the timer)
+TIMER0 - EM01GRPACLK
 
 Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
        + Wireless Starter Kit Mainboard (BRD4001A)
