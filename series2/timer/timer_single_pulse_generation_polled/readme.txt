@@ -1,9 +1,12 @@
 timer_single_pulse_generation_polled
 
-This project demonstrates the generation of a single pulse signal using output
-compare. TIMER is initialized for output compare on Compare/Capture channel 0,
-which is routed to the GPIO Pin specified below. The buffered compare values are
-set such that a single pulse is generated.
+This project demonstrates polled single pulse generation using TIMER
+output compare.  Capture/compare channel 0 is configured to toggle the
+output pin (PA5) on each compare event.  The first compare event is set
+for NUM_SEC_DELAY seconds after the TIMER starts counting.  The pin is
+driven high when the match occurs, and the second compare event then is
+set to occur PULSE_WIDTH milliseconds after the first compare event and
+to toggle the output low.
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
@@ -21,24 +24,24 @@ How To Test:
 
 Peripherals Used:
 CMU    - HFRCO @ 19 MHz
-TIMER0 - HFPERCLK (19 MHz for series 2 boards)
+TIMER0 - EM01GRPACLK
 
-Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
-       + Wireless Starter Kit Mainboard (BRD4001A)
+Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
+        + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG21A010F1024IM32
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG22 2.4 GHz 6 dBm Radio Board (BRD4182A)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+        + Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)

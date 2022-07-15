@@ -1,8 +1,8 @@
 timer_single_edge_output_compare
 
 This project demonstrates single output compare using the TIMER module.
-TIMER0 is initialized for output compare on Compare/Capture channel 0 which
-is routed to the GPIO pin specified below. The Compare value is set such that
+TIMER0 is initialized for output compare on capture/compare channel 0,
+which is routed to the GPIO pin PA6. The compare value is set such that
 after 3 seconds, the GPIO pin will be set high.
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
@@ -21,24 +21,24 @@ How To Test:
 
 Peripherals Used:
 CMU    - HFRCO @ 19 MHz
-TIMER0 - HFPERCLK (19 MHz for series 2 boards)
+TIMER0 - EM01GRPACLK
 
-Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
-       + Wireless Starter Kit Mainboard (BRD4001A)
+Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
+        + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG21A010F1024IM32
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG22 2.4 GHz 6 dBm Radio Board (BRD4182A)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+        + Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)

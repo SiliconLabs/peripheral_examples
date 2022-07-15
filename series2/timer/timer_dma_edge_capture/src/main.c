@@ -1,11 +1,12 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates edge capture with LDMA. The first 512 events
- * captured by TIMER0 CC0 are transferred to a fixed length buffer by the LDMA.
- * For this example both rising and falling edges are captured.
+ *
+ * @brief This example demonstrates edge capture with LDMA. The first 512
+ * events captured by TIMER0 CC0 are transferred to a fixed length buffer
+ * by the LDMA.  Both rising and falling edges are captured.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -38,13 +39,10 @@
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
-#include "em_core.h"
 #include "em_emu.h"
 #include "em_gpio.h"
-#include "em_timer.h"
-#include "em_device.h"
 #include "em_ldma.h"
-#include "bsp.h"
+#include "em_timer.h"
 
 #define BUFFERSIZE 512
 
@@ -58,7 +56,7 @@ volatile uint32_t buffer[BUFFERSIZE];
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler (void)
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -69,8 +67,8 @@ void LDMA_IRQHandler (void)
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
-    // Loop here to enable the debugger to see what has happened
+  if (pending & LDMA_IF_ERROR) {
+    // Loop here so the debugger can be stopped to see what has happened
     while (1);
   }
 }
@@ -80,29 +78,28 @@ void LDMA_IRQHandler (void)
  *****************************************************************************/
 void initLDMA(void)
 {
-  // Default LDMA init
+  // Default LDMA initialization
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
   LDMA_Init(&init);
 
-  // Configure LDMA for transfer from TIMER0 CC0 to memory
-  // LDMA will perform a single unit transfer for each CC0 event
+  // Request transfers on CC0 peripheral requests
   LDMA_TransferCfg_t periTransferTx =
           LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER0_CC0);
 
-  // Get default descriptor for transfer from TIM0_CC0 to the buffer
+  // Transfer from CC0 input capture register to RAM
   LDMA_Descriptor_t xfer = LDMA_DESCRIPTOR_SINGLE_P2M_BYTE(&TIMER0->CC[0].ICF,
                             &buffer, BUFFERSIZE);
 
   // Store descriptor globally
   descLink = xfer;
-  // Transfer one word per unit
+
+  // Transfer one word per request
   descLink.xfer.size = ldmaCtrlSizeWord;
-  // Do not ignore single requests
-  // IE: When Timer CC0 event occurs, transfer 1 unit then wait for next
-  // capture
+
+  // Do not ignore single requests.  Transfer data on every request.
   descLink.xfer.ignoreSrec = 0;
 
-  // Start transfer, LDMA will transfer each edge
+  // Start the channel
   LDMA_StartTransfer(0, (void*)&periTransferTx, (void*)&descLink);
 }
 
@@ -119,16 +116,18 @@ void initGPIO(void)
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
@@ -136,13 +135,12 @@ void initCmu(void)
  *****************************************************************************/
 void initTIMER(void)
 {
-  // Initialize timer with defined prescale
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture settings
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
+  // Don't start counter on initialization
   timerInit.enable = false;
-  timerInit.prescale = timerPrescale1;
+
   // Set event on every edge
   timerCCInit.eventCtrl = timerEventEveryEdge;
   timerCCInit.edge = timerEdgeBoth;
@@ -150,14 +148,14 @@ void initTIMER(void)
 
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
                     | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  // Enable the TIMER
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
 
@@ -169,14 +167,12 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
   initLDMA();
-  initCmu();
+  initCMU();
   initGPIO();
   initTIMER();
 
-  while (1)
-  {
+  while (1) {
     EMU_EnterEM1();
   }
 }

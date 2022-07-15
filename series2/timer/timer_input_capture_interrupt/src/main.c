@@ -9,7 +9,7 @@
  * The example also has instructions on using polled mode for input capture.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -127,7 +127,7 @@ void initTIMER0(void)
   TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
   NVIC_EnableIRQ(TIMER0_IRQn);
 
-  // Enable the TIMER
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
 

@@ -1,11 +1,12 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates polled pulse generation via output compare.
- * The GPIO pin specified in the readme.txt is configured for output and
- * generates a single 1 second pulse.
+ *
+ * @brief This project demonstrates polled pulse generation using TIMER
+ * output compare.  A 1-second wide high pulse is driven on GPIO pin PA5
+ * after an initial 3.5 second delay.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -36,17 +37,20 @@
  ******************************************************************************/
 
 #include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_chip.h"
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Note: change this to change the number of seconds to delay the pulse going high
-#define NUM_SEC_DELAY 3.5
+/*
+ * Change this to modify the length of the delay from when the TIMER
+ * starts counting to when CC0 drives the GPIO pin high.
+ */
+#define NUM_SEC_DELAY  3.5
 
-// Note: change this to change the pulse width (in units of s)
-#define PULSE_WIDTH 1
+// Length of the pulse high time in milliseconds
+#define PULSE_WIDTH    1000
 
 // Compare values set to generate a 1 ms pulse with default clock and prescale
 static uint32_t compareValue1;
@@ -54,77 +58,70 @@ static uint32_t compareValue2;
 
 /**************************************************************************//**
  * @brief
- *    GPIO initialization
- *****************************************************************************/
-void initGpio(void)
-{
-  // Configure PA6 as output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
-}
-
-/**************************************************************************//**
- * @brief
  *    CMU initialization
  *****************************************************************************/
 void initCmu(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
  * @brief TIMER initialization
  *****************************************************************************/
-void initTimer(void)
+void initTIMER(void)
 {
-  uint32_t timerFreq = 0;
-  // Initialize and start timer
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  // Configure timer to toggle output upon output compare match
+  // Do not start counter upon initialization
   timerInit.enable = false;
-  timerInit.prescale = timerPrescale1024;
+
+  // Run in one-shot mode and toggle the pin on each compare match
+  timerInit.oneShot = true;
   timerCCInit.mode = timerCCModeCompare;
   timerCCInit.cmoa = timerOutputActionToggle;
 
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route TIMER0 CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
                     | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
+  /*
+   * Overwrite the default of 0xFFFF in TIMER_TOP with 0xFFFFFFFF
+   * because TIMER0 is 32 bits wide.
+   */
+  TIMER_TopSet(TIMER0, 0xFFFFFFFF);
+
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (timerInit.prescale + 1);
-
   // Set the first compare value
-  compareValue1 = (uint32_t)(timerFreq * NUM_SEC_DELAY);
+  compareValue1 = (uint32_t)(CMU_ClockFreqGet(cmuClock_TIMER0) * NUM_SEC_DELAY);
 
-  // Set first CCV value to trigger rising edge
+  // Set compare value to the first compare value
   TIMER_CompareSet(TIMER0, 0, compareValue1);
 
-  // Set the second compare value (don't actually use it, just set the global so
-  // that it can be used by the handler later)
-  compareValue2 = (timerFreq * PULSE_WIDTH);
+  /*
+   * Set the second compare value since its a global variable, but
+   * don't actually use it here.  It gets written to the TIMER_OC
+   * register in main() after the first edge happens.
+   */
+  compareValue2 = compareValue1 + ((PULSE_WIDTH / 1000) * CMU_ClockFreqGet(cmuClock_TIMER0));
 
   // Set buffered value to next be loaded into the CCV after overflow event
   TIMER_CompareBufSet(TIMER0, 0, compareValue2);
 
-  // Safely enable TIMER0 CC0 interrupt flag
-  TIMER_IntClear(TIMER0, TIMER_IF_CC0);
-  NVIC_DisableIRQ(TIMER0_IRQn);
-  TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
-
-  // Enable the TIMER
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
 
@@ -137,14 +134,19 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
   initCmu();
-  initGpio();
-  initTimer();
 
-  // Wait for rising edge
+  // Configure PA6 as output
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+
+  initTIMER();
+
+  // Wait for the first (rising) edge
   while(!(TIMER_IntGet(TIMER0) & TIMER_IF_CC0));
   TIMER_IntClear(TIMER0, TIMER_IF_CC0);
+
+  // Set the count for the second (falling) edge
+  TIMER_CompareSet(TIMER0, 0, compareValue2);
 
   // Disable timer after falling edge
   while(!(TIMER_IntGet(TIMER0) & TIMER_IF_CC0));

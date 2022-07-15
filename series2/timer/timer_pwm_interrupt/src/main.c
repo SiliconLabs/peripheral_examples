@@ -1,12 +1,14 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates pulse width modulation using the TIMER
- * module. The GPIO pin specified in the readme.txt is configured for output and
- * outputs a 1kHz, 30% duty cycle signal. The duty cycle can be adjusted by
- * writing to the CCVB or changing the global dutyCycle variable.
+ *
+ * @brief This project demonstrates interrupt-driven pulse width
+ * modulation using the TIMER module.  GPIO pin PA6 is configured to
+ * output a 1 kHz, 30% duty cycle signal.  The duty cycle can be
+ * adjusted by writing to the TIMER_CC_OCB register in the interrupt
+ * handler or by changing the value of the global dutyCycle variable.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -43,99 +45,104 @@
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Global variables used to set top value and duty cycle of the timer
-#define PWM_FREQ          1000
-#define DUTY_CYCLE_STEPS  0.3
+// Desired PWM frequency and initial duty cycle
+#define PWM_FREQ            1000
+#define INITIAL_DUTY_CYCLE  30
 
-static uint32_t topValue = 0;
-static volatile float dutyCycle = 0;
+// Duty cycle global variable for IRQ handler use
+static volatile float dutyCycle;
 
 /**************************************************************************//**
  * @brief
- *    Interrupt handler for TIMER0 that changes the duty cycle
+ *    Interrupt handler for TIMER0
  *
  * @note
- *    This handler doesn't actually dynamically change the duty cycle. Instead,
- *    it acts as a template for doing so. Simply change the dutyCycle
- *    global variable here to dynamically change the duty cycle.
+ *    In this example, the duty cycle of the output waveform does not
+ *    change unless the value of the dutyCycle global variable is
+ *    modified outside the scope of this function.
+ *
+ *    Alternatively, other code could be inserted here to modify the
+ *    duty cycle based on some other input, e.g. the voltage measured
+ *    by the IADC on a given input channel.
  *****************************************************************************/
 void TIMER0_IRQHandler(void)
 {
+  uint32_t newDutyCount;
+
   // Acknowledge the interrupt
   uint32_t flags = TIMER_IntGet(TIMER0);
   TIMER_IntClear(TIMER0, flags);
 
-  // Update CCVB to alter duty cycle starting next period
-  TIMER_CompareBufSet(TIMER0, 0, (uint32_t)(topValue * dutyCycle));
+  // Calculate new duty cycle count
+  newDutyCount = (uint32_t)((TIMER_TopGet(TIMER0) * dutyCycle) / 100);
+
+  // Write OCB to update the duty cycle of the next waveform period
+  TIMER_CompareBufSet(TIMER0, 0, newDutyCount);
 }
 
 /**************************************************************************//**
- * @brief
- *    GPIO initialization
+ * @brief GPIO initialization
  *****************************************************************************/
-void initGpio(void)
+void initGPIO(void)
 {
-  // Configure PA6 as output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+  // Configure PA6 as Input
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
 }
 
 /**************************************************************************//**
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
  * @brief
  *    TIMER initialization
  *****************************************************************************/
-void initTimer(void)
+void initTIMER(void)
 {
-  uint32_t timerFreq = 0;
-  // Initialize the timer
+  uint32_t timerFreq, topValue, dutyCount;
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  // Use PWM mode, which sets output on overflow and clears on compare events
-  timerInit.prescale = timerPrescale64;
+  // Don't start counter on initialization
   timerInit.enable = false;
+
+  // PWM mode sets/clears the output on compare/overflow events
   timerCCInit.mode = timerCCModePWM;
 
-  // Configure but do not start the timer
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
-  								  | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
+                    | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
-  // Configure CC Channel 0
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  // Start with 10% duty cycle
-  dutyCycle = DUTY_CYCLE_STEPS;
-
-  // set PWM period
+  // Set top value to overflow at the desired PWM_FREQ frequency
   timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (timerInit.prescale + 1);
   topValue = (timerFreq / PWM_FREQ);
-  // Set top value to overflow at the desired PWM_FREQ frequency
   TIMER_TopSet(TIMER0, topValue);
 
-  // Set compare value for initial duty cycle
-  TIMER_CompareSet(TIMER0, 0, (uint32_t)(topValue * dutyCycle));
+  // Set dutyCycle global variable and compare value for initial duty cycle
+  dutyCycle = INITIAL_DUTY_CYCLE;
+  dutyCount = (topValue * INITIAL_DUTY_CYCLE) / 100;
+  TIMER_CompareSet(TIMER0, 0, dutyCount);
 
-  // Start the timer
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 
   // Enable TIMER0 compare event interrupts to update the duty cycle
@@ -152,13 +159,14 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
-  initGpio();
-  initTimer();
+  initCMU();
+
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
+
+  initGPIO();
+  initTIMER();
 
   while (1) {
     EMU_EnterEM1(); // Enter EM1 (won't exit)
   }
 }
-

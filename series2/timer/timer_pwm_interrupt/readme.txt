@@ -24,24 +24,24 @@ How To Test:
 
 Peripherals Used:
 CMU    - HFRCO @ 19 MHz
-TIMER0 - HFPERCLK (19 MHz for series 2 boards)
+TIMER0 - EM01GRPACLK
 
-Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
-       + Wireless Starter Kit Mainboard (BRD4001A)
+Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
+        + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG21A010F1024IM32
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG22 2.4 GHz 6 dBm Radio Board (BRD4182A)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+        + Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)

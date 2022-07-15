@@ -1,12 +1,13 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates the generation of a single pulse using
- * output compare. The TIMER module is configured for output compare such that a
- * 1 second pulse is generated on the GPIO pin specified in the readme.txt after
- * a 1 second delay.
+ *
+ * @brief This project demonstrates interrupt-driven generation of a
+ * single pulse using output compare.  The TIMER module is configured
+ * to drive GPIO pin PA5 high after one second delay then to drive it
+ * low one second after that.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -37,21 +38,24 @@
  ******************************************************************************/
 
 #include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_chip.h"
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Note: change this to change the number of seconds to delay the pulse going high
+/*
+ * Change this to modify the length of the delay from when the TIMER
+ * starts counting to when CC0 drives the GPIO pin high.
+ */
 #define NUM_SEC_DELAY 1
 
-// Note: change this to change the pulse width (in units of s)
-#define PULSE_WIDTH 1
+// Length of the pulse high time in milliseconds
+#define PULSE_WIDTH        1000
 
-// Compare values for outputting the rising and falling edge
+// Rising and falling edges compare values (for debugger visibility)
 static uint32_t compareValue1;
-static uint32_t compareValue2;
+static volatile uint32_t compareValue2;
 
 /**************************************************************************//**
  * @brief
@@ -64,52 +68,44 @@ void TIMER0_IRQHandler(void)
   TIMER_IntClear(TIMER0, flags);
 
   // Load compare register with second compare value
+  compareValue2 = compareValue1 + ((PULSE_WIDTH / 1000) * CMU_ClockFreqGet(cmuClock_TIMER0));
   TIMER_CompareSet(TIMER0, 0, compareValue2);
-}
-
-/**************************************************************************//**
- * @brief
- *    GPIO initialization
- *****************************************************************************/
-void initGpio(void)
-{
-  // Configure PA6 as output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
  * @brief
  *    TIMER initialization
  *****************************************************************************/
-void initTimer(void)
+void initTIMER(void)
 {
-  uint32_t timerFreq = 0;
-  // Initialize the timer
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
+  // Do not start counter upon initialization
   timerInit.enable = false;
-  timerInit.prescale = timerPrescale1024;
-  timerInit.oneShot = true; // Generate only one pulse
+
+  // Run in one-shot mode and toggle the pin on each compare match
+  timerInit.oneShot = true;
   timerCCInit.mode = timerCCModeCompare;
-  timerCCInit.cmoa = timerOutputActionToggle; // Toggle output on compare match
+  timerCCInit.cmoa = timerOutputActionToggle;
 
   TIMER_Init(TIMER0, &timerInit);
 
@@ -118,25 +114,25 @@ void initTimer(void)
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
                     | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
+  /*
+   * Overwrite the default of 0xFFFF in TIMER_TOP with 0xFFFFFFFF
+   * because TIMER0 is 32 bits wide.
+   */
+  TIMER_TopSet(TIMER0, 0xFFFFFFFF);
+
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (timerInit.prescale + 1);
-
   // Set the first compare value
-  compareValue1 = timerFreq * NUM_SEC_DELAY;
+  compareValue1 = CMU_ClockFreqGet(cmuClock_TIMER0) * NUM_SEC_DELAY;
 
   // Set compare value to the first compare value
   TIMER_CompareSet(TIMER0, 0, compareValue1);
-
-  // Set the second compare value (don't actually use it, just set the global so
-  // that it can be used by the handler later)
-  compareValue2 = (timerFreq * PULSE_WIDTH) + compareValue1;
 
   // Enable TIMER0 interrupts
   TIMER_IntEnable(TIMER0, TIMER_IEN_CC0);
   NVIC_EnableIRQ(TIMER0_IRQn);
 
-  // Enable the TIMER
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
 
@@ -149,13 +145,13 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
-  initGpio();
-  initTimer();
+  initCMU();
+
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+
+  initTIMER();
 
   while (1) {
     EMU_EnterEM1(); // Enter EM1 (won't exit)
   }
 }
-

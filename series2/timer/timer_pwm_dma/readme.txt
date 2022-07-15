@@ -1,48 +1,53 @@
 timer_pwm_dma
 
-This project demonstrates DMA driven pulse width modulation using the TIMER
-module. TIMER0 is initialized for PWM on Compare/Capture channel 0 which is
-routed to the GPIO Pin specified below. In PWM mode, overflow events
-set the output pin, while compare events clear the pin. Thus the overflow value
-is set to output the desired signal frequency, while the CCV is set to control 
-the duty cycle. The DMA is set to loop through a buffer of duty cycles
-incrementing from 0 to 100%, and writes to the CCVB on each compare event.
+This project demonstrates DMA-driven pulse width modulation using the
+TIMER module.  TIMER0 is initialized for PWM on capture/compare channel 0
+and routed to GPIO pin PA6.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
-have no effect as oscillators are automatically turned on/off based on demand 
-from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
-library consistency/compatibility.
+In PWM mode, compare events set the output pin and overflow events clear
+it such that the values in the TIMER_CC_OC and TIMER_TOP registers
+specify the PWM duty cycle and frequency, respectively.
+
+Each time a compare event occurs, the LDMA responds by writing a new
+value to the TIMER_CC_OCB register such that, in this example, the
+output duty cycle increases from 0 to 100% by an increment of 10%,
+then rolls over back to 0% and repeats.
+
+Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no effect
+as clocks are automatically turned on/off in response to on-demand
+requests from the peripherals.  CMU_ClockEnable() is a dummy function
+on EFR32xG21 present for software compatibility.
 
 ================================================================================
 
 How To Test:
-1. Build the project and download it to the Starter Kit
-2. Use an oscilloscope to view a 1 kHz signal with continuosly varying duty
-   cycle on the GPIO pin specified below
+1. Build the project and download it to the Starter Kit.
+2. Use an oscilloscope to view the 1 kHz signal with continuosly varying
+   duty cycle on the expansion header (EXP) pin specified below.
 
 ================================================================================
 
 Peripherals Used:
 CMU    - HFRCO @ 19 MHz
-TIMER0 - HFPERCLK (19 MHz for series 2 boards)
+TIMER0 - EM01GRPACLK
 LDMA
 
-Board: Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
-       + Wireless Starter Kit Mainboard (BRD4001A)
+Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Board (BRD4181A) 
+        + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG21A010F1024IM32
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG22 2.4 GHz 6 dBm Radio Board (BRD4182A)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 PA6 - TIM0_CC0 (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+        + Wireless Starter Kit Mainboard
 Device: EFR32FG23A010F512GM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)
 
-Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
-        Wireless Starter Kit Mainboard
+Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
+        + Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PA6 - TIM0_CC0 (Expansion Header Pin 11)

@@ -1,11 +1,12 @@
 /***************************************************************************//**
  * @file main.c
+ (
  * @brief This project demonstrates the generation of a single pulse using
- * output compare and the LDMA. Refer to the readme file for testing
+ * output compare and the LDMA. Refer to the readme.txt file for testing
  * instructions.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -38,21 +39,25 @@
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
-#include "em_core.h"
 #include "em_emu.h"
 #include "em_gpio.h"
-#include "em_timer.h"
-#include "em_device.h"
 #include "em_ldma.h"
-#include "bsp.h"
+#include "em_timer.h"
 
-// First compare edge for 3 second delay
-// 55664 / (19MHz / 1024) = 3 seconds
-#define COMPARE_VALUE1 55664
+/*
+ * Change this to modify the length of the delay from when the TIMER
+ * starts counting to when CC0 drives the GPIO pin high.
+ */
+#define NUM_SECONDS_DELAY  3
 
-// Second compare edge for 1 ms pulse
-// (20 - 1) / (19MHz / 1024) = 1 millisecond
-#define COMPARE_VALUE2 (COMPARE_VALUE1 + 20)
+// Compare count for first edge (assumes 19 MHz HFRCO)
+#define COMPARE_VALUE1     (NUM_SECONDS_DELAY * 19000000)
+
+// Length of the pulse high time in milliseconds
+#define PULSE_WIDTH        1
+
+// Compare count for second edge
+#define COMPARE_VALUE2     (COMPARE_VALUE1 + (PULSE_WIDTH * 19000000 / 1000))
 
 // Globally stored value for DMA transfer
 uint32_t value = COMPARE_VALUE2;
@@ -60,11 +65,29 @@ uint32_t value = COMPARE_VALUE2;
 // Globally declared link descriptor
 LDMA_Descriptor_t descLink;
 
+/**************************************************************************//**
+ * @brief
+ *    CMU initialization
+ *****************************************************************************/
+void initCMU(void)
+{
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+}
+
 /***************************************************************************//**
  * @brief
  *   LDMA IRQ handler.
  ******************************************************************************/
-void LDMA_IRQHandler( void )
+void LDMA_IRQHandler(void)
 {
   uint32_t pending;
 
@@ -75,8 +98,8 @@ void LDMA_IRQHandler( void )
   LDMA_IntClear(pending);
 
   // Check for LDMA error
-  if ( pending & LDMA_IF_ERROR ){
-    // Loop here to enable the debugger to see what has happened
+  if (pending & LDMA_IF_ERROR) {
+    // Loop here so the debugger can be stopped to see what has happened
     while (1);
   }
 }
@@ -86,18 +109,19 @@ void LDMA_IRQHandler( void )
  *****************************************************************************/
 void initLDMA(void)
 {
-  // Default LDMA init
+  // Default LDMA initialization
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
   LDMA_Init(&init);
 
-  // Configure LDMA for transfer from memory to TIMER0 CC0
-  // LDMA will perform a single unit transfer
+  // Request transfers on CC0 peripheral requests
   LDMA_TransferCfg_t periTransferTx =
           LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER0_CC0);
 
   // Get default descriptor for transfer from TIM0_CC0 to the buffer
-  LDMA_Descriptor_t xfer = LDMA_DESCRIPTOR_SINGLE_M2P_BYTE(&value,
-                            &TIMER0->CC[0].OC, 1);
+  LDMA_Descriptor_t xfer =
+    LDMA_DESCRIPTOR_SINGLE_M2P_BYTE(&value,            // Memory source address
+                                    &TIMER0->CC[0].OC, // Output compare register
+                                    1);                // Just 1 transfer
 
   // Store descriptor globally
   descLink = xfer;
@@ -114,65 +138,42 @@ void initLDMA(void)
 }
 
 /**************************************************************************//**
- * @brief GPIO initialization
- *****************************************************************************/
-void initGPIO(void)
-{
-  // Configure PA6 as Output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
-}
-
-/**************************************************************************//**
  * @brief
- *    CMU initialization
- *****************************************************************************/
-void initCmu(void)
-{
-  // Enable clock to GPIO and TIMER0
-  CMU_ClockEnable(cmuClock_GPIO, true);
-  CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
-}
-
-/**************************************************************************//**
- * @brief TIMER initialization
+ *    TIMER initialization
  *****************************************************************************/
 void initTIMER(void)
 {
-  // Initialize and start timer with highest prescale
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
+  // Do not start counter upon initialization
   timerInit.enable = false;
-  timerInit.prescale = timerPrescale1024;
-  // Generate only one pulse
-  timerInit.oneShot = true;
 
+  // Set drive output pin high upon compare match
   timerCCInit.mode = timerCCModeCompare;
-  // Toggle output on compare match
-  timerCCInit.cmoa = timerOutputActionToggle;
+  timerCCInit.cmoa = timerOutputActionSet;
 
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
                     | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
+  /*
+   * Overwrite the default of 0xFFFF in TIMER_TOP with 0xFFFFFFFF
+   * because TIMER0 is 32 bits wide.
+   */
+  TIMER_TopSet(TIMER0, 0xFFFFFFFF);
+
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  // Load first compare edge
+  // Set the count for the first output compare to match
   TIMER_CompareSet(TIMER0, 0, COMPARE_VALUE1);
 
-  // Enable the TIMER
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
-
 
 /**************************************************************************//**
  * @brief  Main function
@@ -182,10 +183,13 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
+  initCMU();
+
+  // Configure PA6 as an output
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+
   initLDMA();
-  initCmu();
-  initGPIO();
+
   initTIMER();
 
   while (1)

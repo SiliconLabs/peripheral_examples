@@ -183,7 +183,7 @@
           <name>CCDefines</name>
           <state>STR(x)=#x</state>
           <state>EFR32FG23A010F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -318,7 +318,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -486,7 +485,7 @@
         <option>
           <name>ADefines</name>
           <state>EFR32FG23A010F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -588,7 +587,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -1164,7 +1162,7 @@
           <state>NDEBUG</state>
           <state>STR(x)=#x</state>
           <state>EFR32FG23A010F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1299,7 +1297,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -1468,7 +1465,7 @@
           <name>ADefines</name>
           <state>NDEBUG</state>
           <state>EFR32FG23A010F512GM48</state>
-          <state>RETARGET_VCOM</state>
+          
         </option>
         <option>
           <name>AList</name>
@@ -1570,7 +1567,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG23_BRD4263B\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
         <option>
@@ -1976,19 +1972,19 @@
   <group>
     <name>emlib</name>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_timer.c</name>

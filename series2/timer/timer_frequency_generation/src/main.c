@@ -1,11 +1,13 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates frequency generation using the TIMER module.
- * PA6 (Expansion Header Pin 14) is configured for output compare and toggles
- * PA6 on each overflow event at a set frequency.
+ *
+ * @brief This project demonstrates frequency generation using the TIMER
+ * module.  PA6 (check the readme.txt file for the specific expansion header
+ * pin) is configured for output compare and toggles on each overflow event
+ * at a set frequency with 50% duty cycle.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -42,8 +44,12 @@
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Desired frequency in Hz
-// Min: 145 Hz, Max: 9.5 MHz with default settings
+/*
+ * Desired frequency in Hz.  The default EM01GRPACLK is 19 MHz out of
+ * reset, which permits a maximum frequency of 9.5 MHz.  The minimum
+ * allowable frequency for this example is 1 Hz, even though TIMER0 is
+ * 32 bits wide, and a minimum well below 1 Hz is possible.
+ */
 #define OUT_FREQ 1000
 
 /**************************************************************************//**
@@ -59,16 +65,18 @@ void initGPIO(void)
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
@@ -76,34 +84,35 @@ void initCmu(void)
  *****************************************************************************/
 void initTIMER(void)
 {
-  uint32_t timerFreq = 0;
-  // Initialize the timer 
+  uint32_t timerFreq, topValue;
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  timerInit.prescale = timerPrescale1;
+  // Don't start counter on initialization
   timerInit.enable = false;
+
+  // Configure capture/compare channel for output compare
   timerCCInit.mode = timerCCModeCompare;
   timerCCInit.cofoa = timerOutputActionToggle;
 
-  // configure, but do not start timer
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
-  								  | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
+                    | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  // Set Top value
-  // Note each overflow event constitutes 1/2 the signal period
-  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0)/(timerInit.prescale + 1);
-  int topValue = timerFreq / (2*OUT_FREQ) - 1;
+  /*
+   * Set the TOP register value.  Each time the counter overflows TOP
+   * is one half of the signal period.
+   */
+  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (timerInit.prescale + 1);
+  topValue = timerFreq / (2 * OUT_FREQ) - 1;
   TIMER_TopSet (TIMER0, topValue);
 
-  /* Start the timer */
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
 
@@ -115,13 +124,11 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
+  initCMU();
   initGPIO();
   initTIMER();
 
-  while (1)
-  {
+  while (1) {
     EMU_EnterEM1();
   }
 }

@@ -1,11 +1,12 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates one-shot edge output compare using the TIMER
- * module. The GPIO pin specified in the readme.txt is configured for output and
- * after 3 seconds, CC0 sets the pin high.
+ *
+ * @brief This project demonstrates one-shot edge output compare using
+ * the TIMER module. GPIO pin PA5 is configured for output compare and
+ * after 3 seconds, capture/compare channel 0 (CC0) drives the pin high.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -36,78 +37,70 @@
  ******************************************************************************/
 
 #include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_chip.h"
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Note: change this to change how long to delay before setting the pin high
-// (this value is used to change the COMPARE value in Timer_CompareSet())
+/*
+ * Change this to modify the length of the delay from when the TIMER
+ * starts counting to when CC0 drives the GPIO pin high.
+ */
 #define NUM_SECONDS_DELAY 3
-
-/**************************************************************************//**
- * @brief
- *    GPIO initialization
- *****************************************************************************/
-void initGpio(void)
-{
-  // Configure PA6 as output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
-}
 
 /**************************************************************************//**
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
  * @brief
  *    TIMER initialization
  *****************************************************************************/
-void initTimer(void)
+void initTIMER(void)
 {
-  uint32_t timerFreq = 0;
-  // Initialize and start timer with defined prescale
+  uint32_t timerFreq, compareValue;
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  // Choose the prescalar, and initialize the timer, without starting
-  timerInit.prescale = timerPrescale1024;
+  // Do not start counter upon initialization
   timerInit.enable = false;
-  // Set output to logical high upon compare match
+  timerInit.prescale = timerPrescale1024;
+
+  // Set drive output pin high upon compare match
   timerCCInit.mode = timerCCModeCompare;
   timerCCInit.cmoa = timerOutputActionSet;
 
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
-								  | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
+                    | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
-  // Set compare value for 3 second delay
-  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0)/(timerInit.prescale + 1);
-  uint32_t compareValue = timerFreq * NUM_SECONDS_DELAY;
+  // Set the output compare to match at NUM_SECONDS_DELAY counts
+  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (timerInit.prescale + 1);
+  compareValue = timerFreq * NUM_SECONDS_DELAY;
 
-  // Set the compare value for 3 second delay
-  TIMER_CompareSet(TIMER0, 0, (uint32_t)compareValue);
+  TIMER_CompareSet(TIMER0, 0, compareValue);
 
-  // Start the timer
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 }
 
@@ -120,13 +113,14 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
-  initGpio();
-  initTimer();
+  initCMU();
+
+  // Configure PA6 as an output
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+
+  initTIMER();
 
   while (1) {
     EMU_EnterEM1(); // Enter EM1 (won't exit)
   }
 }
-

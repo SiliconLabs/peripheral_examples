@@ -1,12 +1,13 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates DMA driven pulse width modulation using the
- * TIMER module. The GPIO pin specified in the readme.txt is configured to
- * output a 1kHz signal. The DMA continuously updates the CCVB register to vary
+ *
+ * @brief This project demonstrates DMA-driven pulse width modulation
+ * using the TIMER module.  GPIO pin PA6 is configured to  output a
+ * 1 kHz signal.  The DMA continuously updates the OCB register to vary
  * the duty cycle.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -37,72 +38,77 @@
  ******************************************************************************/
 
 #include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_chip.h"
 #include "em_gpio.h"
-#include "em_timer.h"
 #include "em_ldma.h"
+#include "em_timer.h"
 
-// Note: change this to set the desired Output frequency in Hz
+//  Desired frequency in Hz
 #define PWM_FREQ 1000
 
-// Buffer size
+/*
+ * This table holds the time calculated for each given duty cycle value
+ * expressed as a percent.  Note that BUFFER_SIZE must match the number
+ * of values in dutyCyclePercentages[BUFFER_SIZE].
+ */
 #define BUFFER_SIZE 11
+static uint32_t buffer[BUFFER_SIZE];
 
-// Note: change this to change the duty cycles used in this example
-static const uint16_t dutyCyclePercentages[BUFFER_SIZE] =
+// Each change in duty cycle expressed as a percent
+static const uint32_t dutyCyclePercentages[BUFFER_SIZE] =
     {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
-// Buffer of duty cycle values for DMA transfer to CCVB
-// Buffer is populated after TIMER is initialized and Top value is set
-static uint16_t buffer[BUFFER_SIZE];
+// Globally declared link descriptor
+LDMA_Descriptor_t descLink;
 
 /**************************************************************************//**
- * @brief
- *    GPIO initialization
+ * @brief GPIO initialization
  *****************************************************************************/
-void initGpio(void)
+void initGPIO(void)
 {
-  // Configure PA6 as output
-  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
+  // Configure PA6 as Input
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
 }
 
 /**************************************************************************//**
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
 }
 
 /**************************************************************************//**
  * @brief
  *    TIMER initialization
  *****************************************************************************/
-void initTimer(void)
+void initTIMER(void)
 {
-  // Initialize and start timer with no prescaling
+  uint32_t timerFreq, topValue;
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  // Use PWM mode, which sets output on overflow and clears on compare events
+  // Don't start counter on initialization
   timerInit.enable = false;
+
+  // PWM mode sets/clears the output on compare/overflow events
   timerCCInit.mode = timerCCModePWM;
 
-  // Configure but do not start the timer
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route CC0 output to PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
                     | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
@@ -110,9 +116,11 @@ void initTimer(void)
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
 
   // Set top value to overflow at the desired PWM_FREQ frequency
-  TIMER_TopSet(TIMER0, CMU_ClockFreqGet(cmuClock_TIMER0) / PWM_FREQ);
+  timerFreq = CMU_ClockFreqGet(cmuClock_TIMER0) / (timerInit.prescale + 1);
+  topValue = (timerFreq / PWM_FREQ);
+  TIMER_TopSet(TIMER0, topValue);
 
-  // Start the timer
+  // Now start the TIMER
   TIMER_Enable(TIMER0, true);
 
   // Trigger DMA on compare event to set CCVB to update duty cycle on next period
@@ -121,12 +129,17 @@ void initTimer(void)
 
 /**************************************************************************//**
  * @brief
- *    Populate buffer with timer duty cycle values
+ *    Populate buffer with calculated duty cycle time values
  *****************************************************************************/
 void populateBuffer(void)
 {
-  for (uint32_t i = 0; i < BUFFER_SIZE; i++) {
-    buffer[i] = (uint16_t) (TIMER_TopGet(TIMER0) * dutyCyclePercentages[i] / 100);
+  uint32_t i, topVal;
+
+  // 100% duty cycle is the maximum count value
+  topVal = TIMER_TopGet(TIMER0);
+
+  for (i = 0; i < BUFFER_SIZE; i++) {
+    buffer[i] = ((topVal / 100) * dutyCyclePercentages[i]);
   }
 }
 
@@ -146,29 +159,37 @@ void populateBuffer(void)
 *    that the reference to the object is valid beyond its first use in
 *    initialization
 *****************************************************************************/
-void initLdma(void)
+void initLDMA(void)
 {
-  // Start the transfer
-  uint32_t channelNum = 0;
-
-  // LDMA initialization
+  // Default LDMA initialization
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
   LDMA_Init(&init);
 
-  // Transfer configuration and trigger selection
-  LDMA_TransferCfg_t transferConfig =
-    LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER0_CC0);
+  // Request transfers on CC0 peripheral requests
+  LDMA_TransferCfg_t periTransferTx =
+          LDMA_TRANSFER_CFG_PERIPHERAL(ldmaPeripheralSignal_TIMER0_CC0);
 
-  // Channel descriptor configuration
-  static LDMA_Descriptor_t descriptor =
-    LDMA_DESCRIPTOR_LINKREL_M2P_BYTE(&buffer,            // Memory source address
-                                    &TIMER0->CC[0].OCB, // Peripheral destination address
-                                    BUFFER_SIZE,         // Number of bytes per transfer
-                                    0);                  // Link to same descriptor
-  descriptor.xfer.size     = ldmaCtrlSizeHalf; // Unit transfer size
-  descriptor.xfer.doneIfs  = 0;                // Don't trigger interrupt when done
+  // Transfer from the RAM buffer to CC0 output register in a continuous loop
+  LDMA_Descriptor_t xfer =
+    LDMA_DESCRIPTOR_LINKREL_M2P_BYTE(&buffer,             // Memory source address
+                                     &TIMER0->CC[0].OCB,  // Output compare buffer register
+                                     BUFFER_SIZE,         // Number of transfers to make
+                                     0);                  // Link to same descriptor
 
-  LDMA_StartTransfer(channelNum, &transferConfig, &descriptor);
+  // Store descriptor globally
+  descLink = xfer;
+
+  // Transfer one word per request
+  descLink.xfer.size = ldmaCtrlSizeWord;
+
+  // Do not ignore single requests.  Transfer data on every request.
+  descLink.xfer.ignoreSrec = 0;
+
+  // Do not request an interrupt on completion of all transfers
+  descLink.xfer.doneIfs  = 0;
+
+  // Start transfer, LDMA will trigger after first compare event
+  LDMA_StartTransfer(0, (void*)&periTransferTx, (void*)&descLink);
 }
 
 /**************************************************************************//**
@@ -179,17 +200,15 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
-  initGpio();
-  initTimer();
+  initCMU();
+  initGPIO();
+  initTIMER();
 
   // Initialize DMA only after buffer is populated
   populateBuffer();
-  initLdma();
+  initLDMA();
 
   while (1) {
     EMU_EnterEM1(); // Enter EM1 (won't exit)
   }
 }
-
