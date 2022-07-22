@@ -1,24 +1,27 @@
 timer_period_measurement_polled
 
-This project demonstrates polled period measurement using the TIMER module. 
-TIMER is initialized for input capture on Compare/Capture channel 0 for falling 
-edge capture. The program waits for a falling edge and then the captured edge is 
-read from CC0 and compared with the previously captured edge to calculate the 
-period. The measured period is stored in the measuredPeriod global variable in 
-units of microseconds.
+This project demonstrates period measurement using TIMER0.  The main
+loop polls the CC0 flag, which is set after capturing a pair of falling
+edges, thus eliminating the need to poll for both edges associated with
+one waveform period.
 
-Example: for a 1 kHz input signal, the measuredPeriod variable will equal 1000.
+Once the flag is set, the two captured edge times are saved, and the
+overflow flag is checked in order to account for cases in which two
+edges span the time during which the counter rolls over from 0xFFFFFFFF
+(TIMER0 is 32 bits wide) to 0.  These values are passed to the
+calculatePeriod() function, which returns the measuredPeriod as an
+integer value in microseconds, such that the measuredPeriod value shows
+1000 for an input signal with a period of 1 kHz.
 
-Note: The range of frequencies this program can measure accurately is limited.
-The minimum measurable period is around 3 microseconds, or 333 kHz. At higher
-frequencies accuracy is diminished due to dropout, and above 333 kHz the 
-interrupt execution time is longer than the signal period. For methods to 
-measure shorter periods, see the timer_pulse_capture example.
+Note: The range of frequencies this program can measure accurately is
+limited by the selected frequency of the EM01GRPACLK, prescaling of the
+local TIMER clock, and the counter width of the selected TIMER, e.g.
+TIMER0 is 32 bits wide while other TIMERs are generally 16 bits wide.
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
-have no effect as oscillators are automatically turned on/off based on demand 
-from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
-library consistency/compatibility.
+Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no effect
+as clocks are automatically turned on/off in response to on-demand
+requests from the peripherals.  CMU_ClockEnable() is a dummy function
+on EFR32xG21 present for software compatibility.
 
 ================================================================================
 
@@ -26,7 +29,7 @@ How To Test:
 1. Build the project and download it to the Starter Kit
 2. Connect a periodic signal to the GPIO pin specified below
 3. Go into debug mode and click run
-4. View the measuredPeriod global variable in the debugger
+4. View the measuredPeriod (time period in us) global variable in the debugger
 
 ================================================================================
 

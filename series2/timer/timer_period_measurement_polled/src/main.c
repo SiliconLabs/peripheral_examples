@@ -1,13 +1,14 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates polled period measurement using input 
- * capture. A periodic input signal is routed to a Compare/Capture channel, and
- * each period length is calculated from the captured edges. Connect a periodic
- * signal to the GPIO pin specified in the readme.txt for input. Note maximum
- * measurable frequency is 333 kHz.
+ *
+ * @brief This project demonstrates polled period measurement using input
+ * capture.  A periodic input signal is routed to a compare/capture channel,
+ * and each period length is calculated from the captured edges.  Connect a
+ * periodic signal to the GPIO pin specified in the readme.txt for input.
+ * Note that the maximum measurable frequency is around 333 kHz.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -38,74 +39,77 @@
  ******************************************************************************/
 
 #include "em_device.h"
+#include "em_chip.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_chip.h"
 #include "em_gpio.h"
 #include "em_timer.h"
 
-// Default clock value
-#define HFPERCLK_IN_MHZ 19
-
 // Most recent measured period in microseconds
 static volatile uint32_t measuredPeriod;
-
-// Stored edge from previous interrupt
-static volatile uint32_t lastCapturedEdge;
-
-// Number of timer overflows since last interrupt;
-static volatile uint32_t overflowCount;
-
-/**************************************************************************//**
- * @brief
- *    GPIO initialization
- *****************************************************************************/
-void initGpio(void)
-{
-  // Configure PA6 as input
-  GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
-}
 
 /**************************************************************************//**
  * @brief
  *    CMU initialization
  *****************************************************************************/
-void initCmu(void)
+void initCMU(void)
 {
-  // Enable clock to GPIO and TIMER0
+  /*
+   * Enable the GPIO and TIMER0 bus clocks.
+   *
+   * Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no
+   * effect as clocks are automatically turned on/off in response to
+   * on-demand requests from the peripherals.  CMU_ClockEnable() is
+   * a dummy function on EFR32xG21 present for software compatibility.
+   */
   CMU_ClockEnable(cmuClock_GPIO, true);
   CMU_ClockEnable(cmuClock_TIMER0, true);
-  /* Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   */
+}
+
+/**************************************************************************//**
+ * @brief
+ *    GPIO initialization
+ *****************************************************************************/
+void initGPIO(void)
+{
+  // Configure PA6 as input for TIMER0 CC0
+  GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
 }
 
 /**************************************************************************//**
  * @brief
  *    TIMER initialization
  *****************************************************************************/
-void initTimer(void)
+void initTIMER0(void)
 {
   // Initialize the timer
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  // Configure TIMER0 Compare/Capture for output compare
+
+  // Configure TIMER0 for input period measurement
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  timerInit.prescale = timerPrescale1;
-  timerInit.enable = false;
-  timerCCInit.edge = timerEdgeFalling;
   timerCCInit.mode = timerCCModeCapture;
+  timerCCInit.edge = timerEdgeFalling;              // Input capture on falling edges
+  timerCCInit.eventCtrl = timerEventEvery2ndEdge;   // Interrupt on every other edge
+  timerInit.enable = false;
 
   TIMER_Init(TIMER0, &timerInit);
 
-  // Route Timer0 CC0 output to PA6
+  // Route TIMER0 CC0 input from PA6
   GPIO->TIMERROUTE[0].ROUTEEN  = GPIO_TIMER_ROUTEEN_CC0PEN;
   GPIO->TIMERROUTE[0].CC0ROUTE = (gpioPortA << _GPIO_TIMER_CC0ROUTE_PORT_SHIFT)
                     | (6 << _GPIO_TIMER_CC0ROUTE_PIN_SHIFT);
 
   TIMER_InitCC(TIMER0, 0, &timerCCInit);
+
+  /*
+   * Overwrite the default of 0xFFFF in TIMER_TOP with 0xFFFFFFFF
+   * because TIMER0 is 32 bits wide.
+   */
+  TIMER_TopSet(TIMER0, 0xFFFFFFFF);
+
+  // Clear TIMER flags
+  TIMER_IntClear(TIMER0, _TIMER_IF_MASK);
 
   // Enable the TIMER
   TIMER_Enable(TIMER0, true);
@@ -113,59 +117,77 @@ void initTimer(void)
 
 /**************************************************************************//**
  * @brief
- *    Calculate the period of the input waveform using Capture mode on TIMER0
- *    channel 0
+ *    Calculate the waveform period from the captured pair of edges and
+ *    overflow status
  *
  * @return
  *    The period of the input waveform
  *****************************************************************************/
-uint32_t calculatePeriod(void)
+uint32_t calculatePeriod(uint32_t fe, uint32_t se, bool ovf)
 {
-  // Read the capture value from the CC register
-  uint32_t current_edge = TIMER_CaptureGet(TIMER0, 0);
+  uint32_t countsBetweenEdges;
 
-  // Check if the timer overflowed (flag gets set even if interrupt not enabled)
-  if (TIMER_IntGet(TIMER0) & TIMER_IF_OF) {
-    overflowCount++;
-    TIMER_IntClear(TIMER0, TIMER_IF_OF);
-  }
+  /*
+   * Calculate the frequency of TIMER0 from the bus clock.  This
+   * assumes the prescaler remains at the default value of 1.
+   */
+  uint32_t timerClockMHz = CMU_ClockFreqGet(cmuClock_EM01GRPACLK) / 1000000;
 
-  // Calculate period in microseconds, while compensating for overflows
-  // Interrupt latency will affect measurements for periods below 3 microseconds (333 kHz)
-  uint32_t period = (overflowCount * (TIMER_TopGet(TIMER0) + 1)
-                     - lastCapturedEdge + current_edge)
-                     / (HFPERCLK_IN_MHZ * (1 << timerPrescale1));
+  /*
+   * Calculate the count between edges depending on whether or not
+   * there was an overflow.
+   */
+  if (ovf)
+    countsBetweenEdges = TIMER_TopGet(TIMER0) - fe + 1 + se;
+  else
+    countsBetweenEdges = se - fe;
 
-  // Record the capture value for the next period measurement calculation
-  lastCapturedEdge = current_edge;
-
-  // Reset the overflow count
-  overflowCount = 0;
-
-  return period;
+  // Convert the count between edges to a period in microseconds
+  return (countsBetweenEdges / timerClockMHz);
 }
 
 /**************************************************************************//**
- * @brief
- *    Main function
+ * @brief  Main function
  *****************************************************************************/
 int main(void)
 {
+  // Edge pair times
+  uint32_t firstEdge;
+  uint32_t secondEdge;
+
+  // Was there an overflow between the edge pair
+  bool overflow = false;
+
   // Chip errata
   CHIP_Init();
 
-  // Initializations
-  initCmu();
-  initGpio();
-  initTimer();
+  initCMU();
+  initGPIO();
+  initTIMER0();
+
 
   while (1) {
+    // Wait for capture event on CC0
+    while ((TIMER_IntGet(TIMER0) & TIMER_IF_CC0) == 0);
 
-    // Wait for a capture event to happen
-    while (TIMER0->STATUS & TIMER_STATUS_ICFEMPTY0);
+    // Get the time at which each falling edge was captured
+    firstEdge = TIMER_CaptureGet(TIMER0, 0);
+    secondEdge = TIMER_CaptureGet(TIMER0, 0);
+
+    // Was there an overflow between edges?
+    if (TIMER_IntGet(TIMER0) & TIMER_IF_OF)
+    {
+      overflow = true;
+      TIMER_IntClear(TIMER0, TIMER_IF_OF);
+    }
 
     // Record the period into the global variable
-    measuredPeriod = calculatePeriod();
+    measuredPeriod = calculatePeriod(firstEdge, secondEdge, overflow);
+
+    // Clear the TIMER0 CC0 flag
+    TIMER_IntClear(TIMER0, TIMER_IF_CC0);
+
+    // Reset the overflow flag
+    overflow = false;
   }
 }
-

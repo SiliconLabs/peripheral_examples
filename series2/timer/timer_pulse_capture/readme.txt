@@ -10,7 +10,7 @@ can capture two subsequent edges before requesting an interrupt.
 
 The GPIO pin specified below must be connected to a periodic signal or
 pulse generator.  The two edges captured (one falling and one rising) are
-read from the ICF register.
+read from the CCV register.
 
 Note: The range of frequencies this program can measure accurately is
 limited by the selected frequency of the EM01GRPACLK, prescaling of the
