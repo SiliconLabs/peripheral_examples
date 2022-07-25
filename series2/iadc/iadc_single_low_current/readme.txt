@@ -101,3 +101,11 @@ BURTC - 32768 Hz LFRCO clock source, 256 prescaler
 PB02  - GPIO Push/Pull output, WSTK Pin 19, LED0
 PA05  - IADC input, single-ended, Expansion Header pin 7, WSTK P4
 PB01  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+BURTC - 32768 Hz LFRCO clock source, 256 prescaler
+PC06  - GPIO Push/Pull output, WSTK Pin 27, LED0
+PA05  - IADC input, single-ended, Expansion Header pin 7, WSTK P4
+PB00  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK

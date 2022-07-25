@@ -59,3 +59,9 @@ Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) +
 Device: EFR32MG24B210F1536IM48
 PB02 -  GPIO Push/Pull output, WSTK P19, LED0
 PC05 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PC06 -  GPIO Push/Pull output, WSTK P27, LED0
+PC05 -  IADC input, single-ended, WSTK P33
