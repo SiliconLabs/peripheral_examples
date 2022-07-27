@@ -51,3 +51,8 @@ Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PB01 - Push Button 0
+
+Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32FG25B222F1920IM56
+PB00 - Push Button 0

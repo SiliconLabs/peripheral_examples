@@ -13,6 +13,9 @@
   <project>
     <path>$WS_DIR$\EFR32FG23_timer_frequency_generation.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_timer_frequency_generation.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

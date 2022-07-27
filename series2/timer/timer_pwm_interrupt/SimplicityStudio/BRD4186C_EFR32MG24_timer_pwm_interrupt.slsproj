@@ -7,11 +7,11 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.emlib">
-    <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_system.c" />
-    <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_timer.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
@@ -21,10 +21,8 @@
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
-  <macroDefinition name="RETARGET_VCOM" />
   <includePath uri="../../kit/EFR32MG24_BRD4186C" />
   <includePath uri="../../kit/common/bsp" />
-  <includePath uri="../../kit/common/drivers" />
   <folder name="src">
     <file name="main.c" uri="src/main.c" />
     <file name="readme.txt" uri="readme.txt" />
