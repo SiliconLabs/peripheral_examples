@@ -46,13 +46,6 @@
 #include "em_burtc.h"
 #include "bsp.h"
 
-/*******************************************************************************
- *******************************   DEFINES   ***********************************
- ******************************************************************************/
-
-// Set HFRCOEM23 to lowest frequency (1MHz)
-#define HFRCOEM23_FREQ            cmuHFRCOEM23Freq_1M0Hz
-
 /**************************************************************************//**
  * @brief GPIO initialization
  *****************************************************************************/
@@ -204,9 +197,6 @@ int main(void)
   // Initialize EM2/EM3 with default parameters
   EMU_EM23Init(&em23Init);
   CMU_HFXOInit(&hfxoInit);
-
-  // Set clock frequency to defined value
-  CMU_HFRCOEM23BandSet(HFRCOEM23_FREQ);
 
   // Infinite loop
   while(1)

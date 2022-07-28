@@ -55,13 +55,6 @@
 #define ACMP_INPUT_PIN      1
 #define ACMP_INPUT_PORT_PIN acmpInputPB1
 
-/*******************************************************************************
- *******************************   DEFINES   ***********************************
- ******************************************************************************/
-
-// Set HFRCOEM23 to lowest frequency (1MHz)
-#define HFRCOEM23_FREQ            cmuHFRCOEM23Freq_1M0Hz
-
 /**************************************************************************//**
  * @brief escapeHatch()
  * When developing or debugging code that enters EM2 or
@@ -201,9 +194,6 @@ int main(void)
   MX25_RST(&status);
   MX25_DP();
   MX25_deinit();
-
-  // Set clock frequency to defined value
-  CMU_HFRCOEM23BandSet(HFRCOEM23_FREQ);
 
   // Infinite loop
   while(1)
