@@ -1,13 +1,15 @@
 gpio_em4_wakeup
 
-This project uses GPIO to wake the device from EM4 mode and thus trigger a 
-reset.
-Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/
-PB1 (on EFR32xG22, EFR32xG23, and EFR32xG24) will wake the device from EM4 and 
-cause the LEDs on the STK/Radio board to toggle indefinitely. PB0 on EFR32xG22,
-EFR32xG23, and EFR32xG24 is used as an "escape hatch". This is a way to pause 
-the device so that a debugger can connect in order to erase flash, among other 
-things. Before proceeding with this example, make sure PB0 is NOT pressed.
+This project uses GPIO to wake the device from EM4 mode and thus trigger a
+reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on
+EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27) will
+wake the device from EM4 and cause the LEDs on the STK/Radio board to toggle
+indefinitely. PB0 on EFR32xG22, EFR32xG23, EFR32xG24, and EFR32xG25 is used as
+an "escape hatch". This is a way to pause the device so that a debugger can
+connect in order to erase flash, among other things. Before proceeding with
+this example, make sure PB0 is NOT pressed. GPIO PC03 is used as an escape
+hatch on EFR32xG27. Before proceeding with this example, make sure PC03 is not
+low.
 
 Note for EFR32xG21 devices, clock enabling is not required.
 
@@ -25,7 +27,8 @@ How To Test:
    c) Under Device Hardware, enter the appropriate Target Part (shown below 
    under Device)
    Observe the current consumption by connecting to the board after this. 
-5. Press PB0 (on EFR32xG21)/PB1 (on EFR32xG22/EFR32xG23/EFR32xG24) to exit EM4.
+5. Press PB0 (on EFR32xG21)/PB1 (on EFR32xG22/EFR32xG23/EFR32xG24/EFR32xG25/
+   EFR32xG27) to exit EM4.
 4. Observe the LEDs blinking, indicating that the last reset cause was exit 
    from EM4. Capture current consumption which implies device is in EM0.
 
@@ -52,17 +55,17 @@ PD03 - LED1
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG23B010F512IM48
-PB02 - LED0
-PD03 - LED1
 PB01 - Push Button PB0
 PB03 - Push Button PB1
+PB02 - LED0
+PD03 - LED1
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
 PB01 - Push Button PB0
-PB02 - LED0
 PB03 - Push Button PB1
+PB02 - LED0
 PB04 - LED1
 
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
@@ -72,3 +75,10 @@ PB00 - Push Button PB0
 PB01 - Push Button PB1
 PC06 - LED0
 PC07 - LED1
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB01 - Push Button PB1
+PB00 - LED0
+PC03 - Escape Hatch

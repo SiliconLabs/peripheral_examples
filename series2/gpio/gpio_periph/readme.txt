@@ -36,3 +36,8 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
 PC02 - LFRCO output (Expansion Header Pin 8)
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PC03 - LFRCO output (Expansion Header Pin 10)
