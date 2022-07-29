@@ -30,7 +30,7 @@ powered by the output of the DCDC. Keep in mind, due to the design of the radio
 board (BRD4270B), this example does not replicate the datasheet test conditions
 used for current consumption with DCDC. Although RFVDD and DVDD are powered by 
 the output of the DCDC, IOVDD0-1 is powered by VMCU on the radio board and 
-IOVDD2 is powered by the V_IOVDD2. To measure the 3.6V LDO current, the 
+IOVDD2 is powered by the USB_VREG. To measure the 3.6V LDO current, the 
 following extra steps must be taken.
 1. Complete Steps 1 and 2 from the "How to Test" section above.
 2. Select the device in the Debug Adapters pane within the Simplicity Studio
