@@ -1,11 +1,11 @@
 /***************************************************************************/
 /**
  * @file main.c
- * @brief Example using different voltage scaling levels to show influence on
- * current draw in the Profiler
+ * @brief Example that demonstrates datasheet current consumption configuration
+ * and current consumption numbers in EM2 Energy Mode.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -38,86 +38,15 @@
 #include <stdio.h>
 #include "em_device.h"
 #include "em_chip.h"
-#include "em_burtc.h"
 #include "em_cmu.h"
 #include "em_emu.h"
 #include "em_gpio.h"
+#include "em_burtc.h"
 #include "mx25flash_spi.h"
-
-// Included to define EMU_DCDCINIT_WSTK_DEFAULT initializer
-#include "bsp.h"
-
-// Number of 1 kHz ULFRCO clocks between BURTC interrupts
-#define BURTC_IRQ_PERIOD 4000
-
-/*
- * A JEDEC standard SPI flash boots up in standby mode in order to
- * provide immediate access, such as when used it as a boot memory.
- *
- * Typical current draw in standby mode for the MX25R8035F device used
- * on EFR32 radio boards is 5 �A, which makes  observing the difference
- * between VS2 and VS0 voltage scaling levels difficult to observe.
- *
- * Fortunately, JEDEC standard SPI flash memories have a lower current
- * deep power-down mode, which can be entered after sending the
- * relevant commands.  This is on the order of 0.007 �A for the
- * MX25R8035F, thus making the difference between between the VS2 and
- * VS0 voltage scaling modes in EM2/3 more obvious.
- */
-void powerDownSpiFlash(void)
-{
-  FlashStatus status;
-  MX25_init();
-  MX25_RSTEN();
-  MX25_RST(&status);
-  MX25_DP();
-  MX25_deinit();
-}
-
-void initBURTC()
-{
-  // Select ULFRCO as the BURTC clock source.
-  CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_ULFRCO);
-
-  // Setup BURTC.
-  BURTC_Init_TypeDef burtcInit = BURTC_INIT_DEFAULT;
-  burtcInit.compare0Top = true;   // Reset counter at compare value
-  burtcInit.start = false;        // Don't start counting yet
-  CMU_ClockEnable(cmuClock_BURTC, true);
-  BURTC_Init(&burtcInit);
-
-  // Interrupt on compare match
-  BURTC_IntEnable(BURTC_IEN_COMP);
-  NVIC_EnableIRQ(BURTC_IRQn);
-
-  // Set the compare value and start the counter.
-  BURTC_CompareSet(0, BURTC_IRQ_PERIOD);
-  BURTC_Start();
-}
-
-/**************************************************************************/
-/**
- * @brief  BURTC Handler
- *****************************************************************************/
-void BURTC_IRQHandler(void)
-{
-  uint32_t vscale;
-  EMU_EM23Init_TypeDef vsInit = EMU_EM23INIT_DEFAULT;
-
-  // Get the current EM2/3 voltage scaling
-  vscale = EMU->CTRL & _EMU_CTRL_EM23VSCALE_MASK;
-  if (vscale == EMU_CTRL_EM23VSCALE_VSCALE2) {
-    // Currently running at VS2 (high performance), so scale down
-    vsInit.vScaleEM23Voltage = emuVScaleEM23_LowPower;
-  } else {
-    // Currently running at VS0 (low power), so scale up
-    vsInit.vScaleEM23Voltage = emuVScaleEM23_FastWakeup;
-  }
-
-  // Switch to the new EM2/3 voltage scaling setting
-  EMU_EM23Init(&vsInit);
-  BURTC_IntClear(BURTC_IF_COMP);
-}
+#include "bspconfig.h"
+#define POWER_DOWN_RAM  (1)
+// This is a temporary address to workaround a bug in EMU_RamPowerDown()
+#define SRAM_START SRAM_BASE + 0x6001 
 
 /**************************************************************************/
 /**
@@ -125,15 +54,14 @@ void BURTC_IRQHandler(void)
  *****************************************************************************/
 int main(void)
 {
+  FlashStatus status;
+
   // Chip errata
   CHIP_Init();
 
-  // Enable DC-DC converter
+  // Turn on DCDC regulator
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_WSTK_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
-
-  // Power-down the radio board SPI flash
-  powerDownSpiFlash();
 
   /*
    * When developing or debugging code that enters EM2 or
@@ -149,7 +77,7 @@ int main(void)
   CMU_ClockEnable(cmuClock_GPIO, true);
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
   if (GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == 0) {
-    GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
+    GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
     __BKPT(0);
   }
   // Pin not asserted, so disable input
@@ -157,11 +85,37 @@ int main(void)
     GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
     CMU_ClockEnable(cmuClock_GPIO, false);
   }
-  initBURTC();
+
+  // Enable voltage downscaling in EM mode 2(VSCALE0)
+  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
+  em23Init.vScaleEM23Voltage = emuVScaleEM23_LowPower;
+
+  // Initialize EM23 energy modes
+  EMU_EM23Init(&em23Init);
+
+  // Init and power-down MX25 SPI flash
+  MX25_init();
+  MX25_RSTEN();
+  MX25_RST(&status);
+  MX25_DP();
+  MX25_deinit();
+
+  // Route desired oscillator to BURTC clock tree
+  CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_LFRCO);
+
+  // Setup BURTC parameters
+  BURTC_Init_TypeDef burtcInit = BURTC_INIT_DEFAULT;
+
+  // Initialize BURTC
+  CMU_ClockEnable(cmuClock_BURTC, true);
+  BURTC_Reset();
+  BURTC_Init(&burtcInit);
 
   // Power down all RAM blocks except block 0
-  EMU_RamPowerDown(SRAM_BASE, 0);
-  while(1){
-    EMU_EnterEM3(false);
+  if (POWER_DOWN_RAM) {
+    EMU_RamPowerDown(SRAM_START, 0);
   }
+
+  // Enter EM2
+  EMU_EnterEM2(false);
 }

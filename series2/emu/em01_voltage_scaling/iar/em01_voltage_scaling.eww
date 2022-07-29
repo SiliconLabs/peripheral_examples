@@ -10,6 +10,9 @@
   <project>
     <path>$WS_DIR$\EFR32ZG23_em01_voltage_scaling.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_em01_voltage_scaling.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

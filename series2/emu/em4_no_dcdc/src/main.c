@@ -48,6 +48,12 @@
 #include "bspconfig.h"
 #define BURTC_LFXO_EN (0)
 
+#ifdef _SILICON_LABS_32B_SERIES_2_CONFIG_7
+#define LED0_OUT 0
+#else
+#define LED0_OUT 1
+#endif
+
 /***************************************************************************//**
  * @brief
  *   Enter EM4 with BURTC running on a LFXO
@@ -131,7 +137,7 @@ int main(void)
   CMU_ClockEnable(cmuClock_GPIO, true);
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
   if (GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == 0) {
-    GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
+    GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, LED0_OUT);
     __BKPT(0);
   }
   // Pin not asserted, so disable input

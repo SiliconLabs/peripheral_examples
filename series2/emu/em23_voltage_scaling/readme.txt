@@ -8,7 +8,7 @@ are provided for EM0/1 and EM2/3 voltage scaling.
 
 In this example, the CPU (a) configures the BURTC to request interrupts
 at 4-second intervals, (b) sets the RAM to power-down all blocks when
-entering EM2/3 except for the single 16 KB block holding the stack, and
+entering EM2/3 except for the RAM block 0 holding the stack, and
 (c) enters EM3 with VS2 voltage scaling.  Upon wake-up, EM23 voltage
 scaling is switched to VS0, and the device re-enters EM3.  Toggling
 between VS2 and VS0 happens every four seconds so that it can observed
@@ -66,7 +66,15 @@ following extra steps must be taken.
    underside of BRD4270B. 
 4. Remove R247 and solder two leads to each pad where R247 was previously. 
    Connect these leads to a multimeter to measure the current consumption of the 
-   device. 
+   device.
+
+Note for Testing on xG27:
+On BRD4194A, VMCU is a 3.3V supply that powers AVDD and IOVDD on xG27.
+In the datasheet, current consumption test conditions have AVDD and IOVDD
+powered by either the DC-DC at 1.8V, an external 1.8V supply, 
+or an external 3.0V supply. Due to the design of the radio board, this 
+board does not replicate the datasheet test conditions for current consumption,
+and the measured value may differ from the datasheet value. 
    
 ================================================================================
 
@@ -115,3 +123,13 @@ PC00  - FLASH MOSI
 PC01  - FLASH MISO
 PC02  - FLASH SCLK
 PC03  - FLASH CS
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00  - push button PB0
+PB00  - LED0
+PC00  - FLASH MOSI
+PC01  - FLASH MISO
+PC02  - FLASH SCLK
+PA04  - FLASH CS
