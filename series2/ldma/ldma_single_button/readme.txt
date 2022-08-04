@@ -63,3 +63,8 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
 PB01 - Push Button PB1, WSTK Pin 21
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB01 - Push Button PB1, WSTK Pin 6, Expansion Header Pin 9

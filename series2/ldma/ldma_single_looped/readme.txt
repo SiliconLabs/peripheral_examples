@@ -36,7 +36,7 @@ How To Test:
    first descriptor complete (this can be seen in the Expressions window)
 6. Resume the program. The debugger should halt inside the interrupt subroutine
    again, after the next descriptor has completed. You can do this 2 more times,
-   then the LDMA tranfer will be completed.
+   then the LDMA transfer will be completed.
 
 ================================================================================
 
@@ -65,3 +65,7 @@ Device: EFR32MG24B210F1536IM48
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
