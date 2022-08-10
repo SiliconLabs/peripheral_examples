@@ -99,3 +99,11 @@ PC06 - LED0, WSTK Pin 27
 PC07 - LED1, WSTK Pin 26
 PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
 PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00 - LED0, Expansion Header Pin 7, WSTK Pin 4
+PB01 - LED1, Expansion Header Pin 9, WSTK Pin 6
+PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
+PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
