@@ -1,6 +1,6 @@
 /***************************************************************************/
 /**
- * @file main.c
+ * @file main_xg27_buck.c
  * @brief Example that demonstrates datasheet current consumption configuration
  * and current consumption numbers in EM2 Energy Mode.
  *******************************************************************************

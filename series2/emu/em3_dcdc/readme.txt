@@ -67,7 +67,27 @@ In the datasheet, current consumption test conditions have AVDD and IOVDD
 powered by either the DC-DC at 1.8V, an external 1.8V supply, 
 or an external 3.0V supply. Due to the design of the radio board, this 
 board does not replicate the datasheet test conditions for current consumption,
-and the measured value may differ from the datasheet value. 
+and the measured value may differ from the datasheet value.
+On BRD4111A, the VMCU is the input to an on-board voltage regulator that outputs
+1.5V, which is then connected to the boost DC-DC input, VBAT. This additional
+voltage regulator consumes an extra 10 to 12 uA of current and will make the
+energy profiler current measurement higher than the datasheet specification. 
+Running this example on an out-of-box BRD4111A + BRD4001A WSTK will result in
+a current reading of ~16uA when using the energy profiler. 
+To get a more accurate EM2 current consumption reading of the device,
+the following extra steps must be taken:
+1. Flash the hex image onto the device by following the "How to Test" section
+2. On the BRD4111A board, make the following modification:
+  a. Unmount 0 ohm resistor R222, mount 0 ohm resistor R223
+  b. unmount 0 ohm resistor R211, mount 0 ohm resistor R210
+  c. In main_xg27_boost.c, set MX25_POWER_DOWN definition to (0)
+3. Steps a and b are required to use the boost DC-DC output to supply all rails
+   Step c is needed to eliminate current leakage caused by the unpowered
+   MX25_POWER_DOWN SPI flash.
+4. Place a header on ST1 (bottom left of the front of the radio board).
+5. Using an external power supply to supply 1.5V via the headers.
+6. Measure the current using a bench meter from the 1.5V supply to
+   the pre-programmed, standalone BRD4111A radio board.
    
 ================================================================================
 
@@ -116,3 +136,13 @@ PC00  - FLASH MOSI
 PC01  - FLASH MISO
 PC02  - FLASH SCLK
 PA04  - FLASH CS
+
+Board:  Silicon Labs EFR32xG27 Boost Radio Board (BRD4111A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32BG27C320F768GJ39
+PC05  - push button PB0
+PC05  - LED0
+PB00  - FLASH MOSI
+PB01  - FLASH MISO
+PB02  - FLASH SCLK
+PC02  - FLASH CS

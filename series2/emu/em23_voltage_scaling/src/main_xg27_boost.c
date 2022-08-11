@@ -1,6 +1,6 @@
 /***************************************************************************/
 /**
- * @file main_xg27_buck.c
+ * @file main_xg27_boost.c
  * @brief Example using different voltage scaling levels to show influence on
  * current draw in the Profiler
  *******************************************************************************
@@ -51,6 +51,8 @@
 #define BURTC_IRQ_PERIOD 4000
 // This is a temporary address to workaround a bug in EMU_RamPowerDown()
 #define SRAM_START SRAM_BASE + 0x6001 
+// This define decides whether to power down MX25 SPI flash
+#define MX25_POWER_DOWN (0)
 
 /*
  * A JEDEC standard SPI flash boots up in standby mode in order to
@@ -131,11 +133,22 @@ int main(void)
   CHIP_Init();
 
   // Enable DC-DC converter
-  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_WSTK_DEFAULT;
-  EMU_DCDCInit(&dcdcInit);
+  EMU_DCDCBoostInit_TypeDef dcdcInit = EMU_DCDCBOOSTINIT_DEFAULT;
+  EMU_DCDCBoostInit(&dcdcInit);
 
-  // Power-down the radio board SPI flash
-  powerDownSpiFlash();
+  /*
+   * The BRD4111A EFR32BG27 boost radio board has specific power configuration
+   * requirements in order to measure low energy mode current consumption
+   * accurately(refer to the readme for configuration details). This change in
+   * configuration, however, will effectively disconnect the power source to the
+   * MX25 flash. Therefore, there is no need to power down the MX25 SPI flash
+   * when the board is modified. This routine is only needed for an unmodified
+   * radio board.
+   */
+  if(MX25_POWER_DOWN) {
+    // Power-down the radio board SPI flash
+    powerDownSpiFlash();
+  }
 
   /*
    * When developing or debugging code that enters EM2 or
@@ -161,7 +174,15 @@ int main(void)
   }
   initBURTC();
 
-  // Power down all RAM blocks except block 0
+  /*
+   * Power down first 24 KB to reduce current in EM2/3.
+   *
+   * NOTE: The top 8 KB of RAM (BLK1) **MUST** remain powered in EM2/3
+   * (SYSCFG_DMEM0RETNCTRL_RAMRETNCTRL != 2) or the device is liable to
+   * hard fault on wake-up depending on what data may have been saved
+   * on the stack, e.g. the return address from the EMU_EnterEM3() call
+   * below.
+   */
   EMU_RamPowerDown(SRAM_START, 0);
   while(1){
     EMU_EnterEM3(false);
