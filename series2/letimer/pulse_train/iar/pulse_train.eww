@@ -16,6 +16,9 @@
   <project>
     <path>$WS_DIR$\EFR32FG25_pulse_train.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_pulse_train.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>
