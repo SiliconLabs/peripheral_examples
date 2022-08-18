@@ -68,8 +68,8 @@ LDMA_Descriptor_t descLink;
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure PA6 as Input
-  GPIO_PinModeSet(gpioPortA, 6, gpioModeInput, 0);
+  // Configure PA6 as Push-Pull
+  GPIO_PinModeSet(gpioPortA, 6, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
