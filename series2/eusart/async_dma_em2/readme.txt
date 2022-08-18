@@ -48,8 +48,8 @@ How To Test:
 2. Open a terminal program and configure it for 9600N81 operation on the
    "JLink CDC UART Port" that is provided by the board controller on the
    Starter Kit mainboard.
-3. Type some characters in the terminal program (they will not show) and
-   press Enter to have the MCU echo them.
+3. Type 10 characters (will not show if it is less than 10) in the terminal
+   program and watch the characters echo back from the terminal.
 
 Alternatively, the example may be tested with a USB-to-serial converter,
 such as the Silicon Labs CP2102N-EK.  Refer to the list below for the
@@ -62,8 +62,9 @@ Listed below are the port and pin mappings for working with this example.
 Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG23A010F512GM48
-PA8 - USART0_TX (Expansion Header Pin 12)
-PA9 - USART0_RX (Expansion Header Pin 14)
+PA8 - EUSART0_TX (Expansion Header Pin 12)
+PA9 - EUSART0_RX (Expansion Header Pin 14)
+PB0 - VCOM_ENABLE (WSTK P15)
 
 Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard (BRD4001A)
