@@ -16,6 +16,9 @@
   <project>
     <path>$WS_DIR$\EFR32ZG23_msc_rw.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_msc_rw.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

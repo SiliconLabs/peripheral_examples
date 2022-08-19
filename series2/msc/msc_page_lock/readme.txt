@@ -62,7 +62,7 @@ How To Test:
    while(1) loop at the end of main().
 5. To observe how much elapses between issuing critical register
    writes in SystemInit() vs. main(), set an oscilloscope to trigger
-   once on a rising edge with a time scale of 25 or 50 �s/division.
+   once on a rising edge with a time scale of 25 or 50 us/division.
 6. Observe the LED0 GPIO pin by probing the anode of LED0 on the WSTK
    mainboard (this is the solder pad just below the letter 'E' of the
    'LED0' component label), or the breakout/expansion header pin indicated
@@ -99,3 +99,8 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
 PC6 - LED0 (WSTK Breakout Header P27)
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00 - LED0 (WSTK Breakout Header P4, Expansion Header Pin 7)
