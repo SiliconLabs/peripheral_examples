@@ -12,14 +12,19 @@ the device will continue to reset due to WDOG timeout until pin reset or POR.
 This behavior results in a flicker of LED0 with a period equal to the WDOG
 timeout period.
 
+Note: For the EFR32xG27 Radio Board, this example uses LED1 instead of LED0.
+Also, The radio board connects Push Button 0 to LED0 via hardware, so LED0 will
+be on while Push Button 0 is pressed and off while Push Button 0 is not
+pressed.
+
 Note: Writes to clock enable bits are unnecessary and will have no effect on 
 EFR32xG21 devices.
 
 How To Test:
 1. Build the project and download to the Starter Kit
-2. LED0 should be blinking
+2. LED should be blinking
 3. Press and hold Push Button 0 for a period of 3 seconds
-4. LED0 is now ON and not blinking anymore, which is indicative of
+4. LED is now ON and not blinking anymore, which is indicative of
    a WDOG reset
 
 Peripherals Used:
@@ -54,4 +59,10 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
 PC6 - LED0
+PB0 - Push Button PB0
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB1 - LED1
 PB0 - Push Button PB0
