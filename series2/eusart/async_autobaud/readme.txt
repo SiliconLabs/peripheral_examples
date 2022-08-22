@@ -1,7 +1,7 @@
 eusart_async_autobaud
 
 This project demonstrates interrupt-driven EUSART operation in
-asynchronous mode with automatic baud rate detection.  EUSART1 is
+asynchronous mode with automatic baud rate detection.  EUSART0/1 is
 configured for 8 data bits, no parity, and one stop bit.  Setting
 init.baudrate = 0 in the structure of type EUSART_UartInit_TypeDef
 instructs the EUSART_UartInitHf() to enable the auto baud feature.
@@ -53,7 +53,7 @@ to return to the idle state and re-enable auto baud detection.
 Peripherals Used:
 
 GPIO
-EUSART1
+EUSART0/1
 
 ================================================================================
 
@@ -62,12 +62,12 @@ How To Test:
 2. Open a terminal program and configure it for 115200N81 operation on the
    "JLink CDC UART Port" that is provided by the board controller on the
    Starter Kit mainboard.
-3. Set a breakpoint at the end of the EUSART1_RX_IRQHandler and run the
+3. Set a breakpoint at the end of the EUSARTn_RX_IRQHandler and run the
    example project.
-4. Pause the program and observe the EUSART1_CLKDIV value after
+4. Pause the program and observe the EUSARTn_CLKDIV value after
    initalization,  which will be 0.  Resume execution and type the "U"
    character in the terminal program.
-5. At the breakpoint, notice that the EUSART1_CLKDIV value has been
+5. At the breakpoint, notice that the EUSARTn_CLKDIV value has been
    updated with a value that reflects the baud rate set in the terminal.
    Remove the breakpoint and resume execution.
 5. Type some characters in the terminal program (they will not show) and
@@ -115,3 +115,10 @@ Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
 PC0 - EUSART1_TX (Expansion Header Pin 4)
 PC1 - EUSART1_RX (Expansion Header Pin 6)
 PA11 - VCOM_ENABLE (WSTK P15)
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PA5 - EUSART0_TX (Expansion Header Pin 12)
+PA6 - EUSART0_RX (Expansion Header Pin 14)
+PB4 - VCOM_ENABLE (WSTK_P15)

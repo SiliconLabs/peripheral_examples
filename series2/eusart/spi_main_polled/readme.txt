@@ -1,7 +1,7 @@
 eusart_spi_main_polled
 
 This project demonstrates polled operation of the EUSART in synchronous
-main (formerly master) mode.  EUSART1 is configured for SPI-compatible
+main (formerly master) mode.  EUSART0/1 is configured for SPI-compatible
 operation at 1 Mbps.  Compatibility with the Synchronous Peripheral
 Interface standard implies a word size of 8 data bits transmitted and
 received MSB-first.
@@ -42,7 +42,7 @@ information, visit https://www.silabs.com/about-us/inclusive-lexicon-project
 Peripherals Used:
 
 GPIO
-EUSART1
+EUSART0/1
 
 The CMU is used indirectly via the EUSART_SpiInit() function to calculate
 the divisor necessary to derive the desired bit rate.
@@ -107,3 +107,11 @@ PC0 - EUSART1_TX (MOSI)  - Expansion Header pin 4
 PC1 - EUSART1_RX (MISO)  - Expansion Header pin 6
 PC2 - EUSART1_CLK (SCLK) - Expansion Header pin 8
 PB4 - EUSART1_CS (CSn)   - Expansion Header pin 10
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PC0 - EUSART0_TX (MOSI)  - Expansion Header pin 4
+PC1 - EUSART0_RX (MISO)  - Expansion Header pin 6
+PC2 - EUSART0_CLK (SCLK) - Expansion Header pin 8
+PC3 - EUSART0_CS (CSn)   - Expansion Header pin 10

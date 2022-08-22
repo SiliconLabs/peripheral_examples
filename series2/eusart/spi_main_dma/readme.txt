@@ -1,7 +1,7 @@
 eusart_spi_main_dma
 
 This project demonstrates DMA-driven operation of the EUSART in
-synchronous main (formerly master) mode.  EUSART1 is configured for
+synchronous main (formerly master) mode.  EUSART0/1 is configured for
 SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous
 Peripheral Interface standard implies a word size of 8 data bits
 transmitted and received MSB-first.
@@ -19,15 +19,15 @@ Buffers inbuf[] and outbuf[] are, respectively, zeroed out and populated
 with 10 bytes of data (which can be changed by modifying BUFLEN).
 
 Previously, the LDMA has been configured so that (a) one channel moves
-each byte in outbuf[] to the EUSART1_TXDATA register when there is space
-in the transmit FIFO (EUSART1_STATUS_TXFL is asserted), and (b) another
-channel moves the matching received byte from EUSART1_RXDATA to inbuf[]
-(upon assertion of EUSART1_STATUS_RXFL).  Chip select is asserted, the
+each byte in outbuf[] to the EUSARTn_TXDATA register when there is space
+in the transmit FIFO (EUSARTn_STATUS_TXFL is asserted), and (b) another
+channel moves the matching received byte from EUSARTn_RXDATA to inbuf[]
+(upon assertion of EUSARTn_STATUS_RXFL).  Chip select is asserted, the
 transfers are started for the LDMA channels, and the device enters the
 EM1 low-energy mode.
 
 While the CPU is halted, the LDMA writes each byte from outbuf[] to
-the transmit FIFO as space is available.  EUSART1 drives the CLK pin
+the transmit FIFO as space is available.  EUSART0/1 drives the CLK pin
 so that each pulse causes the byte written to TXDATA to be shifted out
 while an incoming byte is shifted into RXDATA one bit at a time.  Once
 all 8 bits of the incoming byte have been received, the LDMA writes each
@@ -52,7 +52,7 @@ Peripherals Used:
 
 GPIO
 LDMA
-EUSART1
+EUSART0/1
 
 The CMU is used indirectly via the EUSART_SpiInit() function to calculate
 the divisor necessary to derive the desired bit rate.
@@ -117,3 +117,11 @@ PC0 - EUSART1_TX (MOSI)  - Expansion Header pin 4
 PC1 - EUSART1_RX (MISO)  - Expansion Header pin 6
 PC2 - EUSART1_CLK (SCLK) - Expansion Header pin 8
 PB4 - EUSART1_CS (CSn)   - Expansion Header pin 10
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PC0 - EUSART0_TX (MOSI)  - Expansion Header pin 4
+PC1 - EUSART0_RX (MISO)  - Expansion Header pin 6
+PC2 - EUSART0_CLK (SCLK) - Expansion Header pin 8
+PC3 - EUSART0_CS (CSn)   - Expansion Header pin 10
