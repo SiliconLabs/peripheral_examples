@@ -21,6 +21,11 @@ GPIO and sent to the corresponding PRS channel
 A logical low output will have the LED off and a logical high output will have
 the LED on.
 
+Note: For the EFR32xG27 Radio Board, Push Button 0/1 is connected to LED0/1 via
+hardware, so it is not possible to output to the LEDs when both push buttons
+are being used. Please This example sets PC03 as the PRS output for the
+EFR32xG27 Radio Board.
+
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
 from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
@@ -91,3 +96,12 @@ PRS   - Channel 1, PB0
 PB00 - push button PB0
 PB01 - push button PB1
 PC07 - PRS Channel 6
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PRS   - Channel 1, PB0
+        Channel 6, PB1 routed to PC03 (Output)
+PB00  - push button PB0
+PB01  - push button PB1
+PC03  - PRS Channel 6 (Expansion Header 10)
