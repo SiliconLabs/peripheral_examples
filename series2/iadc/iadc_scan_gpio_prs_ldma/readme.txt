@@ -100,3 +100,11 @@ PB02 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12
 PB03 -  IADC input, single-ended, Expansion Header Pin 16, WSTK P13
 PB00 -  GPIO input, pull-up, filtered, WSTK P17, Push Button 0
 PC07 -  GPIO Push/Pull output, WSTK P26, LED1
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) +
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB02 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12
+PB03 -  IADC input, single-ended, Expansion Header Pin 16, WSTK P13
+PB00 -  GPIO input, pull-up, filtered, WSTK P4, Expansion Header Pin 7, Push Button 0
+PB01 -  GPIO Push/Pull output, WSTK P6, Expansion Header Pin 9, LED1

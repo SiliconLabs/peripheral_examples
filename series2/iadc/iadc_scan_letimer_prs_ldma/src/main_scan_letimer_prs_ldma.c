@@ -56,9 +56,6 @@
 #define CLK_SRC_ADC_FREQ          20000000 // CLK_SRC_ADC
 #define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
 
-// Number of scan channels
-#define NUM_INPUTS 8
-
 /*
  * Specify the IADC input using the IADC_PosInput_t typedef.  This
  * must be paired with a corresponding macro definition that allocates
