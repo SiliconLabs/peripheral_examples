@@ -14,6 +14,9 @@
     <path>$WS_DIR$\EFR32ZG23_timer_pwm_interrupt.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_timer_pwm_interrupt.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG25_timer_pwm_interrupt.ewp</path>
   </project>
 

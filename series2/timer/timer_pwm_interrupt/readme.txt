@@ -50,3 +50,8 @@ Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG25B222F1920IM56
 PA6 - TIM0_CC0 (Expansion Header Pin 11)
+
+Board:  Silicon Labs EFR32MG27 Radio Board (BRD4194A)
+        + Wireless Starter Kit Mainboard (BRD4001A)
+Device: EFR32MG27C140F768IM40
+PA6 - TIM0_CC0 (Expansion Header Pin 14, WSTK P11)
