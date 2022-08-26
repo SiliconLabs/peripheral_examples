@@ -71,3 +71,9 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
 Device: EFR32FG25B222F1920IM56
 PB00 -  IADC positive differential input, WSTK P17
 PB01 -  IADC negative differential input, WSTK P21
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) +
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00 -  IADC positive differential input, Expansion Header Pin 7, WSTK P4
+PB01 -  IADC negative differential input, Expansion Header Pin 9, WSTK P6
