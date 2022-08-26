@@ -32,3 +32,9 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
 Device: EFR32MG22C224F512IM40
 PB00 - Expansion header pin 7
 PB01 - Push button PB1
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00 - Expansion header pin 7, LED0 
+PB01 - Push button PB1

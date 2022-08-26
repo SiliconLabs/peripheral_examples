@@ -63,11 +63,11 @@
  * provide immediate access, such as when used it as a boot memory.
  *
  * Typical current draw in standby mode for the MX25R8035F device used
- * on EFR32 radio boards is 5 µA.
+ * on EFR32 radio boards is 5 uA.
  *
  * JEDEC standard SPI flash memories have a lower current deep power-down mode,
  * which can be entered after sending the relevant commands.  This is on the
- * order of 0.007 µA for the MX25R8035F.
+ * order of 0.007 uA for the MX25R8035F.
  *****************************************************************************/
 void powerDownSpiFlash(void)
 {
