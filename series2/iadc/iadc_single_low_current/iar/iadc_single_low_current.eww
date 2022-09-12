@@ -14,6 +14,9 @@
     <path>$WS_DIR$\EFR32ZG23_iadc_single_low_current.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_iadc_single_low_current.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG25_iadc_single_low_current.ewp</path>
   </project>
 

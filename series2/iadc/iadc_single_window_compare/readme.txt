@@ -65,3 +65,10 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
 Device: EFR32FG25B222F1920IM56
 PC06 -  GPIO Push/Pull output, WSTK P27, LED0
 PC05 -  IADC input, single-ended, WSTK P33
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+BURTC - 32768 Hz LFRCO clock source, 256 prescaler
+PB00  - GPIO Push/Pull output, J101->Pin 9 of BRD4001, WSTK P4, LED0
+PC05 -  IADC input, single-ended, J102->Pin 8 of BRD4001, WSTK P27

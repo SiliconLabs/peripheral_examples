@@ -46,10 +46,11 @@ How To Test:
     EFR32xG23 ~23uA
     EFR32xG24 ~23uA
     EFR32xG25 ~34uA
+    EFR32xG27 ~25uA
     *There is some part-to-part/board-to-board variance; this is a rough typical
     current*	
 9.  After completing NUM_SAMPLES conversions, the LDMA will wake the MCU from 
-    EM2 and toggle LED0 to indicate transfer completion before returning to EM2 
+    EM2 and toggle LED to indicate transfer completion before returning to EM2 
     until the next transfer completes; additional current draw in profiler is 
     LED current consumption
 10. Energy Profiler can at this point be paused and the data saved. 
@@ -114,4 +115,12 @@ Device: EFR32FG25B222F1920IM56
 BURTC - 32768 Hz LFRCO clock source, 256 prescaler
 PC06  - GPIO Push/Pull output, WSTK Pin 27, LED0
 PA05  - IADC input, single-ended, Expansion Header pin 7, WSTK P4
+PB00  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+BURTC - 32768 Hz LFRCO clock source, 256 prescaler
+PB01  - GPIO Push/Pull output, WSTK Pin 6, LED1
+PA05  - IADC input, single-ended, Expansion Header pin 12, WSTK P9
 PB00  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
