@@ -52,7 +52,7 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
 2. Simplicity Studio 5 or IAR Workbech IDE
-3. Gecko SDK Suite 4.1.0 and 32-bit MCU SDK 6.3.0.0, available via Simplicity Studio
+3. Gecko SDK Suite 4.1.1, available via Simplicity Studio
 4. This repo cloned to `C:\SiliconLabs\SimplicityStudio\v5\developer\repos\` 
 
 ## Additional Requirements for IAR ##
