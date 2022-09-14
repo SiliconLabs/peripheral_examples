@@ -36,7 +36,7 @@
       <source>##em-path-emlib##\src\em_core.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\readme_SYSRESETREQ.txt</source>
+      <source>$PROJ_DIR$\..\readme_sysresetreq.txt</source>
       <source>$PROJ_DIR$\..\src\main_sysresetreq.c</source>
     </group>
   </project>

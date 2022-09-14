@@ -33,7 +33,7 @@
       <source>##em-path-emlib##\src\em_core.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\readme_RESETn.txt</source>
+      <source>$PROJ_DIR$\..\readme_resetn.txt</source>
       <source>$PROJ_DIR$\..\src\main_resetn.c</source>
     </group>
   </project>

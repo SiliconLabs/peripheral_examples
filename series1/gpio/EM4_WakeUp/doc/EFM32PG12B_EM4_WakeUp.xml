@@ -37,7 +37,7 @@
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_pg.c</source>
-      <source>$PROJ_DIR$\..\readme_s1_zg.txt</source>
+      <source>$PROJ_DIR$\..\readme_s1.txt</source>
     </group>
     <cflags>
       <define>RETARGET_VCOM</define>
