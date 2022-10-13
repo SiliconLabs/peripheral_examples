@@ -72,9 +72,9 @@ PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
 PA06 -  GPIO Push/Pull output, Expansion Header Pin 14, WSTK P11
 PD02 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB00 -  IADC input, single-ended, WSTK P15
 PB01 -  IADC input, single-ended, WSTK P17
 PA05 -  GPIO Push/Pull output, Expansion Header Pin 7, WSTK P4

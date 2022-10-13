@@ -2,7 +2,7 @@
  * @file main.c
  *
  * @brief This project demonstrates polled pulse generation using TIMER
- * output compare.  A 1-second wide high pulse is driven on GPIO pin PA5
+ * output compare.  A 1-second wide high pulse is driven on a GPIO pin
  * after an initial 3.5 second delay.
  *******************************************************************************
  * # License

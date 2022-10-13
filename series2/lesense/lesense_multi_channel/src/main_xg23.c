@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file
- * @brief LESENSE multi channel demo for EFR32FG23. This example uses LESENSE
+ * @brief LESENSE multi channel demo for EFR32ZG23. This example uses LESENSE
  *        to scan four IADC scan channels in low energy mode. The LESENSE is
  *        configured to detect when each input signal crosses over a threshold
  *        and will trigger an interrupt to toggle an the LED.

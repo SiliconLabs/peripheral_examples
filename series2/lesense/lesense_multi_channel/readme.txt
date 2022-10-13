@@ -55,9 +55,9 @@ GPIO
 LESENSE - 32 Hz scan rate; LESENSE scans all enabled channels per scan cycle:
              32 samples per second per channel
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - LESENSE Channel 0 (Push Button PB0)
 PB03 - LESENSE Channel 1 (Push Button PB1)
 PA06 - LESENSE Channel 2 (Expansion Header 11)

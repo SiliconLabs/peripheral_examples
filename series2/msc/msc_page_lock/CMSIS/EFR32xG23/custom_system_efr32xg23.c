@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file
- * @brief CMSIS Cortex-M33 system support for EFR32FG23 devices.
+ * @brief CMSIS Cortex-M33 system support for EFR32ZG23 devices.
  ******************************************************************************
  * # License
  * <b>Copyright 2022 Silicon Laboratories, Inc. www.silabs.com</b>
@@ -244,7 +244,7 @@ void SystemInit(void)
  *   Get current HFRCODPLL frequency.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -336,7 +336,7 @@ uint32_t SystemHFRCODPLLClockGet(void)
  *   Set HFRCODPLL frequency value.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @param[in] freq
@@ -360,7 +360,7 @@ void SystemHFRCODPLLClockSet(uint32_t freq)
  *   hardware configuration.
  *
  * @note
- *   This is an EFR32FG23 specific function, not part of the
+ *   This is an EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -416,7 +416,7 @@ uint32_t SystemSYSCLKGet(void)
  *   configuration. It will also update the SystemCoreClock global variable.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -446,7 +446,7 @@ uint32_t SystemHCLKGet(void)
  *   Get the maximum core clock frequency.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -463,7 +463,7 @@ uint32_t SystemMaxCoreClockGet(void)
  *   Get high frequency crystal oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -493,7 +493,7 @@ uint32_t SystemHFXOClockGet(void)
  *   should probably only be used once during system startup.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @param[in] freq
@@ -521,7 +521,7 @@ void SystemHFXOClockSet(uint32_t freq)
  *   Get current CLKIN0 frequency.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -537,7 +537,7 @@ uint32_t SystemCLKIN0Get(void)
  *   Get FSRCO frequency.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -553,7 +553,7 @@ uint32_t SystemFSRCOClockGet(void)
  *   Get current HFRCOEM23 frequency.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -621,7 +621,7 @@ uint32_t SystemHFRCOEM23ClockGet(void)
  *   Get low frequency RC oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -637,7 +637,7 @@ uint32_t SystemLFRCOClockGet(void)
  *   Get ultra low frequency RC oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -654,7 +654,7 @@ uint32_t SystemULFRCOClockGet(void)
  *   Get low frequency crystal oscillator clock frequency for target system.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @return
@@ -684,7 +684,7 @@ uint32_t SystemLFXOClockGet(void)
  *   should probably only be used once during system startup.
  *
  * @note
- *   This is a EFR32FG23 specific function, not part of the
+ *   This is a EFR32ZG23 specific function, not part of the
  *   CMSIS definition.
  *
  * @param[in] freq

@@ -8,7 +8,7 @@
     <path>$WS_DIR$\EFR32MG22_pulse_train.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG23_pulse_train.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_pulse_train.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32MG24_pulse_train.ewp</path>

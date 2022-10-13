@@ -5,7 +5,7 @@
     <path>$WS_DIR$\EFR32MG24_eusart_spi_main_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG23_eusart_spi_main_polled.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_eusart_spi_main_polled.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32FG25_eusart_spi_main_polled.ewp</path>

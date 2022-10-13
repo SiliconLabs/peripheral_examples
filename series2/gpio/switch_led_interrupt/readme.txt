@@ -3,7 +3,7 @@ switch_led_interrupt
 This project demonstrates how to use GPIO pins to trigger external interrupts.
 If push-button 0 is pressed, then LED0 will toggle. If push-button 1 is pressed,
 then LED1 will toggle. The GPIO has two interrupt handler, and will be triggered
-based on the whether the GPIO pin that triggered the interrupt is an old or even
+based on the whether the GPIO pin that triggered the interrupt is an odd or even
 pin.
 
 Note: PB0 on EFR32xG22, EFR32xG23, and EFR32xG24 is used as an "escape hatch". 
@@ -28,9 +28,9 @@ PD03 - LED1
 PB00 - Push Button PB0
 PB01 - Push Button PB1
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB02 - LED0
 PD03 - LED1
 PB01 - Push Button PB0

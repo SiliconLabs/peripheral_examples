@@ -86,9 +86,9 @@ PD02  - GPIO Push/Pull output, Expansion Header Pin 11, WSTK Pin 8, LED0
 PA05  - IADC input, single-ended, Expansion Header Pin 12, WSTK P9
 PB00  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 BURTC - 32768 Hz LFRCO clock source, 256 prescaler 
 PB02  - GPIO Push/Pull output, WSTK Pin 19, LED0
 PA05  - IADC input, single-ended, Expansion Header pin 7, WSTK P4

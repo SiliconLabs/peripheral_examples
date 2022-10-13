@@ -1,7 +1,7 @@
 usart_async_interrupt
 
 This project demonstrates interrupt-drive operation of the USART in
-asynchronous mode.  USART1 is configured for asynchronous operation at
+asynchronous mode.  USART0 is configured for asynchronous operation at
 115200 baud with 8 data bits, no parity, and one stop bit (115200N81).
 The main loop waits until 80 characters or a carriage return are received
 and then echos these back to the user.
@@ -14,7 +14,7 @@ information, visit https://www.silabs.com/about-us/inclusive-lexicon-project
 Peripherals Used:
 
 GPIO
-USART1
+USART0
 
 The CMU is used indirectly via the USART_InitAsync() function to calculate the
 divisor necessary to derive the desired baud rate.
@@ -55,9 +55,9 @@ Device: EFR32MG22C224F512IM40
 PA5 - USART0_TX (Expansion Header Pin 12)
 PA6 - USART0_RX (Expansion Header Pin 14)
 
-Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PA8 - USART0_TX (Expansion Header Pin 12)
 PA9 - USART0_RX (Expansion Header Pin 14)
 

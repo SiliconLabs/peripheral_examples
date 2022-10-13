@@ -62,9 +62,9 @@ BURTC  - 32.768 kHz LFRCO clock source
 USART0 - 8 Mbits/s
 EUSART - 8 Mbits/s (xG25)
 
-Board: Silicon Labs EFR32FG23 868-915 MHz 14 dBm Board (BRD4263B)
+Board: Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Board (BRD4204D)
        + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512
+Device: EFR32ZG23B010F512IM48
 PB01  - push button PB0
 PB02  - LED0
 PC01  - USART0 MOSI

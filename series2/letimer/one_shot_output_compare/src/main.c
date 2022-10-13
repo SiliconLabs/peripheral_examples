@@ -1,7 +1,8 @@
 /***************************************************************************//**
  * @file main.c
  * @brief This project demonstrates output compare in EM2 using the LETIMER.
- * After 1 second an output pin is set high (see README)
+ * The project initializes the letimer in one-shot mode, and expansion
+ * header pin toggles REPEAT_COUNT times while staying in a low energy mode.
  *******************************************************************************
  * # License
  * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>

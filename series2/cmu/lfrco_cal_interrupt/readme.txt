@@ -75,13 +75,8 @@ Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A)
         + Wireless Starter Kit Mainboard (BRD4001A)
 PC0 = Expansion Header pin 4
 
-Device: EFR32FG23A010F512GM48
-Board:  Silicon Labs EFR32FG23 868 MHz 14 dBm Radio Board (BRD4263A) 
-        + Wireless Starter Kit Mainboard (BRD4001A)
-PC0 = Expansion Header pin 4
-
-Device: EFR32FG23A010F512GM48
-Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B) 
+Device: EFR32ZG23B010F512IM48
+Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D) 
         + Wireless Starter Kit Mainboard (BRD4001A)
 PC0 = Expansion Header pin 10
 

@@ -50,9 +50,9 @@ CMU  - LFRCO @ 32768 Hz - Used temporarily for configuring PCNT peripheral
 External Clock - Push Button 0
 PCNT
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - Push Button PB0
 PB02 - LED0
 PB03 - Push Button PB1

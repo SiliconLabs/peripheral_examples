@@ -23,7 +23,7 @@ current.
 
 Board     | avg current EM3 | avg current EM0 (Enter EM3 code commented out)
 ================================================================================
-BRD4263B  |           60 uA |           950 uA
+BRD4204D  |           60 uA |           950 uA
 BRD4186C  |           60 uA |           725 uA
 BRD4270B  |           55 uA |           905 uA
 
@@ -57,9 +57,9 @@ Listed below are the devices that do not have a VDAC module
 
 Listed below are the port and pin mappings for working with this example.
 
-Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32ZG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB00 -  VDAC0 CH0 Main Output (Pin 15 of breakout pads)
 PB01 -  VDAC0 CH1 Main Output (Pin 17 of breakout pads)
 

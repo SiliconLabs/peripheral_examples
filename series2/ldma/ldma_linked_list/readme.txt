@@ -37,9 +37,9 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
 
-Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32ZG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard

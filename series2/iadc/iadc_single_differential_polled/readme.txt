@@ -54,9 +54,9 @@ Device: EFR32MG22A224F512IM40
 PB00 -  IADC positive differential input, Expansion Header Pin 7, WSTK P4
 PB01 -  IADC negative differential input, Expansion Header Pin 9, WSTK P6
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB00 -  IADC positive differential input, WSTK P15
 PB01 -  IADC negative differential input, WSTK P17
 

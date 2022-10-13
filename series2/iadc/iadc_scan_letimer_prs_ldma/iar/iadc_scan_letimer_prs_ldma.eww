@@ -11,7 +11,7 @@
     <path>$WS_DIR$\EFR32MG24_iadc_scan_letimer_prs_ldma.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG23_iadc_scan_letimer_prs_ldma.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_iadc_scan_letimer_prs_ldma.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32FG25_iadc_scan_letimer_prs_ldma.ewp</path>

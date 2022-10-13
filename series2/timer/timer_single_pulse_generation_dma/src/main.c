@@ -149,9 +149,9 @@ void initTIMER(void)
   // Do not start counter upon initialization
   timerInit.enable = false;
 
-  // Set drive output pin high upon compare match
+  // Set drive output pin to toggle upon compare match
   timerCCInit.mode = timerCCModeCompare;
-  timerCCInit.cmoa = timerOutputActionSet;
+  timerCCInit.cmoa = timerOutputActionToggle;
 
   TIMER_Init(TIMER0, &timerInit);
 

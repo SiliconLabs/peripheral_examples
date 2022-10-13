@@ -53,9 +53,9 @@ Device: EFR32MG22C224F512IM40
 PB00  - push button PB0
 PB01  - push button PB1
 
-Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32ZG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - push button PB0, WSTK Pin 17
 PB03 - push button PB1, WSTK Pin 21
 

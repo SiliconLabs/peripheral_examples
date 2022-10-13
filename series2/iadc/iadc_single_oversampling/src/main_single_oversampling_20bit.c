@@ -3,7 +3,7 @@
  * @brief Uses the IADC repeated non-blocking measurements on a single input
  * while asleep and setting the oversampling field to achieve a 20-bit
  * resolution conversion. Sample clock is 10 MHz, and oversampling rate is 512.
- * This gives a sampling frequency of ~4.8 kHz. The IADC reads GPIO pins PC05
+ * This gives a sampling frequency of ~4.8 kHz. The IADC reads GPIO pin PA05
  * as input.
  *******************************************************************************
  * # License

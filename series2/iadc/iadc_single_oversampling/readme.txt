@@ -5,9 +5,9 @@ acquire a 16-bit/20bit resolution conversion results while operating in EM2.
 IADC interrupts on conversion completion wake the MCU into EM0, where the IADC
 interrupt handler converts the result to a voltage before going back into EM2.
 The IADC sampling rate is 77 ksps with an oversampling rate of 32, 4.8 ksps with
-an oversampling rate of 32*16 = 512, and the IADC reads GPIO pin PC05 as input. 
-The PRS peripheral will output a pulse on LED0 whenever the IADC finishes one 
-single conversion.
+an oversampling rate of 32*16 = 512, and the IADC reads GPIO pin PA05 as input. 
+The PRS peripheral will output a pulse on a GPIO pin whenever the IADC finishes 
+one single conversion.
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
@@ -26,9 +26,9 @@ How To Test:
    16-bit result - "singleResult" is obtained by the formula: sample*VREF/(2^16)
    20-bit result - "singleResult" is obtained by the formula: sample*VREF/(2^20)
 6. Observe OUTPUT0 toggling on an oscilloscope:
-   16-bit resolution - interval of 13us, 50 percent duty cycle.
+   16-bit resolution - period of 13us.
      This corresponds to sampling frequency of roughly 77 KHz
-   20-bit resolution - interval of 208us, 50 percent duty cycle.
+   20-bit resolution - period of 208us.
      This corresponds to sampling frequency of roughly 4.8 KHz    
 7. Suspend the debugger, observe the measured voltage change in the Expressions
    Window and how it responds to different voltage values on the corresponding
@@ -56,9 +56,9 @@ Device: EFR32MG22A224F512IM40
 PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
 PB01 -  GPIO Push/Pull output, Expansion Header Pin 9, WSTK Pin 6
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PA05 -  IADC input, single-ended, Expansion Header pin 7, WSTK P4
 PB01 -  GPIO Push/Pull output, WSTK Pin 17
 

@@ -14,7 +14,7 @@
     <path>$WS_DIR$\EFR32MG24_usart_async_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG23_usart_async_polled.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_usart_async_polled.ewp</path>
   </project>
 
   <batchBuild/>

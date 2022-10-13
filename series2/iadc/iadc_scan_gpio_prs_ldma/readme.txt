@@ -77,9 +77,9 @@ PB00 -  GPIO input, pull-up, filtered, Expansion Header Pin 7, WSTK P4,
         Push Button 0
 PD03 -  GPIO Push/Pull output, Expansion Header Pin 13, WSTK P10, LED1
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB02 -  IADC input, single-ended, WSTK P19
 PB03 -  IADC input, single-ended, WSTK P21
 PB01 -  GPIO input, pull-up, filtered, WSTK P17, Push Button 0

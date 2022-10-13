@@ -69,9 +69,9 @@ PD03 - LED1, Expansion Header Pin 13, WSTK Pin 10
 PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
 PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
 
-Board:  Silicon Labs EFR32FG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32ZG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - Push button PB0, WSTK Pin 17
 PB02 - LED0, WSTK Pin 19
 PD03 - LED1, WSTK Pin 26

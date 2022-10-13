@@ -93,9 +93,9 @@ mapping of USART signals to Expansion (EXP) Header pins.
 
 Listed below are the port and pin mappings for working with this example.
 
-Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PA8 - EUSART1_TX (Expansion Header Pin 12)
 PA9 - EUSART1_RX (Expansion Header Pin 14)
 PB0 - VCOM_ENABLE (WSTK P15)

@@ -8,7 +8,7 @@
     <path>$WS_DIR$\EFR32MG22_gpio_em4_wakeup.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG23_gpio_em4_wakeup.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_gpio_em4_wakeup.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32MG24_gpio_em4_wakeup.ewp</path>

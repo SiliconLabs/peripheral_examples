@@ -13,7 +13,7 @@ code from interrupt-driven to polled operation.
 
 Note: On EFR32xG21 devices, calls to CMU_ClockEnable() have no effect
 as clocks are automatically turned on/off in response to on-demand
-requests from the peripherals.  CMU_ClockEnable() is a dummy function
+requests from the peripherals. CMU_ClockEnable() is a dummy function
 on EFR32xG21 present for software compatibility.
 
 ================================================================================
@@ -24,7 +24,7 @@ How To Test:
 3. Press button 0 to trigger the input capture and have the value recorded.
 4. Pause the debugger, add the buffer[] variable to the Expressions
    pane, and expand the array to see each the value of the counter for
-   rach edge (button press) captured.
+   each edge (button press) captured.
 
 ================================================================================
 
@@ -42,9 +42,9 @@ Board:  Silicon Labs EFR32xG22 2.4 GHz 6 dBm Radio Board (BRD4182A)
 Device: EFR32MG22C224F512IM40
 PB00 - Push Button 0
 
-Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - Push Button 0
 
 Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)

@@ -100,10 +100,10 @@ Test Procedure:
 
 Listed below are the port and pin mappings for working with this example.
 
-Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512GM48 (this code will run unchanged on any
-        EFR32FG23 variant so long as the pins used as present).
+Device: EFR32ZG23B010F512IM48 (this code will run unchanged on any
+        EFR32ZG23 variant so long as the pins used as present).
 PC1 - EUSART1_TX (MOSI)  - Expansion Header pin 4
 PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
 PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8

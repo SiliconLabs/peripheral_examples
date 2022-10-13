@@ -118,9 +118,9 @@ PC1 - USART0_RX (MISO)  - Expansion Header pin 6
 PC2 - USART0_CLK (SCLK) - Expansion Header pin 8
 PC3 - USART0_CS (CSn)   - Expansion Header pin 10
 
-Board:  Silicon Labs EFR32FG23 868-915 MHz 14 dBm Radio Board (BRD4263B)
+Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PC0 - USART0_TX (MOSI)  - Expansion Header pin 10
 PC1 - USART0_RX (MISO)  - Expansion Header pin 4
 PC2 - USART0_CLK (SCLK) - Expansion Header pin 6

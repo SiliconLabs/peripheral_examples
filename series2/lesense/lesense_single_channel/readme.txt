@@ -13,7 +13,7 @@ Note: In project where the device enters EM2 or lower, an escapeHatch
 
 How to test:
 1. Build the project and download it to the starter kit.
-2. The LED0 should be off right now with lower current consumption(~3.8 for xG23 
+2. The LED0 should be off right now with lower current consumption(~4.7 for xG23 
    and ~5.6uA for xG25).
 3. Press push button 0, LED0 should turn on.
 4. Release push button 0 and press it again, LED0 should turn off.
@@ -26,9 +26,9 @@ ACMP  - used to sample push-button 0 input state
 GPIO  - LED0 configured as output
 LESENSE - controls ACMP to sample push-button 0 on selected LESENSE channel
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - Push Button PB0
 PB03 - Push Button PB1
 PB02 - LED0

@@ -65,9 +65,9 @@ PB00  - push button PB0
 PB01  - push button PB1
 PD03  - PRS Channel 6
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PRS   - Channel 1, PB0
         Channel 6, PB1 routed to LED1 (Output)
 PB01  - push button PB0

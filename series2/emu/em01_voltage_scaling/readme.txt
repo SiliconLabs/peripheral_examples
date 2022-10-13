@@ -42,9 +42,9 @@ Board: Silicon Labs EFR32xG22 2.4 GHz 6 dBm Board (BRD4182A)
 Device: EFR32MG22C224F512
 PB00  - push button PB0
 
-Board: Silicon Labs EFR32FG23 868-915 MHz 14 dBm Board (BRD4263B)
+Board: Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Board (BRD4204D)
        + Wireless Starter Kit Mainboard (BRD4001A)
-Device: EFR32FG23A010F512
+Device: EFR32ZG23B010F512
 PB01  - push button PB0
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 

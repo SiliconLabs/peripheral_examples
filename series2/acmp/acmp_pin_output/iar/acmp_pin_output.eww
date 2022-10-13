@@ -2,9 +2,6 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32FG23_acmp_pin_output.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32FG25_acmp_pin_output.ewp</path>
   </project>
   <project>
@@ -12,6 +9,9 @@
   </project>
   <project>
     <path>$WS_DIR$\EFR32MG24_acmp_pin_output.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_acmp_pin_output.ewp</path>
   </project>
 
   <batchBuild/>

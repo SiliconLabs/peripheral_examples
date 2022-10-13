@@ -50,7 +50,7 @@ radio board. To measure the 3.6V LDO current, replace R247 with ammeter
 connections. The current provided below is the combination of the VMCU and 3.6V
 current.
 Board     | avg EM2 current  
-BRD4263B  |          3.8 uA 
+BRD4204D  |          4.7 uA 
 BRD4270B  |          5.6 uA
 
 How to test:
@@ -69,9 +69,9 @@ ACMP  - used to sample push-button 0 and push-button 1 input state
 GPIO  - LED0 and LED1 configured as push-pull output
 LESENSE - controls ACMP to sample push-button 0/1 on selected LESENSE channel
 
-Board:  Silicon Labs EFR32xG23 Radio Board (BRD4263B) + 
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
-Device: EFR32FG23A010F512GM48
+Device: EFR32ZG23B010F512IM48
 PB01 - Push Button PB0
 PB03 - Push Button PB1
 PB02 - LED0

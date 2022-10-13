@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BRD4204D_EFR32ZG23_iadc_single_oversampling_20bit" boardCompatibility="brd4204d" partCompatibility=".*efr32zg23b010f512im48.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_iadc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_prs.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <includePath uri="../../kit/EFR32ZG23_BRD4204D" />
+  <includePath uri="../../kit/common/bsp" />
+  <includePath uri="../../kit/common/drivers" />
+  <folder name="src">
+    <file name="main_single_oversampling_20bit.c" uri="src/main_single_oversampling_20bit.c" />
+    <file name="readme.txt" uri="readme.txt" />
+    <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
+  <toolListOption value="-c -fmessage-length=0"/>
+  <toolListOption value="-mcmse"/>
+</toolOption>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg23_linker_script.ld}"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>
