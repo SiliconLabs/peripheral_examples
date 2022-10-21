@@ -1,15 +1,15 @@
 etampdet_em2
 
-This project demonstrates the tamper detection module for EFR32xG25. The example
-uses defines to enable the ETAMPDET peripheral's channel 0 and/or channel 1, and
-requires an external jumper-wire connection between the ETAMPIN0 <-> ETAMPOUT0 
-and/or ETAMPIN1 <-> ETAMPOUT1 pins, as specified in device datasheet and this 
-README. The application is configured similarly to the em2_dcdc peripheral 
-example, with EM2 DCDC enabled (VSCALE0), BURTC running on LFRCO, and RAM 
-retention on block 0 only. When a tamper event is detected, the ETAMPDET 
-peripheral is disabled and BURTC interrupts are enabled. With each BURTC compare
-match interrupt LED0 or LED1 will toggle to indicate the ETAMPDET tamper event 
-on channel 0 or channel 1, respectively.
+This project demonstrates the tamper detection module available on EFR32xG25 and
+EFR32xG27. The example uses defines to enable the ETAMPDET peripheral's
+channel 0 and/or channel 1, and requires an external jumper-wire connection
+between the ETAMPIN0 <-> ETAMPOUT0 and/or ETAMPIN1 <-> ETAMPOUT1 pins, as
+specified in device datasheet and this README. The application is configured
+similarly to the em2_dcdc peripheral example, with EM2 DCDC enabled (VSCALE0),
+BURTC running on LFRCO, and RAM retention on block 0 only. When a tamper event
+is detected, the ETAMPDET peripheral is disabled and BURTC interrupts are
+enabled. With each BURTC compare match interrupt, LED0 or LED1 will toggle to
+indicate the ETAMPDET tamper event on channel 0 or channel 1, respectively.
 
 Note: Default project gives EM2 current consumption numbers when DCDC is enabled
 (VSCALE0), BURTC is running on LFRCO, and RAM retention on block 0 only (power 
@@ -17,7 +17,8 @@ down all RAM except block 0). The linker scripts for this example are modified
 such that only RAM block 0 is mapped. For EM2/3 current consumption with full 
 RAM mapping and retention, set POWER_DOWN_RAM to 0 and modify RAM LENGTH in the
 linker script to:
-0x10000 for EFR32xG25;
+0x80000 for EFR32xG25;
+0x10000 for EFR32xG27;
 
 When EFR32xG22 and later devices enter EM2/3, the clock to the CPU debug block 
 is stopped, effectively dropping the host OC debugger connection. This examples 
@@ -74,6 +75,18 @@ need to also be powered by VMCU. Please use the following extra steps:
    resistors are both located on the underside of BRD4270B. 
 6. Remove R248 and solder a 0 Ohm resistor to R202.
 
+Note for Testing on xG27:
+On BRD4194A, VMCU is a 3.3V supply that powers AVDD and IOVDD on xG27.
+In the datasheet, current consumption test conditions have AVDD and IOVDD
+powered by either the DC-DC at 1.8V, an external 1.8V supply, 
+or an external 3.0V supply. Due to the design of the radio board, this 
+board does not replicate the datasheet test conditions for current consumption,
+and the measured value may differ from the datasheet value. 
+Additionally, due to the connection of LED1 to ETAMPDET channel 0 input,
+additional current consumption will be observed in EM2 with channel 0 enabled
+(default setting) and LED1 will "flicker" with the random generated bit stream
+from the ETAMPDET peripheral. 
+
 ================================================================================
 
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
@@ -82,7 +95,22 @@ Device: EFR32FG25B222F1920IM56
 PA05 - ETAMPDET ETAMPIN0, Expansion Header Pin 7, WSTK Pin 43
 PA06 - ETAMPDET ETAMPOUT0, Expansion Header Pin 11, WSTK Pin 44
 PB00 - Push Button PB0
+PC00 - FLASH MOSI
+PC01 - FLASH MISO
+PC02 - FLASH SCLK
+PC03 - FLASH SCS
 PC06 - LED0
 PC07 - LED1
 PD04 - ETAMPDET ETAMPOUT1, WSTK Pin 24
 PD05 - ETAMPDET ETAMPIN1, WSTK Pin 31
+
+Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00 - Push Button PB0
+PB00 - LED0
+PB01 - LED1, ETAMPDET ETAMPIN0, Expansion Header Pin 9, WSTK Pin 6
+PC00 - FLASH MOSI, ETAMPDET ETAMPIN1, Expansion Header Pin 4, WSTK Pin 1
+PC01 - FLASH MISO, ETAMPDET ETAMPOUT0, Expansion Header Pin 6, WSTK Pin 3
+PC02 - FLASH SCLK, ETAMPDET ETAMPOUT1, Expansion Header Pin 8, WSTK Pin 5
+PA04 - FLASH SCS

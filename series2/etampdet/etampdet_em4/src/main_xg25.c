@@ -1,15 +1,15 @@
 /***************************************************************************//**
- * @file main.c
+ * @file main_xg25.c
  * @brief This project demonstrates the tamper detection module for EFR32xG25.
  * The example uses #defines to enable the ETAMPDET peripheral's channel 0
  * and/or channel 1, and requires an external jumper-wire connection between the
  * ETAMPIN0 <-> ETAMPOUT0 and/or ETAMPIN1 <-> ETAMPOUT1 pins, as specified
  * in device datasheet and README. The application is configured similarly to
- * the em2_dcdc peripheral example, with EM2 DCDC enabled (VSCALE0), BURTC
- * running on LFRCO, and RAM retention on block 0 only. When a tamper event is
- * detected, the ETAMPDET peripheral is disabled and BURTC interrupts are
- * enabled. With each BURTC compare match interrupt LED0 or LED1 will toggle to
- * indicate the ETAMPDET tamper event on channel 0 or channel 1, respectively.
+ * the em4_no_dcdc example, allowing EM4 entry with BURTC with LFXO _or_ EM4
+ * entry without BURTC utilizing ULFRCO via #define at the beginning of code.
+ * ETAMPDET is enabled for EM4 wakeup. If MCU reset is caused by EM4 wakeup and
+ * ETAMPDET interrupt flag is set, LED0 or LED1 will toggle to indicate the
+ * ETAMPDET tamper event on channel 0 or channel 1, respectively.
  *
  *******************************************************************************
  * # License
@@ -55,10 +55,13 @@
 #include "bsp.h"
 #include "mx25flash_spi.h"
 
-#define POWER_DOWN_RAM  (1)
+volatile uint32_t msTicks; // counts 1ms timeTicks
 
-// This is a temporary address to workaround a bug in EMU_RamPowerDown()
-#define SRAM_START SRAM_BASE + 0x6001
+/*
+ *  Define to enable BURTC running from LFXO in EM4; set to 1 to enable, set to
+ *  0 for example to enter EM4 without BURTC (ETAMPDET will run from ULFRCO)
+ */
+#define BURTC_LFXO_EN 0
 
 #ifdef _SILICON_LABS_32B_SERIES_2_CONFIG_7
 #define LED_OUT 0
@@ -73,11 +76,26 @@
 #define ETAMP_CH0_EN 1
 #define ETAMP_CH1_EN 1
 
-// Number of 32.768 KHz LFRCO clocks between BURTC interrupts
-#define BURTC_IRQ_PERIOD  16384 // 500 ms toggle rate
+/**************************************************************************//**
+ * @brief SysTick_Handler
+ * Interrupt Service Routine for system tick counter
+ *****************************************************************************/
+void SysTick_Handler(void)
+{
+  msTicks++;       // increment counter necessary in Delay()
+}
 
-volatile uint8_t tamperDetectedCh0 = 0;
-volatile uint8_t tamperDetectedCh1 = 0;
+/**************************************************************************//**
+ * @brief Delays number of msTick Systicks (typically 1 ms)
+ * @param dlyTicks Number of ticks to delay
+ *****************************************************************************/
+void Delay(uint32_t dlyTicks)
+{
+  uint32_t curTicks;
+
+  curTicks = msTicks;
+  while ((msTicks - curTicks) < dlyTicks) ;
+}
 
 /***************************************************************************//**
  * @brief
@@ -118,46 +136,19 @@ void initGPIO(void)
   GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, !LED_OUT);
 }
 
-/**************************************************************************//**
- * @brief  Configure BURTC to interrupt every BURTC_IRQ_PERIOD
- *****************************************************************************/
-void initBURTC(void)
+/***************************************************************************//**
+ * @brief LFXO initialization
+ ******************************************************************************/
+void initLFXO(void)
 {
-  // Setup BURTC parameters
-  BURTC_Init_TypeDef burtcInit = BURTC_INIT_DEFAULT;
-  burtcInit.start = false;
-  burtcInit.compare0Top = true; // reset counter when counter reaches compare value
-
-  // Initialize BURTC
-  CMU_ClockEnable(cmuClock_BURTC, true);
-  BURTC_Reset();
-  BURTC_Init(&burtcInit);
-
-  BURTC_CounterReset();
-  BURTC_CompareSet(0, BURTC_IRQ_PERIOD); // top value
-
-  BURTC_Enable(true);
-}
-
-/**************************************************************************//**
- * @brief  BURTC Handler
- *****************************************************************************/
-void BURTC_IRQHandler(void)
-{
-  BURTC_IntClear(BURTC_IF_COMP); // compare match
-
-  // Toggle LED based on first detected tamper event
-  if (tamperDetectedCh0 == 1)
-    GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
-
-  if (tamperDetectedCh1 == 1)
-    GPIO_PinOutToggle(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN);
+  CMU_LFXOInit_TypeDef lfxoInit = BSP_LFXOINIT_DEFAULT;
+  CMU_LFXOInit(&lfxoInit);
 }
 
 /***************************************************************************//**
  * @brief ETAMPDET initialization
  ******************************************************************************/
-void initETAMPDET()
+void initETAMPDET(void)
 {
   uint8_t chnl0_en, chnl1_en;
   chnl0_en = 0;
@@ -208,8 +199,9 @@ void initETAMPDET()
   ETAMPDET->CHNLSEEDVAL0 = 0x167DC55F;
   ETAMPDET->CHNLSEEDVAL1 = 0x5F04B84A;
 
-  ETAMPDET->IEN_SET = (chnl0_en << _ETAMPDET_IEN_TAMPDET0_SHIFT) |
-      (chnl1_en << _ETAMPDET_IEN_TAMPDET1_SHIFT);
+  // Enable ETAMPDET as EM4 wakeup source
+  ETAMPDET->EM4WUEN_SET = (chnl0_en << _ETAMPDET_EM4WUEN_CHNLEM4WUEN0_SHIFT) |
+      (chnl1_en << _ETAMPDET_EM4WUEN_CHNLEM4WUEN1_SHIFT);
 
   /*
    *   Additional ETAMPDET configurable settings; configuring for both channels
@@ -247,39 +239,52 @@ void initETAMPDET()
 
   // Wait for register write
   while (ETAMPDET->SYNCBUSY != 0);
-
-  NVIC_ClearPendingIRQ(ETAMPDET_IRQn);
-  NVIC_EnableIRQ(ETAMPDET_IRQn);
 }
 
 /***************************************************************************//**
- * @brief ETAMPDET Interrupt Handler
+ * @brief
+ *   Enter EM4 with BURTC running on a LFXO
+ *
+ * @details
+ *   Parameter:
+ *     EM4H. Hibernate Mode.@n
+ *   Condition:
+ *     BURTC, 128 byte RAM, 32.768 kHz LFXO.@n
+ *
  ******************************************************************************/
-void ETAMPDET_IRQHandler(void)
+void em_EM4_LfxoBURTC(void)
 {
-  // Set the appropriate channel flag for LED indicator
-  if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET0_MASK) == ETAMPDET_IF_TAMPDET0)
-    tamperDetectedCh0 = 1;
-  else if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET1_MASK) == ETAMPDET_IF_TAMPDET1)
-    tamperDetectedCh1 = 1;
+  // Setup BURTC.
+  BURTC_Init_TypeDef burtcInit = BURTC_INIT_DEFAULT;
+  CMU_ClockEnable(cmuClock_BURTC, true);
+  BURTC_Init(&burtcInit);
 
-  // Disable ETAMPDET module; no longer needed in typical applications
-  ETAMPDET->EN_CLR = ETAMPDET_EN_EN;
+  // Enter EM4
+  EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
+  em4Init.retainLfxo = true;
+  em4Init.pinRetentionMode = emuPinRetentionLatch;
+  EMU_EM4Init(&em4Init);
+  EMU_EnterEM4();
+}
 
-  /*
-   *  Conventionally bad practice to have a while loop within an ISR, however
-   *  further register writes to ETAMPDET peripheral cannot occur until disable
-   *  completes; BURTC interrupt is the only task at risk of a delay.
-   */
-  while(ETAMPDET->EN && ETAMPDET_EN_DISABLING);
-
-  ETAMPDET->IEN_CLR = _ETAMPDET_IEN_MASK;
-
-  ETAMPDET->IF_CLR = _ETAMPDET_IF_MASK;
-
-  // Turn on BURTC interrupts for LED toggle; BURTC already running
-  BURTC_IntEnable(BURTC_IEN_COMP);    // BURTC interrupt on compare match
-  NVIC_EnableIRQ(BURTC_IRQn);
+/***************************************************************************//**
+ * @brief
+ *   Enter EM4 without BURTC.
+ *
+ * @details
+ *   Parameter:
+ *     EM4.@n
+ *   Condition:
+ *     No BURTC, 128 byte BURAM.@n
+ *
+ ******************************************************************************/
+void em_EM4(void)
+{
+  // Enter EM4
+  EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
+  em4Init.pinRetentionMode = emuPinRetentionLatch;
+  EMU_EM4Init(&em4Init);
+  EMU_EnterEM4();
 }
 
 /**************************************************************************//**
@@ -314,8 +319,17 @@ void escapeHatch(void)
  ******************************************************************************/
 int main(void)
 {
+  uint32_t cause;
+  uint8_t tamperDetectedCh0, tamperDetectedCh1;
+  tamperDetectedCh0 = 0;
+  tamperDetectedCh1 = 0;
+
   // Chip errata
   CHIP_Init();
+
+  EMU_UnlatchPinRetention();
+  cause = RMU_ResetCauseGet();
+  RMU_ResetCauseClear();
 
   /*
    *  If PB0 is depressed during MCU reset, prevents EM2 entry allowing
@@ -326,39 +340,72 @@ int main(void)
   // Initialize GPIO for LEDs
   initGPIO();
 
-  // Turn on DCDC regulator
-  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_WSTK_DEFAULT;
+  if ((cause & EMU_RSTCAUSE_EM4)) {
+    // Setup SysTick Timer for 1 msec interrupts
+    if (SysTick_Config(CMU_ClockFreqGet(cmuClock_CORE) / 1000))
+      while (1);
+
+    // Enable register clock; ETAMPDET clock not currently defined in em_cmu.h
+    CMU->CLKEN1_SET = CMU_CLKEN1_ETAMPDET;
+
+    // Set the appropriate channel flag for LED indicator
+    if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET0_MASK) == ETAMPDET_IF_TAMPDET0)
+      tamperDetectedCh0 = 1;
+    else if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET1_MASK) == ETAMPDET_IF_TAMPDET1)
+      tamperDetectedCh1 = 1;
+
+    // Disable ETAMPDET module; no longer needed in typical applications
+    ETAMPDET->EN_CLR = ETAMPDET_EN_EN;
+
+    /*
+     *  Register writes to ETAMPDET peripheral cannot occur until disable
+     *  completes
+     */
+    while(ETAMPDET->EN && ETAMPDET_EN_DISABLING);
+
+    ETAMPDET->IEN_CLR = _ETAMPDET_IEN_MASK;
+
+    ETAMPDET->IF_CLR = _ETAMPDET_IF_MASK;
+
+    // Infinite while loop; toggle LED based on tamper detect channel
+    while(tamperDetectedCh0 | tamperDetectedCh1) {
+        if (tamperDetectedCh0 == 1)
+          GPIO_PinOutToggle(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
+        else if (tamperDetectedCh1 == 1)
+          GPIO_PinOutToggle(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN);
+
+        Delay(500);
+    }
+  }
+
+  // Enable DC-DC converter
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
-
-  // Enable voltage downscaling in EM mode 2 (VSCALE0)
-  EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
-  em23Init.vScaleEM23Voltage = emuVScaleEM23_LowPower;
-
-  // Initialize EM23 energy modes
-  EMU_EM23Init(&em23Init);
 
   // Power down the SPI flash
   powerDownSpiFlash();
 
   // Route desired oscillator to shared BURTC/ETAMPDET clock tree
-  CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_LFRCO);
+  if (BURTC_LFXO_EN) {
+    // Initialize the LFXO
+    initLFXO();
 
-  /*
-   *  Initialize BURTC (attempt to match EM2 datasheet spec test configuration);
-   *  Interrupt not initially enabled
-   */
-  initBURTC();
+    // Select LFXO as clock source.
+    CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_LFXO);
+  } else {
+    // Select ULFRCO as clock source.
+    CMU_ClockSelectSet(cmuClock_EM4GRPACLK, cmuSelect_ULFRCO);
+  }
 
   // Initialize ETAMPDET peripheral
   initETAMPDET();
 
-  // Power down all RAM blocks except block 0
-  if (POWER_DOWN_RAM) {
-    EMU_RamPowerDown(SRAM_START, 0);
-  }
+  // Enter EM4
+  if(BURTC_LFXO_EN)
+    em_EM4_LfxoBURTC();
+  else
+    em_EM4();
 
-  while (1) {
-    // Enter EM2
-    EMU_EnterEM2(false);
-  }
+  // Should never reach here unless something goes awry entering EM4
+  while (1);
 }

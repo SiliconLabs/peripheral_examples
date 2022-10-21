@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32FG25_etampdetect_em2\Debug\Exe</state>
+          <state>EFR32MG27_etampdetect_em2\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32FG25_etampdetect_em2\Debug\Obj</state>
+          <state>EFR32MG27_etampdetect_em2\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32FG25_etampdetect_em2\Debug\List</state>
+          <state>EFR32MG27_etampdetect_em2\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32FG25B222F1920IM56	SiliconLaboratories EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -149,7 +149,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32FG25B222F1920IM56	SiliconLaboratories EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -182,7 +182,7 @@
         <option>
           <name>CCDefines</name>
           <state>STR(x)=#x</state>
-          <state>EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40</state>
           
         </option>
         <option>
@@ -284,7 +284,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -314,9 +314,9 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG25\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32FG25_BRD4270B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -485,7 +485,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40</state>
           
         </option>
         <option>
@@ -584,9 +584,9 @@
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG25\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32FG25_BRD4270B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -623,7 +623,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32FG25_etampdetect_em2.bin</state>
+          <state>EFR32MG27_etampdetect_em2.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -678,7 +678,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32FG25_etampdetect_em2.out</state>
+          <state>EFR32MG27_etampdetect_em2.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -770,7 +770,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -997,15 +997,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32FG25_etampdetect_em2\Release\Exe</state>
+          <state>EFR32MG27_etampdetect_em2\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32FG25_etampdetect_em2\Release\Obj</state>
+          <state>EFR32MG27_etampdetect_em2\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32FG25_etampdetect_em2\Release\List</state>
+          <state>EFR32MG27_etampdetect_em2\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1069,7 +1069,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32FG25B222F1920IM56	SiliconLaboratories EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1129,7 +1129,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32FG25B222F1920IM56	SiliconLaboratories EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -1163,7 +1163,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>STR(x)=#x</state>
-          <state>EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40</state>
           
         </option>
         <option>
@@ -1265,7 +1265,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1295,9 +1295,9 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG25\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32FG25_BRD4270B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -1467,7 +1467,7 @@
         <option>
           <name>ADefines</name>
           <state>NDEBUG</state>
-          <state>EFR32FG25B222F1920IM56</state>
+          <state>EFR32MG27C140F768IM40</state>
           
         </option>
         <option>
@@ -1566,9 +1566,9 @@
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG25\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32FG25_BRD4270B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -1605,7 +1605,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32FG25_etampdetect_em2.bin</state>
+          <state>EFR32MG27_etampdetect_em2.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1660,7 +1660,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32FG25_etampdetect_em2.out</state>
+          <state>EFR32MG27_etampdetect_em2.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1752,7 +1752,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state>0</state>
+          <state></state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1967,10 +1967,10 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG25\Source\IAR\startup_efr32fg25.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Source\IAR\startup_efr32mg27.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32FG25\Source\system_efr32fg25.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Source\system_efr32mg27.c</name>
     </file>
   </group>
   <group>
@@ -1988,7 +1988,7 @@
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_eusart.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
@@ -2000,7 +2000,7 @@
   <group>
     <name>drivers</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\kit\common\drivers\mx25flash_spi_eusart.c</name>
+      <name>$PROJ_DIR$\..\..\..\kit\common\drivers\mx25flash_spi.c</name>
     </file>
   </group>
   <group>
@@ -2009,7 +2009,7 @@
       <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xg25.c</name>
+      <name>$PROJ_DIR$\..\src\main_xg27.c</name>
     </file>
   </group>
 
