@@ -2000,7 +2000,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_scan_letimer_interrupt.c</name>
+      <name>$PROJ_DIR$\..\src\main_scan_letimer_interrupt_dvl_8.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

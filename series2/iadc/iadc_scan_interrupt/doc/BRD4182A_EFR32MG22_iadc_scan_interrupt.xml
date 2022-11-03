@@ -40,7 +40,7 @@
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_scan_interrupt.c</source>
+      <source>$PROJ_DIR$\..\src\main_scan_interrupt_dvl_4.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>	  
     </group>
     <cflags>

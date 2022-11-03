@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main_scan_interrupt.c
+ * @file main_scan_interrupt_dvl_8.c
  * @brief Use the ADC to take repeated non-blocking measurements on
  * multiple inputs.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -140,7 +140,7 @@ void initIADC (void)
                                              init.srcClkPrescale);
 
   /*
-   * Set the SCANFIFODVL flag when there are 4 entries in the scan
+   * Set the SCANFIFODVL flag when there are 8 entries in the scan
    * FIFO.  Note that in this example, the interrupt associated with
    * the SCANFIFODVL flag in the IADC_IF register is not used.
    *
@@ -148,7 +148,7 @@ void initIADC (void)
    * is left at its default setting of false, so LDMA service is not
    * requested when the FIFO holds the specified number of samples.
    */
-  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID4;
+  initScan.dataValidLevel = _IADC_SCANFIFOCFG_DVL_VALID8;
 
   // Tag FIFO entry with scan table entry id.
   initScan.showId = true;
@@ -174,30 +174,30 @@ void initIADC (void)
   initScanTable.entries[3].includeInScan = true;
 
   #ifndef EFR32FG25B222F1920IM56
-    initScanTable.entries[4].posInput = iadcPosInputVss;       // Add VSS to scan for demonstration purposes
-    initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
-    initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
+    initScanTable.entries[4].posInput = iadcPosInputVss;     // Add VSS to scan for demonstration purposes
+    initScanTable.entries[4].negInput = iadcNegInputGnd | 1; // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+    initScanTable.entries[4].includeInScan = true;
 
-    initScanTable.entries[5].posInput = iadcPosInputVssaux;    // Add VSSAUX (same as VSS) to scan for demonstration purposes
-    initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
-    initScanTable.entries[5].includeInScan = false;
+    initScanTable.entries[5].posInput = iadcPosInputVssaux;  // Add VSSAUX (same as VSS) to scan for demonstration purposes
+    initScanTable.entries[5].negInput = iadcNegInputGnd | 1; // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
+    initScanTable.entries[5].includeInScan = true;
   #else // EFR32FG25B222F1920IM56
-    initScanTable.entries[4].posInput = iadcPosInputVddio;     // VSS is not available on FG25, use VDDIO instead
-    initScanTable.entries[4].negInput = iadcNegInputGnd | 1;   // See entry 3
-    initScanTable.entries[4].includeInScan = false;            // FIFO is only 4 entries deep
+    initScanTable.entries[4].posInput = iadcPosInputVddio;   // VSS is not available on FG25, use VDDIO instead
+    initScanTable.entries[4].negInput = iadcNegInputGnd | 1; // See entry 3
+    initScanTable.entries[4].includeInScan = true;
 
-    initScanTable.entries[5].posInput = iadcPosInputDvdd;      // VSSAUX is not available on FG25, use DVDD instead
-    initScanTable.entries[5].negInput = iadcNegInputGnd | 1;   // See entry 6
-    initScanTable.entries[5].includeInScan = false;
+    initScanTable.entries[5].posInput = iadcPosInputDvdd;    // VSSAUX is not available on FG25, use DVDD instead
+    initScanTable.entries[5].negInput = iadcNegInputGnd | 1; // See entry 6
+    initScanTable.entries[5].includeInScan = true;
   #endif
 
   initScanTable.entries[6].posInput = iadcPosInputDvdd;      // Add DVDD to scan for demonstration purposes
   initScanTable.entries[6].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
-  initScanTable.entries[6].includeInScan = false;
+  initScanTable.entries[6].includeInScan = true;
 
   initScanTable.entries[7].posInput = iadcPosInputDecouple;  // Add DECOUPLE to scan for demonstration purposes
   initScanTable.entries[7].negInput = iadcNegInputGnd | 1;   // When measuring a supply, PINNEG must be odd (1, 3, 5,...)
-  initScanTable.entries[7].includeInScan = false;
+  initScanTable.entries[7].includeInScan = true;
 
   // Initialize IADC
   IADC_init(IADC0, &init, &initAllConfigs);
@@ -253,14 +253,6 @@ void IADC_IRQHandler(void)
     if ((result.id > 1) && (result.id < 7)) {
       scanResult[result.id] *= 4;
     }
-  }
-
-  // Alternate between the first and second set of scan table entries.
-  if (result.id == 3) {
-    IADC_setScanMask(IADC0, 0x00F0);
-  }
-  else {
-    IADC_setScanMask(IADC0, 0x000F);
   }
 
   /*

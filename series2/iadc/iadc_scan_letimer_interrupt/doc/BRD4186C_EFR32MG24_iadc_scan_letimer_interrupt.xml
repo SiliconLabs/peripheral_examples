@@ -43,7 +43,7 @@
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_scan_letimer_interrupt.c</source>
+      <source>$PROJ_DIR$\..\src\main_scan_letimer_interrupt_dvl_8.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>	 
 	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg24_linker_script.ld</source>      
     </group>

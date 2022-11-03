@@ -25,7 +25,7 @@
   <includePath uri="../../kit/common/bsp" />
   <includePath uri="../../kit/common/drivers" />
   <folder name="src">
-    <file name="main_scan_interrupt.c" uri="src/main_scan_interrupt.c" />
+    <file name="main_scan_interrupt_dvl_4.c" uri="src/main_scan_interrupt_dvl_4.c" />
     <file name="readme.txt" uri="readme.txt" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>
