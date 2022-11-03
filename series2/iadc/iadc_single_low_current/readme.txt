@@ -37,9 +37,15 @@ How To Test:
 6.  Observe the current consumption in Energy Profiler of the kit in EM0
 7.  Press and release PB0 on the WSTK to initiate the IADC and LDMA and enter 
     EM2
-8.  Observe in Energy Profiler the drop in current consumption while in EM2; for
-    this example's configuration (100 samples/second) the EM2 current should 
-    drop EFR32xG21 ~45uA; EFR32xG22 ~23uA; EFR32xG23 ~23uA, EFR32xG24 ~23uA
+8.  Observe in Energy Profiler the drop in current consumption as the MCU 
+    transitions from EM0 to EM2; for this example's configuration (100 
+    samples/second) the approximate EM2 current consumption measurements for 
+    each devices are as follows:
+    EFR32xG21 ~45uA
+    EFR32xG22 ~23uA
+    EFR32xG23 ~23uA
+    EFR32xG24 ~23uA
+    EFR32xG25 ~34uA
     *There is some part-to-part/board-to-board variance; this is a rough typical
     current*	
 9.  After completing NUM_SAMPLES conversions, the LDMA will wake the MCU from 
