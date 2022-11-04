@@ -47,15 +47,15 @@ How To Test:
 
 IADC FIFO depth varies across Series 2 EFM32/EFR32 devices: 
 
-For devices with 4-entry FIFO (EFR32xG21, EFR32xG22, and EFR32xG23), the IADC
-scan table is configued to process 4 channels at a time to avoid FIFO overflow.
-The IADC interrupts on scan table completion, and the IRQ handler reads the
-conversion results from the FIFO and swaps the mask to alternate between each
-set of four channels in the scan table. The scan table entry IDs are used to
-save the results to the proper channel entry within the results array. The first
-time the program halts at the test breakpoint, the values in "scanResult" in the
-Expression window will contain the first set of scan table results. The second
-time through will fill the remaining four channels' results.
+For devices with 4-entry FIFO (EFR32xG21, EFR32xG22, EFR32xG23, and EFR32xG27),
+the IADC scan table is configued to process 4 channels at a time to avoid FIFO
+overflow. The IADC interrupts on scan table completion, and the IRQ handler
+reads the conversion results from the FIFO and swaps the mask to alternate
+between each set of four channels in the scan table. The scan table entry IDs
+are used to save the results to the proper channel entry within the results
+array. The first time the program halts at the test breakpoint, the values in
+"scanResult" in the Expression window will contain the first set of scan table
+results. The second time through will fill the remaining four channels' results.
 
 For devices with 8-entry FIFO (EFR32xG24 and EFR32xG25), the IADC scan table is
 configued to process 8 channels at a time to avoid FIFO overflow. The IADC

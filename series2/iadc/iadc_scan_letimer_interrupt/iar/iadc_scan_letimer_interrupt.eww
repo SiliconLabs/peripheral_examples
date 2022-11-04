@@ -11,10 +11,10 @@
     <path>$WS_DIR$\EFR32MG24_iadc_scan_letimer_interrupt.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32ZG23_iadc_scan_letimer_interrupt.ewp</path>
+    <path>$WS_DIR$\EFR32MG27_iadc_scan_letimer_interrupt.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_iadc_scan_letimer_interrupt.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_iadc_scan_letimer_interrupt.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32FG25_iadc_scan_letimer_interrupt.ewp</path>
