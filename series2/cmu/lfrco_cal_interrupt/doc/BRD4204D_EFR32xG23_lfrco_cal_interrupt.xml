@@ -33,7 +33,7 @@
       <source>##em-path-emlib##\src\em_gpio.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_xg23_xg25.c</source>
+      <source>$PROJ_DIR$\..\src\main.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
 	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script.ld</source>
     </group>

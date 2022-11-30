@@ -24,7 +24,7 @@
   <includePath uri="../../kit/EFR32ZG23_BRD4204D" />
   <includePath uri="../../kit/common/drivers" />
   <folder name="src">
-    <file name="main_xg23_xg25.c" uri="src/main_xg23_xg25.c" />
+    <file name="main.c" uri="src/main.c" />
     <file name="readme.txt" uri="readme.txt" />
     <file name="xg23_linker_script.ld" uri="../../linker_scripts/xg23_linker_script.ld" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   </folder>
