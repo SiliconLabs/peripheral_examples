@@ -28,8 +28,8 @@ How To Test:
 2. Click the Run/Resume button in the debugger.
 3. If desired, set a breakpoint at the calLFRCO(32768) function call in
    the main loop.
-4. Connect an oscilloscope probe to the PC0 pin on which the LFRCO output
-   is driven on the STK expansion header.
+4. Connect an oscilloscope probe to the STK pin, listed below, on which
+   the LFRCO output is driven.
 5. Step through the calLFRCO() function to see how the counter results
    are compared and how adjustments are made to the LFRCO tuning.  After
    each tuning adjustment, the change in LFRCO frequency can be observed.
@@ -69,3 +69,8 @@ Device: EFR32FG25B222F1920IM56
 Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B) 
         + Wireless Starter Kit Mainboard (BRD4001A)
 PC0 = Expansion Header pin 4, WSTK pin P1
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PC5 = Expansion Header pin 15
