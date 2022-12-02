@@ -107,3 +107,11 @@ PB00 - LED0, Expansion Header Pin 7, WSTK Pin 4
 PB01 - LED1, Expansion Header Pin 9, WSTK Pin 6
 PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
 PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB02 - LED0, WSTK Pin 19
+PD03 - LED1, WSTK Pin 23
+PA11 - I2C_SDA, Expansion Header Pin 3, WSTK Pin 0
+PA12 - I2C_SCL, Expansion Header Pin 5, WSTK Pin 2

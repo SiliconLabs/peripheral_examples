@@ -40,8 +40,8 @@ How To Test:
 7.  Observe LED0 toggle with a successful I2C test
 8.  Suspend (pause) the leader kit via debugger session
 9.  Observe that received values received from the follower (rxBuffer) match
-    transmitted values sent by leader (txBuffer) by viewing "rxBuffer" and
-    txBuffer respectively in the Expressions window of Simplicity Studio.
+    transmitted values sent by leader (txBuffer) by viewing "i2c_rxBuffer" and
+    "i2c_txBuffer" respectively in the Expressions window of Simplicity Studio.
 
 ================================================================================
 
@@ -94,3 +94,12 @@ PC06 - LED0, WSTK Pin 27
 PC07 - LED1, WSTK Pin 26
 PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
 PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 - Push button PB0, WSTK Pin 17
+PB02 - LED0, WSTK Pin 19
+PD03 - LED1, WSTK Pin 23
+PA11 - I2C_SDA, Expansion Header Pin 3, WSTK Pin 0
+PA12 - I2C_SCL, Expansion Header Pin 5, WSTK Pin 2
