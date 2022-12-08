@@ -1,10 +1,10 @@
-/*       Linker script for Silicon Labs EFR32xG23 devices           */
+/*       Linker script for Silicon Labs EFR32xG28 devices           */
 /*                                                                  */
 /* This file is subject to the license terms as defined in ARM's    */
 /* CMSIS END USER LICENSE AGREEMENT.pdf, governing the use of       */
 /* Example Code.                                                    */
 /*                                                                  */
-/* Silicon Laboratories, Inc. 2015                                  */
+/* Silicon Laboratories, Inc. 2022                                  */
 /*                                                                  */
 
 MEMORY
