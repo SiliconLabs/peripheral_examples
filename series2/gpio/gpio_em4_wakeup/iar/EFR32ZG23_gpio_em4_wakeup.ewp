@@ -2009,7 +2009,7 @@
       <name>$PROJ_DIR$\..\readme.txt</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\src\main_xg23_xg24.c</name>
+      <name>$PROJ_DIR$\..\src\main_xg23_xg24_xg28.c</name>
     </file>
   </group>
 

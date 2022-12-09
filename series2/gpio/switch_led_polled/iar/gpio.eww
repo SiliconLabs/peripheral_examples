@@ -14,10 +14,13 @@
     <path>$WS_DIR$\EFR32MG24_switch_led_polled.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_switch_led_polled.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32ZG23_switch_led_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_switch_led_polled.ewp</path>
+    <path>$WS_DIR$\EFR32ZG28_switch_led_polled.ewp</path>
   </project>
 
   <batchBuild/>

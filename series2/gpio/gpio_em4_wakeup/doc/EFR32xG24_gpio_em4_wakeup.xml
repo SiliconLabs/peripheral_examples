@@ -39,7 +39,7 @@
       <source>$PROJ_DIR$\..\..\..\kit\common\drivers\mx25flash_spi.c</source>
 	</group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_xg23_xg24.c</source>
+      <source>$PROJ_DIR$\..\src\main_xg23_xg24_xg28.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
       <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg24_linker_script.ld</source>
     </group>

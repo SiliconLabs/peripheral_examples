@@ -14,10 +14,13 @@
     <path>$WS_DIR$\EFR32MG24_gpio_periph.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_gpio_periph.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32ZG23_gpio_periph.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_gpio_periph.ewp</path>
+    <path>$WS_DIR$\EFR32ZG28_gpio_periph.ewp</path>
   </project>
 
   <batchBuild/>

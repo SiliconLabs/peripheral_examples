@@ -2,14 +2,14 @@ gpio_em4_wakeup
 
 This project uses GPIO to wake the device from EM4 mode and thus trigger a
 reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on
-EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27) will
-wake the device from EM4 and cause the LEDs on the STK/Radio board to toggle
-indefinitely. PB0 on EFR32xG22, EFR32xG23, EFR32xG24, and EFR32xG25 is used as
-an "escape hatch". This is a way to pause the device so that a debugger can
-connect in order to erase flash, among other things. Before proceeding with
-this example, make sure PB0 is NOT pressed. GPIO PC03 is used as an escape
-hatch on EFR32xG27. Before proceeding with this example, make sure PC03 is not
-low.
+EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27,
+EFR32xG28) will wake the device from EM4 and cause the LEDs on the STK/Radio
+board to toggle indefinitely. PB0 on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25,
+and EFR32xG28 is used as an "escape hatch". This is a way to pause the device so
+that a debugger can connect in order to erase flash, among other things. Before
+proceeding with this example, make sure PB0 is NOT pressed. GPIO PC03 is used as
+an escape hatch on EFR32xG27. Before proceeding with this example, make sure
+PC03 is not low.
 
 Note for EFR32xG21 devices, clock enabling is not required.
 
@@ -27,8 +27,16 @@ How To Test:
    c) Under Device Hardware, enter the appropriate Target Part (shown below 
    under Device)
    Observe the current consumption by connecting to the board after this. 
+   
+   Note for EFR32ZG28 BRD4400B Rev A00 development boards - there is a diversity
+   SPDT switch on the 2.4 GHz radio output that will consume ~63 uA of 
+   additional current. When measuring current consumption of the device with
+   Energy Profiler (or other method), please be advised that observed current
+   consumption will be higher than what is specified in the EFR32ZG28 device
+   datasheet due to this additional integrated circuit.
+   
 5. Press PB0 (on EFR32xG21)/PB1 (on EFR32xG22/EFR32xG23/EFR32xG24/EFR32xG25/
-   EFR32xG27) to exit EM4.
+   EFR32xG27/EFR32xG28) to exit EM4.
 4. Observe the LEDs blinking, indicating that the last reset cause was exit 
    from EM4. Capture current consumption which implies device is in EM0.
 
@@ -82,3 +90,11 @@ Device: EFR32MG27C140F768IM40
 PB01 - Push Button PB1
 PB00 - LED0
 PC03 - Escape Hatch
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
+PB02 -  LED0
+PD03 -  LED1

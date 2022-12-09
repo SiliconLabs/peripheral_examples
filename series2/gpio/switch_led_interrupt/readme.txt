@@ -6,10 +6,10 @@ then LED1 will toggle. The GPIO has two interrupt handler, and will be triggered
 based on the whether the GPIO pin that triggered the interrupt is an odd or even
 pin.
 
-Note: PB0 on EFR32xG22, EFR32xG23, and EFR32xG24 is used as an "escape hatch". 
-This is a way to pause the device so that a debugger can connect in order to
-erase flash, among other things. Before proceeding with this example, 
-make sure PB0 is not pressed.
+Note: PB0 on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, and EFR32xG28 is used
+as an "escape hatch". This is a way to pause the device so that a debugger can
+connect in order to erase flash, among other things. Before proceeding with this
+example, make sure PB0 is not pressed.
 
 How To Test:
 1. Build the project and download to the Starter Kit
@@ -51,3 +51,11 @@ PB00 - Push Button PB0
 PB01 - Push Button PB1
 PC06 - LED0
 PC07 - LED1
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
+PB02 -  LED0
+PD03 -  LED1
