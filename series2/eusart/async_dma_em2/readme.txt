@@ -90,13 +90,8 @@ Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
         EFR32FG25 variant so long as the pins used as present).
-<<<<<<< HEAD
 PA8 - EUSART0_TX (Expansion Header Pin 12)
 PA9 - EUSART0_RX (Expansion Header Pin 14)
-PA11 - VCOM_ENABLE (WSTK P15)
-=======
-PA8 - EUSART1_TX (Expansion Header Pin 12)
-PA9 - EUSART1_RX (Expansion Header Pin 14)
 PA11 - VCOM_ENABLE (WSTK P15)
 
 Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
@@ -105,4 +100,3 @@ Device: EFR32MG27C140F768IM40
 PA5 - EUSART0_TX (Expansion Header Pin 12)
 PA6 - EUSART0_RX (Expansion Header Pin 14)
 PB4 - VCOM_ENABLE (WSTK_P15)
->>>>>>> 0f44e291 (Adds EUSART examples for xG27)

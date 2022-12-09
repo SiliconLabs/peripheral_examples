@@ -243,7 +243,7 @@ void LDMA_IRQHandler(void)
   GPIO_PinOutToggle(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN);
 
   // Disable GPIO clock branch (shutting off unnecessary clock trees)
--  CMU_ClockEnable(cmuClock_GPIO, false);
+  CMU_ClockEnable(cmuClock_GPIO, false);
 }
 
 /***************************************************************************//**
