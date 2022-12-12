@@ -57,13 +57,14 @@ array. The first time the program halts at the test breakpoint, the values in
 "scanResult" in the Expression window will contain the first set of scan table
 results. The second time through will fill the remaining four channels' results.
 
-For devices with 8-entry FIFO (EFR32xG24 and EFR32xG25), the IADC scan table is
-configued to process 8 channels at a time to avoid FIFO overflow. The IADC
-interrupts on scan table completion and the IRQ handler reads the conversion
-results from the FIFO and using the scan table entry IDs, saves the results to
-the proper channel entry within the results array. Each time the program halts
-at the test breakpoint, "scanResult" in the Expression window will update with
-all eight channels' results.
+For devices with 8-entry FIFO (EFR32xG24, EFR32xG25 and EFR32xG28), the IADC
+scan table is configued to process 8 channels at a time to avoid FIFO overflow.
+The IADC interrupts on scan table completion and the IRQ handler reads the
+conversion results from the FIFO and using the scan table entry IDs, saves the
+results to the proper channel entry within the results array. Each time the
+program halts at the test breakpoint, "scanResult" in the Expression window will
+update with all eight channels' results.
+
 ================================================================================
 
 Peripherals Used:
@@ -115,3 +116,10 @@ Device: EFR32MG27C140F768IM40
 PA00 -  IADC input, single-ended, WSTK P21
 PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
 PB00 -  GPIO Push/Pull output, WSTK P4, LED0
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PA00 -  IADC input, single-ended, WSTK P34
+PA05 -  IADC input, single-ended, WSTK P43
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0

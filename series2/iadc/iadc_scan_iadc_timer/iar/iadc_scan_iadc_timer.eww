@@ -11,13 +11,16 @@
     <path>$WS_DIR$\EFR32MG24_iadc_scan_iadc_timer.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32ZG23_iadc_scan_iadc_timer.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32MG27_iadc_scan_iadc_timer.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32ZG23_iadc_scan_iadc_timer.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG25_iadc_scan_iadc_timer.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_iadc_scan_iadc_timer.ewp</path>
   </project>
 
   <batchBuild/>

@@ -7,15 +7,14 @@ underflows of the LETIMER triggering a scan of the selected channels
 and the IADC savings those result and requesting an interrupt are the
 specified number of transfers.  The once per second LETIMER scan
 trigger pulse can be observed on a GPIO, as can the completion of each
-LDMA scan sequence with a GPIO that drives LED0 on the Wireless Starter
-Kit mainboard.
+LDMA scan sequence with a second GPIO output.
 
 Careful pin selection for peripherals operating in EM2 is required
 because only port A and B pins remain functional; port C and D pins are
 static in EM2 and cannot be used as peripheral inputs and outputs.  For
 this reason, the IADC scan channel inputs and LETIMER output in this
-example must all be port A/B pins.  However, when LED0 is toggled after
-the conversion results are transferred to RAM, the system is in EM0
+example must all be port A/B pins.  However, when LDMA scan completion toggles
+a GPIO after the conversion results are transferred to RAM, the system is in EM0
 because the CPU is executing the LDMA IRQ handler, so any GPIO pin can
 be used.
 
@@ -62,7 +61,7 @@ Device: EFR32MG21A010F1024IM32
 PA00 -  IADC input, single-ended, WSTK P14
 PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
 PA06 -  GPIO Push/Pull output, Expansion Header Pin 14, WSTK P11
-PB00 -  GPIO Push/Pull output, Expansion Header Pin 11 WSTK P8
+PB00 -  GPIO Push/Pull output, Expansion Header Pin 11, WSTK P8
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
         Wireless Starter Kit Mainboard
@@ -103,3 +102,11 @@ PB00 -  IADC input, single-ended, WSTK P4
 PB01 -  IADC input, single-ended, WSTK P6
 PA05 -  GPIO Push/Pull output, Expansion Header Pin 12, WSTK P9
 PD02 -  GPIO Push/Pull output, WSTK P14
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB00 -  IADC input, single-ended, WSTK P15
+PB01 -  IADC input, single-ended, WSTK P17
+PA05 -  GPIO Push/Pull output, WSTK P43
+PD02 -  GPIO Push/Pull output, WSTK P22
