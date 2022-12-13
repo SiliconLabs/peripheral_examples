@@ -2,7 +2,25 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG25_gpcrc_software.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_gpcrc_software.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_gpcrc_software.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_gpcrc_software.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG27_gpcrc_software.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_gpcrc_software.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_gpcrc_software.ewp</path>
   </project>
 
   <batchBuild/>

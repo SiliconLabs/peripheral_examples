@@ -77,6 +77,7 @@ void initSoft(void)
       else
         remainder = (remainder << 1);
     }
+
     // Store the result into the table
     crcTable[i] = remainder;
   }
@@ -91,7 +92,7 @@ crc_t softCrc(crc_t message, crc_t preset)
   for (int byte = 0; byte < sizeof(crc_t); ++byte)
   {
     // Separate out one byte of the message
-    thisByte = (message >> (8*byte)) & 0x0FF;
+    thisByte = (message >> (8 * byte)) & 0x0FF;
 
     // XOR this byte with the current remainder
     data = thisByte ^ (remainder >> (WIDTH - 8));
@@ -99,6 +100,7 @@ crc_t softCrc(crc_t message, crc_t preset)
     // Set new remainder
     remainder = crcTable[data] ^ (remainder << 8);
   }
+
   // The final remainder is the CRC
   return (remainder);
 }
@@ -133,9 +135,8 @@ int main(void)
   CHIP_Init();
 
   // Fill source array with arbitrary values
-  for (int i = 0; i < ARRAY_SIZE; i++){
+  for (int i = 0; i < ARRAY_SIZE; i++)
     source[i] = (1 + i) * STRIDE;
-  }
 
   // Initialize GPCRC
   initGpcrc();

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<workspace name="gpio">
+<workspace name="gpcrc">
   <project device="EFR32MG22C224F512IM40"
            name="EFR32MG22_gpcrc_dma">
     <targets>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<workspace name="gpio">
+<workspace name="gpcrc">
   <project device="EFR32MG24B210F1536IM48"
            name="EFR32MG24_gpcrc_software">
     <targets>

@@ -23,18 +23,25 @@ benchmarking data) is available here - https://github.com/SiliconLabs/platform_a
 
 Note for EFR32MG21, clock enabling is not required.
 
+================================================================================
+
 How To Test:
 1. Update the kit's firmware from the Simplicity Launcher (if necessary)
 2. Build the project and download to the Starter Kit
 3. Open the Simplicity Debugger and add "crcResult" and "FIBONACCI_CRC_16WORDS" 
-to the Expressions window
+   to the Expressions window
 4. Add a breakpoint at the beginning of crcCheckResult()
 5. Run the debugger. You should see it the same values in crcResult and 
-FIBONACCI_CRC_16WORDS.  
+   FIBONACCI_CRC_16WORDS.  
+
+================================================================================
 
 Peripherals Used:
 HFRCO - 19 MHz
 GPCRC - IEEE 802.3 poly standard
+LDMA  - Channel 0
+
+================================================================================
 
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
@@ -59,3 +66,7 @@ Device: EFR32FG25B222F1920IM56
 Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68

@@ -59,7 +59,7 @@
  * device. Therefore, the CRC of the data is XOR'd with 0xFFFFFFFF before
  * comparing it with the result of the online calculator.
  */
-// IEEE 802.3 CRC for the input fibonacci data
+// IEEE 802.3 CRC for the input Fibonacci data
 #define FIBONACCI_CRC_16WORDS (0x5CBF42AAUL)
 
 
@@ -88,10 +88,9 @@ uint32_t data[ARRAY_SIZE];
 uint32_t fib(uint32_t n)
 {
   if (n < 2)
-  {
     return 1;
-  }
-  return (fib(n-1) + fib(n-2));
+  else
+    return (fib(n-1) + fib(n-2));
 }
 
 /***************************************************************************//**
@@ -102,7 +101,6 @@ void LDMA_IRQHandler( void )
 {
   // Shouldn't ever get in here, so take a breakpoint
   __BKPT(0);
-
 }
 
 /***************************************************************************//**
@@ -118,7 +116,7 @@ void initLdma(void)
    * interrupt, if it happens.
    */
   LDMA_Init_t init = LDMA_INIT_DEFAULT;
-  LDMA_Init( &init );
+  LDMA_Init(&init);
 }
 
 /**************************************************************************//**
@@ -131,10 +129,13 @@ void initGpcrc (void)
 
   // GPCRC module initialization for IEEE 802.3 polynomial
   GPCRC_Init_TypeDef init = GPCRC_INIT_DEFAULT;
+
   // Starting value in GPCRC_DATA
   init.initValue = PRESET;
+
   // Reset GPCRC_DATA to 0xFFFF_FFFF after every read
   init.autoInit = true;
+
   // Reverse all bytes of the incoming message
   init.reverseByteOrder = true;
 
@@ -211,7 +212,7 @@ bool crcCheckResult(void)
 {
   // XOR the data register output with 0xFFFFFFFF to get the post-processed
   // IEEE 802.3 result
-  uint32_t crcResult = GPCRC_DataRead(GPCRC)^PRESET;
+  uint32_t crcResult = GPCRC_DataRead(GPCRC) ^ PRESET;
 
   if (crcResult == FIBONACCI_CRC_16WORDS)
     return true;
@@ -228,10 +229,9 @@ int main(void)
 
   bool crcCheck = false;
 
-  // Fill data array with fibonacci values
-  for (uint32_t i = 0; i < ARRAY_SIZE; i++){
-      data[i] = (fib(i));
-  }
+  // Fill data array with Fibonacci values
+  for (uint32_t i = 0; i < ARRAY_SIZE; i++)
+    data[i] = (fib(i));
 
   // Initialize GPCRC
   initGpcrc();
@@ -248,14 +248,16 @@ int main(void)
   // Read the GPCRC output and compare with predetermined CRC
   crcCheck = crcCheckResult();
 
-  if (!crcCheck){
-      // Halt if crcCheck fails
-      __BKPT(2);
+  if (!crcCheck)
+  {
+    // Halt if crcCheck fails
+    __BKPT(2);
   }
 
   // Infinite loop
-  while(1){
-      // Enter EM1 if CRC check passes
-      EMU_EnterEM1();
+  while(1)
+  {
+    // Enter EM1 if CRC check passes
+    EMU_EnterEM1();
   }
 }
