@@ -79,3 +79,8 @@ Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
 PA05 -  IADC input, single ended, WSTK P9, Expansion Header Pin 12
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PA05 -  IADC input, single-ended, WSTK P43

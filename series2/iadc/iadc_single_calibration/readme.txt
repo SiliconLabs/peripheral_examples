@@ -2,7 +2,7 @@ iadc_single_calibration
 
 This project demonstrates calibrating the IADC peripheral, followed by 
 single polled differential analog measurements. The main program steps 
-through the proceedure outlined in Gain and Offset Correction section of the 
+through the procedure outlined in Gain and Offset Correction section of the 
 device Reference Manual for calibrating the onboard IADC. Once calibration is 
 complete, the program resembles the single differential polled example, taking 
 measurements and storing the IADC result and a voltage conversion of the result
@@ -103,3 +103,11 @@ PB01 -  GPIO Push/Pull output, Expansion Header Pin 9, WSTK P6, LED1
 PA05 -  IADC positive differential input, Expansion Header pin 12, WSTK P9
 PA06 -  IADC negative differential input, Expansion Header pin 14, WSTK P11
 PB00 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0
+PD04 -  IADC positive differential input, WSTK P25
+PD05 -  IADC negative differential input, WSTK P24
+PB01 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK

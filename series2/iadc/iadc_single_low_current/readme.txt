@@ -47,8 +47,17 @@ How To Test:
     EFR32xG24 ~23uA
     EFR32xG25 ~34uA
     EFR32xG27 ~25uA
+    EFR32xG28 ~30uA
     *There is some part-to-part/board-to-board variance; this is a rough typical
     current*	
+    
+    Note for EFR32ZG28 BRD4400B Rev A00 development boards - there is a diversity
+    SPDT switch on the 2.4 GHz radio output that will consume ~63 uA of 
+    additional current. When measuring current consumption of the device with
+    Energy Profiler (or other method), please be advised that observed current
+    consumption will be higher than what is specified in the EFR32ZG28 device
+    datasheet due to this additional integrated circuit.
+   
 9.  After completing NUM_SAMPLES conversions, the LDMA will wake the MCU from 
     EM2 and toggle LED to indicate transfer completion before returning to EM2 
     until the next transfer completes; additional current draw in profiler is 
@@ -124,3 +133,11 @@ BURTC - 32768 Hz LFRCO clock source, 256 prescaler
 PB01  - GPIO Push/Pull output, WSTK Pin 6, LED1
 PA05  - IADC input, single-ended, Expansion Header pin 12, WSTK P9
 PB00  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+BURTC - 32768 Hz LFRCO clock source, 256 prescaler
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0
+PA05 -  IADC input, single-ended, WSTK P43
+PB01 -  GPIO pull filtered input, Push Button 0 (PB0) on the WSTK

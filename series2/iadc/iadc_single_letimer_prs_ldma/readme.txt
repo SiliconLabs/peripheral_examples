@@ -94,3 +94,10 @@ Device: EFR32MG27C140F768IM40
 PA05 -  IADC input, single-ended, Expansion Header Pin 12, WSTK P9
 PB00 -  GPIO Push/Pull output, WSTK P4, LED0
 PB01 -  GPIO Push/Pull output, WSTK P6
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PA05 -  IADC input, single-ended, WSTK P43
+PB01 -  GPIO Push/Pull output, WSTK P17
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0

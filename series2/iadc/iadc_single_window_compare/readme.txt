@@ -69,6 +69,11 @@ PC05 -  IADC input, single-ended, WSTK P33
 Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
-BURTC - 32768 Hz LFRCO clock source, 256 prescaler
 PB00  - GPIO Push/Pull output, J101->Pin 9 of BRD4001, WSTK P4, LED0
 PC05 -  IADC input, single-ended, J102->Pin 8 of BRD4001, WSTK P27
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB02 -  GPIO Push/Pull output, WSTK P19, LED0
+PC05 -  IADC input, single-ended, Expansion Header Pin 15, WSTK P12
