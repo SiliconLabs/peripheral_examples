@@ -52,7 +52,14 @@ powered by either the DC-DC at 1.8V, an external 1.8V supply,
 or an external 3.0V supply. Due to the design of the radio board, this 
 board does not replicate the datasheet test conditions for current consumption,
 and the measured value may differ from the datasheet value. 
-   
+
+Note for Testing on xG28 (BRD4400B Rev A00):
+There is a diversity SPDT switch on the 2.4 GHz radio output that will consume 
+~63 uA of additional current. When measuring current consumption of the device 
+with Energy Profiler (or other method), please be advised that observed current
+consumption will be higher than what is specified in the EFR32ZG28 device
+datasheet due to this additional integrated circuit.   
+
 ================================================================================
 
 Peripherals Used:
@@ -73,3 +80,7 @@ Device: EFR32FG25B222F1920IM56
 Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
