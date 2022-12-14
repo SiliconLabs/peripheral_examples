@@ -19,6 +19,9 @@
   <project>
     <path>$WS_DIR$\EFR32MG27_burtc_em4_buram.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_burtc_em4_buram.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>

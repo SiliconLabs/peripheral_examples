@@ -33,6 +33,8 @@
 #define BSP_BCC_ENABLE_PORT   gpioPortB
 #define BSP_BCC_ENABLE_PIN    0                 /* VCOM_ENABLE */
 
+#define RETARGET_VCOM         1                 /* RETARGET SERIAL */
+
 #define BSP_DISP_ENABLE_PORT  gpioPortC
 #define BSP_DISP_ENABLE_PIN   9
 
