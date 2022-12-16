@@ -5,13 +5,16 @@
     <path>$WS_DIR$\EFR32MG24_eusart_async_polled.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32ZG23_eusart_async_polled.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32MG27_eusart_async_polled.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32ZG23_eusart_async_polled.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG25_eusart_async_polled.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_eusart_async_polled.ewp</path>
   </project>
 
   <batchBuild/>

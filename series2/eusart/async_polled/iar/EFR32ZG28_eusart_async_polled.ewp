@@ -17,15 +17,15 @@
         <debug>1</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG27_eusart_async_interrupt\Debug\Exe</state>
+          <state>EFR32ZG28_eusart_async_polled\Debug\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG27_eusart_async_interrupt\Debug\Obj</state>
+          <state>EFR32ZG28_eusart_async_polled\Debug\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG27_eusart_async_interrupt\Debug\List</state>
+          <state>EFR32ZG28_eusart_async_polled\Debug\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68	SiliconLaboratories EFR32ZG28B312F1024IM68</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -149,7 +149,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68	SiliconLaboratories EFR32ZG28B312F1024IM68</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -182,7 +182,7 @@
         <option>
           <name>CCDefines</name>
           <state>STR(x)=#x</state>
-          <state>EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68</state>
           
         </option>
         <option>
@@ -314,9 +314,9 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
 
         </option>
@@ -484,7 +484,7 @@
         </option>
         <option>
           <name>ADefines</name>
-          <state>EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68</state>
           
         </option>
         <option>
@@ -583,9 +583,9 @@
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
 
         </option>
@@ -621,7 +621,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG27_eusart_async_interrupt.bin</state>
+          <state>EFR32ZG28_eusart_async_polled.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -676,7 +676,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG27_eusart_async_interrupt.out</state>
+          <state>EFR32ZG28_eusart_async_polled.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -995,15 +995,15 @@
         <debug>0</debug>
         <option>
           <name>ExePath</name>
-          <state>EFR32MG27_eusart_async_interrupt\Release\Exe</state>
+          <state>EFR32ZG28_eusart_async_polled\Release\Exe</state>
         </option>
         <option>
           <name>ObjPath</name>
-          <state>EFR32MG27_eusart_async_interrupt\Release\Obj</state>
+          <state>EFR32ZG28_eusart_async_polled\Release\Obj</state>
         </option>
         <option>
           <name>ListPath</name>
-          <state>EFR32MG27_eusart_async_interrupt\Release\List</state>
+          <state>EFR32ZG28_eusart_async_polled\Release\List</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1067,7 +1067,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68	SiliconLaboratories EFR32ZG28B312F1024IM68</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -1127,7 +1127,7 @@
         </option>
         <option>
           <name>GFPUDeviceSlave</name>
-          <state>EFR32MG27C140F768IM40	SiliconLaboratories EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68	SiliconLaboratories EFR32ZG28B312F1024IM68</state>
         </option>
         <option>
           <name>FPU2</name>
@@ -1161,7 +1161,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>STR(x)=#x</state>
-          <state>EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68</state>
           
         </option>
         <option>
@@ -1293,9 +1293,9 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
 
         </option>
@@ -1464,7 +1464,7 @@
         <option>
           <name>ADefines</name>
           <state>NDEBUG</state>
-          <state>EFR32MG27C140F768IM40</state>
+          <state>EFR32ZG28B312F1024IM68</state>
           
         </option>
         <option>
@@ -1563,9 +1563,9 @@
           <name>AUserIncludes</name>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Core\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
 
         </option>
@@ -1601,7 +1601,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>EFR32MG27_eusart_async_interrupt.bin</state>
+          <state>EFR32ZG28_eusart_async_polled.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -1656,7 +1656,7 @@
         </option>
         <option>
           <name>IlinkOutputFile</name>
-          <state>EFR32MG27_eusart_async_interrupt.out</state>
+          <state>EFR32ZG28_eusart_async_polled.out</state>
         </option>
         <option>
           <name>IlinkDebugInfoEnable</name>
@@ -1963,10 +1963,10 @@
   <group>
     <name>CMSIS</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Source\IAR\startup_efr32mg27.s</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Source\IAR\startup_efr32zg28.s</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG27\Source\system_efr32mg27.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Source\system_efr32zg28.c</name>
     </file>
   </group>
   <group>

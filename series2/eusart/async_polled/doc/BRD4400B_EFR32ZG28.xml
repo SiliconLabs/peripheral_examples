@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <workspace name="eusart_async_polled">
-  <project name="EFR32MG27_eusart_async_polled"
-           device="EFR32MG27C140F768IM40">
+  <project name="EFR32ZG28_eusart_async_polled"
+           device="EFR32ZG28B312F1024IM68">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -11,19 +11,19 @@
       <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
-      <kitconfig>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</kitconfig>
+      <kitconfig>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</kitconfig>
     </directories>
     <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
-      <path>##em-path-device##\EFR32MG27\Include</path>
+      <path>##em-path-device##\EFR32ZG28\Include</path>
       <path>##em-path-emlib##\inc</path>
-      <path>$PROJ_DIR$\..\..\..\kit\EFR32MG27_BRD4194A</path>
+      <path>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</path>
       <path>$PROJ_DIR$\..\..\..\kit\common\bsp</path>
     </includepaths>
     <group name="CMSIS">
-      <source>##em-path-device##\EFR32MG27\Source\$IDE$\startup_efr32mg27.s</source>
-      <source>##em-path-device##\EFR32MG27\Source\system_efr32mg27.c</source>
+      <source>##em-path-device##\EFR32ZG28\Source\$IDE$\startup_efr32zg28.s</source>
+      <source>##em-path-device##\EFR32ZG28\Source\system_efr32zg28.c</source>
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>
@@ -36,7 +36,7 @@
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_xg27_xg28.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
-      <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg27_linker_script.ld</source>
+      <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg28_linker_script.ld</source>
     </group>
    	<cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
@@ -45,7 +45,7 @@
       <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/&gt;</tooloption>
-      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg27_linker_script.ld}"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg28_linker_script.ld}"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

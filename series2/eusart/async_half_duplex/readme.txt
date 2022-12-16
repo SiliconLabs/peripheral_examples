@@ -95,3 +95,9 @@ Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) +
 Device: EFR32MG27C140F768IM40
 PA5 - EUSART0_TX (Expansion Header Pin 12)
 PB4 - VCOM_ENABLE (WSTK_P15)
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PA8 - EUSART0_TX (WSTK Pin 28)
+PB0 - VCOM_ENABLE (WSTK_P15)

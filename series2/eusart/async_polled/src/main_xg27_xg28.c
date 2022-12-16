@@ -1,18 +1,9 @@
 /***************************************************************************//**
- * @file main_xg27.c
+ * @file main_xg27_xg28.c
  *
- * @brief This project demonstrates asynchronous mode use of the EUSART
- * with interrupts.
- *
- * After initialization, the MCU goes into EM1 where the receive interrupt
- * handler buffers incoming data until the reception of 80 characters or a
- * CR (carriage return, ASCII 0x0D).
- *
- * Once the CR or 80 characters is hit, the receive data valid interrupt is
- * disabled, and the transmit buffer level interrupt, which, by default, is set
- * after power-on, is is enabled.  Each entry into the transmit interrupt
- * handler causes a character to be sent until all the characters originally
- * received have been echoed.
+ * @brief This project demonstrates use of the EUSART in polled mode. The main
+ * loop waits until 80 characters or a carriage return are received and then
+ * echos these back to the user.
  *******************************************************************************
  * # License
  * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
@@ -50,7 +41,6 @@
 #include "em_device.h"
 #include "em_chip.h"
 #include "em_cmu.h"
-#include "em_emu.h"
 #include "em_eusart.h"
 #include "em_gpio.h"
 
@@ -59,16 +49,6 @@
 
 // Size of the buffer for received data
 #define BUFLEN  80
-
-// Receive data buffer
-uint8_t buffer[BUFLEN];
-
-// Current position in buffer
-uint32_t inpos = 0;
-uint32_t outpos = 0;
-
-// True while receiving data (waiting for CR or BUFLEN characters)
-bool receive = true;
 
 /**************************************************************************//**
  * @brief
@@ -116,72 +96,15 @@ void initEUSART0(void)
 
   // Route EUSART0 TX and RX to the board controller TX and RX pins
   GPIO->EUSARTROUTE[0].TXROUTE = (BSP_BCC_TXPORT << _GPIO_EUSART_TXROUTE_PORT_SHIFT)
-      | (BSP_BCC_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
+            | (BSP_BCC_TXPIN << _GPIO_EUSART_TXROUTE_PIN_SHIFT);
   GPIO->EUSARTROUTE[0].RXROUTE = (BSP_BCC_RXPORT << _GPIO_EUSART_RXROUTE_PORT_SHIFT)
-      | (BSP_BCC_RXPIN << _GPIO_EUSART_RXROUTE_PIN_SHIFT);
+            | (BSP_BCC_RXPIN << _GPIO_EUSART_RXROUTE_PIN_SHIFT);
 
   // Enable RX and TX signals now that they have been routed
   GPIO->EUSARTROUTE[0].ROUTEEN = GPIO_EUSART_ROUTEEN_RXPEN | GPIO_EUSART_ROUTEEN_TXPEN;
 
   // Configure and enable EUSART0 for high-frequency (EM0/1) operation
   EUSART_UartInitHf(EUSART0, &init);
-
-  // Enable NVIC USART sources
-  NVIC_ClearPendingIRQ(EUSART0_RX_IRQn);
-  NVIC_EnableIRQ(EUSART0_RX_IRQn);
-  NVIC_ClearPendingIRQ(EUSART0_TX_IRQn);
-  NVIC_EnableIRQ(EUSART0_TX_IRQn);
-}
-
-/**************************************************************************//**
- * @brief
- *    The EUSART0 receive interrupt saves incoming characters.
- *****************************************************************************/
-void EUSART0_RX_IRQHandler(void)
-{
-  // Get the character just received
-  buffer[inpos] = EUSART0->RXDATA;
-
-  // Exit loop on new line or buffer full
-  if ((buffer[inpos] != '\r') && (inpos < BUFLEN))
-    inpos++;
-  else
-    receive = false;   // Stop receiving on CR
-
-  /*
-   * The EUSART differs from the USART in that explicit clearing of
-   * RX interrupt flags is required even after emptying the RX FIFO.
-   */
-  EUSART_IntClear(EUSART0, EUSART_IF_RXFL);
-}
-
-/**************************************************************************//**
- * @brief
- *    The EUSART0 transmit interrupt outputs characters.
- *****************************************************************************/
-void EUSART0_TX_IRQHandler(void)
-{
-  // Send a previously received character
-  if (outpos < inpos)
-  {
-    EUSART0->TXDATA = buffer[outpos++];
-
-    /*
-     * The EUSART differs from the USART in that the TX FIFO interrupt
-     * flag must be explicitly cleared even after a write to the FIFO.
-     */
-    EUSART_IntClear(EUSART0, EUSART_IF_TXFL);
-  }
-  else
-  /*
-   * Need to disable the transmit FIFO level interrupt in this IRQ
-   * handler when done or it will immediately trigger again upon exit
-   * even though there is no data left to send.
-   */
-  {
-    receive = true;   // Go back into receive when all is sent
-    EUSART_IntDisable(EUSART0, EUSART_IEN_TXFL);
-  }
 }
 
 /**************************************************************************//**
@@ -190,7 +113,8 @@ void EUSART0_TX_IRQHandler(void)
  *****************************************************************************/
 int main(void)
 {
-  uint32_t i;
+  uint8_t buffer[BUFLEN];
+  uint32_t i, j;
 
   // Chip errata
   CHIP_Init();
@@ -203,27 +127,25 @@ int main(void)
   while (1)
   {
     // Zero out buffer
-    for (i = 0; i < BUFLEN; i++)
+    for (i = BUFLEN; i > 0; --i)
       buffer[i] = 0;
 
-    // Enable receive FIFO level interrupt (defaults to one frame)
-    EUSART_IntEnable(EUSART0, EUSART_IEN_RXFL);
+    // Receive BUFLEN characters unless a new line is received first
+    do
+    {
+      // Wait for a character
+      buffer[i] = EUSART_Rx(EUSART0);
 
-    // Wait in EM1 while receiving to reduce current draw
-    while (receive)
-      EMU_EnterEM1();
+      // Exit loop on new line
+      if (buffer[i] != '\r')
+        i++;
+      else
+        break;
+    }
+    while (i < BUFLEN);
 
-    // Disable receive FIFO level interrupt
-    EUSART_IntDisable(EUSART0, EUSART_IEN_RXFL);
-
-    // Enable transmit FIFO  level interrupt (defaults to one frame)
-    EUSART_IntEnable(EUSART0, EUSART_IEN_TXFL);
-
-    // Wait in EM1 while transmitting to reduce current draw
-    while (!receive)
-      EMU_EnterEM1();
-
-    // Reset buffer indices
-    inpos = outpos = 0;
+    // Output received characters
+    for (j = 0; j < i; j++)
+      EUSART_Tx(EUSART0, buffer[j]);
   }
 }
