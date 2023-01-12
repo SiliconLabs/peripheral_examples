@@ -7,7 +7,7 @@
  * remaining in EM2.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -164,8 +164,20 @@ void initIADC(void)
   // Set the prescaler needed for the intended IADC clock frequency
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // Shutdown between conversions to reduce current
+  /*
+   * These two settings are modified from the defaults to reduce the
+   * IADC current.  In low-frequency use cases, such as this example,
+   * iadcWarmupNormal shuts down the IADC between conversions, which
+   * reduces current at the expense of requiring 5 microseconds of
+   * warm-up time before a conversion can begin.
+   *
+   * In cases where a PRS event triggers scan conversions, enabling
+   * iadcClkSuspend0 gates off the ADC_CLK until the PRS trigger event
+   * occurs and again upon the completion of the channel conversions
+   * specified in the scan table.
+   */
   init.warmup = iadcWarmupNormal;
+  init.iadcClkSuspend0 = true;
 
   /*
    * Configuration 0 is used by both scan and single conversions by

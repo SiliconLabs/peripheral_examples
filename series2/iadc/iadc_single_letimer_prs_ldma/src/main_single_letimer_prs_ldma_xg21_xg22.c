@@ -7,7 +7,7 @@
  * EM2.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -42,11 +42,11 @@
 #include "em_core.h"
 #include "em_cmu.h"
 #include "em_emu.h"
-#include "em_iadc.h"
 #include "em_gpio.h"
-#include "em_prs.h"
+#include "em_iadc.h"
 #include "em_ldma.h"
 #include "em_letimer.h"
+#include "em_prs.h"
 
 #include "bspconfig.h"
 
@@ -169,8 +169,19 @@ void initIADC(void)
   // Set the prescaler needed for the intended IADC clock frequency
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // Shutdown between conversions to reduce current
+  /*
+   * These two settings are modified from the defaults to reduce the
+   * IADC current.  In low-frequency use cases, such as this example,
+   * iadcWarmupNormal shuts down the IADC between conversions, which
+   * reduces current at the expense of requiring 5 microseconds of
+   * warm-up time before a conversion can begin.
+   *
+   * In cases where a PRS event triggers single conversions, enabling
+   * iadcClkSuspend1 gates off the ADC_CLK until the PRS trigger event
+   * occurs and again upon the completion of the channel converted.
+   */
   init.warmup = iadcWarmupNormal;
+  init.iadcClkSuspend1 = true;
 
   /*
    * Configuration 0 is used by both scan and single conversions by
@@ -204,7 +215,12 @@ void initIADC(void)
                                                                      init.srcClkPrescale);
 
   /*
-   * Trigger conversions on the PRS rising edge input.
+   * Trigger conversions on the PRS1 rising edge input (PRS1 is not a
+   * specific channel but simply the dedicated trigger input for single
+   * conversions.  PRS0 serves the same purpose for scan conversions.
+   * Note that the IADC_TriggerSel_t typedef specifies PRS0 even when
+   * PRS1 is used because the bit field encodings in the relevant
+   * IADC_TRIGGER register are the same).
    *
    * Set the SINGLEFIFODVL flag when there are 2 entries in the scan
    * FIFO.  Note that in this example, the interrupt associated with
@@ -213,7 +229,8 @@ void initIADC(void)
    * Enable DMA wake-up to save the results when the specified FIFO
    * level is hit.
    *
-   * Allow a single conversion to start as soon as there is a trigger.
+   * Allow a single conversion to start as soon as there is a trigger
+   * event.
    */
   initSingle.triggerSelect = iadcTriggerSelPrs0PosEdge;
   initSingle.dataValidLevel = iadcFifoCfgDvl2;

@@ -6,7 +6,7 @@
  * from EM2 and toggle LED0 on the WSTK.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -38,13 +38,14 @@
 
 #include "em_device.h"
 #include "em_chip.h"
-#include "em_core.h"
 #include "em_cmu.h"
+#include "em_core.h"
 #include "em_emu.h"
-#include "em_iadc.h"
 #include "em_gpio.h"
-#include "em_prs.h"
+#include "em_iadc.h"
 #include "em_ldma.h"
+#include "em_prs.h"
+
 #include "bsp.h"
 
 /*******************************************************************************
@@ -53,7 +54,7 @@
 
 // Set CLK_ADC to 10MHz
 #define CLK_SRC_ADC_FREQ          20000000 // CLK_SRC_ADC
-#define CLK_ADC_FREQ              10000000 // CLK_ADC - 10MHz max in normal mode
+#define CLK_ADC_FREQ              10000000 // CLK_ADC - 10 MHz max in normal mode
 
 /*
  * Specify the IADC input using the IADC_PosInput_t typedef.  This
@@ -136,52 +137,89 @@ void initPRS (void)
  *****************************************************************************/
 void initIADC (void)
 {
-  // Declare init structs
+  // Declare initialization structures
   IADC_Init_t init = IADC_INIT_DEFAULT;
   IADC_AllConfigs_t initAllConfigs = IADC_ALLCONFIGS_DEFAULT;
   IADC_InitSingle_t initSingle = IADC_INITSINGLE_DEFAULT;
   IADC_SingleInput_t initSingleInput = IADC_SINGLEINPUT_DEFAULT;
 
-  // Enable IADC0 clock branch
   CMU_ClockEnable(cmuClock_IADC0, true);
 
-  // Reset IADC to reset configuration in case it has been modified by
-  // other code
-  IADC_reset(IADC0);
-
-  // Select clock for IADC
-  CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_FSRCO);  // FSRCO - 20MHz
-
-  // Modify init structs and initialize
-  init.warmup = iadcWarmupNormal;
+  // Use the FSRC0 as the IADC clock so it can run in EM2
+  CMU_ClockSelectSet(cmuClock_IADCCLK, cmuSelect_FSRCO);
 
   // Set the HFSCLK prescale value here
   init.srcClkPrescale = IADC_calcSrcClkPrescale(IADC0, CLK_SRC_ADC_FREQ, 0);
 
-  // Configuration 0 is used by both scan and single conversions by default
-  // Use internal bandgap (supply voltage in mV) as reference
+  /*
+   * These two settings are modified from the defaults to reduce the
+   * IADC current.  In low-frequency use cases, such as this example,
+   * iadcWarmupNormal shuts down the IADC between conversions, which
+   * reduces current at the expense of requiring 5 microseconds of
+   * warm-up time before a conversion can begin.
+   *
+   * In cases where a PRS event triggers single conversions, enabling
+   * iadcClkSuspend1 gates off the ADC_CLK until the PRS trigger event
+   * occurs and again upon the completion of the channel converted.
+   */
+  init.warmup = iadcWarmupNormal;
+  init.iadcClkSuspend1 = true;
+
+  /*
+   * Configuration 0 is used by both scan and single conversions by
+   * default.  Use internal bandgap as the reference and specify the
+   * reference voltage in mV.
+   *
+   * Resolution is not configurable directly but is based on the
+   * selected oversampling ratio (osrHighSpeed), which defaults to
+   * 2x and generates 12-bit results.
+   */
   initAllConfigs.configs[0].reference = iadcCfgReferenceInt1V2;
   initAllConfigs.configs[0].vRef = 1210;
+  initAllConfigs.configs[0].osrHighSpeed = iadcCfgOsrHighSpeed2x;
   initAllConfigs.configs[0].analogGain = iadcCfgAnalogGain0P5x;
 
-  // Divides CLK_SRC_ADC to set the CLK_ADC frequency
+  /*
+   * CLK_SRC_ADC must be prescaled by some value greater than 1 to
+   * derive the intended CLK_ADC frequency.
+   *
+   * Based on the default 2x oversampling rate (OSRHS)...
+   *
+   * conversion time = (4 * OSRHS) / fCLK_ADC
+   *
+   * ...which results in a maximum sampling rate of 1 Msps since
+   * single-channel conversions do not incur the 2-clock input
+   * multiplexer switching time associated with scan conversions.
+   */
   initAllConfigs.configs[0].adcClkPrescale = IADC_calcAdcClkPrescale(IADC0,
                                              CLK_ADC_FREQ,
                                              0,
                                              iadcCfgModeNormal,
                                              init.srcClkPrescale);
 
-  // Single initialization
+  /*
+   * Trigger conversions on the PRS1 rising edge input (PRS1 is not a
+   * specific channel but simply the dedicated trigger input for single
+   * conversions.  PRS0 serves the same purpose for scan conversions.
+   * Note that the IADC_TriggerSel_t typedef specifies PRS0 even when
+   * PRS1 is used because the bit field encodings in the relevant
+   * IADC_TRIGGER register are the same).
+   *
+   * Set the SINGLEFIFODVL flag when there is one entry in the output
+   * FIFO.  Note that in this example, the interrupt associated with
+   * the SINGLEFIFODVL flag in the IADC_IF register is not used.
+   *
+   * Enable DMA wake-up to save the results when the specified FIFO
+   * level is hit.
+   *
+   * Allow a single conversion to start as soon as there is a trigger
+   * event.
+   */
   initSingle.triggerSelect = iadcTriggerSelPrs0PosEdge;
-  initSingle.dataValidLevel = _IADC_SINGLEFIFOCFG_DVL_VALID1;
-
-  // Enable triggering of single conversion
+  initSingle.dataValidLevel = iadcFifoCfgDvl1;
+  initSingle.fifoDmaWakeup = true;
   initSingle.start = true;
 
-  // Set to run in EM2
-  initSingle.fifoDmaWakeup = true;
-
-  // Assign pins to positive and negative inputs in differential mode
   initSingleInput.posInput   = IADC_INPUT_0_PORT_PIN;
   initSingleInput.negInput   = iadcNegInputGnd;
 

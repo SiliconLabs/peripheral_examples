@@ -51,7 +51,7 @@ How To Test:
 ================================================================================
 
 Peripherals Used:
-CMU     - FSRCO @ 20 MHz, LFXO @ 32.768 kHz
+CMU     - FSRCO @ 20 MHz
 EMU
 GPIO
 IADC    - 12-bit resolution (2x oversampling)
