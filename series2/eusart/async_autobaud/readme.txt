@@ -122,3 +122,10 @@ Device: EFR32MG27C140F768IM40
 PA5 - EUSART0_TX (Expansion Header Pin 12)
 PA6 - EUSART0_RX (Expansion Header Pin 14)
 PB4 - VCOM_ENABLE (WSTK_P15)
+
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PA8 - EUSART1_TX (WSTK Breakout Pad J102 P28)
+PA9 - EUSART1_RX (WSTK Breakout Pad J102 P30)
+PB0 - VCOM_ENABLE (WSTK Breakout Pad J101 P15)
