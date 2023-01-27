@@ -161,7 +161,7 @@ int main(void)
   uint8_t inbuf[BUFLEN];
   
   /*
-   * Eliminate unused variable warning so that inbug can be observed
+   * Eliminate unused variable warning so that inbuf can be observed
    * in the debugger.
    */
   (void)inbuf;

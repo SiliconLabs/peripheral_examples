@@ -1,15 +1,15 @@
 /***************************************************************************//**
- * @file main_xg21.c
+ * @file main_xg28.c
  *
- * @brief This project demonstrates synchronous (SPI) use of the USART in polled
- * main mode. The main loop transmits the specified number of bytes and
- * receives the byte that is shifted in with each outgoing one.
+ * @brief This project demonstrates interrupt-driven use of the USART in
+ * synchronous (SPI) main mode. The main loop transmits the specified number
+ * of bytes and receives the byte that is shifted in with each outgoing one.
  *
  * The pins used in this example are defined below and are described in the
  * accompanying readme.txt file.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,7 +34,7 @@
  *
  *******************************************************************************
  * # Evaluation Quality
- * This code has been minimally tested to ensure that it builds and is suitable 
+ * This code has been minimally tested to ensure that it builds and is suitable
  * as a demonstration for evaluation purposes only. This code will be maintained
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
@@ -46,20 +46,29 @@
 #include "em_gpio.h"
 #include "em_usart.h"
 
-// Size of the data buffers
-#define BUFLEN  10
-
 #include "bsp.h"
 
 // SPI ports and pins
-#define US0MOSI_PORT  gpioPortC
-#define US0MOSI_PIN   0
-#define US0MISO_PORT  gpioPortC
-#define US0MISO_PIN   1
-#define US0CLK_PORT   gpioPortC
-#define US0CLK_PIN    2
-#define US0CS_PORT    gpioPortC
-#define US0CS_PIN     3
+#define US0MOSI_PORT  gpioPortD
+#define US0MOSI_PIN   7
+#define US0MISO_PORT  gpioPortD
+#define US0MISO_PIN   8
+#define US0CLK_PORT   gpioPortD
+#define US0CLK_PIN    9
+#define US0CS_PORT    gpioPortD
+#define US0CS_PIN     10
+
+// Size of the data buffers
+#define BUFLEN  10
+
+// Outgoing data
+uint8_t outbuf[BUFLEN];
+
+// Incoming data
+uint8_t inbuf[BUFLEN];
+
+// Position in the buffer
+uint32_t bufpos;
 
 /**************************************************************************//**
  * @brief
@@ -67,16 +76,18 @@
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure TX pin as an output
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
+  // Configure MOSI pin as an output
   GPIO_PinModeSet(US0MOSI_PORT, US0MOSI_PIN, gpioModePushPull, 0);
 
-  // Configure RX pin as an input
+  // Configure MISO pin as an input
   GPIO_PinModeSet(US0MISO_PORT, US0MISO_PIN, gpioModeInput, 0);
 
-  // Configure CLK pin as an output low (CPOL = 0)
+  // Configure CLK pin as an output
   GPIO_PinModeSet(US0CLK_PORT, US0CLK_PIN, gpioModePushPull, 0);
 
-  // Configure CS pin as an output and drive inactive high
+  // Configure CS pin as an output initially high
   GPIO_PinModeSet(US0CS_PORT, US0CS_PIN, gpioModePushPull, 1);
 
   // Configure button 0 pin as an input
@@ -101,15 +112,20 @@ void initGPIO(void)
  *****************************************************************************/
 void initUSART0(void)
 {
+  CMU_ClockEnable(cmuClock_USART0, true);
+
   // Default asynchronous initializer (main mode, 1 Mbps, 8-bit data)
   USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 
-  init.msbf = true;   // MSB first transmission for SPI compatibility
+  init.msbf = true;     // MSB first transmission for SPI compatibility
+
+  // Configure and enable USART0
+  USART_InitSync(USART0, &init);
 
   /*
-   * Route USART0 RX, TX, and CLK to the specified pins.  Note that CS is
-   * not controlled by USART0 so there is no write to the corresponding
-   * USARTROUTE register to do this.
+   * Route USART0 RX, TX, and CLK to the specified pins.  Note that CS
+   * is not controlled by the USART in this case but as a GPIO under
+   * software control in the main loop.
    */
   GPIO->USARTROUTE[0].TXROUTE = (US0MOSI_PORT << _GPIO_USART_TXROUTE_PORT_SHIFT)
       | (US0MOSI_PIN << _GPIO_USART_TXROUTE_PIN_SHIFT);
@@ -119,12 +135,16 @@ void initUSART0(void)
       | (US0CLK_PIN << _GPIO_USART_CLKROUTE_PIN_SHIFT);
 
   // Enable USART interface pins
-  GPIO->USARTROUTE[0].ROUTEEN = GPIO_USART_ROUTEEN_RXPEN |    // MISO
-                                GPIO_USART_ROUTEEN_TXPEN |    // MOSI
+  GPIO->USARTROUTE[0].ROUTEEN = GPIO_USART_ROUTEEN_RXPEN  |    // MISO
+                                GPIO_USART_ROUTEEN_TXPEN  |    // MOSI
                                 GPIO_USART_ROUTEEN_CLKPEN;
 
-  // Configure and enable USART0
-  USART_InitSync(USART0, &init);
+  // Enable NVIC USART sources
+  NVIC_ClearPendingIRQ(USART0_TX_IRQn);
+  NVIC_EnableIRQ(USART0_TX_IRQn);
+
+  // Enable transmit complete interrupt
+  USART_IntEnable(USART0, USART_IEN_TXC);
 }
 
 /**************************************************************************//**
@@ -145,26 +165,39 @@ void GPIO_EVEN_IRQHandler(void)
 
 /**************************************************************************//**
  * @brief
+ *    USART0 transmit interrupt handler
+ *****************************************************************************/
+void USART0_TX_IRQHandler(void)
+{
+  /*
+   * Save byte received concurrent with the transmission of the last bit of
+   * the previous outgoing byte, and increment the buffer position to the
+   * next byte.
+   */
+  inbuf[bufpos++] = USART0->RXDATA;
+
+  // If there are still bytes left to send, transmit the next one
+  if (bufpos < BUFLEN)
+    USART0->TXDATA = outbuf[bufpos];
+
+  // Clear the requesting interrupt before exiting the handler
+  USART_IntClear(USART0, USART_IF_TXC);
+}
+
+/**************************************************************************//**
+ * @brief
  *    Main function
  *****************************************************************************/
 int main(void)
 {
   uint32_t i;
 
-  // Outgoing data
-  uint8_t outbuf[BUFLEN];
-
-  // Incoming data
-  uint8_t inbuf[BUFLEN];
-
-  /*
-   * Eliminate unused variable warning so that inbuf can be observed
-   * in the debugger.
-   */
-  (void)inbuf;
-
   // Chip errata
   CHIP_Init();
+
+  // Initialize DCDC with kit specific parameters
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
+  EMU_DCDCInit(&dcdcInit);
 
   // Initialize GPIO and USART0
   initGPIO();
@@ -186,6 +219,9 @@ int main(void)
       inbuf[i] = 0;
       outbuf[i] = (uint8_t)i;
     }
+
+    // Start at the beginning of the buffer
+    bufpos = 0;
 
     // Assert chip select (drive low)
     GPIO_PinOutClear(US0CS_PORT, US0CS_PIN);
@@ -209,13 +245,13 @@ int main(void)
     for (i = 0; i < 25; i++);
 
     /*
-     * Repeatedly perform single byte SPI transfers (transmission and
-     * reception) of the specified length.  USART_SpiTransfer() polls
-     * USART_STATUS_TXC for transmission complete, so this function ties
-     * up the CPU until the last bit of the byte being transmitted is sent.
+     * Transmit the first byte, then go into EM1.  The IRQ handler will
+     * receive each incoming byte and transmit the next outgoing byte.
      */
-    for (i = 0; i < BUFLEN; i++)
-      inbuf[i] = USART_SpiTransfer(USART0, outbuf[i]);
+    USART0->TXDATA = outbuf[bufpos];
+
+    while (bufpos < BUFLEN)
+      EMU_EnterEM1();
 
     // De-assert chip select upon transfer completion (drive high)
     GPIO_PinOutSet(US0CS_PORT, US0CS_PIN);

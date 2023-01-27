@@ -1,5 +1,5 @@
 /***************************************************************************//**
- * @file main_xg21.c
+ * @file main_xg28.c
  *
  * @brief This project demonstrates synchronous (SPI) use of the USART in polled
  * main mode. The main loop transmits the specified number of bytes and
@@ -9,7 +9,7 @@
  * accompanying readme.txt file.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -52,14 +52,14 @@
 #include "bsp.h"
 
 // SPI ports and pins
-#define US0MOSI_PORT  gpioPortC
-#define US0MOSI_PIN   0
-#define US0MISO_PORT  gpioPortC
-#define US0MISO_PIN   1
-#define US0CLK_PORT   gpioPortC
-#define US0CLK_PIN    2
-#define US0CS_PORT    gpioPortC
-#define US0CS_PIN     3
+#define US0MOSI_PORT  gpioPortD
+#define US0MOSI_PIN   7
+#define US0MISO_PORT  gpioPortD
+#define US0MISO_PIN   8
+#define US0CLK_PORT   gpioPortD
+#define US0CLK_PIN    9
+#define US0CS_PORT    gpioPortD
+#define US0CS_PIN     10
 
 /**************************************************************************//**
  * @brief
@@ -67,6 +67,8 @@
  *****************************************************************************/
 void initGPIO(void)
 {
+  CMU_ClockEnable(cmuClock_GPIO, true);
+
   // Configure TX pin as an output
   GPIO_PinModeSet(US0MOSI_PORT, US0MOSI_PIN, gpioModePushPull, 0);
 
@@ -101,6 +103,8 @@ void initGPIO(void)
  *****************************************************************************/
 void initUSART0(void)
 {
+  CMU_ClockEnable(cmuClock_USART0, true);
+
   // Default asynchronous initializer (main mode, 1 Mbps, 8-bit data)
   USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
 
@@ -156,7 +160,7 @@ int main(void)
 
   // Incoming data
   uint8_t inbuf[BUFLEN];
-
+  
   /*
    * Eliminate unused variable warning so that inbuf can be observed
    * in the debugger.
