@@ -72,3 +72,9 @@ Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) +
 Device: EFR32MG27C140F768IM40
 PA5 - USART0_TX (Expansion Header Pin 12)
 PA6 - USART0_RX (Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PA8 - USART0_TX (WSTK Breakout Pad J102 P28)
+PA9 - USART0_RX (WSTK Breakout Pad J102 P30)
