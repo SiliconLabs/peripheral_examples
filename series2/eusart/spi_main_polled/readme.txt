@@ -115,3 +115,11 @@ PC0 - EUSART0_TX (MOSI)  - Expansion Header pin 4
 PC1 - EUSART0_RX (MISO)  - Expansion Header pin 6
 PC2 - EUSART0_CLK (SCLK) - Expansion Header pin 8
 PC3 - EUSART0_CS (CSn)   - Expansion Header pin 10
+
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PD7  - EUSART1_TX (MOSI)  - Expansion Header pin 4
+PD8  - EUSART1_RX (MISO)  - Expansion Header pin 6
+PD9  - EUSART1_CLK (SCLK) - Expansion Header pin 8
+PD10 - EUSART1_CS (CSn)   - Expansion Header pin 10
