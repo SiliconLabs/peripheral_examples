@@ -102,7 +102,8 @@ static void gpioPrsSetup(void)
                   gpioModeInputPullFilter, 1);
 
   // Configure PRS sensing on push button PB1
-  GPIO_IntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, false, false, false);
+  GPIO_ExtIntConfig(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, BSP_GPIO_PB1_PIN,
+					false, false, false);
 
   // Select GPIO as PRS source and push button PB1 as signal for PRS channel
   PRS_SourceAsyncSignalSet(GPIO_PRS_CHANNEL, PRS_ASYNC_CH_CTRL_SOURCESEL_GPIO,
