@@ -55,11 +55,6 @@ BRD4204D  |          900 uA |          1100 uA
 BRD4186C  |          680 uA |           840 uA
 BRD4270B  |          740 uA |           940 uA
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
-have no effect as oscillators are automatically turned on/off based on demand 
-from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
-library consistency/compatibility.
-
 ================================================================================
 
 How To Test:
@@ -73,12 +68,6 @@ CMU    - HFRCODPLL @ 19 MHz via EM01GRPCCLK
 EMU
 VDAC   - internal 1.25V reference, continuous mode
 
-================================================================================
-
-Listed below are the devices that do not have a VDAC module
- - EFR32xG21
- - EFR32xG22
- 
 ================================================================================
 
 Listed below are the port and pin mappings for working with this example.

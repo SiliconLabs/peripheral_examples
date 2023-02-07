@@ -38,11 +38,6 @@ BRD4270B  |   17 uA |   11 uA |     8 uA |     7 uA
 
 RMS output|  380 mV |  265 mV |   185 mV |   130 mV
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
-have no effect as oscillators are automatically turned on/off based on demand 
-from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
-library consistency/compatibility.
-
 ================================================================================
 
 How To Test:
@@ -57,12 +52,6 @@ EMU
 USART  - used only to power down onboard SPI flash
 VDAC   - internal 1.25V reference, sample/off mode
 
-================================================================================
-
-Listed below are the devices that do not have a VDAC module
- - EFR32xG21
- - EFR32xG22
- 
 ================================================================================
 
 Listed below are the port and pin mappings for working with this example.

@@ -28,11 +28,6 @@ BRD4204D  |          950 uA |          1200 uA
 BRD4186C  |          760 uA |           920 uA
 BRD4270B  |          860 uA |          1065 uA
 
-Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
-have no effect as oscillators are automatically turned on/off based on demand 
-from the peripherals; CMU_ClockEnable() is a dummy function for EFR32xG21 for 
-library consistency/compatibility.
-
 ================================================================================
 
 How To Test:
@@ -47,12 +42,6 @@ EMU
 LDMA   - memory to peripheral data transfer
 TIMER  - TIMER0 @ 320 kHz (WAVEFORM_FREQ * SINE_TABLE_SIZE)
 VDAC   - internal 1.25V reference, continuous mode
-
-================================================================================
-
-Listed below are the devices that do not have a VDAC module
- - EFR32xG21
- - EFR32xG22
 
 ================================================================================
 

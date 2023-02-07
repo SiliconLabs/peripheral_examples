@@ -101,14 +101,6 @@ void initVdac(void)
 
   // Enable the VDAC clocks
   CMU_ClockEnable(cmuClock_VDAC0, true);
-  /*
-   * Note: For EFR32xG21 radio devices, library function calls to
-   * CMU_ClockEnable() have no effect as oscillators are automatically turned
-   * on/off based on demand from the peripherals; CMU_ClockEnable() is a dummy
-   * function for EFR32xG21 for library consistency/compatibility.
-   *
-   * Also note that there's no VDAC peripheral on xG21 and xG22
-   */
 
   // Calculate the VDAC clock prescaler value resulting in a 1 MHz VDAC clock.
   init.prescaler = VDAC_PrescaleCalc(VDAC0, (uint32_t)CLK_VDAC_FREQ);
