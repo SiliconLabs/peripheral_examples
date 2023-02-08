@@ -23,8 +23,8 @@ the LED on.
 
 Note: For the EFR32xG27 Radio Board, Push Button 0/1 is connected to LED0/1 via
 hardware, so it is not possible to output to the LEDs when both push buttons
-are being used. Please This example sets PC03 as the PRS output for the
-EFR32xG27 Radio Board.
+are being used. This example sets PC03 as the PRS output for the EFR32xG27
+Radio Board.
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
@@ -42,8 +42,8 @@ Note: Various other logic functions like AND, NAND, NOR, XOR, NOT etc are
 available. You can switch between these logic functions by changing the 
 parameters passed when calling PRS_Combine() function in main.c.
 
-Note: For EFR32xG22/xG23/xG25 devices, you may choose any asynchronous PRS 
-channel as your input B. For EFR32xG21/xG24 devices, you have to choose 
+Note: For EFR32xG22/xG23/xG25/xG28 devices, you may choose any asynchronous
+PRS channel as your input B. For EFR32xG21/xG24 devices, you have to choose
 (input A - 1) as your input B. This is reflected on the PRS channel selection 
 in the source file.
 
@@ -105,3 +105,12 @@ PRS   - Channel 1, PB0
 PB00  - push button PB0
 PB01  - push button PB1
 PC03  - PRS Channel 6 (Expansion Header 10)
+
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PRS   - Channel 1, PB0
+        Channel 6, PB1 routed to LED1 (Output)
+PB01 - push button PB0
+PB03 - push button PB1
+PD03 - PRS Channel 6
