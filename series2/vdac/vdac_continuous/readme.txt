@@ -18,11 +18,19 @@ radio board. To measure the 3.6V LDO current, replace R247 with ammeter
 connections. The current provided below is the combination of the VMCU and 3.6V
 current.
 
+Note for Testing on xG28 (BRD4400B Rev A00):
+There is an antenna diversity SPDT switch on the 2.4 GHz radio output that
+consumes about 63 uA of additional current. When measuring current consumption
+of the device with Energy Profiler (or other method), the observed current
+consumption will be higher than what is specified in the EFR32ZG28 datasheet.
+The currents listed in the table below exclude this extra current.
+
 Board     | avg current EM3 | avg current EM0 (Enter EM3 code commented out)
 ================================================================================
 BRD4204D  |           35 uA |           950 uA
 BRD4186C  |           38 uA |           725 uA
 BRD4270B  |           36 uA |           885 uA
+BRD4400B  |           40 uA |           843 uA
 
 ================================================================================
 
@@ -56,3 +64,8 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
 PB00 -  VDAC0 CH0 Main Output (Pin 17 of breakout pads)
+
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB00 -  VDAC0 CH0 Main Output (WSTK Breakout Pad J101 P15)

@@ -10,6 +10,9 @@
   <project>
     <path>$WS_DIR$\EFR32FG25_vdac_continuous.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_vdac_continuous.ewp</path>
+  </project>
 
   <batchBuild/>
 </workspace>
