@@ -317,7 +317,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\security\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
@@ -589,7 +589,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\security\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
@@ -1302,7 +1302,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\security\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
@@ -1575,7 +1575,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32MG21\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\platform\security\sl_component\se_manager\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
@@ -1993,10 +1993,10 @@
   <group>
     <name>se_manager</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src\sl_se_manager.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\security\sl_component\se_manager\src\sl_se_manager.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\crypto\sl_component\se_manager\src\sl_se_manager_util.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\security\sl_component\se_manager\src\sl_se_manager_util.c</name>
     </file>
   </group>
   <group>
