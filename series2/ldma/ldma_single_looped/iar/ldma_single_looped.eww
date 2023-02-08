@@ -14,10 +14,13 @@
     <path>$WS_DIR$\EFR32MG24_ldma_single_looped.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_ldma_single_looped.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32ZG23_ldma_single_looped.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_ldma_single_looped.ewp</path>
+    <path>$WS_DIR$\EFR32ZG28_ldma_single_looped.ewp</path>
   </project>
 
   <batchBuild/>

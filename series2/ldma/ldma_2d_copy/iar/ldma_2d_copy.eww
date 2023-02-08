@@ -14,10 +14,13 @@
     <path>$WS_DIR$\EFR32MG24_ldma_2d_copy.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_ldma_2d_copy.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32ZG23_ldma_2d_copy.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_ldma_2d_copy.ewp</path>
+    <path>$WS_DIR$\EFR32ZG28_ldma_2d_copy.ewp</path>
   </project>
 
   <batchBuild/>
