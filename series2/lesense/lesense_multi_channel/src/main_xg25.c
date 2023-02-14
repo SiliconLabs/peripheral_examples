@@ -200,7 +200,7 @@ void initIADC (void)
   initAllConfigs.configs[0].twosComplement = iadcCfgTwosCompUnipolar;
 
   // Scan triggered by LESENSE request
-  initScan.triggerSelect = 5;
+  initScan.triggerSelect = iadcTriggerSelLesense;
 
   // Configure entries in scan table, CH0-3 are single-ended from inputs 0-3
   // set by the defines at the beginning of this source
