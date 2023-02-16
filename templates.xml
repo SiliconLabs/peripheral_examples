@@ -20744,6 +20744,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_acmp_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -20771,6 +20780,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_pin_output.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_pin_output"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4270B_EFR32FG25_acmp_pin_output.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -20797,6 +20815,15 @@
     <properties key="template.category" value="ACMP"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4270B_EFR32FG25_acmp_polled.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 BURTC EM4 Buram" description="This project uses the BURTC (Backup Real Time Counter) to wake the device from EM4 mode and thus trigger a reset. This project also shows how to use the BURAM retention registers to have data persist between resets. The number of resets  triggered by the BURTC will p...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -20834,6 +20861,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/burtc/burtc_em4_buram/SimplicityStudio/BRD4204D_EFR32ZG23_burtc_em4_buram.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 BURTC EM4 Buram" description="This project uses the BURTC (Backup Real Time Counter) to wake the device from EM4 mode and thus trigger a reset. This project also shows how to use the BURAM retention registers to have data persist between resets. The number of resets  triggered by the BURTC will p...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_burtc_em4_buram"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="BURTC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/burtc/burtc_em4_buram/SimplicityStudio/BRD4270B_EFR32FG25_burtc_em4_buram.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4180A EFR32MG21 LFRCO CAL Interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
     <properties key="core.boardCompatibility" value="brd4180a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -20861,6 +20897,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_lfrco_cal_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LFRCO CAL Interrupt" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The calibration mechanism is setup, and a calibration run is started. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_lfrco_cal_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/cmu/lfrco_cal_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_lfrco_cal_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4180A EFR32MG21 LFRCO CAL Polled" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The BURTC is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
     <properties key="core.boardCompatibility" value="brd4180a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -20887,6 +20932,15 @@
     <properties key="template.category" value="CMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/cmu/lfrco_cal_polled/SimplicityStudio/BRD4204D_EFR32ZG23_lfrco_cal_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LFRCO CAL Polled" description="The device is initialized for the board it is running on, and the qualified LFRCO is output to a pin where it can be observed.  The BURTC is setup to generate an interrupt every 16 seconds, and the device enters EM1 (so that the clock output remains active). ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_lfrco_cal_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="CMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/cmu/lfrco_cal_polled/SimplicityStudio/BRD4270B_EFR32FG25_lfrco_cal_polled.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4182A EFR32MG22 EM01 Voltage Scaling" description="This project demonstrates the use of EM0/EM1 voltage scaling on Series 2 EFR32 devices.  Note that this differs from the voltage scaling functionality on Series 1 devices where a single setting (VS2 or VS0) applies in all operating modes.  For Series 2 devices, separ...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
@@ -20933,6 +20987,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/em0_dcdc/SimplicityStudio/BRD4204D_EFR32ZG23_em0_dcdc.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EM0 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM0 Energy Mode. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_em0_dcdc"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/em0_dcdc/SimplicityStudio/BRD4270B_EFR32FG25_em0_dcdc.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EM1 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM1 Energy Mode. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -20950,6 +21013,15 @@
     <properties key="template.category" value="EMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/em1_dcdc/SimplicityStudio/BRD4204D_EFR32ZG23_em1_dcdc.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EM1 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM1 Energy Mode. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_em1_dcdc"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/em1_dcdc/SimplicityStudio/BRD4270B_EFR32FG25_em1_dcdc.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4182A EFR32MG22 EM23 Voltage Scaling" description="This project demonstrates the use of EM2/EM3 voltage scaling on Series 2 EFR32 devices.  Note that this differs from the voltage scaling functionality on Series 1 devices where a single setting (VS2 or VS0) applies in all operating modes.  For Series 2 devices, separ...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
@@ -20978,6 +21050,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/em23_voltage_scaling/SimplicityStudio/BRD4204D_EFR32ZG23_em23_voltage_scaling.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EM23 Voltage Scaling" description="This project demonstrates the use of EM2/EM3 voltage scaling on Series 2 EFR32 devices.  Note that this differs from the voltage scaling functionality on Series 1 devices where a single setting (VS2 or VS0) applies in all operating modes.  For Series 2 devices, separ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_em23_voltage_scaling"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/em23_voltage_scaling/SimplicityStudio/BRD4270B_EFR32FG25_em23_voltage_scaling.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EM2 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM2 Energy Mode. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -20995,6 +21076,15 @@
     <properties key="template.category" value="EMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/em2_dcdc/SimplicityStudio/BRD4204D_EFR32ZG23_em2_dcdc.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EM2 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM2 Energy Mode. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_em2_dcdc"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/em2_dcdc/SimplicityStudio/BRD4270B_EFR32FG25_em2_dcdc.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EM3 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM3 Energy Mode. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -21014,6 +21104,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/em3_dcdc/SimplicityStudio/BRD4204D_EFR32ZG23_em3_dcdc.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EM3 DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM3 Energy Mode. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_em3_dcdc"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/em3_dcdc/SimplicityStudio/BRD4270B_EFR32FG25_em3_dcdc.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EM4 No DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM4 Energy Mode. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21031,6 +21130,33 @@
     <properties key="template.category" value="EMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/em4_no_dcdc/SimplicityStudio/BRD4204D_EFR32ZG23_em4_no_dcdc.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EM4 No DCDC" description="This project demonstrates the datasheet current consumption  configuration and current consumption numbers in EM4 Energy Mode. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_em4_no_dcdc"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/em4_no_dcdc/SimplicityStudio/BRD4270B_EFR32FG25_em4_no_dcdc.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 Etampdetect EM2" description="This project demonstrates the tamper detection module for EFR32xG25. The example uses defines to enable the ETAMPDET peripheral's channel 0 and/or channel 1, and requires an external jumper-wire connection between the ETAMPIN0 &lt;-&gt; ETAMPOUT0  and/or ETAMPIN1 &lt;-&gt; ETAMP...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_etampdetect_em2"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ETAMPDET"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/etampdet/etampdet_em2/SimplicityStudio/BRD4270B_EFR32FG25_etampdetect_em2.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 Etampdetect EM4" description="This project demonstrates the tamper detection module for EFR32xG25. The example uses #defines to enable the ETAMPDET peripheral's channel 0 and/or channel 1, and requires an external jumper-wire connection between the ETAMPIN0 &lt;-&gt;  ETAMPOUT0 and/or ETAMPIN1 &lt;-&gt; ETAM...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_etampdetect_em4"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ETAMPDET"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/etampdet/etampdet_em4/SimplicityStudio/BRD4270B_EFR32FG25_etampdetect_em4.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4182A EFR32MG22 EUART Echo" description="This project demonstrates interrupt-drive operation of the EUART.  EUART0 is  configured for asynchronous operation at 115200 baud with 8 data bits,  no  parity, and one stop bit (115200N81). The main loop waits until 80 characters  or a carriage return are received ...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
@@ -21077,6 +21203,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/async_autobaud/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_async_autobaud.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART Async Autobaud" description="This project demonstrates interrupt-driven EUSART operation in asynchronous mode with automatic baud rate detection.  EUSART1 is configured for 8 data bits, no parity, and one stop bit.  Setting init.baudrate = 0 in the structure of type EUSART_UartInit_TypeDef instr...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_async_autobaud"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/async_autobaud/SimplicityStudio/BRD4270B_EFR32FG25_eusart_async_autobaud.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART Async DMA EM2" description="This project demonstrates low-frequency operation of EUSART0 using LDMA to receive inbound data and transmit outbound data while remaining in EM2. Note that EUSART0 is used because it supports operation in EM2 from a low-frequency operation.  Other EUSARTs are limite...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21094,6 +21229,15 @@
     <properties key="template.category" value="EUSART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/async_dma_em2/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_async_dma_em2.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART Async DMA EM2" description="This project demonstrates low-frequency operation of EUSART0 using LDMA to receive inbound data and transmit outbound data while remaining in EM2. Note that EUSART0 is used because it supports operation in EM2 from a low-frequency operation.  Other EUSARTs are limite...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_async_dma_em2"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/async_dma_em2/SimplicityStudio/BRD4270B_EFR32FG25_eusart_async_dma_em2.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART Async Half Duplex" description="This project demonstrates operation of the EUSART in a half-duplex, single link configuration.  One wire is used to communicate between the EUSARTs on two different devices such that only one device can be transmitting at any given time.  This entails the EUSART on o...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -21113,6 +21257,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/async_half_duplex/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_async_half_duplex.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART Async Half Duplex" description="This project demonstrates operation of the EUSART in a half-duplex, single link configuration.  One wire is used to communicate between the EUSARTs on two different devices such that only one device can be transmitting at any given time.  This entails the EUSART on o...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_async_half_duplex"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/async_half_duplex/SimplicityStudio/BRD4270B_EFR32FG25_eusart_async_half_duplex.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART Async Interrupt" description="This project demonstrates interrupt-driven operation of the EUSART in asynchronous mode.  EUSART1 is configured for asynchronous operation at 115200 baud with 8 data bits, no parity, and one stop bit (115200N81). The main loop waits until 80 characters or a carriage ...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21130,6 +21283,15 @@
     <properties key="template.category" value="EUSART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/async_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_async_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART Async Interrupt" description="This project demonstrates interrupt-driven operation of the EUSART in asynchronous mode.  EUSART1 is configured for asynchronous operation at 115200 baud with 8 data bits, no parity, and one stop bit (115200N81). The main loop waits until 80 characters or a carriage ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_async_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/async_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_eusart_async_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART Async Polled" description="This project demonstrates polled operation of the EUSART in asynchronous mode.  EUSART1 is configured for asynchronous operation at 115200 baud with 8 data bits, no parity, and one stop bit (115200N81).  The main loop waits until 80 characters or a carriage return ar...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -21149,6 +21311,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/async_polled/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_async_polled.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART Async Polled" description="This project demonstrates polled operation of the EUSART in asynchronous mode.  EUSART1 is configured for asynchronous operation at 115200 baud with 8 data bits, no parity, and one stop bit (115200N81).  The main loop waits until 80 characters or a carriage return ar...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_async_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/async_polled/SimplicityStudio/BRD4270B_EFR32FG25_eusart_async_polled.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART SPI Main DMA" description="This project demonstrates DMA-driven operation of the EUSART in synchronous main (formerly master) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bit...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21166,6 +21337,15 @@
     <properties key="template.category" value="EUSART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/spi_main_dma/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_spi_main_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART SPI Main DMA" description="This project demonstrates DMA-driven operation of the EUSART in synchronous main (formerly master) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bit...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_spi_main_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/spi_main_dma/SimplicityStudio/BRD4270B_EFR32FG25_eusart_spi_main_dma.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART SPI Main Interrupt" description="This project demonstrates interrupt-driven operation of the EUSART in synchronous main (formerly master) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 da...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -21185,6 +21365,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/spi_main_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_spi_main_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART SPI Main Interrupt" description="This project demonstrates interrupt-driven operation of the EUSART in synchronous main (formerly master) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 da...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_spi_main_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/spi_main_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_eusart_spi_main_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART SPI Main Polled" description="This project demonstrates polled operation of the EUSART in synchronous main (formerly master) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits tr...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21202,6 +21391,15 @@
     <properties key="template.category" value="EUSART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/spi_main_polled/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_spi_main_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART SPI Main Polled" description="This project demonstrates polled operation of the EUSART in synchronous main (formerly master) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bits tr...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_spi_main_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/spi_main_polled/SimplicityStudio/BRD4270B_EFR32FG25_eusart_spi_main_polled.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART SPI Secondary DMA" description="This project demonstrates DMA-driven operation of the EUSART in synchronous secondary (formerly slave) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -21221,6 +21419,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/spi_secondary_dma/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_spi_secondary_dma.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART SPI Secondary DMA" description="This project demonstrates DMA-driven operation of the EUSART in synchronous secondary (formerly slave) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_spi_secondary_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/spi_secondary_dma/SimplicityStudio/BRD4270B_EFR32FG25_eusart_spi_secondary_dma.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART SPI Secondary Interrupt" description="This project demonstrates interrupt-driven operation of the EUSART in synchronous secondary (formerly slave) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of ...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21239,6 +21446,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/spi_secondary_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_spi_secondary_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART SPI Secondary Interrupt" description="This project demonstrates interrupt-driven operation of the EUSART in synchronous secondary (formerly slave) mode.  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_spi_secondary_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/spi_secondary_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_eusart_spi_secondary_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 EUSART SPI Secondary Polled" description="This project demonstrates polled operation of the EUSART in synchronous secondary (formerly slave mode).  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bit...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -21256,6 +21472,105 @@
     <properties key="template.category" value="EUSART"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/eusart/spi_secondary_polled/SimplicityStudio/BRD4204D_EFR32ZG23_eusart_spi_secondary_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 EUSART SPI Secondary Polled" description="This project demonstrates polled operation of the EUSART in synchronous secondary (formerly slave mode).  EUSART1 is configured for SPI-compatible operation at 1 Mbps.  Compatibility with the Synchronous Peripheral Interface standard implies a word size of 8 data bit...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_eusart_spi_secondary_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EUSART"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/eusart/spi_secondary_polled/SimplicityStudio/BRD4270B_EFR32FG25_eusart_spi_secondary_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 GPCRC DMA" description="This project demonstrates the GPCRC used to check 32-bit data using the  IEEE 802.3 polynomial standard in EM1. Data is fed into the GPCRC via the LDMA. The size of the data array being fed into LDMA and GPCRC can be increased  depending on the application. The examp...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_gpcrc_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_dma/SimplicityStudio/BRD4181A_EFR32MG21_gpcrc_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 GPCRC DMA" description="This project demonstrates the GPCRC used to check 32-bit data using the  IEEE 802.3 polynomial standard in EM1. Data is fed into the GPCRC via the LDMA. The size of the data array being fed into LDMA and GPCRC can be increased  depending on the application. The examp...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_gpcrc_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_dma/SimplicityStudio/BRD4182A_EFR32MG22_gpcrc_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 GPCRC DMA" description="This project demonstrates the GPCRC used to check 32-bit data using the  IEEE 802.3 polynomial standard in EM1. Data is fed into the GPCRC via the LDMA. The size of the data array being fed into LDMA and GPCRC can be increased  depending on the application. The examp...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_gpcrc_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_dma/SimplicityStudio/BRD4186C_EFR32MG24_gpcrc_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 GPCRC DMA" description="This project demonstrates the GPCRC used to check 32-bit data using the  IEEE 802.3 polynomial standard in EM1. Data is fed into the GPCRC via the LDMA. The size of the data array being fed into LDMA and GPCRC can be increased  depending on the application. The examp...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_gpcrc_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_dma/SimplicityStudio/BRD4204D_EFR32ZG23_gpcrc_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPCRC DMA" description="This project demonstrates the GPCRC used to check 32-bit data using the  IEEE 802.3 polynomial standard in EM1. Data is fed into the GPCRC via the LDMA. The size of the data array being fed into LDMA and GPCRC can be increased  depending on the application. The examp...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_gpcrc_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_dma/SimplicityStudio/BRD4270B_EFR32FG25_gpcrc_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 GPCRC Software" description="This project demonstrates the GPCRC used to check an array of 32-bit data using the IEEE 802.3 polynomial standard. The GPCRC conversions are initiated by software. ">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_gpcrc_software"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_software/SimplicityStudio/BRD4181A_EFR32MG21_gpcrc_software.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 GPCRC Software" description="This project demonstrates the GPCRC used to check an array of 32-bit data using the IEEE 802.3 polynomial standard. The GPCRC conversions are initiated by software. ">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_gpcrc_software"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_software/SimplicityStudio/BRD4182A_EFR32MG22_gpcrc_software.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 GPCRC Software" description="This project demonstrates the GPCRC used to check an array of 32-bit data using the IEEE 802.3 polynomial standard. The GPCRC conversions are initiated by software. ">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_gpcrc_software"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_software/SimplicityStudio/BRD4186C_EFR32MG24_gpcrc_software.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 GPCRC Software" description="This project demonstrates the GPCRC used to check an array of 32-bit data using the IEEE 802.3 polynomial standard. The GPCRC conversions are initiated by software. ">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_gpcrc_software"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_software/SimplicityStudio/BRD4204D_EFR32ZG23_gpcrc_software.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPCRC Software" description="This project demonstrates the GPCRC used to check an array of 32-bit data using the IEEE 802.3 polynomial standard. The GPCRC conversions are initiated by software. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_gpcrc_software"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPCRC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_software/SimplicityStudio/BRD4270B_EFR32FG25_gpcrc_software.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a  reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, and EFR32xG24) will wake the device from EM4 and  cause the LEDs on the STK/R...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21293,6 +21608,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4204D_EFR32ZG23_gpio_em4_wakeup.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a  reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, and EFR32xG24) will wake the device from EM4 and  cause the LEDs on the STK/R...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_gpio_em4_wakeup"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPIO"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4270B_EFR32FG25_gpio_em4_wakeup.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21328,6 +21652,15 @@
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4204D_EFR32ZG23_gpio_periph.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_gpio_periph"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPIO"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4270B_EFR32FG25_gpio_periph.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 GPIO Slew Rate" description="This project demonstrates the slew rate settings for the GPIO. A 1 MHz square wave is generated on a pin. The slew rate setting is changed by pressing BTN0. The drive strength setting is changed by pressing BTN0.  The effects of these settings on the pin's slew rate ...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21365,6 +21698,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_slew_rate/SimplicityStudio/BRD4204D_EFR32ZG23_gpio_slew_rate.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO Slew Rate" description="This project demonstrates the slew rate settings for the GPIO. A 1 MHz square wave is generated on a pin. The slew rate setting is changed by pressing BTN0. The drive strength setting is changed by pressing BTN0.  The effects of these settings on the pin's slew rate ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_gpio_slew_rate"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPIO"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpio/gpio_slew_rate/SimplicityStudio/BRD4270B_EFR32FG25_gpio_slew_rate.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 Switch Led Interrupt" description="This project demonstrates how to use GPIO pins to trigger external interrupts. If a push-button is pressed, and it is on an odd pin, the odd GPIO interrupt is triggered and toggles LED1. If the pin is on an even pin, the even GPIO interrupt is triggered and toggles L...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21400,6 +21742,15 @@
     <properties key="template.category" value="GPIO"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/switch_led_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_switch_led_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 Switch Led Interrupt" description="This project demonstrates how to use GPIO pins to trigger external interrupts. If push-button 0 is pressed, then LED0 will toggle. If push-button 1 is pressed, then LED1 will toggle. The GPIO has two interrupt handler, and will be triggered based on the whether the G...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_switch_led_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPIO"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpio/switch_led_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_switch_led_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 Switch Led Polled" description="This project demonstrates a user how to set a simple digital input and digital output. Button PB0 on the WSTK is an input. LED0 is the output.  When button 0 is pressed, LED0 will be on. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21437,6 +21788,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/switch_led_polled/SimplicityStudio/BRD4204D_EFR32ZG23_switch_led_polled.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 Switch Led Polled" description="This project demonstrates a user how to set a simple digital input and digital output. Button PB0 on the WSTK is an input. LED0 is the output.  When button 0 is pressed, LED0 will be on. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_switch_led_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="GPIO"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/gpio/switch_led_polled/SimplicityStudio/BRD4270B_EFR32FG25_switch_led_polled.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 I2C Follower" description="This project demonstrates the follower configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader reads the follower's current buffer values, incremen...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21472,6 +21832,15 @@
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/i2c/i2c_follower/SimplicityStudio/BRD4204D_EFR32ZG23_i2c_follower.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 I2C Follower" description="This project demonstrates the follower configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader reads the follower's current buffer values, incremen...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_i2c_follower"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_follower/SimplicityStudio/BRD4270B_EFR32FG25_i2c_follower.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21509,6 +21878,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4204D_EFR32ZG23_i2c_leader.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_i2c_leader"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4270B_EFR32FG25_i2c_leader.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan Continuous LDMA" description="This project demonstrates use of the IADC to continuously sample two single-ended input channels.  The CPU starts the scan while in EM0, and operation continues in EM2 with the LDMA saving the results to RAM and waking the system with an interrupt request to toggle a...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21544,6 +21922,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_continuous_ldma/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_scan_continuous_ldma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Scan Continuous LDMA" description="This project demonstrates use of the IADC to continuously sample two single-ended input channels.  The CPU starts the scan while in EM0, and operation continues in EM2 with the LDMA saving the results to RAM and waking the system with an interrupt request to toggle a...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_scan_continuous_ldma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_continuous_ldma/SimplicityStudio/BRD4270B_EFR32FG25_iadc_scan_continuous_ldma.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan GPIO PRS LDMA" description="This project demonstrates use of the IADC to take single-ended analog measurements using two external inputs, triggered via the PRS in response to a positive (rising) edge on a user-specified GPIO pin.  Operation is in EM2 with the GPIO positive edge triggering a sca...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21581,6 +21968,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_gpio_prs_ldma/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_scan_gpio_prs_ldma.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Scan GPIO PRS LDMA" description="This project demonstrates use of the IADC to take single-ended analog measurements using two external inputs, triggered via the PRS in response to a positive (rising) edge on a user-specified GPIO pin.  Operation is in EM2 with the GPIO positive edge triggering a sca...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_scan_gpio_prs_ldma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_gpio_prs_ldma/SimplicityStudio/BRD4270B_EFR32FG25_iadc_scan_gpio_prs_ldma.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan IADC TIMER" description="This project demonstrates use of the IADC to take single-ended analog analog measurements of two input channels.  The IADC operates in EM0 with its local timer triggering scan sequences.  An interrupt is requested when the specified FIFO data valid level is reached, ...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21616,6 +22012,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_iadc_timer/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_scan_iadc_timer.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Scan IADC TIMER" description="This project demonstrates use of the IADC to take single-ended analog analog measurements of two input channels.  The IADC operates in EM0 with its local timer triggering scan sequences.  An interrupt is requested when the specified FIFO data valid level is reached, ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_scan_iadc_timer"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_iadc_timer/SimplicityStudio/BRD4270B_EFR32FG25_iadc_scan_iadc_timer.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan Interrupt" description="This project demonstrates use of the IADC to take single-ended analog measurements across two different external inputs and six of the internal voltage supply channels.  The IADC operates in EM2 and wakes the device to save the completed conversion results, convert t...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21653,6 +22058,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_scan_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Scan Interrupt" description="This project demonstrates use of the IADC to take single-ended analog measurements across two different external inputs and six of the internal voltage supply channels.  The IADC operates in EM2 and wakes the device to save the completed conversion results, convert t...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_scan_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_iadc_scan_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan LETIMER Interrupt" description="This project demonstrates use of the IADC to take single-ended analog measurements across two different external inputs and six of the supply voltage input channels.  Operation is primarily in EM2 where (a) the once per second LETIMER underflow interrupt wakes the de...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21688,6 +22102,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_letimer_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_scan_letimer_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Scan LETIMER Interrupt" description="This project demonstrates use of the IADC to take single-ended analog measurements across two different external inputs and six of the supply voltage input channels.  Operation is primarily in EM2 where (a) the once per second LETIMER underflow interrupt wakes the de...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_scan_letimer_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_letimer_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_iadc_scan_letimer_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan LETIMER PRS LDMA" description="This project demonstrates use of the IADC to take single-ended analog measurements using two external inputs, triggered periodically by LETIMER underflow via PRS.  Operation is in EM2 with once per second underflows of the LETIMER triggering a scan of the selected ch...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21725,6 +22148,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_letimer_prs_ldma/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_scan_letimer_prs_ldma.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Scan LETIMER PRS LDMA" description="This project demonstrates use of the IADC to take single-ended analog measurements using two external inputs, triggered periodically by LETIMER underflow via PRS.  Operation is in EM2 with once per second underflows of the LETIMER triggering a scan of the selected ch...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_scan_letimer_prs_ldma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_scan_letimer_prs_ldma/SimplicityStudio/BRD4270B_EFR32FG25_iadc_scan_letimer_prs_ldma.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single Calibration" description="This project demonstrates calibrating the IADC peripheral, followed by  single polled differential analog measurements. The main program steps  through the proceedure outlined in Gain and Offset Correction section of the  device Reference Manual for calibrating the o...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21760,6 +22192,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_calibration/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_calibration.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Calibration" description="This project demonstrates calibrating the IADC peripheral, followed by  single polled differential analog measurements. The main program steps  through the proceedure outlined in Gain and Offset Correction section of the  device Reference Manual for calibrating the o...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_calibration"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_calibration/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_calibration.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single Differential Polled" description="This project demonstrates using the IADC peripheral to take a differential analog measurement. The main program polls continuously for conversions, then stores the IADC raw result and a voltage conversion of the result into two  global variables. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21797,6 +22238,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_differential_polled/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_differential_polled.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Differential Polled" description="This project demonstrates using the IADC peripheral to take a differential analog measurement. The main program polls continuously for conversions, then stores the IADC raw result and a voltage conversion of the result into two  global variables. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_differential_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_differential_polled/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_differential_polled.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single GPIO PRS LDMA" description="This project demonstrates using the IADC peripheral to take single-ended analog measurements using a single external input, triggered by rising edge of GPIO via PRS. Upon completion, an LDMA data transfer occurs storing the raw data to memory. The IADC/LDMA operate i...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21832,6 +22282,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_gpio_prs_ldma/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_gpio_prs_ldma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single GPIO PRS LDMA" description="This project demonstrates using the IADC peripheral to take single-ended analog measurements using a single external input, triggered by rising edge of GPIO via PRS. Upon completion, an LDMA data transfer occurs storing the raw data to memory. The IADC/LDMA operate i...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_gpio_prs_ldma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_gpio_prs_ldma/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_gpio_prs_ldma.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single Interrupt" description="This project demonstrates using the IADC peripheral to take single-ended analog measurements using a single external input.  After starting a conversion, the device enters EM2 and wakes in response to the end of conversion interrupt. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21869,6 +22328,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Interrupt" description="This project demonstrates using the IADC peripheral to take single-ended analog measurements using a single external input.  After starting a conversion, the device enters EM2 and wakes in response to the end of conversion interrupt. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single LETIMER Interrupt" description="This project demonstrates using the IADC peripheral to take single-ended analog measurements using a single external input, triggered periodically by  LETIMER underflow interrupt. The IADC/LETIMER operate in EM2; LETIMER interrupts wake to EM0 to trigger IADC to star...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21904,6 +22372,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_letimer_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_letimer_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single LETIMER Interrupt" description="This project demonstrates using the IADC peripheral to take single-ended analog measurements using a single external input, triggered periodically by  LETIMER underflow interrupt. The IADC/LETIMER operate in EM2; LETIMER interrupts wake to EM0 to trigger IADC to star...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_letimer_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_letimer_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_letimer_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single LETIMER PRS LDMA" description="This project demonstrates use of the IADC to take single-ended analog measurements on a single channel from a periodic PRS trigger input. Operation is in EM2 with once per second underflows of the LETIMER triggering conversions of the selected channel and the LDMA sa...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21941,6 +22418,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_letimer_prs_ldma/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_letimer_prs_ldma.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single LETIMER PRS LDMA" description="This project demonstrates use of the IADC to take single-ended analog measurements on a single channel from a periodic PRS trigger input. Operation is in EM2 with once per second underflows of the LETIMER triggering conversions of the selected channel and the LDMA sa...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_letimer_prs_ldma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_letimer_prs_ldma/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_letimer_prs_ldma.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single Low Current" description="This project demonstrates one of the lowest current consumption configurations for the IADC peripheral. The IADC is configured to utilize the internal IADC  timer to trigger a single single-ended conversion. Upon completion, an LDMA data transfer occurs storing the r...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21976,6 +22462,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_low_current/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_low_current.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Low Current" description="This project demonstrates one of the lowest current consumption configurations for the IADC peripheral. The IADC is configured to utilize the internal IADC  timer to trigger a single single-ended conversion. Upon completion, an LDMA data transfer occurs storing the r...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_low_current"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_low_current/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_low_current.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4182A EFR32MG22 IADC Single Oversampling 16bit" description="This project demonstrates using the IADC peripheral's oversampling feature to acquire a 16-bit/20bit resolution conversion results while operating in EM2. IADC interrupts on conversion completion wake the MCU into EM0, where the IADC interrupt handler converts the re...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
@@ -22031,6 +22526,24 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_oversampling/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_oversampling_20bit.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Oversampling 16bit" description="This project demonstrates using the IADC peripheral's oversampling feature to acquire a 16-bit/20bit resolution conversion results while operating in EM2. IADC interrupts on conversion completion wake the MCU into EM0, where the IADC interrupt handler converts the re...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_oversampling_16bit"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_oversampling/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_oversampling_16bit.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Oversampling 20bit" description="This project demonstrates using the IADC peripheral's oversampling feature to acquire a 16-bit/20bit resolution conversion results while operating in EM2. IADC interrupts on conversion completion wake the MCU into EM0, where the IADC interrupt handler converts the re...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_oversampling_20bit"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_oversampling/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_oversampling_20bit.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Single Window Compare" description="This project demonstrates using the IADC peripheral as a window comparator on a single-ended input PC05. The window comparator is configured to trigger on  output results which are inside the specified window. WSTK LED0 is toggled on  each conversion with results wit...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22066,6 +22579,15 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_window_compare/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_single_window_compare.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC Single Window Compare" description="This project demonstrates using the IADC peripheral as a window comparator on a single-ended input PC05. The window comparator is configured to trigger on  output results which are inside the specified window. WSTK LED0 is toggled on  each conversion with results wit...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_single_window_compare"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_window_compare/SimplicityStudio/BRD4270B_EFR32FG25_iadc_single_window_compare.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA 2D Copy" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #6 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22103,6 +22625,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_2d_copy/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_2d_copy.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA 2D Copy" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #6 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_2d_copy"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_2d_copy/SimplicityStudio/BRD4270B_EFR32FG25_ldma_2d_copy.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Interchannel Synchronization" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #5 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22138,6 +22669,15 @@
     <properties key="template.category" value="LDMA"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_interchannel_synchronization/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_interchannel_synchronization.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Interchannel Synchronization" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #5 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_interchannel_synchronization"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_interchannel_synchronization/SimplicityStudio/BRD4270B_EFR32FG25_ldma_interchannel_synchronization.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Linked List" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #2 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22175,6 +22715,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_linked_list/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_linked_list.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Linked List" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #2 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_linked_list"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_linked_list/SimplicityStudio/BRD4270B_EFR32FG25_ldma_linked_list.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Linked List Looped" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #4 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22210,6 +22759,15 @@
     <properties key="template.category" value="LDMA"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_linked_list_looped/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_linked_list_looped.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Linked List Looped" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #4 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_linked_list_looped"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_linked_list_looped/SimplicityStudio/BRD4270B_EFR32FG25_ldma_linked_list_looped.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Ping Pong" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #7 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22247,6 +22805,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_ping_pong/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_ping_pong.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Ping Pong" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #7 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_ping_pong"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_ping_pong/SimplicityStudio/BRD4270B_EFR32FG25_ldma_ping_pong.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Scatter Gather" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #8 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22282,6 +22849,15 @@
     <properties key="template.category" value="LDMA"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_scatter_gather/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_scatter_gather.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Scatter Gather" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #8 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_scatter_gather"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_scatter_gather/SimplicityStudio/BRD4270B_EFR32FG25_ldma_scatter_gather.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Single Button" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #1 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22319,6 +22895,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_single_button/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_single_button.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Single Button" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #1 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_single_button"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_single_button/SimplicityStudio/BRD4270B_EFR32FG25_ldma_single_button.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA Single Looped" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #3 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22355,6 +22940,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/ldma/ldma_single_looped/SimplicityStudio/BRD4204D_EFR32ZG23_ldma_single_looped.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LDMA Single Looped" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #3 ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_ldma_single_looped"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LDMA"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/ldma/ldma_single_looped/SimplicityStudio/BRD4270B_EFR32FG25_ldma_single_looped.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4204D EFR32ZG23 LESENSE Decoder" description="This project demonstrates the usage of LESENSE to sample two channels using ACMP. The LESENSE uses the ACMP peripheral to sample the input state of  push button 0 and 1. The dedicated LESENSE decoder is used to read the sensor  state and update its internal state mac...">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
@@ -22363,6 +22957,15 @@
     <properties key="template.category" value="LESENSE"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/lesense/lesense_decoder/SimplicityStudio/BRD4204D_EFR32ZG23_lesense_decoder.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LESENSE Decoder" description="This project demonstrates the usage of LESENSE to sample two channels using ACMP. The LESENSE uses the ACMP peripheral to sample the input state of  push button 0 and 1. The dedicated LESENSE decoder is used to read the sensor  state and update its internal state mac...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_lesense_decoder"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LESENSE"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/lesense/lesense_decoder/SimplicityStudio/BRD4270B_EFR32FG25_lesense_decoder.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4204D EFR32ZG23 LESENSE Multi Channel" description="This project demonstrates the usage of LESENSE to sample multiple channels using IADC. The project defines four LESENSE channels and each of these channels is linked to one of four IADC scan inputs based on IADC configuration and preset defines at the start of source...">
     <properties key="core.boardCompatibility" value="brd4204d"/>
@@ -22373,6 +22976,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/lesense/lesense_multi_channel/SimplicityStudio/BRD4204D_EFR32ZG23_lesense_multi_channel.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LESENSE Multi Channel" description="This project demonstrates the usage of LESENSE to sample multiple channels using IADC. The project defines four LESENSE channels and each of these channels is linked to one of four IADC scan inputs based on IADC configuration and preset defines at the start of source...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_lesense_multi_channel"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LESENSE"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/lesense/lesense_multi_channel/SimplicityStudio/BRD4270B_EFR32FG25_lesense_multi_channel.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4204D EFR32ZG23 LESENSE Single Channel" description="This project demonstrates the usage of LESENSE to sample a single channel using ACMP. The LESENSE uses the ACMP peripheral to sample the input state of  push button 0, and will trigger an interrupt to toggle LED0 when push button 0 is pressed. ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
@@ -22381,6 +22993,15 @@
     <properties key="template.category" value="LESENSE"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/lesense/lesense_single_channel/SimplicityStudio/BRD4204D_EFR32ZG23_lesense_single_channel.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 LESENSE Single Channel" description="This project demonstrates the usage of LESENSE to sample a single channel using ACMP. The LESENSE uses the ACMP peripheral to sample the input state of  push button 0, and will trigger an interrupt to toggle LED0 when push button 0 is pressed. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_lesense_single_channel"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LESENSE"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/lesense/lesense_single_channel/SimplicityStudio/BRD4270B_EFR32FG25_lesense_single_channel.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 One Shot Output Compare" description="This project demonstrates output compare in EM2 using the LETIMER. The project initializes the letimer in one-shot mode, and expansion  header pin toggles REPEAT_COUNT times while staying in a low energy mode. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22418,6 +23039,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/letimer/one_shot_output_compare/SimplicityStudio/BRD4204D_EFR32ZG23_one_shot_output_compare.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 One Shot Output Compare" description="This project demonstrates output compare in EM2 using the LETIMER. The project initializes the letimer in one-shot mode, and expansion  header pin toggles REPEAT_COUNT times while staying in a low energy mode. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_one_shot_output_compare"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LETIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/letimer/one_shot_output_compare/SimplicityStudio/BRD4270B_EFR32FG25_one_shot_output_compare.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 Pulse Train" description="This project demonstrates pulse train generation using the LETIMER. The project initializes the letimer in free mode, and creates a one  LFCLK length pulse on each underflow event. The underflow occurs  at 1 kHz frequency. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22453,6 +23083,15 @@
     <properties key="template.category" value="LETIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/letimer/pulse_train/SimplicityStudio/BRD4204D_EFR32ZG23_pulse_train.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 Pulse Train" description="This project demonstrates pulse train generation using the LETIMER. The project initializes the letimer in free mode, and creates a one  LFCLK length pulse on each underflow event. The underflow occurs  at 1 kHz frequency. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pulse_train"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LETIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/letimer/pulse_train/SimplicityStudio/BRD4270B_EFR32FG25_pulse_train.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 Pulse Width Modulation" description="This project demonstrates pulse width modulation using the LETIMER. The project initializes the letimer for PWM with a set 30 percent  duty cycle at 1 Hz frequency. The waveform is output on an  Expansion Header Pin on the board. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22490,6 +23129,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/letimer/pulse_width_modulation/SimplicityStudio/BRD4204D_EFR32ZG23_pulse_width_modulation.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 Pulse Width Modulation" description="This project demonstrates pulse width modulation using the LETIMER. The project initializes the letimer for PWM with a set 30 percent  duty cycle at 1 Hz frequency. The waveform is output on an  Expansion Header Pin on the board. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pulse_width_modulation"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="LETIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/letimer/pulse_width_modulation/SimplicityStudio/BRD4270B_EFR32FG25_pulse_width_modulation.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 MSC Page Lock" description="This project demonstrates how to lock flash pages using the MSC_PAGELOCKn and MSC_MISCLOCKWORD registers.  While the locking process is a simple matter of writing 1s to the relevant register bits, positioning of these writes in user program code is somewhat more comp...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22525,6 +23173,15 @@
     <properties key="template.category" value="MSC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/msc/msc_page_lock/SimplicityStudio/BRD4204D_EFR32ZG23_msc_page_lock.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 MSC Page Lock" description="This project demonstrates how to lock flash pages using the MSC_PAGELOCKn and MSC_MISCLOCKWORD registers.  While the locking process is a simple matter of writing 1s to the relevant register bits, positioning of these writes in user program code is somewhat more comp...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_msc_page_lock"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="MSC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/msc/msc_page_lock/SimplicityStudio/BRD4270B_EFR32FG25_msc_page_lock.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 MSC RW" description="This project demonstrates the use of the userdata page of the flash memory. The value 32 is stored in the 4th word of the page. A variable is set to the value stored at this location, which can then be read in the debugger. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22562,6 +23219,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/msc/msc_rw/SimplicityStudio/BRD4204D_EFR32ZG23_msc_rw.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 MSC RW" description="This project demonstrates the use of the userdata page of the flash memory. The value 32 is stored in the 4th word of the page. A variable is set to the value stored at this location, which can then be read in the debugger. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_msc_rw"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="MSC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/msc/msc_rw/SimplicityStudio/BRD4270B_EFR32FG25_msc_rw.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 PCNT EXTCLK Quadrature" description="This project demonstrates the external quadrature mode of the pulse counter peripheral. The program will request an interrupt whenever the quadrature decoder detects a change in direction. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -22579,6 +23245,15 @@
     <properties key="template.category" value="PCNT"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_extclk_quadrature/SimplicityStudio/BRD4204D_EFR32ZG23_pcnt_extclk_quadrature.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PCNT EXTCLK Quadrature" description="This project demonstrates the external quadrature mode of the pulse counter peripheral. The program will request an interrupt whenever the quadrature decoder detects a change in direction. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pcnt_extclk_quadrature"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PCNT"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_extclk_quadrature/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_extclk_quadrature.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 PCNT EXTCLK Single Overflow" description="This project demonstrates the externally clocked single input counter mode of  the pulse counter with interrupts. In this example, in addition to being the  pulse counter input, Push Button PB0 is also the clock source, and each clock  cycle is generated by the press...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -22598,6 +23273,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_extclk_single_overflow/SimplicityStudio/BRD4204D_EFR32ZG23_pcnt_extclk_single_overflow.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PCNT EXTCLK Single Overflow" description="This project demonstrates the externally clocked single input counter mode of  the pulse counter with interrupts. In this example, in addition to being the  pulse counter input, Push Button PB0 is also the clock source, and each clock  cycle is generated by the press...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pcnt_extclk_single_overflow"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PCNT"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_extclk_single_overflow/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_extclk_single_overflow.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 PCNT EXTCLK Single Underflow" description="This project demonstrates the externally clocked single input counter mode of  the pulse counter with interrupts. In this example, in addition to being the  pulse counter input, Push Button PB0 is also the clock source, and each clock  cycle is generated by the press...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -22615,6 +23299,15 @@
     <properties key="template.category" value="PCNT"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_extclk_single_underflow/SimplicityStudio/BRD4204D_EFR32ZG23_pcnt_extclk_single_underflow.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PCNT EXTCLK Single Underflow" description="This project demonstrates the externally clocked single input counter mode of  the pulse counter with interrupts. In this example, in addition to being the  pulse counter input, Push Button PB0 is also the clock source, and each clock  cycle is generated by the press...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pcnt_extclk_single_underflow"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PCNT"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_extclk_single_underflow/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_extclk_single_underflow.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 PCNT Oversampling Quadrature" description="This project demonstrates the oversampling quadrature decoder mode of the pulse  counter peripheral. The program will request an interrupt whenever the  quadrature decoder detects a change in direction or a counter overflow or  counter underflow. The example utilizes...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -22634,6 +23327,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_oversampling_quadrature/SimplicityStudio/BRD4204D_EFR32ZG23_pcnt_oversampling_quadrature.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PCNT Oversampling Quadrature" description="This project demonstrates the oversampling quadrature decoder mode of the pulse  counter peripheral. The program will request an interrupt whenever the  quadrature decoder detects a change in direction or a counter overflow or  counter underflow. The example utilizes...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pcnt_oversampling_quadrature"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PCNT"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_oversampling_quadrature/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_oversampling_quadrature.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 PCNT Single Oversampling Overflow" description="This project demonstrates the single input oversampling mode of the pulse  counter with interrupts. EM23GRPACLK clock is used as the pulse counter clock in this example. The program generates an interrupt whenever the pulse counter goes  above the configured top valu...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -22652,6 +23354,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_single_oversampling_overflow/SimplicityStudio/BRD4204D_EFR32ZG23_pcnt_single_oversampling_overflow.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PCNT Single Oversampling Overflow" description="This project demonstrates the single input oversampling mode of the pulse  counter with interrupts. EM23GRPACLK clock is used as the pulse counter clock in this example. The program generates an interrupt whenever the pulse counter goes  above the configured top valu...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pcnt_single_oversampling_overflow"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PCNT"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_single_oversampling_overflow/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_single_oversampling_overflow.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 PCNT Single Oversampling Underflow" description="This project demonstrates the single input oversampling mode of the pulse  counter with interrupts. EM23GRPACLK clock is used as the pulse counter clock in this example. The program generates an interrupt whenever the pulse counter goes  below zero. In this example, ...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -22669,6 +23380,15 @@
     <properties key="template.category" value="PCNT"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_single_oversampling_underflow/SimplicityStudio/BRD4204D_EFR32ZG23_pcnt_single_oversampling_underflow.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PCNT Single Oversampling Underflow" description="This project demonstrates the single input oversampling mode of the pulse  counter with interrupts. EM23GRPACLK clock is used as the pulse counter clock in this example. The program generates an interrupt whenever the pulse counter goes  below zero. In this example, ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_pcnt_single_oversampling_underflow"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PCNT"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_single_oversampling_underflow/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_single_oversampling_underflow.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4184A EFR32BG22 PDM Stereo Interrupt" description="This project demonstrates how to get stereo PCM data from a MEMS microphone using the PDM interface. An interrupt is triggered when there is valid data in the PDM's hardware FIFO. The interrupt handler reads and translates the raw PCM data from the FIFO into left and...">
     <properties key="core.boardCompatibility" value="brd4184a"/>
@@ -22724,6 +23444,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/prs/prs_logic_unit/SimplicityStudio/BRD4204D_EFR32ZG23_prs_logic_unit.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 PRS Logic Unit" description="This project demonstrates the built-in PRS logic functions between channels. Onboard push-buttons (PB0 and PB1) are set as PRS source. Onboard LED (LED1) is set as PRS output. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_prs_logic_unit"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PRS"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/prs/prs_logic_unit/SimplicityStudio/BRD4270B_EFR32FG25_prs_logic_unit.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 RTCC Interrupt" description="This project uses the RTCC (Real Time Clock with Capture) to wake the device from EM2 (LFRCO or LFXO) or EM3 (ULFRCO) mode. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22778,6 +23507,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_dma_edge_capture/SimplicityStudio/BRD4204D_EFR32ZG23_timer_dma_edge_capture.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER DMA Edge Capture" description="This project demonstrates DMA driven edge capture from a TIMER Compare/Capture channel. TIMER0 CC0 is configured to capture rising and falling edges. GPIO Pin PA6 (see board specific pinout) is to be connected to a periodic signal, and  edges captured from PA6 are st...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_dma_edge_capture"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_dma_edge_capture/SimplicityStudio/BRD4270B_EFR32FG25_timer_dma_edge_capture.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Frequency Generation" description="This project demonstrates frequency generation using the TIMER module. TIMER0 is initialized for output compare on Compare/Capture channel 0 which is routed to GPIO Pin PA6 (see board specific pinout). The Top value is set such that on each overflow, the output toggl...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22813,6 +23551,15 @@
     <properties key="template.category" value="TIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_frequency_generation/SimplicityStudio/BRD4204D_EFR32ZG23_timer_frequency_generation.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Frequency Generation" description="This project demonstrates frequency generation using the TIMER module. TIMER0 is initialized for output compare on Compare/Capture channel 0 which is routed to GPIO Pin PA6 (see board specific pinout). The Top value is set such that on each overflow, the output toggl...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_frequency_generation"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_frequency_generation/SimplicityStudio/BRD4270B_EFR32FG25_timer_frequency_generation.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Input Capture Interrupt" description="This project demonstrates use of the TIMER module for interrupt-driven input capture.  Button 0 is presses are captured and stored in a buffer in the TIMER interrupt handler. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22850,6 +23597,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_input_capture_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_timer_input_capture_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Input Capture Interrupt" description="This project demonstrates use of the TIMER module for interrupt-driven input capture.  Button 0 is presses are captured and stored in a buffer in the TIMER interrupt handler. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_input_capture_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_input_capture_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_timer_input_capture_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Period Measurement Interrupt" description="This project demonstrates period measurement using TIMER0.  The module is configured to request an interrupt after capturing a pair of falling edges.  In the IRQ handler, in addition to saving the two edge times, the overflow flag is checked in order to account for t...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22885,6 +23641,15 @@
     <properties key="template.category" value="TIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_period_measurement_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_timer_period_measurement_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Period Measurement Interrupt" description="This project demonstrates period measurement using TIMER0.  The module is configured to request an interrupt after capturing a pair of falling edges.  In the IRQ handler, in addition to saving the two edge times, the overflow flag is checked in order to account for t...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_period_measurement_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_period_measurement_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_timer_period_measurement_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Period Measurement Polled" description="This project demonstrates period measurement using TIMER0.  The main loop polls the CC0 flag, which is set after capturing a pair of falling edges, thus eliminating the need to poll for both edges associated with one waveform period. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22922,6 +23687,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_period_measurement_polled/SimplicityStudio/BRD4204D_EFR32ZG23_timer_period_measurement_polled.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Period Measurement Polled" description="This project demonstrates period measurement using TIMER0.  The main loop polls the CC0 flag, which is set after capturing a pair of falling edges, thus eliminating the need to poll for both edges associated with one waveform period. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_period_measurement_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_period_measurement_polled/SimplicityStudio/BRD4270B_EFR32FG25_timer_period_measurement_polled.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Pulse Capture" description="This project demonstrates single pulse capture using the TIMER module. The HFXO is configured and selected as the EM01GRPACLK source, which is the clock branch for high-frequency TIMERs on all Series 2 EFM32/EFR32 devices.  The TIMER is then configured for input capt...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -22957,6 +23731,15 @@
     <properties key="template.category" value="TIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_pulse_capture/SimplicityStudio/BRD4204D_EFR32ZG23_timer_pulse_capture.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Pulse Capture" description="This project demonstrates single pulse capture using the TIMER module. The HFXO is configured and selected as the EM01GRPACLK source, which is the clock branch for high-frequency TIMERs on all Series 2 EFM32/EFR32 devices.  The TIMER is then configured for input capt...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_pulse_capture"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_pulse_capture/SimplicityStudio/BRD4270B_EFR32FG25_timer_pulse_capture.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER PWM DMA" description="This project demonstrates DMA-driven pulse width modulation using the TIMER module.  TIMER0 is initialized for PWM on capture/compare channel 0 and routed to GPIO pin PA6. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -22994,6 +23777,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_pwm_dma/SimplicityStudio/BRD4204D_EFR32ZG23_timer_pwm_dma.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER PWM DMA" description="This project demonstrates DMA-driven pulse width modulation using the TIMER module.  TIMER0 is initialized for PWM on capture/compare channel 0 and routed to GPIO pin PA6. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_pwm_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_pwm_dma/SimplicityStudio/BRD4270B_EFR32FG25_timer_pwm_dma.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER PWM Interrupt" description="This project demonstrates pulse width modulation using the TIMER module. TIMER  is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO  Pin specified below. In PWM mode, overflow events set the output pin, while  compare events clear the pin....">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -23029,6 +23821,15 @@
     <properties key="template.category" value="TIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_pwm_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_timer_pwm_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER PWM Interrupt" description="This project demonstrates pulse width modulation using the TIMER module. TIMER  is initialized for PWM on Compare/Capture channel 0 which is routed to the GPIO  Pin specified below. In PWM mode, overflow events set the output pin, while  compare events clear the pin....">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_pwm_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_pwm_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_timer_pwm_interrupt.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Single Edge Output Compare" description="This project demonstrates single output compare using the TIMER module. TIMER0 is initialized for output compare on capture/compare channel 0, which is routed to the GPIO pin PA6. The compare value is set such that after 3 seconds, the GPIO pin will be set high. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -23066,6 +23867,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_single_edge_output_compare/SimplicityStudio/BRD4204D_EFR32ZG23_timer_single_edge_output_compare.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Single Edge Output Compare" description="This project demonstrates single output compare using the TIMER module. TIMER0 is initialized for output compare on capture/compare channel 0, which is routed to the GPIO pin PA6. The compare value is set such that after 3 seconds, the GPIO pin will be set high. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_single_edge_output_compare"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_single_edge_output_compare/SimplicityStudio/BRD4270B_EFR32FG25_timer_single_edge_output_compare.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Single Pulse Generation DMA" description="This project demonstrates the generation of a single pulse using output compare and the LDMA. TIMER0 is initialized for output compare on Compare/Capture  channel 0 which is routed to GPIO Pin specified below. The timer is configured  in one-shot mode and an interrup...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -23101,6 +23911,15 @@
     <properties key="template.category" value="TIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_single_pulse_generation_dma/SimplicityStudio/BRD4204D_EFR32ZG23_timer_single_pulse_generation_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Single Pulse Generation DMA" description="This project demonstrates the generation of a single pulse using output compare and the LDMA. TIMER0 is initialized for output compare on Compare/Capture  channel 0 which is routed to GPIO Pin specified below. The timer is configured  in one-shot mode and an interrup...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_single_pulse_generation_dma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_single_pulse_generation_dma/SimplicityStudio/BRD4270B_EFR32FG25_timer_single_pulse_generation_dma.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Single Pulse Generation Interrupt" description="This project demonstrates interrupt-driven generation of a single pulse using TIMER output compare.  Capture/compare channel 0 is configured for one-shot operation and to toggle the output pin (PA5) on each compare event.  The first compare event is set for NUM_SEC_D...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -23138,6 +23957,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_single_pulse_generation_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_timer_single_pulse_generation_interrupt.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Single Pulse Generation Interrupt" description="This project demonstrates interrupt-driven generation of a single pulse using TIMER output compare.  Capture/compare channel 0 is configured for one-shot operation and to toggle the output pin (PA5) on each compare event.  The first compare event is set for NUM_SEC_D...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_single_pulse_generation_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_single_pulse_generation_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_timer_single_pulse_generation_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 TIMER Single Pulse Generation Polled" description="This project demonstrates polled single pulse generation using TIMER output compare.  Capture/compare channel 0 is configured to toggle the output pin (PA5) on each compare event.  The first compare event is set for NUM_SEC_DELAY seconds after the TIMER starts counti...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -23173,6 +24001,15 @@
     <properties key="template.category" value="TIMER"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/timer/timer_single_pulse_generation_polled/SimplicityStudio/BRD4204D_EFR32ZG23_timer_single_pulse_generation_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 TIMER Single Pulse Generation Polled" description="This project demonstrates polled single pulse generation using TIMER output compare.  Capture/compare channel 0 is configured to toggle the output pin (PA5) on each compare event.  The first compare event is set for NUM_SEC_DELAY seconds after the TIMER starts counti...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_timer_single_pulse_generation_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="TIMER"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/timer/timer_single_pulse_generation_polled/SimplicityStudio/BRD4270B_EFR32FG25_timer_single_pulse_generation_polled.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4180A EFR32MG21 USART Async Interrupt" description="This project demonstrates interrupt-drive operation of the USART in asynchronous mode.  USART0 is configured for asynchronous operation at 115200 baud with 8 data bits, no parity, and one stop bit (115200N81). The main loop waits until 80 characters or a carriage ret...">
     <properties key="core.boardCompatibility" value="brd4180a"/>
@@ -23552,6 +24389,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/vdac/vdac_continuous/SimplicityStudio/BRD4204D_EFR32ZG23_vdac_continuous.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 VDAC Continuous" description="This project uses the VDAC in continuous mode with single-ended output to output 0.5V to a pin in EM3. The VDAC operates independently from the core. Since the VDAC is operating in continuous mode, the output voltage will be stable even if the output is loaded. The f...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_vdac_continuous"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="VDAC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/vdac/vdac_continuous/SimplicityStudio/BRD4270B_EFR32FG25_vdac_continuous.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 VDAC Differential" description="This project uses the VDAC in continuous mode with differential output to output a difference of 0.5V between two pins in EM3. The VDAC operates independently from the core. Since the VDAC is operating in continuous mode, the output voltage will be stable even if the...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -23570,6 +24416,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/vdac/vdac_differential/SimplicityStudio/BRD4204D_EFR32ZG23_vdac_differential.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 VDAC Differential" description="This project uses the VDAC in continuous mode with differential output to output a difference of 0.5V between two pins in EM3. The VDAC operates independently from the core. Since the VDAC is operating in continuous mode, the output voltage will be stable even if the...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_vdac_differential"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="VDAC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/vdac/vdac_differential/SimplicityStudio/BRD4270B_EFR32FG25_vdac_differential.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 VDAC Sample Off" description="This project uses the VDAC in sample/off mode with single-ended output to output 0.5V to a pin in EM3. The VDAC operates independently from the core. Since the VDAC is operating in sample/off mode, the output voltage is only driven by the VDAC during the output hold ...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -23578,6 +24433,15 @@
     <properties key="template.category" value="VDAC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/vdac/vdac_sample_off/SimplicityStudio/BRD4186C_EFR32MG24_vdac_sample_off.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 VDAC Sample Off" description="This project uses the VDAC in sample/off mode with single-ended output to output 0.5V to a pin in EM3. The VDAC operates independently from the core. Since the VDAC is operating in sample/off mode, the output voltage is only driven by the VDAC during the output hold ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_vdac_sample_off"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="VDAC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/vdac/vdac_sample_off/SimplicityStudio/BRD4270B_EFR32FG25_vdac_sample_off.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 VDAC Sine Wave Synch" description="This project uses the VDAC and the internal sine wave generator to produce a 16-point sine wave at a frequency of f_sinewave Hz centered at the reference voltage divided by 2. This project operates in EM1. By default, this program outputs a sinewave at 31.25 kHz. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
@@ -23597,6 +24461,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/vdac/vdac_sine_wave_synch/SimplicityStudio/BRD4204D_EFR32ZG23_vdac_sine_wave_synch.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 VDAC Sine Wave Synch" description="This project uses the VDAC and the internal sine wave generator to produce a 16-point sine wave at a frequency of f_sinewave Hz centered at the reference voltage divided by 2. This project operates in EM1. By default, this program outputs a sinewave at 31.25 kHz. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_vdac_sine_wave_synch"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="VDAC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/vdac/vdac_sine_wave_synch/SimplicityStudio/BRD4270B_EFR32FG25_vdac_sine_wave_synch.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4186C EFR32MG24 VDAC TIMER DMA Waveform" description="This project uses the DAC/VDAC and TIMER0 to output a 32 point sine wave at a particular frequency (10 kHz by default). The project uses the LDMA to write to  the CH0F buffer. This project operates in EM1 because the timer can't operate in  EM2/EM3. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
@@ -23614,6 +24487,15 @@
     <properties key="template.category" value="VDAC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/vdac/vdac_timer_dma_waveform/SimplicityStudio/BRD4204D_EFR32ZG23_vdac_timer_dma_waveform.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 VDAC TIMER DMA Waveform" description="This project uses the DAC/VDAC and TIMER0 to output a 32 point sine wave at a particular frequency (10 kHz by default). The project uses the LDMA to write to  the CH0F buffer. This project operates in EM1 because the timer can't operate in  EM2/EM3. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_vdac_timer_dma_waveform"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="VDAC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/vdac/vdac_timer_dma_waveform/SimplicityStudio/BRD4270B_EFR32FG25_vdac_timer_dma_waveform.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -23650,5 +24532,14 @@
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4204D_EFR32ZG23_wdog.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4270B_EFR32FG25_wdog.slsproj"/>
   </descriptors>
 </model:MDescriptors>
