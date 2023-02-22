@@ -2,7 +2,7 @@ timer_single_edge_output_compare
 
 This project demonstrates single output compare using the TIMER module.
 TIMER0 is initialized for output compare on capture/compare channel 0,
-which is routed to the GPIO pin PA6. The compare value is set such that
+which is routed to the GPIO pin. The compare value is set such that
 after 3 seconds, the GPIO pin will be set high.
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
@@ -51,4 +51,9 @@ PA6 - TIM0_CC0 (Expansion Header Pin 11)
 Board:  Silicon Labs EFR32MG27 Radio Board (BRD4194A)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG27C140F768IM40
-PA6 - TIM0_CC0 (Expansion Header Pin 14, WSTK P11)
+PA6 - TIM0_CC0 (WSTK P11, Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B)
+        + Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB4 - TIM0_CC0 (WSTK P8, Expansion Header Pin 11)

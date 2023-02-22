@@ -2,9 +2,8 @@ timer_frequency_generation
 
 This project demonstrates frequency generation using the TIMER module.
 TIMER0 is initialized for output compare on Compare/Capture channel 0 which
-is routed to GPIO Pin PA6 (see board specific pinout). The Top value is set
-such that on each overflow, the output toggles at the desired frequency:
-OUT_FREQ initially set to 1000 Hz.
+is routed to a GPIO Pin. The Top value is set such that on each overflow, 
+the output toggles at the desired frequency: OUT_FREQ initially set to 1000 Hz.
 
 NOTE: The range of frequencies the program can generate is limited. The maximal
 frequency is 1/2 the clock frequency (Setting the top value to 0 causes an 
@@ -21,7 +20,7 @@ library consistency/compatibility.
 
 How To Test:
 1. Build the project and download to the Starter Kit
-2. Measure waveform on PA6 (see board specific pinout below)
+2. Measure waveform on GPIO pin (see board specific pin below)
 
 ================================================================================
 
@@ -57,4 +56,9 @@ PA6 - TIM0_CC0 (Expansion Header Pin 11)
 Board:  Silicon Labs EFR32MG27 Radio Board (BRD4194A)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG27C140F768IM40
-PA6 - TIM0_CC0, Expansion Header Pin 14, WSTK P11
+PA6 - TIM0_CC0 (WSTK P11, Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B)
+        + Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB4 - TIM0_CC0 (WSTK P8, Expansion Header Pin 11)

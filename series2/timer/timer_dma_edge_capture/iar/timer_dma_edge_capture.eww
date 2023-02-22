@@ -11,13 +11,16 @@
     <path>$WS_DIR$\EFR32MG24_timer_dma_edge_capture.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32ZG23_timer_dma_edge_capture.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32MG27_timer_dma_edge_capture.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32ZG23_timer_dma_edge_capture.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32FG25_timer_dma_edge_capture.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_timer_dma_edge_capture.ewp</path>
   </project>
 
   <batchBuild/>

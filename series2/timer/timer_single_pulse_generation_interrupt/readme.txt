@@ -2,12 +2,11 @@ timer_single_pulse_generation_interrupt
 
 This project demonstrates interrupt-driven generation of a single pulse
 using TIMER output compare.  Capture/compare channel 0 is configured
-for one-shot operation and to toggle the output pin (PA5) on each
-compare event.  The first compare event is set for NUM_SEC_DELAY seconds
-after the TIMER starts counting at which point the pin is driven high
-and an interrupt is requested.  The second compare event is set to occur
-PULSE_WIDTH milliseconds after the first compare event and to toggle the
-output low.
+for one-shot operation and to toggle the output pin on each compare event.  
+The first compare event is set for NUM_SEC_DELAY seconds after the TIMER 
+starts counting at which point the pin is driven high and an interrupt is 
+requested. The second compare event is set to occur PULSE_WIDTH milliseconds 
+after the first compare event and to toggle the output low.
 
 Note: For EFR32xG21 radio devices, library function calls to CMU_ClockEnable() 
 have no effect as oscillators are automatically turned on/off based on demand 
@@ -55,4 +54,9 @@ PA6 - TIM0_CC0 (Expansion Header Pin 11)
 Board:  Silicon Labs EFR32MG27 Radio Board (BRD4194A)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG27C140F768IM40
-PA6 - TIM0_CC0 (Expansion Header Pin 14, WSTK P11)
+PA6 - TIM0_CC0 (WSTK P11, Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B)
+        + Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB4 - TIM0_CC0 (WSTK P8, Expansion Header Pin 11)

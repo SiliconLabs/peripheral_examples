@@ -2,7 +2,7 @@ timer_pwm_dma
 
 This project demonstrates DMA-driven pulse width modulation using the
 TIMER module.  TIMER0 is initialized for PWM on capture/compare channel 0
-and routed to GPIO pin PA6.
+and routed to a GPIO pin.
 
 In PWM mode, compare events set the output pin and overflow events clear
 it such that the values in the TIMER_CC_OC and TIMER_TOP registers
@@ -60,4 +60,9 @@ PA6 - TIM0_CC0 (Expansion Header Pin 11)
 Board:  Silicon Labs EFR32MG27 Radio Board (BRD4194A)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG27C140F768IM40
-PA6 - TIM0_CC0 (Expansion Header Pin 14, WSTK P11)
+PA6 - TIM0_CC0 (WSTK P11, Expansion Header Pin 14)
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B)
+        + Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB4 - TIM0_CC0 (WSTK P8, Expansion Header Pin 11)
