@@ -44,14 +44,24 @@ To observe current consumption,
 1. In main.c, set EM2_DEBUG to 0
 2. Build the project and use Energy Profiler to observe current consumption
 
-Note: The energy profiler only measures the VMCU current. For BRD4270B, VMCU
+Note for Testing on xG25 (BRD4270B): 
+The energy profiler only measures the VMCU current. For BRD4270B, VMCU
 only powers IOVDD and the serial flash. The 3.6V LDO powers the rest of the
 radio board. To measure the 3.6V LDO current, replace R247 with ammeter
 connections. The current provided below is the combination of the VMCU and 3.6V
 current.
+
+Note for Testing on xG28 (BRD4400B):
+There is a diversity SPDT switch on the 2.4 GHz radio output that will consume 
+~63 uA of additional current. When measuring current consumption of the device 
+with Energy Profiler (or other method), please be advised that observed current
+consumption will be higher than what is specified in the EFR32ZG28 device
+datasheet due to this additional integrated circuit.
+
 Board     | avg EM2 current  
 BRD4204D  |          4.7 uA 
 BRD4270B  |          5.6 uA
+BRD4400B  |          4.7 uA
 
 How to test:
 1. Build the project and enter debug mode
@@ -80,7 +90,15 @@ PD03 - LED1
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
-PB01 - Push Button PB0
+PB00 - Push Button PB0
 PB01 - Push Button PB1
 PC06 - LED0
 PC07 - LED1
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 - Push Button PB0
+PB03 - Push Button PB1
+PB02 - LED0
+PD03 - LED1
