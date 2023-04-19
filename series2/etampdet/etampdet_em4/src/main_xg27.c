@@ -352,9 +352,9 @@ int main(void)
     CMU->CLKEN1_SET = CMU_CLKEN1_ETAMPDET;
 
     // Set the appropriate channel flag for LED indicator
-    if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET0IF_MASK) == ETAMPDET_IF_TAMPDET0IF)
+    if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET0_MASK) == ETAMPDET_IF_TAMPDET0)
       tamperDetectedCh0 = 1;
-    else if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET1IF_MASK) == ETAMPDET_IF_TAMPDET1IF)
+    else if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET1_MASK) == ETAMPDET_IF_TAMPDET1)
       tamperDetectedCh1 = 1;
 
     // Disable ETAMPDET module; no longer needed in typical applications

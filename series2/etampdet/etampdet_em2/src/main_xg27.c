@@ -208,8 +208,8 @@ void initETAMPDET()
   ETAMPDET->CHNLSEEDVAL0 = 0x167DC55F;
   ETAMPDET->CHNLSEEDVAL1 = 0x5F04B84A;
 
-  ETAMPDET->IEN_SET = (chnl0_en << _ETAMPDET_IF_TAMPDET0IF_SHIFT) |
-      (chnl1_en << _ETAMPDET_IF_TAMPDET1IF_SHIFT);
+  ETAMPDET->IEN_SET = (chnl0_en << _ETAMPDET_IEN_TAMPDET0_SHIFT) |
+      (chnl1_en << _ETAMPDET_IEN_TAMPDET1_SHIFT);
 
   /*
    *   Additional ETAMPDET configurable settings; configuring for both channels
@@ -258,9 +258,9 @@ void initETAMPDET()
 void ETAMPDET_IRQHandler(void)
 {
   // Set the appropriate channel flag for LED indicator
-  if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET0IF_MASK) == ETAMPDET_IF_TAMPDET0IF)
+  if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET0_MASK) == ETAMPDET_IF_TAMPDET0)
     tamperDetectedCh0 = 1;
-  else if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET1IF_MASK) == ETAMPDET_IF_TAMPDET1IF)
+  else if ((ETAMPDET->IF & _ETAMPDET_IF_TAMPDET1_MASK) == ETAMPDET_IF_TAMPDET1)
     tamperDetectedCh1 = 1;
 
   // Disable ETAMPDET module; no longer needed in typical applications
