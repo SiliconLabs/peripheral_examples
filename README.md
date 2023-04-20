@@ -49,11 +49,13 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 - EFR32BG24
 - EFR32MG24
 - EFR32FG25
+- EFR32MG27
+- EFR32BG27
 
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
 2. Simplicity Studio 5 or IAR Workbech IDE
-3. Gecko SDK Suite 4.2.1, available via Simplicity Studio
+3. Gecko SDK Suite 4.2.2, available via Simplicity Studio
 4. This repo cloned to `C:\SiliconLabs\SimplicityStudio\v5\developer\repos\` 
 
 ## Additional Requirements for IAR ##
