@@ -47,3 +47,9 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
 Device: EFR32FG25B222F1920IM56
 PB00 - Push Button PB0
 PC06 - LED0
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 -  Push Button PB0
+PB02 -  LED0

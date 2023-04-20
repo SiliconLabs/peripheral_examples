@@ -73,3 +73,11 @@ PB00 - Push Button PB0
 PC06 - LED0
 PB01 - Push Button PB1
 PC07 - LED1
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 -  Push Button PB0
+PB02 -  LED0
+PB03 -  Push Button PB1
+PD03 -  LED1
