@@ -47,6 +47,9 @@
     </group>
     <cflags>
       <define>RETARGET_VCOM</define>
+      <define>MX25_LOC_RX=_USART_ROUTELOC0_RXLOC_LOC11</define>
+      <define>MX25_LOC_SCLK=_USART_ROUTELOC0_CLKLOC_LOC11</define>
+      <define>MX25_LOC_TX=_USART_ROUTELOC0_TXLOC_LOC11</define>
     </cflags>
   </project>
 </workspace>

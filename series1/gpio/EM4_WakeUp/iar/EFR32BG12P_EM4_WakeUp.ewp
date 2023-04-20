@@ -171,6 +171,9 @@
           <state>STR(x)=#x</state>
           <state>EFR32BG12P332F1024GL125</state>
           <state>RETARGET_VCOM</state>
+          <state>MX25_LOC_RX=_USART_ROUTELOC0_RXLOC_LOC11</state>
+          <state>MX25_LOC_SCLK=_USART_ROUTELOC0_CLKLOC_LOC11</state>
+          <state>MX25_LOC_TX=_USART_ROUTELOC0_TXLOC_LOC11</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -466,6 +469,9 @@
           <name>ADefines</name>
           <state>EFR32BG12P332F1024GL125</state>
           <state>RETARGET_VCOM</state>
+          <state>MX25_LOC_RX=_USART_ROUTELOC0_RXLOC_LOC11</state>
+          <state>MX25_LOC_SCLK=_USART_ROUTELOC0_CLKLOC_LOC11</state>
+          <state>MX25_LOC_TX=_USART_ROUTELOC0_TXLOC_LOC11</state>
         </option>
         <option>
           <name>AList</name>
@@ -1123,6 +1129,9 @@
           <state>STR(x)=#x</state>
           <state>EFR32BG12P332F1024GL125</state>
           <state>RETARGET_VCOM</state>
+          <state>MX25_LOC_RX=_USART_ROUTELOC0_RXLOC_LOC11</state>
+          <state>MX25_LOC_SCLK=_USART_ROUTELOC0_CLKLOC_LOC11</state>
+          <state>MX25_LOC_TX=_USART_ROUTELOC0_TXLOC_LOC11</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1414,6 +1423,9 @@
           <name>ADefines</name>
           <state>EFR32BG12P332F1024GL125</state>
           <state>RETARGET_VCOM</state>
+          <state>MX25_LOC_RX=_USART_ROUTELOC0_RXLOC_LOC11</state>
+          <state>MX25_LOC_SCLK=_USART_ROUTELOC0_CLKLOC_LOC11</state>
+          <state>MX25_LOC_TX=_USART_ROUTELOC0_TXLOC_LOC11</state>
         </option>
         <option>
           <name>AList</name>

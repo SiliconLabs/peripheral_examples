@@ -29,6 +29,9 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <macroDefinition name="RETARGET_VCOM" />
+  <macroDefinition name="MX25_LOC_RX" value="_USART_ROUTELOC0_RXLOC_LOC11" />
+  <macroDefinition name="MX25_LOC_SCLK" value="_USART_ROUTELOC0_CLKLOC_LOC11" />
+  <macroDefinition name="MX25_LOC_TX" value="_USART_ROUTELOC0_TXLOC_LOC11" />
   <includePath uri="../../../../hardware/kit/EFR32FG13_BRD4256A/config" />
   <folder name="src">
     <file name="main_efr32.c" uri="src/main_efr32.c" />
