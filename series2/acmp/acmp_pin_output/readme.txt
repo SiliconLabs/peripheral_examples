@@ -25,7 +25,7 @@ How To Test (EFR32xG21):
 13. Repeat steps 7 thru 12, but instead of using PB1, vary the external supply voltage above
     and below 1.25V
     
-How To Test (EFR32xG23, EFR32xG24, and EFR32xG25):   
+How To Test (EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27 and EFR32xG28):   
 1.  Open Simplicity Studio and update the kit's firmware from the Simplicity Launcher (if necessary)
 2.  Build the project and download to the Starter Kit
 3.  Flash the firmware hex or binary to the target device
@@ -76,3 +76,10 @@ Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) +
 Device: EFR32MG27C140F768IM40
 PB00 - LED0, GPIO output from ACMP, WSTK Pin 4, Expansion Header Pin 7
 PB01 - ACMP positive input, push button PB1, WSTK Pin 4, Expansion Header Pin 9
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 - ACMP positive input, push button PB0, WSTK Pin 17
+PB02 - LED0, WSTK Pin 19
+PB03 - GPIO output from ACMP, push button PB1, WSTK Pin 21

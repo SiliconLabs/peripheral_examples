@@ -66,3 +66,10 @@ Device: EFR32MG27C140F768IM40
 PB00 - LED0, WSTK Pin 4, Expansion Header Pin 7
 PB01 - ACMP positive input, push button PB1, WSTK Pin 6, Expansion Header Pin 9
 PB03 - ACMP output, WSTK Pin 13, Expansion Header Pin 16
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 - ACMP positive input, push button PB0, WSTK Pin 17
+PB02 - LED0, WSTK Pin 19
+PB03 - ACMP output, push button PB1, WSTK Pin 21
