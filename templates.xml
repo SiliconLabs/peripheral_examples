@@ -23957,6 +23957,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pcnt/pcnt_single_oversampling_underflow/SimplicityStudio/BRD4270B_EFR32FG25_pcnt_single_oversampling_underflow.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD2602A EFR32BG27 PDM Stereo Interrupt" description="This project demonstrates how to get stereo PCM data from a MEMS microphone using the PDM interface. An interrupt is triggered when there is valid data in the PDM's hardware FIFO. The interrupt handler reads and translates the raw PCM data from the FIFO into left and...">
+    <properties key="core.boardCompatibility" value="brd2602a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg27.*"/>
+    <properties key="defaultName" value="BRD2602A_EFR32BG27_pdm_stereo_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PDM"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pdm/pdm_stereo_interrupt/SimplicityStudio/BRD2602A_EFR32BG27_pdm_stereo_interrupt.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4184A EFR32BG22 PDM Stereo Interrupt" description="This project demonstrates how to get stereo PCM data from a MEMS microphone using the PDM interface. An interrupt is triggered when there is valid data in the PDM's hardware FIFO. The interrupt handler reads and translates the raw PCM data from the FIFO into left and...">
     <properties key="core.boardCompatibility" value="brd4184a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.bg22.*"/>
@@ -23965,6 +23974,15 @@
     <properties key="template.category" value="PDM"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/pdm/pdm_stereo_interrupt/SimplicityStudio/BRD4184A_EFR32BG22_pdm_stereo_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD2602A EFR32BG27 PDM Stereo LDMA" description="This project demonstrates how to get stereo PCM data from a MEMS microphone using the PDM interface. An LDMA transfer is triggered when there is valid data in the PDM's hardware FIFO. The LDMA transfers the raw PCM data from the FIFO to the ping-pong buffers. The mai...">
+    <properties key="core.boardCompatibility" value="brd2602a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.bg27.*"/>
+    <properties key="defaultName" value="BRD2602A_EFR32BG27_pdm_stereo_ldma"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="PDM"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/pdm/pdm_stereo_ldma/SimplicityStudio/BRD2602A_EFR32BG27_pdm_stereo_ldma.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4184A EFR32BG22 PDM Stereo LDMA" description="This project demonstrates how to get stereo PCM data from a MEMS microphone using the PDM interface. An LDMA transfer is triggered when there is valid data in the PDM's hardware FIFO. The LDMA transfers the raw PCM data from the FIFO to the ping-pong buffers. The mai...">
     <properties key="core.boardCompatibility" value="brd4184a"/>
