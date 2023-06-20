@@ -21,6 +21,12 @@ PA0 - MIC enable
 PC6 - PDM clock
 PC7 - PDM data
 
+Board:  Silicon Labs EFR32BG2 Thunderboard (BRD2602A)
+Device: EFR32BG22C224F512IM40
+PC7 - MIC enable
+PB0 - PDM clock
+PB1 - PDM data
+
 Note:
 In order to change this example to use receive mono audio from a single
 MEMs microphone, apply the following changes:

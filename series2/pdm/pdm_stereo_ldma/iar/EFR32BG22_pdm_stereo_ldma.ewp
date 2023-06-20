@@ -1997,7 +1997,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_pdm_stereo_ldma.c</name>
+      <name>$PROJ_DIR$\..\src\main_xg22_pdm_stereo_ldma.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

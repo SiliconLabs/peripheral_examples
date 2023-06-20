@@ -37,7 +37,7 @@
       <source>##em-path-emlib##\src\em_pdm.c</source>
     </group>
     <group name="Source">
-      <source>$PROJ_DIR$\..\src\main_pdm_stereo_ldma.c</source>
+      <source>$PROJ_DIR$\..\src\main_xg22_pdm_stereo_ldma.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>	  	  
     </group>
     

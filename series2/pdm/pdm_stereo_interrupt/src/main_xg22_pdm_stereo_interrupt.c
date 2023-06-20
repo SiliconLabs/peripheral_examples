@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main_pdm_stereo_interrupt.c
+ * @file main_xg22_pdm_stereo_interrupt.c
  * @brief This project demonstrates how to get stereo audio using PDM module and
  * interrupts.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2023 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib

@@ -27,7 +27,7 @@
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <folder name="src">
-    <file name="main_pdm_stereo_interrupt.c" uri="src/main_pdm_stereo_interrupt.c" />
+    <file name="main_xg22_pdm_stereo_interrupt.c" uri="src/main_xg22_pdm_stereo_interrupt.c" />
     <file name="readme.txt" uri="readme.txt" />
   </folder>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
