@@ -2,10 +2,10 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32MG24_vdac_sample_off.ewp</path>
+    <path>$WS_DIR$\EFR32FG25_vdac_sample_off.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG25_vdac_sample_off.ewp</path>
+    <path>$WS_DIR$\EFR32MG24_vdac_sample_off.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG28_vdac_sample_off.ewp</path>

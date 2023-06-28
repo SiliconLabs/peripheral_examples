@@ -284,7 +284,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -770,7 +770,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -1265,7 +1265,7 @@
         </option>
         <option>
           <name>CCDiagWarnAreErr</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>CCCompilerRuntimeInfo</name>
@@ -1752,7 +1752,7 @@
         </option>
         <option>
           <name>IlinkWarningsAreErrors</name>
-          <state></state>
+          <state>0</state>
         </option>
         <option>
           <name>IlinkUseExtraOptions</name>
@@ -2006,7 +2006,7 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\src\main_scan_letimer_prs_ldma_xg25.c</name>
+      <name>$PROJ_DIR$\..\src\main_scan_letimer_prs_ldma_xg25_xg28.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\readme.txt</name>

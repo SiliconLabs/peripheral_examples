@@ -37,6 +37,7 @@
 
 #include "em_device.h"
 #include "em_chip.h"
+#include "em_gpio.h"
 #include "em_msc.h"
 
 // Include the BSP header file here for board GPIO definitions

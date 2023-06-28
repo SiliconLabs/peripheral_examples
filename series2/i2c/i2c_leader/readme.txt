@@ -54,52 +54,52 @@ I2C0      - 100 kHz
 Board:  Silicon Labs EFR32xG21 Radio Board (BRD4181A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG21A010F1024IM32
-PD02 - Push button PB0, Expansion Header Pin 7, WSTK Pin 4
-PB00 - LED0, Expansion Header Pin 11, WSTK Pin 8
-PB01 - LED1, Expansion Header Pin 13, WSTK Pin 10
-PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
-PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
+PD02 -  Push button PB0, Expansion Header Pin 7, WSTK Pin 4
+PB00 -  LED0, Expansion Header Pin 11, WSTK Pin 8
+PB01 -  LED1, Expansion Header Pin 13, WSTK Pin 10
+PA05 -  I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
+PA06 -  I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
 
 Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG22C224F512IM40
-PB00 - Push button PB0, Expansion Header Pin 7, WSTK Pin 4
-PD02 - LED0, Expansion Header Pin 11, WSTK Pin 8
-PD03 - LED1, Expansion Header Pin 13, WSTK Pin 10
-PA05 - I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
-PA06 - I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
+PB00 -  Push button PB0, Expansion Header Pin 7, WSTK Pin 4
+PD02 -  LED0, Expansion Header Pin 11, WSTK Pin 8
+PD03 -  LED1, Expansion Header Pin 13, WSTK Pin 10
+PA05 -  I2C_SDA, Expansion Header Pin 12, WSTK Pin 9
+PA06 -  I2C_SCL, Expansion Header Pin 14, WSTK Pin 11
 
 Board:  Silicon Labs EFR32ZG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG23B010F512IM48
-PB01 - Push button PB0, WSTK Pin 17
-PB02 - LED0, WSTK Pin 19
-PD03 - LED1, WSTK Pin 26
-PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
-PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
+PB01 -  Push button PB0, WSTK Pin 17
+PB02 -  LED0, WSTK Pin 19
+PD03 -  LED1, WSTK Pin 26
+PA05 -  I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
+PA06 -  I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
 
 Board:  Silicon Labs EFR32MG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
-PB01 - Push button PB0, WSTK Pin 17
-PB02 - LED0, WSTK Pin 19
-PB04 - LED1, WSTK Pin 26
-PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
-PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
+PB01 -  Push button PB0, WSTK Pin 17
+PB02 -  LED0, WSTK Pin 19
+PB04 -  LED1, WSTK Pin 26
+PA05 -  I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
+PA06 -  I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
 
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
-PC06 - LED0, WSTK Pin 27
-PC07 - LED1, WSTK Pin 26
-PA05 - I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
-PA06 - I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
+PC06 -  LED0, WSTK Pin 27
+PC07 -  LED1, WSTK Pin 26
+PA05 -  I2C_SDA, Expansion Header Pin 7, WSTK Pin 4
+PA06 -  I2C_SCL, Expansion Header Pin 11, WSTK Pin 8
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
-PB01 - Push button PB0, WSTK Pin 17
-PB02 - LED0, WSTK Pin 19
-PD03 - LED1, WSTK Pin 23
-PA11 - I2C_SDA, Expansion Header Pin 3, WSTK Pin 0
-PA12 - I2C_SCL, Expansion Header Pin 5, WSTK Pin 2
+PB01 -  Push button PB0, WSTK Pin 17
+PB02 -  LED0, WSTK Pin 19
+PD03 -  LED1, WSTK Pin 23
+PA11 -  I2C_SDA, Expansion Header Pin 3, WSTK Pin 0
+PA12 -  I2C_SCL, Expansion Header Pin 5, WSTK Pin 2

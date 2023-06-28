@@ -96,36 +96,36 @@ Listed below are the port and pin mappings for working with this example.
 Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32ZG23B010F512IM48
-PC1 - EUSART1_TX (Expansion Header Pin 4)
-PC2 - EUSART1_RX (Expansion Header Pin 6)
-PB0 - VCOM_ENABLE (WSTK P15)
+PC01 -  EUSART1_TX (Expansion Header Pin 4)
+PC02 -  EUSART1_RX (Expansion Header Pin 6)
+PB00 -  VCOM_ENABLE (WSTK P15)
 
 Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG24B210F1536IM48 (this code will run unchanged on any
         EFR32MG24 variant so long as the pins used as present).
-PC1 - EUSART1_TX (Expansion Header Pin 4)
-PC2 - EUSART1_RX (Expansion Header Pin 6)
-PB0 - VCOM_ENABLE (WSTK P15)
+PC01 -  EUSART1_TX (Expansion Header Pin 4)
+PC02 -  EUSART1_RX (Expansion Header Pin 6)
+PB00 -  VCOM_ENABLE (WSTK P15)
 
 Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
         EFR32FG25 variant so long as the pins used as present).
-PC0 - EUSART1_TX (Expansion Header Pin 4)
-PC1 - EUSART1_RX (Expansion Header Pin 6)
-PA11 - VCOM_ENABLE (WSTK P15)
+PC00 -  EUSART1_TX (Expansion Header Pin 4)
+PC01 -  EUSART1_RX (Expansion Header Pin 6)
+PA11 -  VCOM_ENABLE (WSTK P15)
 
 Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
-PA5 - EUSART0_TX (Expansion Header Pin 12)
-PA6 - EUSART0_RX (Expansion Header Pin 14)
-PB4 - VCOM_ENABLE (WSTK_P15)
+PA05 -  EUSART0_TX (Expansion Header Pin 12)
+PA06 -  EUSART0_RX (Expansion Header Pin 14)
+PB04 -  VCOM_ENABLE (WSTK_P15)
 
-Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
-PA8 - EUSART1_TX (WSTK Breakout Pad J102 P28)
-PA9 - EUSART1_RX (WSTK Breakout Pad J102 P30)
-PB0 - VCOM_ENABLE (WSTK Breakout Pad J101 P15)
+PA08 -  EUSART1_TX (WSTK Breakout Pad J102 P28)
+PA09 -  EUSART1_RX (WSTK Breakout Pad J102 P30)
+PB00 -  VCOM_ENABLE (WSTK Breakout Pad J101 P15)

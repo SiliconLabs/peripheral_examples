@@ -99,7 +99,7 @@ PB00  - GPIO Push/Pull output, WSTK P4, LED0
 PA05  - IADC input, single-ended, Expansion Header pin 12, WSTK P9
 PB01 -  GPIO Push/Pull output, WSTK P6, LED1
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 PB02 -  GPIO Push/Pull output, WSTK P19, LED0

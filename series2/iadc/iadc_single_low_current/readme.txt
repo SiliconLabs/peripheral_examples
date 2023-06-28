@@ -47,17 +47,10 @@ How To Test:
     EFR32xG24 ~23uA
     EFR32xG25 ~34uA
     EFR32xG27 ~25uA
-    EFR32xG28 ~30uA
+    EFR32xG28 ~28uA
     *There is some part-to-part/board-to-board variance; this is a rough typical
     current*	
-    
-    Note for EFR32ZG28 BRD4400B Rev A00 development boards - there is a diversity
-    SPDT switch on the 2.4 GHz radio output that will consume ~63 uA of 
-    additional current. When measuring current consumption of the device with
-    Energy Profiler (or other method), please be advised that observed current
-    consumption will be higher than what is specified in the EFR32ZG28 device
-    datasheet due to this additional integrated circuit.
-   
+
 9.  After completing NUM_SAMPLES conversions, the LDMA will wake the MCU from 
     EM2 and toggle LED to indicate transfer completion before returning to EM2 
     until the next transfer completes; additional current draw in profiler is 
@@ -66,6 +59,14 @@ How To Test:
     UG343: Multi-Node Energy Profiler User's Guide and Simplicity Studio's 
     built-in help menu contain additional information to help analyze power 
     consumption and profile energy usage.	
+
+Note for Testing on xG28:
+On BRD4400C, there is a diversity SPDT switch on the 2.4 GHz radio output that
+will consume ~63 uA of additional current when supplied power via logic high on
+GPIO PD02. The pin is configured in disabled mode (high-Z) by default, thus SPDT
+switch is powered down by default. Be advised that when PD02 is driven to logic
+high, observed current consumption will be higher than what is specified in the 
+EFR32ZG28 device datasheet due to this additional integrated circuit.
 
 Users can experiment with various IADC clock frequencies and timer cycles to 
 determine optimum settings for desired sampling rates.
@@ -134,7 +135,7 @@ PB01  - GPIO Push/Pull output, WSTK Pin 6, LED1
 PA05  - IADC input, single-ended, Expansion Header pin 12, WSTK P9
 PB00  - GPIO pull filtered input, Push Button 0 (PB0) on the WSTK
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 BURTC - 32768 Hz LFRCO clock source, 256 prescaler

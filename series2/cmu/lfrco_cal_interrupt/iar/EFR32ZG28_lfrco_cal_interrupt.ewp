@@ -316,7 +316,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400C\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -585,7 +585,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400C\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1295,7 +1295,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400C\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>
@@ -1565,7 +1565,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400B\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32ZG28_BRD4400C\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers</state>
 
         </option>

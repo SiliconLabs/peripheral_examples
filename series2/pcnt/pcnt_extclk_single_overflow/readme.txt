@@ -33,20 +33,20 @@ PCNT
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG23B010F512IM48
-PB01 - Push Button PB0
-PB02 - LED0
+PB01 -  Push Button PB0
+PB02 -  LED0
 
 Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG24B210F1536IM48
-PB01 - Push Button PB0
-PB02 - LED0
+PB01 -  Push Button PB0
+PB02 -  LED0
 
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
-PB00 - Push Button PB0
-PC06 - LED0
+PB00 -  Push Button PB0
+PC06 -  LED0
 
 Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard

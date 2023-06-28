@@ -57,6 +57,6 @@ Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68

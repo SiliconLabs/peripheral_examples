@@ -2,6 +2,9 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG25_timer_dma_edge_capture.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG21_timer_dma_edge_capture.ewp</path>
   </project>
   <project>
@@ -15,9 +18,6 @@
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG23_timer_dma_edge_capture.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\EFR32FG25_timer_dma_edge_capture.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG28_timer_dma_edge_capture.ewp</path>

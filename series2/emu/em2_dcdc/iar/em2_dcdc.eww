@@ -11,10 +11,13 @@
     <path>$WS_DIR$\EFR32MG24_em2_dcdc.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_em2_dcdc.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32ZG23_em2_dcdc.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_em2_dcdc.ewp</path>
+    <path>$WS_DIR$\EFR32ZG28_em2_dcdc.ewp</path>
   </project>
 
   <batchBuild/>

@@ -1,0 +1,56 @@
+<workspace name="iadc_single_low_current">
+  <project device="EFR32ZG23B010F512IM48" name="EFR32ZG23_iadc_single_low_current">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
+      <kitconfig>$PROJ_DIR$\..\..\..\kit\EFR32ZG23_BRD4204D</kitconfig>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Core\Include</path>
+      <path>##em-path-platform##\common\inc</path>
+      <path>##em-path-device##\EFR32ZG23\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>$PROJ_DIR$\..\..\..\kit\EFR32ZG23_BRD4204D</path>
+      <path>$PROJ_DIR$\..\..\..\kit\common\bsp</path>
+      <path>$PROJ_DIR$\..\..\..\kit\common\drivers</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32ZG23\Source\$IDE$\startup_efr32zg23.s</source>
+      <source>##em-path-device##\EFR32ZG23\Source\system_efr32zg23.c</source>
+    </group>
+	<group name="Drivers">
+      <source>$PROJ_DIR$\..\..\..\kit\common\drivers\mx25flash_spi.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_iadc.c</source>
+      <source>##em-path-emlib##\src\em_ldma.c</source>
+      <source>##em-path-emlib##\src\em_burtc.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+	  <source>##em-path-emlib##\src\em_usart.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main_single_low_current.c</source>
+	  <source>$PROJ_DIR$\..\readme.txt</source>
+	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg23_linker_script.ld</source>
+    </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-c -fmessage-length=0"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg23_linker_script.ld}"/&gt;</tooloption>
+    </cflags>
+  </project>
+</workspace>

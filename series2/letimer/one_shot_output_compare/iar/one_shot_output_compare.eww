@@ -2,22 +2,22 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG25_one_shot_output_compare.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG21_one_shot_output_compare.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32MG22_one_shot_output_compare.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32ZG23_one_shot_output_compare.ewp</path>
-  </project>
-  <project>
     <path>$WS_DIR$\EFR32MG24_one_shot_output_compare.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG25_one_shot_output_compare.ewp</path>
+    <path>$WS_DIR$\EFR32MG27_one_shot_output_compare.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_one_shot_output_compare.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_one_shot_output_compare.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG28_one_shot_output_compare.ewp</path>

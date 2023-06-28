@@ -2,13 +2,13 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG25_pcnt_extclk_single_overflow.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG24_pcnt_extclk_single_overflow.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG23_pcnt_extclk_single_overflow.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\EFR32FG25_pcnt_extclk_single_overflow.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG28_pcnt_extclk_single_overflow.ewp</path>

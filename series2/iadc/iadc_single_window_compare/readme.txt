@@ -72,7 +72,7 @@ Device: EFR32MG27C140F768IM40
 PB00  - GPIO Push/Pull output, J101->Pin 9 of BRD4001, WSTK P4, LED0
 PC05 -  IADC input, single-ended, J102->Pin 8 of BRD4001, WSTK P27
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 PB02 -  GPIO Push/Pull output, WSTK P19, LED0

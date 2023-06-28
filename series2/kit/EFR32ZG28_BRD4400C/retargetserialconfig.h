@@ -32,8 +32,8 @@
  * +----------------------------------------------------------------------+
  * | Defines                            | Serial Output (Locations)       |
  * |----------------------------------------------------------------------+
- * | None                               | USART0 (Rx PD3, Tx PD2)         |
- * | RETARGET_USART0                    | USART0 (Rx PD3, Tx PD2)         |
+ * | None                               | USART0 (Rx PA9, Tx PA8)         |
+ * | RETARGET_USART0                    | USART0 (Rx PA9, Tx PA8)         |
  * | RETARGET_VCOM                      | VCOM using USART0               |
  * +----------------------------------------------------------------------+
  *

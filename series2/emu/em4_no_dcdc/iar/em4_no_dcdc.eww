@@ -8,10 +8,13 @@
     <path>$WS_DIR$\EFR32MG24_em4_no_dcdc.ewp</path>
   </project>
   <project>
+    <path>$WS_DIR$\EFR32MG27_em4_no_dcdc.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32ZG23_em4_no_dcdc.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_em4_no_dcdc.ewp</path>
+    <path>$WS_DIR$\EFR32ZG28_em4_no_dcdc.ewp</path>
   </project>
 
   <batchBuild/>

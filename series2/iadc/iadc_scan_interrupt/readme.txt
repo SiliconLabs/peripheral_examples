@@ -99,7 +99,7 @@ Device: EFR32MG27C140F768IM40
 PB00 -  IADC input, single-ended, WSTK P4
 PB01 -  IADC input, single-ended, WSTK P6
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 PB00 -  IADC input, single-ended, WSTK P15

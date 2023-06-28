@@ -93,9 +93,9 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
 Device: EFR32FG25B222F1920IM56
 PRS   - Channel 1, PB0
         Channel 6, PB1 routed to LED1 (Output)
-PB00 - push button PB0
-PB01 - push button PB1
-PC07 - PRS Channel 6
+PB00  - push button PB0
+PB01  - push button PB1
+PC07  - PRS Channel 6
 
 Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
         Wireless Starter Kit Mainboard
@@ -106,11 +106,11 @@ PB00  - push button PB0
 PB01  - push button PB1
 PC03  - PRS Channel 6 (Expansion Header 10)
 
-Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 PRS   - Channel 1, PB0
         Channel 6, PB1 routed to LED1 (Output)
-PB01 - push button PB0
-PB03 - push button PB1
-PD03 - PRS Channel 6
+PB01  - push button PB0
+PB03  - push button PB1
+PD03  - PRS Channel 6

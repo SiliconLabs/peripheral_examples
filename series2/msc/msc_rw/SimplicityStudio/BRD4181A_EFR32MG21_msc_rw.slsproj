@@ -23,10 +23,12 @@
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
-  <module id="com.silabs.sdk.exx32.common.se_manager">
-    <include pattern="se_manager/sl_se_manager.c" />
-    <include pattern="se_manager/sl_se_manager_util.c" />
-  </module>
+  <includePath uri="../../../../platform/security/sl_component/se_manager/inc" />
+  <includePath uri="../../../../platform/security/sl_component/se_manager/src" />
+  <folder name="se_manager">
+    <file name="sl_se_manager.c" uri="../../../../platform/security/sl_component/se_manager/src/sl_se_manager.c" />
+    <file name="sl_se_manager_util.c" uri="../../../../platform/security/sl_component/se_manager/src/sl_se_manager_util.c" />
+  </folder>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main_xG21.c" uri="src/main_xG21.c" />

@@ -53,24 +53,24 @@ what causes the LFRCO to be started.
 Device: EFR32MG21A020F1024IM32
 Board:  Silicon Labs EFR32xG21 2.4 GHz 20 dBm Radio Board (BRD4180A) 
         + Wireless Starter Kit Mainboard (BRD4001A)
-PC0 = Expansion Header pin 4
+PC00 -  Expansion Header pin 4
 
 Device: EFR32MG21A010F1024IM32
 Board:  Silicon Labs EFR32xG21 2.4 GHz 10 dBm Radio Board (BRD4181A) 
         + Wireless Starter Kit Mainboard (BRD4001A)
-PC0 = Expansion Header pin 4
+PC00 -  Expansion Header pin 4
 
 Device: EFR32ZG23B010F512IM48
 Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D) 
         + Wireless Starter Kit Mainboard (BRD4001A)
-PC0 = Expansion Header pin 10
+PC00 -  Expansion Header pin 10
 
 Device: EFR32FG25B222F1920IM56
 Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B) 
         + Wireless Starter Kit Mainboard (BRD4001A)
-PC0 = Expansion Header pin 4, WSTK pin P1
+PC00 -  Expansion Header pin 4, WSTK pin P1
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
-PC5 = Expansion Header pin 15
+PC05 -  Expansion Header pin 15

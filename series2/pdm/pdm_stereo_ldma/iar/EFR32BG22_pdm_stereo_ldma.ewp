@@ -1993,6 +1993,9 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_pdm.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+    </file>
   </group>
   <group>
     <name>Source</name>

@@ -1,0 +1,48 @@
+<workspace name="timer_pwm_dma">
+  <project device="EFR32MG22C224F512IM40" name="EFR32MG22_timer_pwm_dma">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
+      <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
+      <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG22_BRD4182A\config</kitconfig>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Core\Include</path>
+      <path>##em-path-platform##\common\inc</path>
+      <path>##em-path-device##\EFR32MG22\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>##em-path-kitconfig##</path>
+      <path>##em-path-bsp##</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32MG22\Source\$IDE$\startup_efr32mg22.s</source>
+      <source>##em-path-device##\EFR32MG22\Source\system_efr32mg22.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_ldma.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_timer.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\readme.txt</source>
+      <source>$PROJ_DIR$\..\src\main.c</source>
+    </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-c -fmessage-length=0"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
+    </cflags>
+  </project>
+</workspace>

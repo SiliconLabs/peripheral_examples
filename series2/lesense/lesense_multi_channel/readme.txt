@@ -58,29 +58,29 @@ LESENSE - 32 Hz scan rate; LESENSE scans all enabled channels per scan cycle:
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG23B010F512IM48
-PB01 - LESENSE Channel 0 (Push Button PB0)
-PB03 - LESENSE Channel 1 (Push Button PB1)
-PA06 - LESENSE Channel 2 (Expansion Header 11)
-PA07 - LESENSE Channel 3 (Expansion Header 13)
-PB02 - LED0
-PD03 - LED1
+PB01 -  LESENSE Channel 0 (Push Button PB0)
+PB03 -  LESENSE Channel 1 (Push Button PB1)
+PA06 -  LESENSE Channel 2 (Expansion Header 11)
+PA07 -  LESENSE Channel 3 (Expansion Header 13)
+PB02 -  LED0
+PD03 -  LED1
 
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
-PB00 - LESENSE Channel 0 (Push Button PB0)
-PB01 - LESENSE Channel 1 (Push Button PB1)
-PA06 - LESENSE Channel 2 (Expansion Header 11)
-PA07 - LESENSE Channel 3 (Expansion Header 13)
-PC06 - LED0
-PC07 - LED1
+PB00 -  LESENSE Channel 0 (Push Button PB0)
+PB01 -  LESENSE Channel 1 (Push Button PB1)
+PA06 -  LESENSE Channel 2 (Expansion Header 11)
+PA07 -  LESENSE Channel 3 (Expansion Header 13)
+PC06 -  LED0
+PC07 -  LED1
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
-PB01 - LESENSE Channel 0 (Push Button PB0)
-PB03 - LESENSE Channel 1 (Push Button PB1)
-PB04 - LESENSE Channel 2 (Expansion Header 11)
-PB05 - LESENSE Channel 3 (Expansion Header 13)
-PB02 - LED0
-PD03 - LED1
+PB01 -  LESENSE Channel 0 (Push Button PB0)
+PB03 -  LESENSE Channel 1 (Push Button PB1)
+PB04 -  LESENSE Channel 2 (Expansion Header 11)
+PB05 -  LESENSE Channel 3 (Expansion Header 13)
+PB02 -  LED0
+PD03 -  LED1

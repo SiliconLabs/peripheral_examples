@@ -51,17 +51,18 @@ radio board. To measure the 3.6V LDO current, replace R247 with ammeter
 connections. The current provided below is the combination of the VMCU and 3.6V
 current.
 
-Note for Testing on xG28 (BRD4400B):
-There is a diversity SPDT switch on the 2.4 GHz radio output that will consume 
-~63 uA of additional current. When measuring current consumption of the device 
-with Energy Profiler (or other method), please be advised that observed current
-consumption will be higher than what is specified in the EFR32ZG28 device
-datasheet due to this additional integrated circuit.
+Note for Testing on xG28:
+On BRD4400C, there is a diversity SPDT switch on the 2.4 GHz radio output that
+will consume ~63 uA of additional current when supplied power via logic high on
+GPIO PD02. The pin is configured in disabled mode (high-Z) by default, thus SPDT
+switch is powered down by default. Be advised that when PD02 is driven to logic
+high, observed current consumption will be higher than what is specified in the 
+EFR32ZG28 device datasheet due to this additional integrated circuit.
 
 Board     | avg EM2 current  
 BRD4204D  |          4.7 uA 
 BRD4270B  |          5.6 uA
-BRD4400B  |          4.7 uA
+BRD4400C  |          5.0 uA
 
 How to test:
 1. Build the project and enter debug mode
@@ -82,23 +83,23 @@ LESENSE - controls ACMP to sample push-button 0/1 on selected LESENSE channel
 Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG23B010F512IM48
-PB01 - Push Button PB0
-PB03 - Push Button PB1
-PB02 - LED0
-PD03 - LED1
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
+PB02 -  LED0
+PD03 -  LED1
 
 Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
         Wireless Starter Kit Mainboard
 Device: EFR32FG25B222F1920IM56
-PB00 - Push Button PB0
-PB01 - Push Button PB1
-PC06 - LED0
-PC07 - LED1
+PB00 -  Push Button PB0
+PB01 -  Push Button PB1
+PC06 -  LED0
+PC07 -  LED1
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) +
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
-PB01 - Push Button PB0
-PB03 - Push Button PB1
-PB02 - LED0
-PD03 - LED1
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
+PB02 -  LED0
+PD03 -  LED1

@@ -317,7 +317,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\peripheral\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400C</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -588,7 +588,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\peripheral\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400C</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -1300,7 +1300,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\peripheral\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400C</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 
@@ -1572,7 +1572,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFR32ZG28\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\platform\peripheral\inc</state>
-          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400B</state>
+          <state>$PROJ_DIR$\..\..\..\kit\EFR32ZG28_BRD4400C</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\kit\common\drivers</state>
 

@@ -22,19 +22,20 @@ radio board. To measure the 3.6V LDO current, replace R247 with ammeter
 connections. The current provided below is the combination of the VMCU and 3.6V
 current.
 
-Note for Testing on xG28 (BRD4400B Rev A00):
-There is an antenna diversity SPDT switch on the 2.4 GHz radio output that
-consumes about 63 uA of additional current. When measuring current consumption
-of the device with Energy Profiler (or other method), the observed current
-consumption will be higher than what is specified in the EFR32ZG28 datasheet.
-The currents listed in the table below exclude this extra current.
+Note for Testing on xG28:
+On BRD4400C, there is a diversity SPDT switch on the 2.4 GHz radio output that
+will consume ~63 uA of additional current when supplied power via logic high on
+GPIO PD02. The pin is configured in disabled mode (high-Z) by default, thus SPDT
+switch is powered down by default. Be advised that when PD02 is driven to logic
+high, observed current consumption will be higher than what is specified in the 
+EFR32ZG28 device datasheet due to this additional integrated circuit.
 
 Board     | avg current EM1 | avg current EM0 (Enter EM1 code commented out)
 ================================================================================
 BRD4204D  |          950 uA |          1200 uA
 BRD4186C  |          760 uA |           920 uA
 BRD4270B  |          860 uA |          1065 uA
-BRD4400B  |          850 uA |          1057 uA
+BRD4400C  |          925 uA |          1140 uA
 
 ================================================================================
 
@@ -69,7 +70,7 @@ Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) +
 Device: EFR32FG25B222F1920IM56
 PA06 -  VDAC0 CH0 Auxiliary Output (Pin 8 of breakout pads)
 
-Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 PB00 -  VDAC0 CH0 Main Output (WSTK Breakout Pad J101 P15)

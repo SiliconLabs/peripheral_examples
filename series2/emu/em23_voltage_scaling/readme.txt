@@ -96,12 +96,13 @@ the following extra steps must be taken:
 6. Measure the current using a bench meter from the 1.5V supply to
    the pre-programmed, standalone BRD4111A radio board.
    
-Note for Testing on xG28 (BRD4400B Rev A00):
-There is a diversity SPDT switch on the 2.4 GHz radio output that will consume 
-~63 uA of additional current. When measuring current consumption of the device 
-with Energy Profiler (or other method), please be advised that observed current
-consumption will be higher than what is specified in the EFR32ZG28 device
-datasheet due to this additional integrated circuit.
+Note for Testing on xG28:
+On BRD4400C, there is a diversity SPDT switch on the 2.4 GHz radio output that
+will consume ~63 uA of additional current when supplied power via logic high on
+GPIO PD02. The pin is configured in disabled mode (high-Z) by default, thus SPDT
+switch is powered down by default. Be advised that when PD02 is driven to logic
+high, observed current consumption will be higher than what is specified in the 
+EFR32ZG28 device datasheet due to this additional integrated circuit.
 
 ================================================================================
 
@@ -171,7 +172,7 @@ PB01  - FLASH MISO
 PB02  - FLASH SCLK
 PC02  - FLASH CS
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
 PB01  - push button PB0

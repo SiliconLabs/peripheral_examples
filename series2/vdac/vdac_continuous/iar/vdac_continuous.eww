@@ -1,0 +1,18 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_vdac_continuous.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_vdac_continuous.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

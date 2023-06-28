@@ -13,6 +13,7 @@
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_ldma.c" />
     <include pattern="emlib/em_pdm.c" />
+    <include pattern="emlib/em_system.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.bsp">
     <exclude pattern=".*" />

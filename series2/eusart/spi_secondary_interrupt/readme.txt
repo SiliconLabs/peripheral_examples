@@ -142,46 +142,46 @@ Board:  Silicon Labs EFR32ZG23 868-915 MHz 14 dBm Radio Board (BRD4204D)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32ZG23B010F512IM48 (this code will run unchanged on any
         EFR32ZG23 variant so long as the pins used as present).
-PC1 - EUSART1_TX (MOSI)  - Expansion Header pin 4
-PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
-PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8
-PC0 - EUSART1_CS (CSn)   - Expansion Header pin 10
-PD2 - Activity Indicator - Expansion Header pin 9
+PC01 -  EUSART1_TX (MOSI)  - Expansion Header pin 4
+PC02 -  EUSART1_RX (MISO)  - Expansion Header pin 6
+PC03 -  EUSART1_CLK (SCLK) - Expansion Header pin 8
+PC00 -  EUSART1_CS (CSn)   - Expansion Header pin 10
+PD02 -  Activity Indicator - Expansion Header pin 9
 
 Board:  Silicon Labs EFR32xG24 2.4 GHz 10 dBm Radio Board (BRD4186C)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32MG24B210F1536IM48 (this code will run unchanged on any
         EFR32MG24 variant so long as the pins used as present).
-PC1 - EUSART1_TX (MOSI)  - Expansion Header pin 4
-PC2 - EUSART1_RX (MISO)  - Expansion Header pin 6
-PC3 - EUSART1_CLK (SCLK) - Expansion Header pin 8
-PC0 - EUSART1_CS (CSn)   - Expansion Header pin 10
-PD2 - Activity Indicator - Expansion Header pin 9
+PC01 -  EUSART1_TX (MOSI)  - Expansion Header pin 4
+PC02 -  EUSART1_RX (MISO)  - Expansion Header pin 6
+PC03 -  EUSART1_CLK (SCLK) - Expansion Header pin 8
+PC00 -  EUSART1_CS (CSn)   - Expansion Header pin 10
+PD02 -  Activity Indicator - Expansion Header pin 9
 
 Board:  Silicon Labs EFR32FG25 902-928 MHz 14 dBm Radio Board (BRD4270B)
         + Wireless Starter Kit Mainboard (BRD4001A)
 Device: EFR32FG25B222F1920IM56 (this code will run unchanged on any
         EFR32FG25 variant so long as the pins used as present).
-PC0 - EUSART1_TX (MOSI)  - Expansion Header pin 4
-PC1 - EUSART1_RX (MISO)  - Expansion Header pin 6
-PC2 - EUSART1_CLK (SCLK) - Expansion Header pin 8
-PB4 - EUSART1_CS (CSn)   - Expansion Header pin 10
-PA8 - Activity Indicator - Expansion Header pin 12
+PC00 -  EUSART1_TX (MOSI)  - Expansion Header pin 4
+PC01 -  EUSART1_RX (MISO)  - Expansion Header pin 6
+PC02 -  EUSART1_CLK (SCLK) - Expansion Header pin 8
+PB04 -  EUSART1_CS (CSn)   - Expansion Header pin 10
+PA08 -  Activity Indicator - Expansion Header pin 12
 
 Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) + 
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
-PC0 - EUSART0_TX (MOSI)  - Expansion Header pin 4
-PC1 - EUSART0_RX (MISO)  - Expansion Header pin 6
-PC2 - EUSART0_CLK (SCLK) - Expansion Header pin 8
-PC3 - EUSART0_CS (CSn)   - Expansion Header pin 10
-PB1 - Activity Indicator - Expansion Header pin 9
+PC00 -  EUSART0_TX (MOSI)  - Expansion Header pin 4
+PC01 -  EUSART0_RX (MISO)  - Expansion Header pin 6
+PC02 -  EUSART0_CLK (SCLK) - Expansion Header pin 8
+PC03 -  EUSART0_CS (CSn)   - Expansion Header pin 10
+PB01 -  Activity Indicator - Expansion Header pin 9
 
-Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 868/915 MHz +14 dBm + 2.4 GHz +10 dBm Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
-PD7  - EUSART1_TX (MOSI)  - Expansion Header pin 4
-PD8  - EUSART1_RX (MISO)  - Expansion Header pin 6
-PD9  - EUSART1_CLK (SCLK) - Expansion Header pin 8
-PD10 - EUSART1_CS (CSn)   - Expansion Header pin 10
-PD11 - Activity           - Expansion Header pin 12
+PD07 -  EUSART1_TX (MOSI)  - Expansion Header pin 4
+PD08 -  EUSART1_RX (MISO)  - Expansion Header pin 6
+PD09 -  EUSART1_CLK (SCLK) - Expansion Header pin 8
+PD10 -  EUSART1_CS (CSn)   - Expansion Header pin 10
+PD11 -  Activity           - Expansion Header pin 12

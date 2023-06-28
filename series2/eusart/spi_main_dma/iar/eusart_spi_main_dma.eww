@@ -2,6 +2,9 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG25_eusart_spi_main_dma.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG24_eusart_spi_main_dma.ewp</path>
   </project>
   <project>
@@ -9,9 +12,6 @@
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG23_eusart_spi_main_dma.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\EFR32FG25_eusart_spi_main_dma.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32ZG28_eusart_spi_main_dma.ewp</path>

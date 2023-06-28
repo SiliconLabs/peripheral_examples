@@ -1,0 +1,49 @@
+<workspace name="eusart_spi_main_polled">
+  <project device="EFR32MG24B210F1536IM48" name="EFR32MG24_eusart_spi_main_polled">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
+      <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
+      <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
+      <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
+      <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
+      <kitconfig>$PROJ_DIR$\..\..\..\kit\EFR32MG24_BRD4186C</kitconfig>
+    </directories>
+    <includepaths>
+      <path>##em-path-cmsis##\Core\Include</path>
+      <path>##em-path-platform##\common\inc</path>
+      <path>##em-path-device##\EFR32MG24\Include</path>
+      <path>##em-path-emlib##\inc</path>
+      <path>$PROJ_DIR$\..\..\..\kit\EFR32MG24_BRD4186C</path>
+      <path>$PROJ_DIR$\..\..\..\kit\common\bsp</path>
+    </includepaths>
+    <group name="CMSIS">
+      <source>##em-path-device##\EFR32MG24\Source\$IDE$\startup_efr32mg24.s</source>
+      <source>##em-path-device##\EFR32MG24\Source\system_efr32mg24.c</source>
+    </group>
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_eusart.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main.c</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
+	  <source only_ide="slsproj">$PROJ_DIR$\..\..\..\linker_scripts\xg24_linker_script.ld</source>
+    </group>
+      <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-c -fmessage-length=0"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
+	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.usescript" value="true"/&gt;</tooloption>
+	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.toolchain.exe" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.script" value="${workspace_loc:/${ProjName}/src/xg24_linker_script.ld}"/&gt;</tooloption>
+    </cflags>
+</project>
+</workspace>

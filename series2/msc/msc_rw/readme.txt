@@ -14,7 +14,7 @@ enable bits are unnecessary and have no effect on xG21 devices.
 How To Test:
 1. Build the project and download to the Starter Kit
 2. Run in the debugger 
-3. Confirm that the Cleared_value is 4294967295(Hex 0xFFFFFFFF)
+3. Confirm that the Cleared_value is 4294967295 (Hex 0xFFFFFFFF)
 4. Confirm that the Set_value is 32
 
 ================================================================================
@@ -48,6 +48,6 @@ Board:  Silicon Labs EFR32xG27 Buck Radio Board (BRD4194A) +
         Wireless Starter Kit Mainboard
 Device: EFR32MG27C140F768IM40
 
-Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400B) + 
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) + 
         Wireless Starter Kit Mainboard
 Device: EFR32ZG28B312F1024IM68
