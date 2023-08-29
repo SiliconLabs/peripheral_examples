@@ -47,6 +47,7 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 - EFR32MG22
 - EFM32PG22
 - EFR32FG23
+- EFR32SG23
 - EFR32ZG23
 - EFM32PG23
 - EFR32BG24
@@ -55,6 +56,10 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 - EFR32BG27
 - EFR32MG27
 - EFR32FG28
+- EFR32MG28
+- EFR32SG28
+- EFR32ZG28
+- EFM32PG28
 
 ## Requirements ##
 1. Desired Silicon Labs Starter Kit
