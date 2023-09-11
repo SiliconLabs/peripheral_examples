@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_acmp_vmon.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
