@@ -49,8 +49,6 @@
 
 // Number of 1 kHz ULFRCO clocks between BURTC interrupts
 #define BURTC_IRQ_PERIOD 4000
-// This is a temporary address to workaround a bug in EMU_RamPowerDown()
-#define SRAM_START SRAM_BASE + 0x6001 
 
 /*
  * A JEDEC standard SPI flash boots up in standby mode in order to
@@ -162,7 +160,7 @@ int main(void)
   initBURTC();
 
   // Power down all RAM blocks except block 0
-  EMU_RamPowerDown(SRAM_START, 0);
+  EMU_RamPowerDown(SRAM_BASE, 0);
   while(1){
     EMU_EnterEM3(false);
   }

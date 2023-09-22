@@ -57,9 +57,6 @@
 
 #define POWER_DOWN_RAM  (1)
 
-// This is a temporary address to workaround a bug in EMU_RamPowerDown()
-#define SRAM_START SRAM_BASE + 0x6001
-
 #ifdef _SILICON_LABS_32B_SERIES_2_CONFIG_7
 #define LED_OUT 0
 #else
@@ -354,7 +351,7 @@ int main(void)
 
   // Power down all RAM blocks except block 0
   if (POWER_DOWN_RAM) {
-    EMU_RamPowerDown(SRAM_START, 0);
+    EMU_RamPowerDown(SRAM_BASE, 0);
   }
 
   while (1) {

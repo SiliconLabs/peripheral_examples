@@ -45,8 +45,6 @@
 #include "mx25flash_spi.h"
 #include "bspconfig.h"
 #define POWER_DOWN_RAM  (1)
-// This is a temporary address to workaround a bug in EMU_RamPowerDown()
-#define SRAM_START SRAM_BASE + 0x6001 
 
 /**************************************************************************/
 /**
@@ -113,7 +111,7 @@ int main(void)
 
   // Power down all RAM blocks except block 0
   if (POWER_DOWN_RAM) {
-    EMU_RamPowerDown(SRAM_START, 0);
+    EMU_RamPowerDown(SRAM_BASE, 0);
   }
 
   // Enter EM2
