@@ -139,7 +139,7 @@ void populateBuffer(void)
   topVal = TIMER_TopGet(TIMER0);
 
   for (i = 0; i < BUFFER_SIZE; i++) {
-    buffer[i] = ((topVal / 100) * dutyCyclePercentages[i]);
+    buffer[i] = (topVal * dutyCyclePercentages[i]) / 100;
   }
 }
 
