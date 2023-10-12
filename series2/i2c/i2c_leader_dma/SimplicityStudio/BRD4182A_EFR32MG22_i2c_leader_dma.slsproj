@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BRD4182A_EFR32MG22_i2c_leader_dma" boardCompatibility="brd4182a" partCompatibility=".*efr32mg22c224f512im40.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_i2c.c" />
+    <include pattern="emlib/em_ldma.c" />
+    <include pattern="emlib/em_system.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.platform">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <folder name="src">
+    <file name="readme.txt" uri="readme.txt" />
+    <file name="main_xg22.c" uri="src/main_xg22.c" />
+  </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
+  <toolListOption value="-c -fmessage-length=0"/>
+  <toolListOption value="-mcmse"/>
+</toolOption>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

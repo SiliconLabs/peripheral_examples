@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_i2c_leader_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_i2c_leader_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_i2c_leader_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_i2c_leader_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_i2c_leader_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_i2c_leader_dma.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_i2c_leader_dma.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
