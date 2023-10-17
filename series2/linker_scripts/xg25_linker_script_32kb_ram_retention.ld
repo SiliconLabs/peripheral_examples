@@ -11,7 +11,7 @@
 MEMORY
 {
     FLASH (rx) : ORIGIN = 0x8000000, LENGTH = 0x1E0000 /* 1920k */
-    RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x4000   /* 16k */
+    RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x8000   /* 32k */
 }
 
 
