@@ -20861,6 +20861,15 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4400C_EFR32ZG28_acmp_polled.slsproj"/>
   </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP VMON" description="This project demonstrates the usage of the ACMP module in combination with the  VSENSE inputs to monitor AVDD. VSENSE has a 1/4 voltage divider while VREF uses  a configurable divider. The VREFDIV divider is configured such that AVDD  triggers an interrupt when its v...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_acmp_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4181A_EFR32MG21_acmp_vmon.slsproj"/>
+  </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 BURTC EM4 Buram" description="This project uses the BURTC (Backup Real Time Counter) to wake the device from EM4 mode and thus trigger a reset. This project also shows how to use the BURAM retention registers to have data persist between resets. The number of resets  triggered by the BURTC will p...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
@@ -21013,6 +21022,15 @@
     <properties key="template.category" value="CMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/cmu/lfrco_cal_polled/SimplicityStudio/BRD4400C_EFR32ZG28_lfrco_cal_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 DCDC VMON" description="This project demonstrates the DCDC VREGVDD Threshold Comparator. The device will be switching between DCDC regulator on and DCDC bypass mode  depending on the input voltage to VREGVDD as below: - Switch DCDC to bypass mode if VREGVDD is below 2.2 V - Enable DCDC if V...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_dcdc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4182A_EFR32MG22_dcdc_vmon.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4182A EFR32MG22 EM01 Voltage Scaling" description="This project demonstrates the use of EM0/EM1 voltage scaling on Series 2 EFR32 devices.  Note that this differs from the voltage scaling functionality on Series 1 devices where a single setting (VS2 or VS0) applies in all operating modes.  For Series 2 devices, separ...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
@@ -22427,68 +22445,131 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/i2c/i2c_follower/SimplicityStudio/BRD4400C_EFR32ZG28_i2c_follower.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_EFR32MG21_i2c_leader"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4181A_EFR32MG21_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4181A_EFR32MG21_i2c_leader_dma.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4182A EFR32MG22 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4182A EFR32MG22 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_EFR32MG22_i2c_leader"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4182A_EFR32MG22_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4182A_EFR32MG22_i2c_leader_dma.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4186C EFR32MG24 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
-    <properties key="defaultName" value="BRD4186C_EFR32MG24_i2c_leader"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4186C_EFR32MG24_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4186C_EFR32MG24_i2c_leader_dma.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4194A EFR32MG27 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
-    <properties key="defaultName" value="BRD4194A_EFR32MG27_i2c_leader"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4194A_EFR32MG27_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4194A_EFR32MG27_i2c_leader_dma.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
-    <properties key="defaultName" value="BRD4204D_EFR32ZG23_i2c_leader"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4204D_EFR32ZG23_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4204D_EFR32ZG23_i2c_leader_dma.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4270B EFR32FG25 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
-    <properties key="defaultName" value="BRD4270B_EFR32FG25_i2c_leader"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4270B_EFR32FG25_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4270B_EFR32FG25_i2c_leader_dma.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 I2C Leader" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 I2C Leader DMA" description="This project demonstrates I2C leader operation in conjunction with LDMA so that the host CPU can be freed to perform other tasks while data is being moved to and from the follower device. ">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
-    <properties key="defaultName" value="BRD4400C_EFR32ZG28_i2c_leader"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_i2c_leader_dma"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="I2C"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader/SimplicityStudio/BRD4400C_EFR32ZG28_i2c_leader.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_dma/SimplicityStudio/BRD4400C_EFR32ZG28_i2c_leader_dma.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4181A_EFR32MG21_i2c_leader_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4182A_EFR32MG22_i2c_leader_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4186C_EFR32MG24_i2c_leader_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4194A_EFR32MG27_i2c_leader_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4204D_EFR32ZG23_i2c_leader_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4270B_EFR32FG25_i2c_leader_polled.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 I2C Leader Polled" description="This project demonstrates the leader configuration of the EFx32xG2x I2C peripheral. Two EFx32xG2x devices are connected together, one running the leader project, the other running the follower project. The leader starts up and enters a while loop waiting for a button...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_i2c_leader_polled"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="I2C"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/i2c/i2c_leader_polled/SimplicityStudio/BRD4400C_EFR32ZG28_i2c_leader_polled.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 IADC Scan Continuous LDMA" description="This project demonstrates use of the IADC to continuously sample two single-ended input channels.  The CPU starts the scan while in EM0, and operation continues in EM2 with the LDMA saving the results to RAM and waking the system with an interrupt request to toggle a...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -23479,6 +23560,24 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_single_window_compare/SimplicityStudio/BRD4400C_EFR32ZG28_iadc_single_window_compare.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.    This project uses IADC to monitor AVDD/DVDD   Note: AVDD is shorted to VREGVDD and DVDD on the starter kit. So AVDD can be treated        as VREGVDD/...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4181A_EFR32MG21_iadc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.     The IADC is enabled in continous single conversion mode with the internal 1.2 V   bandgap voltage as its reference voltage. This  project demonstrat...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4182A_EFR32MG22_iadc_vmon.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA 2D Copy" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #6 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
