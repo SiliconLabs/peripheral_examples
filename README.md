@@ -56,7 +56,6 @@ This repo contains simple peripheral examples based on emlib for Series 0, Serie
 - EFR32BG27
 - EFR32MG27
 - EFR32FG28
-- EFR32MG28
 - EFR32SG28
 - EFR32ZG28
 - EFM32PG28
