@@ -47,13 +47,13 @@
 /******************************************************************************
  *******************************   DEFINES   **********************************
  *****************************************************************************/
-#define AVDD_VMON          1
+#define AVDD_VMON  1
 
 // Set CLK_ADC to 100kHz (this corresponds to a sample rate of 10ksps)
-#define CLK_SRC_ADC_FREQ        10000000  // CLK_SRC_ADC
-#define CLK_ADC_FREQ            100       // CLK_ADC
+#define CLK_SRC_ADC_FREQ  10000000  // CLK_SRC_ADC
+#define CLK_ADC_FREQ      100       // CLK_ADC
 
-#define MENU_MAX      2
+#define MENU_MAX  2
 
 
 /******************************************************************************
@@ -176,10 +176,9 @@ int main(void)
   vdd_lower_voltage = (vdd_lower_bound>>4)*1200*4/4095;
   
   // Initialize IADC 
-  if(AVDD_VMON){
+  if (AVDD_VMON) {
     initIADC(iadcPosInputAvdd,iadcNegInputGnd,vdd_upper_bound,vdd_lower_bound);
-  }
-  else{
+  } else {
     initIADC(iadcPosInputDvdd,iadcNegInputGnd,vdd_upper_bound,vdd_lower_bound);
   }
   
@@ -190,9 +189,9 @@ int main(void)
   printf("-- Lower Voltage Bound: %dmV\n\n", vdd_lower_voltage);
   RETARGET_SerialFlush(); // delay for printf to finish
 
-  while(1){
+  while(1) {
     // if compare mode triggered, update display,
-    if(detected_flag){
+    if (detected_flag) {
       printf("\f");
       printf("AVDD/DVDD voltage out of range\n");
       printf("Expected Lower Voltage: %dmV\n", vdd_lower_voltage);

@@ -1976,13 +1976,13 @@
   <group>
     <name>Drivers</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\mx25flash_spi.c</name>
+      <name>$PROJ_DIR$\..\..\..\kit\common\drivers\mx25flash_spi.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</name>
+      <name>$PROJ_DIR$\..\..\..\kit\common\drivers\retargetio.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetserial.c</name>
+      <name>$PROJ_DIR$\..\..\..\kit\common\drivers\retargetserial.c</name>
     </file>
   </group>
   <group>

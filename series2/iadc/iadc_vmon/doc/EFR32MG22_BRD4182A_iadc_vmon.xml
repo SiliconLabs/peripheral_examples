@@ -27,9 +27,9 @@
       <source>##em-path-device##\EFR32MG22\Source\system_efr32mg22.c</source>
     </group>
     <group name="Drivers">
-      <source>##em-path-drivers##\mx25flash_spi.c</source>
-      <source>##em-path-drivers##\retargetio.c</source>
-      <source>##em-path-drivers##\retargetserial.c</source>
+      <source>$PROJ_DIR$\..\..\..\kit\common\drivers\mx25flash_spi.c</source>
+      <source>$PROJ_DIR$\..\..\..\kit\common\drivers\retargetio.c</source>
+      <source>$PROJ_DIR$\..\..\..\kit\common\drivers\retargetserial.c</source>
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>

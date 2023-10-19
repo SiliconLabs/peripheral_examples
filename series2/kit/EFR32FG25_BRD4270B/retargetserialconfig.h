@@ -49,7 +49,7 @@
  * | None                               | EUSART0 (Rx PA9, Tx PA8)        |
  * | RETARGET_EUSART0                   | EUSART0 (Rx PA9, Tx PA8)        |
  * | RETARGET_EUSART1                   | EUSART1 (Rx PA9, Tx PA8)        |
- * | RETARGET_VCOM                      | VCOM using EUSART1              |
+ * | RETARGET_VCOM                      | VCOM using EUSART0              |
  * +----------------------------------------------------------------------+
  *
  * Note that the default configuration is the same as RETARGET_EUSART1.
@@ -58,7 +58,7 @@
 
 #if !defined(RETARGET_EUSART0) \
   && !defined(RETARGET_EUSART1)
-#define RETARGET_EUSART1    /* Use EUSART1 by default. */
+#define RETARGET_EUSART0    /* Use EUSART0 by default. */
 #endif
 
 #if defined(RETARGET_EUSART0)

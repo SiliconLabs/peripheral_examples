@@ -40,7 +40,16 @@
 #include "em_cmu.h"
 #include "em_acmp.h"
 #include "em_gpio.h"
-#include "efr32mg21_acmp.h"
+#include "bsp.h"
+
+#define LED0_PORT           BSP_GPIO_LED0_PORT
+#define LED0_PIN            BSP_GPIO_LED0_PIN
+
+#define LED1_PORT           BSP_GPIO_LED1_PORT
+#define LED1_PIN            BSP_GPIO_LED1_PIN
+
+#define ACMP_OUT_PORT       gpioPortC
+#define ACMP_OUT_PIN        0
 
 uint32_t AComp0 = 0;
 
@@ -62,12 +71,39 @@ void ACMP0_IRQHandler(void)
   
   if (AComp0 == 0) {
     AVDD_good = false; // VSENSE is below threshold
-    GPIO_PinOutSet(gpioPortB, 0);
-    GPIO_PinOutClear(gpioPortB, 1);
+    GPIO_PinOutSet(LED0_PORT, LED0_PIN);
+    GPIO_PinOutClear(LED1_PORT, LED1_PIN);
   } else {
     AVDD_good = true; // VSENSE is above threshold
-    GPIO_PinOutSet(gpioPortB, 1);
-    GPIO_PinOutClear(gpioPortB, 0);
+    GPIO_PinOutSet(LED1_PORT, LED1_PIN);
+    GPIO_PinOutClear(LED0_PORT, LED0_PIN);
+  }
+}
+
+/**************************************************************************//**
+ * @brief escapeHatch()
+ * When developing or debugging code that enters EM2 or
+ * lower, it's a good idea to have an "escape hatch" type
+ * mechanism, e.g. a way to pause the device so that a debugger can
+ * connect in order to erase flash, among other things.
+ *
+ * Before proceeding with this example, make sure PB0 is not pressed.
+ * If the PB0 pin is low, turn on LED0 and execute the breakpoint
+ * instruction to stop the processor in EM0 and allow a debug
+ * connection to be made.
+ *****************************************************************************/
+void escapeHatch(void)
+{
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
+  if (GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == 0) {
+    GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
+    __BKPT(0);
+  }
+  // Pin not asserted, so disable input
+  else {
+    GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
+    CMU_ClockEnable(cmuClock_GPIO, false);
   }
 }
 
@@ -88,6 +124,9 @@ int main(void)
   // Chip errata 
   CHIP_Init();
 
+  // Recommended recovery procedure for code in development
+  escapeHatch();
+
   // Initialize ACMP settings 
   ACMP_Init_TypeDef acmp0Init =
   {
@@ -99,6 +138,9 @@ int main(void)
     0x10,                     // Set VREFDIV. 
     true                      // Enable after init. 
   };
+
+  CMU_ClockEnable(cmuClock_ACMP0, true);  // Enable ACMP0 clock
+  CMU_ClockEnable(cmuClock_GPIO, true);  // Enable GPIO clock
 
   ACMP_Init(ACMP0, &acmp0Init);
 
@@ -114,21 +156,20 @@ int main(void)
   while (!(ACMP0->STATUS & ACMP_STATUS_ACMPRDY));
 
   // Configure LEDs 
-  GPIO_PinModeSet(gpioPortB, 0, gpioModePushPull, 0);
-  GPIO_PinModeSet(gpioPortB, 1, gpioModePushPull, 0);
+  GPIO_PinModeSet(LED0_PORT, LED0_PIN , gpioModePushPull, 0);
+  GPIO_PinModeSet(LED1_PORT, LED1_PIN, gpioModePushPull, 0);
 
   /* To be able to probe the output we can send the ACMP output to a pin.
    * The second argument to this function is the pin location which is
    * device dependent. */
-  GPIO_PinModeSet(gpioPortC, 0, gpioModePushPull, 0);
-  ACMP_GPIOSetup(ACMP0, gpioPortC, 0, true, false);
+  GPIO_PinModeSet(ACMP_OUT_PORT, ACMP_OUT_PIN, gpioModePushPull, 0);
+  ACMP_GPIOSetup(ACMP0, ACMP_OUT_PORT, ACMP_OUT_PIN, true, false);
 
   // Enable interrupts 
   NVIC_ClearPendingIRQ(ACMP0_IRQn);
   NVIC_EnableIRQ(ACMP0_IRQn);
 
-  while (1)
-  {
+  while (1) {
     // Enter EM3 until the next interrupt occurs 
     EMU_EnterEM3(true);
   }

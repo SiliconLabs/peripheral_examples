@@ -2,10 +2,25 @@
 
 <workspace>
   <project>
+    <path>$WS_DIR$\EFR32FG25_iadc_vmon.ewp</path>
+  </project>
+  <project>
     <path>$WS_DIR$\EFR32MG21_iadc_vmon.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32MG22_iadc_vmon.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_iadc_vmon.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_iadc_vmon.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_iadc_vmon.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_iadc_vmon.ewp</path>
   </project>
 
   <batchBuild/>

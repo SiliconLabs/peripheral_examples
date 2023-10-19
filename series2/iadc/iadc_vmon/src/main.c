@@ -109,12 +109,21 @@ static volatile uint16_t voltagemV;
  *****************************************************************************/
 void GPIO_EVEN_IRQHandler(void)
 {
-  // Clear interrupt flags
-  GPIO->IF_CLR = GPIO->IF;
 
-  // If menuKey not pressed, increase menu
-  if (!menuKey)
+  uint32_t flags = GPIO_IntGet();
+
+  // Clear interrupt flags
+  GPIO_IntClear(flags);
+
+  // Check if PB0 is pressed, display menu if not displayed already
+  if ((flags & (1 << BSP_GPIO_PB0_PIN)) && (!menuKey)) {
     menuKey = true;
+  }
+
+  // Check if PB1 is pressed, run selected menu if pressed
+  if ((flags & (1 << BSP_GPIO_PB1_PIN)) && (!runKey)) {
+    runKey = true;
+  }
 }
 
 /******************************************************************************
@@ -122,8 +131,47 @@ void GPIO_EVEN_IRQHandler(void)
  *****************************************************************************/
 void GPIO_ODD_IRQHandler(void)
 {
-  GPIO->IF_CLR = GPIO->IF;
-  runKey = true;
+  uint32_t flags = GPIO_IntGet();
+
+  // Clear interrupt flags
+  GPIO_IntClear(flags);
+
+  // Check if PB0 is pressed, display menu if not displayed already
+  if ((flags & (1 << BSP_GPIO_PB0_PIN)) && (!menuKey)) {
+    menuKey = true;
+  }
+
+  // Check if PB1 is pressed, run selected menu if pressed
+  if (flags & (1 << BSP_GPIO_PB1_PIN)) {
+    runKey = true;
+  }
+}
+
+/**************************************************************************//**
+ * @brief escapeHatch()
+ * When developing or debugging code that enters EM2 or
+ * lower, it's a good idea to have an "escape hatch" type
+ * mechanism, e.g. a way to pause the device so that a debugger can
+ * connect in order to erase flash, among other things.
+ *
+ * Before proceeding with this example, make sure PB0 is not pressed.
+ * If the PB0 pin is low, turn on LED0 and execute the breakpoint
+ * instruction to stop the processor in EM0 and allow a debug
+ * connection to be made.
+ *****************************************************************************/
+void escapeHatch(void)
+{
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
+  if (GPIO_PinInGet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN) == 0) {
+    GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
+    __BKPT(0);
+  }
+  // Pin not asserted, so disable input
+  else {
+    GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
+    CMU_ClockEnable(cmuClock_GPIO, false);
+  }
 }
 
 /**************************************************************************//**
@@ -270,6 +318,9 @@ int main(void)
 {
   CHIP_Init();
 
+  // Recommended recovery procedure for code in development
+  escapeHatch();
+
   // DCDC Initialization
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
 
@@ -282,7 +333,7 @@ int main(void)
   // Initialize GPIO
   initGPIO();
 
-  // Init and power-down MX25 SPI flash
+  // Initialize and power-down MX25 SPI flash
   FlashStatus status;
   MX25_init();
   MX25_RSTEN();
@@ -290,58 +341,64 @@ int main(void)
   MX25_DP();
   MX25_deinit();
 
-  // Init
+  // Retarget serial init
   RETARGET_SerialInit();
   RETARGET_SerialCrLf(1);
 
   // Display Welcome Message
   printf("Press Push Button 0 to view test modes\n");
   RETARGET_SerialFlush(); // delay for printf to finish
+
   // initialize global variables
   initVariable();
 
   // Infinite loop
-  while(1){
+  while (1) {
     // if PB0 pressed, test modes are displayed
-    if(menuKey){
+    if (menuKey) {
       IADC_reset(IADC0);
-      printf("Press 1 for AVDD Voltage Monitoring with DCDC Enabled\n");
+      printf("Type 1 for AVDD Voltage Monitoring with DCDC Enabled\n");
       printf("-- Upper Voltage Bound: %dmV\n", avdd_upper_voltage);
       printf("-- Lower Voltage Bound: %dmV\n", avdd_lower_voltage);
-      printf("Press 2 for AVDD Voltage Monitoring with DCDC Bypassed\n");
+      printf("-- Required input voltage: at least 2.2V\n");
+      printf("Type 2 for AVDD Voltage Monitoring with DCDC Bypassed\n");
       printf("-- Upper Voltage Bound: %dmV\n", avdd_upper_voltage_bypass);
       printf("-- Lower Voltage Bound: %dmV\n", avdd_lower_voltage_bypass);
-      printf("Press 3 for DVDD Voltage Monitoring with DCDC Bypassed\n");
+      printf("Type 3 for DVDD Voltage Monitoring with DCDC Bypassed\n");
       printf("-- Upper Bound: %dmV\n",dvdd_upper_voltage_bypass);
       printf("-- Lower Bound: %dmV\n",dvdd_lower_voltage_bypass);
-      printf("Press 4 for DVDD Voltage Monitoring with DCDC Enabled\n");
+      printf("Type 4 for DVDD Voltage Monitoring with DCDC Enabled\n");
       printf("-- Upper Bound: %dmV\n",dvdd_upper_voltage);
       printf("-- Lower Bound: %dmV\n",dvdd_lower_voltage);
+      printf("-- Required input voltage: at least 2.2V\n\n");
       RETARGET_SerialFlush(); // delay for printf to finish
 
       // To select the test mode
-      while(menuLevel<49 || menuLevel >53){
+      while ((menuLevel < 49) || (menuLevel > 53)) {
         menuLevel =  (uint8_t)RETARGET_ReadChar();
       }
+
+      // Set menuLevel value between 1 to 4
+      menuLevel = menuLevel % 48;
       printf("Selected Test Mode: %d\n",menuLevel);
-      printf("-- Press PB1 to run the test or Press PB0 to display test mode\n");
+      printf("-- Press PB1 to run the test or Press PB0 to display test mode\n\n");
       RETARGET_SerialFlush(); // delay for printf to finish
-      // set menuKey flag to false
+
+      // Set menuKey flag to false
       menuKey = false;
     }
 
-    // if PB1 pressed, run the selected mode
-    if(runKey){
-      switch (menuLevel){
+    // if PB1/runKey pressed, run the selected mode
+    if (runKey) {
+      switch (menuLevel) {
         case AVDD:
           dcdcInit.mode = emuDcdcMode_Regulation;
           printf("-- Starting DCDC\n");
-          printf("-- Please raise input voltage to at least 2.2V to startup the DCDC\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           EMU_DCDCInit(&dcdcInit);  // initialize dcdc with regulator on
           initIADC(iadcPosInputAvdd,iadcNegInputGnd,avdd_upper_bound,avdd_lower_bound);
           IADC_command(IADC0, iadcCmdStartSingle);  // Start scan
-          printf("-- running AVDD Voltage Monitor with DCDC Enabled\n");
+          printf("-- running AVDD Voltage Monitor with DCDC Enabled\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         case AVDD_BYPASS:
@@ -349,7 +406,7 @@ int main(void)
           EMU_DCDCInit(&dcdcInit);
           initIADC(iadcPosInputAvdd,iadcNegInputGnd,avdd_upper_bound_bypass,avdd_lower_bound_bypass);
           IADC_command(IADC0, iadcCmdStartSingle);  // Start scan
-          printf("-- running AVDD Voltage Monitor with DCDC Bypassed\n");
+          printf("-- running AVDD Voltage Monitor with DCDC Bypassed\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         case DVDD_BYPASS:
@@ -357,18 +414,17 @@ int main(void)
           EMU_DCDCInit(&dcdcInit);
           initIADC(iadcPosInputDvdd,iadcNegInputGnd,dvdd_upper_bound_bypass,dvdd_lower_bound_bypass);
           IADC_command(IADC0, iadcCmdStartSingle);  // Start scan
-          printf("-- running DVDD Voltage Monitor with DCDC Bypassed\n");
+          printf("-- running DVDD Voltage Monitor with DCDC Bypassed\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         case DVDD:
           dcdcInit.mode = emuDcdcMode_Regulation;
           printf("-- Starting DCDC\n");
-          printf("-- Please raise input voltage to at least 2.2V to startup the DCDC\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           EMU_DCDCInit(&dcdcInit);  // initialize dcdc with regulator on
           initIADC(iadcPosInputDvdd,iadcNegInputGnd,dvdd_upper_bound,dvdd_lower_bound);
           IADC_command(IADC0, iadcCmdStartSingle);  // Start scan
-          printf("-- running DVDD Voltage Monitor with DCDC Enabled\n");
+          printf("-- running DVDD Voltage Monitor with DCDC Enabled\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         default:
@@ -379,44 +435,44 @@ int main(void)
 
     // if compare mode triggered, update display,
     // power off DCDC if appropriate.
-    if(detected_flag){
-      switch(menuLevel){
+    if (detected_flag) {
+      switch (menuLevel) {
         case AVDD:
           EMU_DCDCPowerOff();
-          printf("-- DCDC enabled\n");
+          printf("-- DCDC currently enabled\n");
           printf("-- AVDD voltage out of range\n");
           printf("-- Expected Lower Voltage: %dmV\n", avdd_lower_voltage);
           printf("-- Expected Upper Voltage: %dmV\n", avdd_upper_voltage);
           printf("-- Voltage measured: %dmV\n\n", voltagemV);
           printf("-- Disabling DCDC\n");
-          printf("Press PB0 to select mode or Press PB1 to run this mode again\n");
+          printf("Press PB0 to select mode or Press PB1 to run this mode again\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         case AVDD_BYPASS:
-          printf("-- DCDC Bypassed\n");
+          printf("-- DCDC currently Bypassed\n");
           printf("-- AVDD voltage out of range\n");
           printf("-- Expected Lower Voltage: %dmV\n", avdd_lower_voltage_bypass);
           printf("-- Expected Upper Voltage: %dmV\n", avdd_upper_voltage_bypass);
           printf("-- Voltage measured: %dmV\n\n", voltagemV);
-          printf("Press PB0 to select mode or Press PB1 to run this mode again\n");
+          printf("Press PB0 to select mode or Press PB1 to run this mode again\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         case DVDD_BYPASS:
-          printf("-- DCDC Bypassed\n");
+          printf("-- DCDC currently Bypassed\n");
           printf("-- DVDD voltage out of range\n");
           printf("-- Expected Lower Voltage: %dmV\n", dvdd_lower_voltage_bypass);
           printf("-- Expected Upper Voltage: %dmV\n", dvdd_upper_voltage_bypass);
-          printf("-- Voltage measured:\n%dmV\n\n", voltagemV);
-          printf("Press PB0 to select mode or Press PB1 to run this mode again\n");
+          printf("-- Voltage measured: %dmV\n\n", voltagemV);
+          printf("Press PB0 to select mode or Press PB1 to run this mode again\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         case DVDD:
-          printf("-- DCDC enabled\n");
+          printf("-- DCDC currently enabled\n");
           printf("-- DVDD voltage out of range\n");
           printf("-- Expected Lower Voltage: %dmV\n", dvdd_lower_voltage);
           printf("-- Expected Upper Voltage: %dmV\n", dvdd_upper_voltage);
-          printf("-- Voltage measured:\n%dmV\n\n", voltagemV);
-          printf("Press PB0 to select mode or Press PB1 to run this mode again\n");
+          printf("-- Voltage measured: %dmV\n\n", voltagemV);
+          printf("Press PB0 to select mode or Press PB1 to run this mode again\n\n");
           RETARGET_SerialFlush(); // delay for printf to finish
           break;
         default:

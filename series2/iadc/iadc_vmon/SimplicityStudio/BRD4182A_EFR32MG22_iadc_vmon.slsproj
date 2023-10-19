@@ -22,15 +22,18 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
-    <include pattern="Drivers/mx25flash_spi.c" />
-    <include pattern="Drivers/retargetio.c" />
-    <include pattern="Drivers/retargetserial.c" />
+    <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.part">
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
   <macroDefinition name="RETARGET_VCOM" />
+  <folder name="Drivers">
+    <file name="mx25flash_spi.c" uri="../../kit/common/drivers/mx25flash_spi.c" />
+    <file name="retargetio.c" uri="../../kit/common/drivers/retargetio.c" />
+    <file name="retargetserial.c" uri="../../kit/common/drivers/retargetserial.c" />
+  </folder>
   <folder name="src">
     <file name="main.c" uri="src/main.c" />
     <file name="readme.txt" uri="readme.txt" />

@@ -65,7 +65,7 @@ void GPIO_EVEN_IRQHandler(void)
 /**************************************************************************//**
  * @brief  GPIO Initializer
  *****************************************************************************/
-void initGPIO (void)
+void initGPIO(void)
 {
   // Configure push button 0 as input, enable edge detection interrupt
   GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN,
@@ -75,17 +75,6 @@ void initGPIO (void)
 
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
   NVIC_EnableIRQ(GPIO_EVEN_IRQn);
-}
-
-/*****************************************************************************/
-/* @brief: Starter kit LCD display, select voltage
- * to be monitored
- *****************************************************************************/
-void displaySelection(void){
-
-  // Welcome Message
-  printf("EFR32xG22 VMON\nwith DCDC\nBuilt in Comparator"
-      "\nSoftware Example\n\n\n");
 }
 
 /*****************************************************************************/
@@ -101,7 +90,11 @@ void initCMU(void){
   // Select all low frequency clock to LFXO
   CMU_ClockSelectSet(cmuClock_EM23GRPACLK, cmuSelect_LFXO);
   CMU_ClockSelectSet(cmuClock_WDOG0CLK, cmuSelect_LFXO);
+#if defined(RTCC_PRESENT)
   CMU_ClockSelectSet(cmuClock_RTCCCLK, cmuSelect_LFXO);
+#elif defined(SYSRTC_PRESENT)
+  CMU_ClockSelectSet(cmuClock_SYSRTCCLK, cmuSelect_LFXO);
+#endif
 
   // Enable GPIO clock
   CMU_ClockEnable(cmuClock_GPIO, true);
@@ -110,18 +103,19 @@ void initCMU(void){
 /*****************************************************************************/
 /*@brief: DCDC interrupt handler
  *****************************************************************************/
-void DCDC_IRQHandler(void){
+void DCDC_IRQHandler(void)
+{
   volatile uint32_t flag = DCDC -> IF;
 
   // Clear all interrupt flag
   DCDC -> IF_CLR = flag;
 
   // Check for interrupt flag
-  if(flag & DCDC_IEN_VREGINLOW){
+  if (flag & DCDC_IEN_VREGINLOW) {
     low_voltage = true;
     DCDC -> IEN_CLR |= DCDC_IEN_VREGINLOW;
   }
-  if(flag & DCDC_IEN_VREGINHIGH){
+  if (flag & DCDC_IEN_VREGINHIGH) {
     low_voltage = false;
     DCDC -> IEN_CLR |= DCDC_IEN_VREGINHIGH;
   }
@@ -130,7 +124,8 @@ void DCDC_IRQHandler(void){
 /*****************************************************************************/
 /*@brief DCDC Initialization
  *****************************************************************************/
-void initDCDC(void){
+void initDCDC(void)
+{
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_DEFAULT;
 
   // Change dcdc threshold voltage level to 2.2V
@@ -162,7 +157,8 @@ void initDCDC(void){
 /*****************************************************************************/
 /*@brief: EMU Init routine, initialize EM23 with default settings
  *****************************************************************************/
-void initEMU(void){
+void initEMU(void)
+{
   EMU_EM23Init_TypeDef em23Init = EMU_EM23INIT_DEFAULT;
   EMU_EM23Init(&em23Init);
 }
@@ -203,25 +199,23 @@ int main(void)
       false, true, false);
 
   // Infinite loop
-  while(1){
+  while (1) {
 
     // Enter EM1 while waiting for threshold detection
     EMU_EnterEM1();
 
     // If below threshold, switch to bypass mode
     // Enable interrupt flags to detect VREGIN > VTHRESHOLD
-    if(low_voltage){
+    if (low_voltage) {
       printf("VREGVDD below threshold voltage switching to bypass mode\n");
       RETARGET_SerialFlush(); // delay for printf to finish
       EMU_DCDCModeSet(emuDcdcMode_Bypass);
       printf("Bypass mode enabled. Raise VREGVDD to 2.2V to enable DCDC\n");
       RETARGET_SerialFlush(); // delay for printf to finish
       DCDC -> IEN_SET |= DCDC_IEN_VREGINHIGH;
-    }
-
+    } else {
     // If above threshold, switch to regulator on mode
     // Enable interrupt flags to detect VREGIN < VTHRESHOLD
-    else{
       EMU_DCDCModeSet(emuDcdcMode_Regulation);
       printf("DCDC enabled; Decrease VREGVDD supply to below 2.2V to enter bypass mode\n");
       RETARGET_SerialFlush(); // delay for printf to finish

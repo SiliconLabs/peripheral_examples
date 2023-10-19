@@ -55,6 +55,21 @@ Note: When applying voltages independently to supply rails, please observe the
       
 ================================================================================
 
+Note for Testing on xG25:
+VMCU only powers IOVDD0-1 and the serial flash on BRD4270B. The 3.6 V LDO powers the
+rest of the rails on the radio board. Therefore, in order to use VMCU to control the
+threshold for different voltage monitoring rails, VMCU will need to power all the rails.
+To test the IADC voltage monitoring example on BRD4270B, make the following modification:
+1. Complete Steps 1 and 2 from the "How to Test" section above.
+2. Select the device in the Debug Adapters pane within the Simplicity Studio
+   Launcher view. 
+2. Select the Documentation tab, then check the Schematic and Layout file 
+   resource checkbox. Open the schematic and assembly files for BRD4270B.
+3. Unmount resistor R211 and mount resistor R210. Search for the resistors in the assembly 
+   file to determine its position on the board.
+
+================================================================================
+
 Peripherals Used:
 CMU    - HFRCODPLL @ 19 MHz
 EMU
@@ -72,5 +87,45 @@ Board:  Silicon Labs EFR32xG22 Radio Board (BRD4182A) +
 Device: EFR32MG22A224F512IM40
 PB00 -  Push Button PB0
 PB01 -  Push Button PB1
+VMCU - Expansion Header Pin 2
+GND  - Expansion Header Pin 1
+
+Board:  Silicon Labs EFR32xG23 Radio Board (BRD4204D) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG23B010F512IM48
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
+VMCU - Expansion Header Pin 2
+GND  - Expansion Header Pin 1
+
+Board:  Silicon Labs EFR32xG24 Radio Board (BRD4186C) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG24B210F1536IM48
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
+VMCU - Expansion Header Pin 2
+GND  - Expansion Header Pin 1
+
+Board:  Silicon Labs EFR32xG25 Radio Board (BRD4270B) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32FG25B222F1920IM56
+PB00 -  Push Button PB0
+PB01 -  Push Button PB1
+VMCU - Expansion Header Pin 2
+GND  - Expansion Header Pin 1
+
+Board:  Silicon Labs EFR32xG27 Radio Board (BRD4194A) + 
+        Wireless Starter Kit Mainboard
+Device: EFR32MG27C140F768IM40
+PB00 -  Push Button PB0
+PB01 -  Push Button PB1
+VMCU - Expansion Header Pin 2
+GND  - Expansion Header Pin 1
+
+Board:  Silicon Labs EFR32xG28 Radio Board (BRD4400C) +
+        Wireless Starter Kit Mainboard
+Device: EFR32ZG28B312F1024IM68
+PB01 -  Push Button PB0
+PB03 -  Push Button PB1
 VMCU - Expansion Header Pin 2
 GND  - Expansion Header Pin 1
