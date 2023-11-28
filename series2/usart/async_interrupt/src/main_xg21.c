@@ -75,7 +75,7 @@ bool receive = true;
 void initGPIO(void)
 {
   // Configure the USART TX pin to the board controller as an output
-  GPIO_PinModeSet(BSP_BCC_TXPORT, BSP_BCC_TXPIN, gpioModePushPull, 0);
+  GPIO_PinModeSet(BSP_BCC_TXPORT, BSP_BCC_TXPIN, gpioModePushPull, 1);
 
   // Configure the USART RX pin to the board controller as an input
   GPIO_PinModeSet(BSP_BCC_RXPORT, BSP_BCC_RXPIN, gpioModeInput, 0);
