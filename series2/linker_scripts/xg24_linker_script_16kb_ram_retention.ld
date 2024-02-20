@@ -1,4 +1,4 @@
-/*       Linker script for Silicon Labs EFR32xG24 devices               */
+/*       Linker script for Silicon Labs EFR32xG24 devices           */
 /*                                                                  */
 /* This file is subject to the license terms as defined in ARM's    */
 /* CMSIS END USER LICENSE AGREEMENT.pdf, governing the use of       */
@@ -10,7 +10,7 @@
 /*                                                                  */
 MEMORY
 {
-    FLASH (rx) : ORIGIN = 0x8000000, LENGTH = 0x80000 /* 512k */
+    FLASH (rx) : ORIGIN = 0x8000000, LENGTH = 0x180000 /* 1536k */
     RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x4000 /* 16k */
 }
 
