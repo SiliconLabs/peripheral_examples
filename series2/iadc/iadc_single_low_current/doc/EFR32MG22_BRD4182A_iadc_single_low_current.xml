@@ -26,7 +26,7 @@
       <source>##em-path-device##\EFR32MG22\Source\$IDE$\startup_efr32mg22.s</source>
       <source>##em-path-device##\EFR32MG22\Source\system_efr32mg22.c</source>
     </group>
-	<group name="Drivers">
+    <group name="Drivers">
       <source>##em-path-drivers##\mx25flash_spi.c</source>
     </group>
     <group name="emlib">
@@ -38,14 +38,18 @@
       <source>##em-path-emlib##\src\em_ldma.c</source>
       <source>##em-path-emlib##\src\em_rtcc.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
-	  <source>##em-path-emlib##\src\em_usart.c</source>
+      <source>##em-path-emlib##\src\em_usart.c</source>
+    </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_single_low_current_xG22.c</source>
-	  <source>$PROJ_DIR$\..\readme.txt</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>

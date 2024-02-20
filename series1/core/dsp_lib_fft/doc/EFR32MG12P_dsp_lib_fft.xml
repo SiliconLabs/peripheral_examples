@@ -1,6 +1,5 @@
 <workspace name="dsp_lib_fft">
-  <project device="EFR32MG12P432F1024GL125"
-           name="EFR32MG12P_dsp_lib_fft">
+  <project device="EFR32MG12P432F1024GL125" name="EFR32MG12P_dsp_lib_fft">
     <targets>
       <name>slsproj</name>
     </targets>
@@ -12,7 +11,7 @@
       <bsp>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp</bsp>
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG12_BRD4161A\config</kitconfig>
-      <dsp>$PROJ_DIR$\..\..\..\..\..\util\third_party\cmsis_dsp</dsp>
+      <dsp>$PROJ_DIR$\..\..\..\..\..\util\third_party\cmsis</dsp>
     </directories>
     <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
@@ -23,7 +22,6 @@
       <path>##em-path-bsp##</path>
       <path>##em-path-drivers##</path>
       <path>##em-path-dsp##\DSP\Include</path>
-      
     </includepaths>
     <group name="CMSIS">
       <source>##em-path-device##\EFR32MG12P\Source\$IDE$\startup_efr32mg12p.s</source>
@@ -37,14 +35,15 @@
       <source>##em-path-emlib##\src\em_adc.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
     <libs>
-      <lib except_ide="iar">CMSISDSPTransform</lib>
-      <lib except_ide="iar">CMSISDSPComplexMath</lib>
-      <lib except_ide="iar">CMSISDSPCommon</lib>
+      <lib except_ide="iar">CMSISDSP</lib>
       <lib except_ide="iar">m</lib>
     </libs>
     <cflags>
@@ -52,8 +51,9 @@
       <define>__FPU_PRESENT</define>
       <flag only_ide="slsproj">-Wp,-w</flag>
       <define>ARM_MATH_CM4</define>
-      <tooloption only_ide="slsproj">  &lt;includePath uri="$(sdkInstallationPath:default())/util/third_party/cmsis_dsp/DSP/Include"/&gt;</tooloption>
-      <tooloption only_ide="slsproj">  &lt;libraryPath uri="$(sdkInstallationPath:default())/util/third_party/cmsis_dsp/libs/GCC/cortex-m4"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;includePath uri="$(sdkInstallationPath:default())/util/third_party/cmsis/DSP/Include"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">  &lt;libraryPath uri="$(sdkInstallationPath:default())/util/third_party/cmsis/lib/gcc/cortex-m4"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

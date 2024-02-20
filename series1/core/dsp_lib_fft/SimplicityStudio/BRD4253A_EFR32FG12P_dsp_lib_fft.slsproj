@@ -18,7 +18,7 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
+    <include pattern=".*/sl_syscalls.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
     <exclude pattern=".*" />
@@ -30,19 +30,17 @@
   <macroDefinition name="RETARGET_VCOM" />
   <macroDefinition name="__FPU_PRESENT" />
   <macroDefinition name="ARM_MATH_CM4" />
+  <includePath uri="../../../../util/third_party/cmsis/DSP/Include" />
   <folder name="src">
     <file name="main.c" uri="src/main.c" />
     <file name="readme.txt" uri="readme.txt" />
   </folder>
-  <libraryFile name="CMSISDSPTransform" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
-  <libraryPath uri="" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
-  <libraryFile name="CMSISDSPComplexMath" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
-  <libraryPath uri="" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
-  <libraryFile name="CMSISDSPCommon" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryFile name="CMSISDSP" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   <libraryPath uri="" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
   <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
-  <includePath uri="$(sdkInstallationPath:default())/util/third_party/cmsis_dsp/DSP/Include"/>
-  <libraryPath uri="$(sdkInstallationPath:default())/util/third_party/cmsis_dsp/libs/GCC/cortex-m4"/>
+  <includePath uri="$(sdkInstallationPath:default())/util/third_party/cmsis/DSP/Include"/>
+  <libraryPath uri="$(sdkInstallationPath:default())/util/third_party/cmsis/lib/gcc/cortex-m4"/>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -Wp,-w -Wp,-w -Wp,-w -Wp,-w -Wp,-w -Wp,-w "/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
 </project>

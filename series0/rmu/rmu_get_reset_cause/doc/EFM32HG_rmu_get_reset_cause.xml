@@ -1,6 +1,5 @@
 <workspace name="rmu_get_reset_cause">
-  <project device="EFM32HG322F64"
-           name="EFM32HG_rmu_get_reset_cause">
+  <project device="EFM32HG322F64" name="EFM32HG_rmu_get_reset_cause">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -35,12 +34,16 @@
       <source>##em-path-emlib##\src\em_rmu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_gpio.c</source>
       <source>$PROJ_DIR$\..\readme_gpio.txt</source>
     </group>
     <cflags>
       <define>RETARGET_VCOM</define>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

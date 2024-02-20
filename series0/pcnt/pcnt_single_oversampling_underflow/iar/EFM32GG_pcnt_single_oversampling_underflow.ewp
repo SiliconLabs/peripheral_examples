@@ -1647,6 +1647,12 @@
     </file>
   </group>
   <group>
+    <name>platform</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\common\src\sl_syscalls.c</name>
+    </file>
+  </group>
+  <group>
     <name>BSP</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_stk_leds.c</name>

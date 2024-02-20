@@ -1,8 +1,8 @@
 <workspace name="wdog_led_toggle">
   <project device="EFR32MG21A010F1024IM32" name="EFR32MG21_wdog">
     <targets>
-    <name>slsproj</name>
-    <name>iar</name>
+      <name>slsproj</name>
+      <name>iar</name>
     </targets>
     <directories>
       <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
@@ -13,7 +13,7 @@
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32MG21_BRD4181A\config</kitconfig>
     </directories>
-  <includepaths>
+    <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
       <path>##em-path-device##\EFR32MG21\Include</path>
@@ -28,26 +28,28 @@
       <source>##em-path-device##\EFR32MG21\Source\$IDE$\startup_efr32mg21.s</source>
       <source>##em-path-device##\EFR32MG21\Source\system_efr32mg21.c</source>
     </group>
-  <group name="emlib">
-    <source>##em-path-emlib##\src\em_cmu.c</source>
-	<source>##em-path-emlib##\src\em_core.c</source>
-	<source>##em-path-emlib##\src\em_emu.c</source>
-	<source>##em-path-emlib##\src\em_gpio.c</source>
-    <source>##em-path-emlib##\src\em_rmu.c</source>
-	<source>##em-path-emlib##\src\em_system.c</source>
-    <source>##em-path-emlib##\src\em_wdog.c</source>
-</group>
-  <group name="Source">
-    <source>$PROJ_DIR$\..\src\main.c</source>
-    <source>$PROJ_DIR$\..\readme.txt</source>
-  </group>
-
+    <group name="emlib">
+      <source>##em-path-emlib##\src\em_cmu.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_emu.c</source>
+      <source>##em-path-emlib##\src\em_gpio.c</source>
+      <source>##em-path-emlib##\src\em_rmu.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_wdog.c</source>
+    </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main.c</source>
+      <source>$PROJ_DIR$\..\readme.txt</source>
+    </group>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist"&gt;</tooloption>
       <tooloption only_ide="slsproj">  &lt;toolListOption value="-c -fmessage-length=0"/&gt;</tooloption>
       <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
-
 </workspace>

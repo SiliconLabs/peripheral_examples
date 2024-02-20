@@ -2,10 +2,10 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32MG27_etampdetect_em2.ewp</path>
+    <path>$WS_DIR$\EFR32FG25_etampdetect_em2.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32FG25_etampdetect_em2.ewp</path>
+    <path>$WS_DIR$\EFR32MG27_etampdetect_em2.ewp</path>
   </project>
 
   <batchBuild/>

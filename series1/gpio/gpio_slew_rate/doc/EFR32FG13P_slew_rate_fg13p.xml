@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
 <workspace name="gpio">
-  <project device="EFR32FG13P233F512GM48"
-           name="EFR32FG13P_gpio_slew_rate_fg13p">
+  <project device="EFR32FG13P233F512GM48" name="EFR32FG13P_gpio_slew_rate_fg13p">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -15,7 +13,6 @@
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFR32FG13_BRD4256A\config</kitconfig>
     </directories>
-
     <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
@@ -43,13 +40,15 @@
       <source>##em-path-emlib##\src\em_timer.c</source>
       <source>##em-path-emlib##\src\em_letimer.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_gpio_slew_rate.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
+    </cflags>
   </project>
 </workspace>
-
-
-
-

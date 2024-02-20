@@ -1,6 +1,5 @@
 <workspace name="hfrco_cal_interrupt">
-  <project device="EFR32FG12P433F1024GL125"
-           name="EFR32FG12_hfrco_cal_interrupt">
+  <project device="EFR32FG12P433F1024GL125" name="EFR32FG12_hfrco_cal_interrupt">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -35,12 +34,16 @@
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_efr32_efm32jg_pg.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
     <cflags>
-	  <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

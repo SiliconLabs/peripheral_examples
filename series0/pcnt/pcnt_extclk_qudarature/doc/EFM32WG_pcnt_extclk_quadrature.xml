@@ -1,6 +1,5 @@
 <workspace name="pcnt_extclk_quadrature">
-  <project device="EFM32WG990F256"
-           name="EFM32WG_pcnt_extclk_quadrature">
+  <project device="EFM32WG990F256" name="EFM32WG_pcnt_extclk_quadrature">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -36,6 +35,9 @@
       <source>##em-path-emlib##\src\em_prs.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="BSP">
       <source>##em-path-bsp##\bsp_stk_leds.c</source>
     </group>
@@ -45,6 +47,7 @@
     </group>
     <cflags>
       <define>RETARGET_VCOM</define>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

@@ -26,9 +26,12 @@
       <source>##em-path-device##\EFR32MG22\Source\$IDE$\startup_efr32mg22.s</source>
       <source>$PROJ_DIR$\..\CMSIS\EFR32xG22\custom_system_efr32xg22.c</source>
     </group>
-	<group name="emlib">
+    <group name="emlib">
       <source>##em-path-emlib##\src\em_msc.c</source>
-	  <source>##em-path-emlib##\src\em_system.c</source>
+      <source>##em-path-emlib##\src\em_system.c</source>
+    </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
     </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\readme.txt</source>
@@ -39,6 +42,7 @@
       <tooloption only_ide="slsproj">  &lt;toolListOption value="-c -fmessage-length=0"/&gt;</tooloption>
       <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

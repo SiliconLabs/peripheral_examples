@@ -15,6 +15,7 @@
     </directories>
     <cflags>
       <diagsuppress only_ide="iar">Pe188</diagsuppress>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
     <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
@@ -31,16 +32,19 @@
     </group>
     <group name="emlib">
       <source>##em-path-emlib##\src\em_cmu.c</source>
-	  <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
       <source>##em-path-emlib##\src\em_iadc.c</source>
       <source>##em-path-emlib##\src\em_letimer.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_single_letimer_interrupt_xg21_xg22.c</source>
-      <source>$PROJ_DIR$\..\readme.txt</source>	  
+      <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
     <cflags>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>

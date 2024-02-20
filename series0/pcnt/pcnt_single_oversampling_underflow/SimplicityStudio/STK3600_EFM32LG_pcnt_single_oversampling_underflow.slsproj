@@ -19,7 +19,7 @@
     <include pattern="BSP/bsp_stk_leds.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
+    <include pattern=".*/sl_syscalls.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
     <exclude pattern=".*" />
@@ -33,4 +33,5 @@
     <file name="main_gg_hg_wg_lg.c" uri="src/main_gg_hg_wg_lg.c" />
     <file name="readme.txt" uri="readme.txt" />
   </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/>
 </project>

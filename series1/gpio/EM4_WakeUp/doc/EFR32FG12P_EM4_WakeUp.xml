@@ -1,6 +1,5 @@
 <workspace name="EM4_WakeUp">
-  <project device="EFR32FG12P433F1024GL125"
-           name="EFR32FG12P_EM4_WakeUp">
+  <project device="EFR32FG12P433F1024GL125" name="EFR32FG12P_EM4_WakeUp">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -41,6 +40,9 @@
       <source>##em-path-emlib##\src\em_rmu.c</source>
       <source>##em-path-emlib##\src\em_usart.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_efr32.c</source>
       <source>$PROJ_DIR$\..\readme_s1.txt</source>
@@ -50,6 +52,7 @@
       <define>MX25_LOC_RX=_USART_ROUTELOC0_RXLOC_LOC11</define>
       <define>MX25_LOC_SCLK=_USART_ROUTELOC0_CLKLOC_LOC11</define>
       <define>MX25_LOC_TX=_USART_ROUTELOC0_TXLOC_LOC11</define>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

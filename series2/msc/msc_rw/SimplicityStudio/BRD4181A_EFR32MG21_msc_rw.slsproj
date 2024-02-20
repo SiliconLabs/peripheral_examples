@@ -14,7 +14,7 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
+    <include pattern=".*/sl_syscalls.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
     <exclude pattern=".*" />
@@ -23,12 +23,10 @@
     <include pattern="CMSIS/.*/startup_.*_.*.s" />
     <include pattern="CMSIS/.*/system_.*.c" />
   </module>
-  <includePath uri="../../../../platform/security/sl_component/se_manager/inc" />
-  <includePath uri="../../../../platform/security/sl_component/se_manager/src" />
-  <folder name="se_manager">
-    <file name="sl_se_manager.c" uri="../../../../platform/security/sl_component/se_manager/src/sl_se_manager.c" />
-    <file name="sl_se_manager_util.c" uri="../../../../platform/security/sl_component/se_manager/src/sl_se_manager_util.c" />
-  </folder>
+  <module id="com.silabs.sdk.exx32.common.se_manager">
+    <include pattern="se_manager/sl_se_manager.c" />
+    <include pattern="se_manager/sl_se_manager_util.c" />
+  </module>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main_xG21.c" uri="src/main_xG21.c" />
@@ -37,5 +35,6 @@
   <toolListOption value="-c -fmessage-length=0"/>
   <toolListOption value="-mcmse"/>
 </toolOption>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
 </project>

@@ -18,7 +18,7 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
+    <include pattern=".*/sl_syscalls.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
     <exclude pattern=".*" />
@@ -32,4 +32,5 @@
     <file name="main_gpiotg.c" uri="src/main_gpiotg.c" />
     <file name="readme_gpiotg.txt" uri="readme_gpiotg.txt" />
   </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/>
 </project>

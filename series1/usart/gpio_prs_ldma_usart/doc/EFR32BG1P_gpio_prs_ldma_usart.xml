@@ -1,11 +1,10 @@
 <workspace name="gpio_prs_ldma_usart">
-  <project device="EFR32BG1P232F256GM48"
-           name="EFM32BG1_gpio_prs_ldma_usart">
-   <targets>
-     <name>slsproj</name>
-     <name>iar</name>
-   </targets>
-   <directories>
+  <project device="EFR32BG1P232F256GM48" name="EFM32BG1_gpio_prs_ldma_usart">
+    <targets>
+      <name>slsproj</name>
+      <name>iar</name>
+    </targets>
+    <directories>
       <cmsis>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS</cmsis>
       <device>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs</device>
       <emlib>$PROJ_DIR$\..\..\..\..\..\platform\emlib</emlib>
@@ -37,9 +36,15 @@
       <source>##em-path-emlib##\src\em_prs.c</source>
       <source>##em-path-emlib##\src\em_timer.c</source>
     </group>
-   <group name="Source">
-     <source>$PROJ_DIR$\..\src\main_s1_pg1.c</source>
-     <source>$PROJ_DIR$\..\readme_s1.txt</source>
-   </group>
- </project>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
+    <group name="Source">
+      <source>$PROJ_DIR$\..\src\main_s1_pg1.c</source>
+      <source>$PROJ_DIR$\..\readme_s1.txt</source>
+    </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
+    </cflags>
+  </project>
 </workspace>

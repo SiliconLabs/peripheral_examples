@@ -20,7 +20,7 @@
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
-    <exclude pattern=".*" />
+    <include pattern=".*/sl_syscalls.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.drivers">
     <include pattern="Drivers/mx25flash_spi.c" />
@@ -36,6 +36,7 @@
     <file name="readme.txt" uri="readme.txt" />
     <file name="main_xg2x.c" uri="src/main_xg2x.c" />
   </folder>
+<toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/>
 <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="com.silabs.gnu.c.compiler.option.misc.otherlist">
   <toolListOption value="-c -fmessage-length=0"/>
   <toolListOption value="-mcmse"/>

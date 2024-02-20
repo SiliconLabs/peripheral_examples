@@ -1930,6 +1930,12 @@
     </file>
   </group>
   <group>
+    <name>platform</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\common\src\sl_syscalls.c</name>
+    </file>
+  </group>
+  <group>
     <name>Source</name>
     <file>
       <name>$PROJ_DIR$\..\src\main_cryogg11.c</name>

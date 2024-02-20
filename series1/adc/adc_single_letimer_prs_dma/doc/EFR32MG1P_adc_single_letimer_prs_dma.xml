@@ -1,6 +1,5 @@
 <workspace name="adc_single_letimer_prs_dma">
-  <project device="EFR32MG1P232F256GM48"
-           name="EFR32MG1P_adc_single_letimer_prs_dma">
+  <project device="EFR32MG1P232F256GM48" name="EFR32MG1P_adc_single_letimer_prs_dma">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -37,9 +36,15 @@
       <source>##em-path-emlib##\src\em_ldma.c</source>
       <source>##em-path-emlib##\src\em_prs.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\readme.txt</source>
       <source>$PROJ_DIR$\..\src\main_s1.c</source>
     </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
+    </cflags>
   </project>
 </workspace>

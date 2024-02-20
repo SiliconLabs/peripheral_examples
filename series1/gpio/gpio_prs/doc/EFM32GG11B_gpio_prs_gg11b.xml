@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
 <workspace name="gpio">
-  <project device="EFM32GG11B820F2048GL192"
-           name="EFM32GG11B_gpio_prs_gg11b">
+  <project device="EFM32GG11B820F2048GL192" name="EFM32GG11B_gpio_prs_gg11b">
     <targets>
       <name>slsproj</name>
       <name>iar</name>
@@ -15,7 +13,6 @@
       <platform>$PROJ_DIR$\..\..\..\..\..\platform</platform>
       <kitconfig>$PROJ_DIR$\..\..\..\..\..\hardware\kit\SLSTK3701A_EFM32GG11\config</kitconfig>
     </directories>
-
     <includepaths>
       <path>##em-path-cmsis##\Core\Include</path>
       <path>##em-path-platform##\common\inc</path>
@@ -31,15 +28,21 @@
     <group name="emlib">
       <source>##em-path-emlib##\src\em_adc.c</source>
       <source>##em-path-emlib##\src\em_cmu.c</source>
-	  <source>##em-path-emlib##\src\em_core.c</source>
+      <source>##em-path-emlib##\src\em_core.c</source>
       <source>##em-path-emlib##\src\em_gpio.c</source>
       <source>##em-path-emlib##\src\em_emu.c</source>
       <source>##em-path-emlib##\src\em_prs.c</source>
       <source>##em-path-emlib##\src\em_system.c</source>
     </group>
+    <group name="platform">
+      <source>##em-path-platform##\common\src\sl_syscalls.c</source>
+    </group>
     <group name="Source">
       <source>$PROJ_DIR$\..\src\main_gpio_prs.c</source>
       <source>$PROJ_DIR$\..\readme.txt</source>
     </group>
+    <cflags>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
+    </cflags>
   </project>
 </workspace>
