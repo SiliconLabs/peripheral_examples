@@ -51,7 +51,7 @@ int main(void)
   // Initialize chip
   CHIP_Init();
   
-  // Enable clock for GPIO module. Note this is not required for EFR32xG21
+  // Enable clock for GPIO module
   CMU_ClockEnable(cmuClock_GPIO, true);
 
   // Configure defined pin for LFRCO output
@@ -60,10 +60,6 @@ int main(void)
   
   // Set slew rate / drive strength so there is no ringing
   GPIO_SlewrateSet(CMUCLOCKOUT_PORT, SLEW_RATE, SLEW_RATE);
-
-  // Enable Low Frequency RC Oscillator (LFRCO) and 
-  // wait until it is stable
-  CMU_OscillatorEnable(cmuOsc_LFRCO, true, true);
 
   while(1);
 }

@@ -47,6 +47,7 @@
       <tooloption only_ide="slsproj">  &lt;toolListOption value="-mcmse"/&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;/toolOption&gt;</tooloption>
       <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.linker.base" optionId="com.silabs.gnu.c.link.option.ldflags" value="-Wl,--no-warn-rwx-segments"/&gt;</tooloption>
+      <tooloption only_ide="slsproj">&lt;toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none"/&gt;</tooloption>
     </cflags>
   </project>
 </workspace>

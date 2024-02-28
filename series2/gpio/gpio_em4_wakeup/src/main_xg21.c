@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main.c
+ * @file main_xg21.c
  * @brief This project demonstrates the ability for a pin to wake the device
  * from EM4.
  *******************************************************************************
  * # License
- * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2024 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -40,10 +40,9 @@
 #include "em_gpio.h"
 #include "em_emu.h"
 #include "em_rmu.h"
+
 #include "bsp.h"
 
-#define EM4WU_PIN           BSP_GPIO_PB0_PIN
-#define EM4WU_PORT          BSP_GPIO_PB0_PORT
 #define EM4WU_EM4WUEN_NUM   (9)                       // PD2 is EM4WUEN pin 9
 #define EM4WU_EM4WUEN_MASK  (1 << EM4WU_EM4WUEN_NUM)
 
@@ -52,18 +51,23 @@
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure Button PB0 as input and EM4 wake-up source
-  GPIO_PinModeSet(EM4WU_PORT, EM4WU_PIN, gpioModeInputPullFilter, 1);
+  // Configure button PB0 as input
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPullFilter, 1);
+
+  // Enable GPIO pin wake-up from EM4; PD2 (button 0) is EM4WU pin 9
   GPIO_EM4EnablePinWakeup(EM4WU_EM4WUEN_MASK << _GPIO_EM4WUEN_EM4WUEN_SHIFT, 0);
 
+  // Configure Button PB1 as input for the escape hatch
+  GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInput, 1);
+
   // Configure LED0 as output
-  GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 1);
+  GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
 }
 
 /**************************************************************************//**
- * @brief Toggle LEDs on STK and Radio board indefinitely
+ * @brief Toggle LED0 on mainboard indefinitely
  *****************************************************************************/
-void toggleLEDs(void)
+void toggleLED(void)
 {
   while(1)
   {
@@ -82,24 +86,54 @@ int main(void)
   // Chip errata
   CHIP_Init();
 
-  // Initialization
-  // Note for EFR32xG21 devices, clock enabling is not required.
-  initGPIO();
-  EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
-  EMU_EM4Init(&em4Init);
+  // Release pin state when coming out of EM4
+  EMU_UnlatchPinRetention();
 
-  // Get the last Reset Cause
+  // Initialization
+  initGPIO();
+
+  /**********************************************************************//**
+   * When developing/debugging code on devices that enters EM2 or lower,
+   * it's a good idea to have an "escape hatch" type mechanism, e.g. a
+   * way to pause the device so that a debugger can connect in order
+   * to erase flash, among other things.
+   *
+   * Before proceeding with this example, make sure PB1 is not pressed.
+   * If the PB1 pin is low, turn on LED1 and execute the breakpoint
+   * instruction to stop the processor in EM0 and allow a debug
+   * connection to be made.
+   *************************************************************************/
+  if (GPIO_PinInGet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN) == 0)
+  {
+    GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, 1);
+    __BKPT(0);
+  }
+  // Pin not asserted, so disable input
+  else
+  {
+    GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeDisabled, 0);
+  }
+
+  // Get and then clear the last reset cause
   uint32_t rstCause = RMU_ResetCauseGet();
   RMU_ResetCauseClear();
 
-  // If the last Reset was due to leaving EM4, toggle LEDs. Else, enter EM4
+  // If exit from EM4 caused the last reset, toggle LEDs
   if(rstCause & EMU_RSTCAUSE_EM4)
   {
-    toggleLEDs();
+    toggleLED();
   }
+  // Otherwise, enter EM4
   else
   {
-	EMU_EnterEM4();
+    // Initialize EM4 with pin retention through wake-up
+    EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
+    em4Init.pinRetentionMode = emuPinRetentionLatch;
+
+    EMU_EM4Init(&em4Init);
+
+    // Enter EM4
+    EMU_EnterEM4();
   }
 
   // This line should never be reached

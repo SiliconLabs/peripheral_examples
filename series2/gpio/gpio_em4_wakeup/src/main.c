@@ -1,10 +1,10 @@
 /***************************************************************************//**
- * @file main_xg23_xg24.c
+ * @file main.c
  * @brief This project demonstrates the ability for a pin to wake the device
  * from EM4.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2024 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -40,19 +40,21 @@
 #include "em_gpio.h"
 #include "em_emu.h"
 #include "em_rmu.h"
-#include "mx25flash_spi.h"
+
 #include "bsp.h"
+
+#include "mx25flash_spi.h"
 
 /**************************************************************************//**
  * A JEDEC standard SPI flash boots up in standby mode in order to
  * provide immediate access, such as when used it as a boot memory.
  *
  * Typical current draw in standby mode for the MX25R8035F device used
- * on EFR32 radio boards is 5 ÂµA.
+ * on EFR32 radio boards is 5 µA.
  *
- * JEDEC standard SPI flash memories have a lower current deep power-down mode,
- * which can be entered after sending the relevant commands.  This is on the
- * order of 0.007 ÂµA for the MX25R8035F.
+ * JEDEC standard SPI flash memories have a lower current deep power-down
+ * mode, which can be entered after sending the relevant commands.  This
+ * is on the order of 0.007 µA for the MX25R8035F.
  *****************************************************************************/
 void powerDownSpiFlash(void)
 {
@@ -82,7 +84,7 @@ void initGPIO(void)
   // Enable GPIO pin wake-up from EM4; PB1 is EM4WUEN pin 4
   GPIO_EM4EnablePinWakeup(GPIO_IEN_EM4WUIEN4, 0);
 
-  // Configure LED0 as output
+  // Configure LED0 and LED1 outputs
   GPIO_PinModeSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN, gpioModePushPull, 0);
   GPIO_PinModeSet(BSP_GPIO_LED1_PORT, BSP_GPIO_LED1_PIN, gpioModePushPull, 0);
 }
@@ -120,7 +122,7 @@ int main(void)
   initGPIO();
   
   /**********************************************************************//**
-   * When developing/debugging code on xG23/xG24 that enters EM2 or lower,
+   * When developing/debugging code on devices that enters EM2 or lower,
    * it's a good idea to have an "escape hatch" type mechanism, e.g. a
    * way to pause the device so that a debugger can connect in order
    * to erase flash, among other things.
@@ -141,32 +143,28 @@ int main(void)
     GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
   }
 
-  // Get the last Reset Cause
+  // Get and then clear the last reset cause
   uint32_t rstCause = RMU_ResetCauseGet();
-  
-  // Clear Reset Cause
   RMU_ResetCauseClear();
 
-  // If the last Reset was due to leaving EM4, toggle LEDs. Else, enter EM4
+  // If exit from EM4 caused the last reset, toggle LEDs
   if(rstCause & EMU_RSTCAUSE_EM4)
   {
     toggleLEDs();
   }
+  // Otherwise, enter EM4
   else
   {
     // Power-down the radio board SPI flash
     powerDownSpiFlash();
 
-    // Switch from DCDC regulation mode to bypass mode.
+    // Switch from DCDC regulation mode to bypass mode
     EMU_DCDCModeSet(emuDcdcMode_Bypass);
 
-    // Use default settings for EM4, XO's and DCDC
+    // Initialize EM4 with pin retention through wake-up
     EMU_EM4Init_TypeDef em4Init = EMU_EM4INIT_DEFAULT;
-
-    // Enable Pin Retention through EM4 and wakeup
     em4Init.pinRetentionMode = emuPinRetentionLatch;
 
-    // Initialize EM mode 4
     EMU_EM4Init(&em4Init);
 
     // Enter EM4

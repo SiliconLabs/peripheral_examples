@@ -2,10 +2,13 @@
 
 <workspace>
   <project>
-    <path>$WS_DIR$\EFR32FG25_gpio_periph.ewp</path>
+    <path>$WS_DIR$\EFR32ZG23_gpio_periph.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG21_gpio_periph.ewp</path>
+    <path>$WS_DIR$\EFR32MG27_gpio_periph.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_gpio_periph.ewp</path>
   </project>
   <project>
     <path>$WS_DIR$\EFR32MG22_gpio_periph.ewp</path>
@@ -14,13 +17,10 @@
     <path>$WS_DIR$\EFR32MG24_gpio_periph.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32MG27_gpio_periph.ewp</path>
+    <path>$WS_DIR$\EFR32FG25_gpio_periph.ewp</path>
   </project>
   <project>
-    <path>$WS_DIR$\EFR32ZG23_gpio_periph.ewp</path>
-  </project>
-  <project>
-    <path>$WS_DIR$\EFR32ZG28_gpio_periph.ewp</path>
+    <path>$WS_DIR$\EFR32MG21_gpio_periph.ewp</path>
   </project>
 
   <batchBuild/>
