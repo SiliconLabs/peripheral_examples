@@ -1,10 +1,11 @@
 /***************************************************************************//**
  * @file main.c
- * @brief This project demonstrates a simple analog comparison of push button 0
- * to the 1.25V internal VREF; if the button is pushed, it sets LED0 on.
+ * @brief This project demonstrates polled use of the ACMP by comparing
+ * the voltage on an input pin when a button is pressed to the internal
+ * 1.25 V reference (VREF).
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2024 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -34,12 +35,12 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
  
-#include <stdbool.h>
 #include "em_device.h"
 #include "em_chip.h"
-#include "em_gpio.h"
 #include "em_acmp.h"
 #include "em_cmu.h"
+#include "em_gpio.h"
+
 #include "bsp.h"
 
 #define LED0_PORT           BSP_GPIO_LED0_PORT
@@ -55,10 +56,9 @@
  *****************************************************************************/
 void initGPIO(void)
 {
-  // Configure GPIO Clock
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  // Configure LED and ACMP GPIO output pins
+  // Configure LED0 and ACMP GPIO output pins
   GPIO_PinModeSet(ACMP_OUTPUT_PORT, ACMP_OUTPUT_PIN, gpioModePushPull, 0);
   GPIO_PinModeSet(LED0_PORT, LED0_PIN, gpioModePushPull, 0);
 }
@@ -68,31 +68,30 @@ void initGPIO(void)
  *****************************************************************************/
 void initACMP(void)
 {
-  // Configure ACMP Clock
   CMU_ClockEnable(cmuClock_ACMP0, true);
 
   // Initialize with default settings
   ACMP_Init_TypeDef init = ACMP_INIT_DEFAULT;
   ACMP_Init(ACMP0, &init);
-  
-  // Allocate CDEVEN0 to ACMP0 to be able to use the input
+
+  // Allocate BODD0 to ACMP0 to be able to use the input
   GPIO->BBUSALLOC = GPIO_BBUSALLOC_BODD0_ACMP0;
 
-  // In this example we want to compare an analog input to the 1.25 V
-  // internal reference. The default settings resets the divider for
-  // acmpInputVREFDIV1V25, which we can use as a 1.25 V reference.
-  // Now we select the two inputs to compare. Here we compare the input pin
-  // to the internal 1.25V reference. When the input pin is lower than
-  // 1.25 V then the ACMP output is 0 and when the input pin is higher than
-  // 1.25 V then the ACMP output is 1.
+  /*
+   * Configure ACMP0 to compare the specified input pin against the
+   * selected and divided reference (which defaults to divide-by-1 if
+   * the ACMP_INIT_DEFAULT settings are not overridden).
+   *
+   * In this example, the internal 1.25 V reference is used undivided
+   * so that when the input is lower than 1.25 V, the ACMP output is 0,
+   * and when it's higher than 1.25 V, the ACMP output is 1.
+   */
   ACMP_ChannelSet(ACMP0, acmpInputVREFDIV1V25, ACMP_INPUT_PORT_PIN);
 
-  // To be able to probe the output we can send the ACMP output to a pin.
-  // The second argument to this function is the pin location which is
-  // device dependent.
-  ACMP_GPIOSetup(ACMP0, ACMP_OUTPUT_PORT, ACMP_OUTPUT_PIN, true, false);
+  // Enable and drive non-inverted comparator on specified pin
+  ACMP_GPIOSetup(ACMP0, LED0_PORT, LED0_PIN, true, false);
 
-  // Wait for warmup
+  // Wait for warm-up
   while (!(ACMP0->IF & ACMP_IF_ACMPRDY));
 }
 
@@ -101,26 +100,26 @@ void initACMP(void)
  *****************************************************************************/
 int main(void)
 {
-  // Chip errata
+  // Workarounds for any errata
   CHIP_Init();
 
-  // Initializations
   initGPIO();
+
   initACMP();
 
-  // Infinite loop
+  // Constantly poll ACMP output status for changes
   while(1)
   {
     // Turn off LED
     GPIO_PinOutClear(LED0_PORT, LED0_PIN);
 
-    // Wait for signal to go high
+    // Wait for input to go high
     while (!(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK));
 
     // Turn on LED
     GPIO_PinOutSet(LED0_PORT, LED0_PIN);
 
-    // Wait for signal to go low
+    // Wait for input to go low
     while(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK);
   }
 }

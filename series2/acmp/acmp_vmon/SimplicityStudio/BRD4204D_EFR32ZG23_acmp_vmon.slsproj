@@ -13,6 +13,7 @@
     <include pattern="emlib/em_core.c" />
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
   </module>
   <module id="com.silabs.sdk.exx32.common.platform">
     <include pattern=".*/sl_syscalls.c" />
@@ -24,6 +25,9 @@
   <includePath uri="../../kit/EFR32ZG23_BRD4204D" />
   <includePath uri="../../kit/common/bsp" />
   <includePath uri="../../kit/common/drivers" />
+  <folder name="Drivers">
+    <file name="mx25flash_spi.c" uri="../../kit/common/drivers/mx25flash_spi.c" />
+  </folder>
   <folder name="src">
     <file name="readme.txt" uri="readme.txt" />
     <file name="main.c" uri="src/main.c" />
