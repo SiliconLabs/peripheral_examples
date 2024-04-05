@@ -149,9 +149,9 @@ void I2C0_IRQHandler(void)
   } else {
     if (pending & I2C_IF_ADDR) {
       // Address Match, indicating that reception is started
-      rxData = I2C0->RXDATA;
-      I2C0->CMD = I2C_CMD_ACK;
       i2c_rxInProgress = true;
+      rxData = I2C0->RXDATA;
+      I2C_IntClear(I2C0, I2C_IF_ADDR | I2C_IF_RXDATAV);
 
       if (rxData & 0x1) { // read bit set
         if (i2c_BufferIndex < I2C_BUFFER_SIZE) {
@@ -165,11 +165,12 @@ void I2C0_IRQHandler(void)
         i2c_gotTargetAddress = false;
       }
 
-      I2C_IntClear(I2C0, I2C_IF_ADDR | I2C_IF_RXDATAV);
+      I2C0->CMD = I2C_CMD_ACK;
 
       GPIO_PinOutSet(BSP_GPIO_LED0_PORT, BSP_GPIO_LED0_PIN);
     } else if (pending & I2C_IF_RXDATAV) {
       rxData = I2C0->RXDATA;
+      I2C_IntClear(I2C0, I2C_IF_RXDATAV);
 
       if (!i2c_gotTargetAddress) {
         /******************************************************/
@@ -179,8 +180,8 @@ void I2C0_IRQHandler(void)
         if (rxData < I2C_BUFFER_SIZE) {
           // Store target address
           i2c_BufferIndex = rxData;
-          I2C0->CMD = I2C_CMD_ACK;
           i2c_gotTargetAddress = true;
+          I2C0->CMD = I2C_CMD_ACK;
         } else {
           I2C0->CMD = I2C_CMD_NACK;
         }
@@ -197,8 +198,6 @@ void I2C0_IRQHandler(void)
           I2C0->CMD = I2C_CMD_NACK;
         }
       }
-
-      I2C_IntClear(I2C0, I2C_IF_RXDATAV);
     }
 
     if (pending & I2C_IF_ACK) {
