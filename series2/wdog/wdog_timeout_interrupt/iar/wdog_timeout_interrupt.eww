@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_wdog_timeout_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_wdog_timeout_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_wdog_timeout_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_wdog_timeout_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_wdog_timeout_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_wdog_timeout_interrupt.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_wdog_timeout_interrupt.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>

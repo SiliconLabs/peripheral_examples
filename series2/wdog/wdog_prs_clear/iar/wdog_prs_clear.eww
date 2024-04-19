@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\EFR32FG25_wdog_prs_clear.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG21_wdog_prs_clear.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG22_wdog_prs_clear.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG24_wdog_prs_clear.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32MG27_wdog_prs_clear.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG23_wdog_prs_clear.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\EFR32ZG28_wdog_prs_clear.ewp</path>
+  </project>
+
+  <batchBuild/>
+</workspace>
