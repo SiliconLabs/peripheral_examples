@@ -20699,7 +20699,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series1/wtimer/wtimer_single_pulse_generation_polled/SimplicityStudio/SLSTK3701A_EFM32GG11B_wtimer_single_pulse_generation_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Interrupt" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32MG21_acmp_interrupt"/>
@@ -20708,7 +20708,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4181A_EFR32MG21_acmp_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP Interrupt" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
     <properties key="defaultName" value="BRD4186C_EFR32MG24_acmp_interrupt"/>
@@ -20717,7 +20717,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4186C_EFR32MG24_acmp_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP Interrupt" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
     <properties key="defaultName" value="BRD4194A_EFR32MG27_acmp_interrupt"/>
@@ -20726,7 +20726,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4194A_EFR32MG27_acmp_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP Interrupt" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
     <properties key="defaultName" value="BRD4204D_EFR32ZG23_acmp_interrupt"/>
@@ -20735,7 +20735,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Interrupt" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
     <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_interrupt"/>
@@ -20744,7 +20744,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_acmp_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP Interrupt" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. When the voltage ...">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP Interrupt" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
     <properties key="defaultName" value="BRD4400C_EFR32ZG28_acmp_interrupt"/>
@@ -20753,7 +20753,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_interrupt/SimplicityStudio/BRD4400C_EFR32ZG28_acmp_interrupt.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Pin Output" description="This project demonstrates GPIO output from the ACMP without using interrupts or having firmware otherwise drive a pin in response to input voltage changes by routing the comparator output directly to a pin. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32MG21_acmp_pin_output"/>
@@ -20762,7 +20762,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4181A_EFR32MG21_acmp_pin_output.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP Pin Output" description="This project demonstrates GPIO output from the ACMP without using interrupts or having firmware otherwise drive a pin in response to input voltage changes by routing the comparator output directly to a pin. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
     <properties key="defaultName" value="BRD4186C_EFR32MG24_acmp_pin_output"/>
@@ -20771,7 +20771,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4186C_EFR32MG24_acmp_pin_output.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP Pin Output" description="This project demonstrates GPIO output from the ACMP without using interrupts or having firmware otherwise drive a pin in response to input voltage changes by routing the comparator output directly to a pin. ">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
     <properties key="defaultName" value="BRD4194A_EFR32MG27_acmp_pin_output"/>
@@ -20780,7 +20780,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4194A_EFR32MG27_acmp_pin_output.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP Pin Output" description="This project demonstrates GPIO output from the ACMP without using interrupts or having firmware otherwise drive a pin in response to input voltage changes by routing the comparator output directly to a pin. ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
     <properties key="defaultName" value="BRD4204D_EFR32ZG23_acmp_pin_output"/>
@@ -20789,7 +20789,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_pin_output.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Pin Output" description="This project demonstrates GPIO output from the ACMP without using interrupts or having firmware otherwise drive a pin in response to input voltage changes by routing the comparator output directly to a pin. ">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
     <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_pin_output"/>
@@ -20798,7 +20798,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4270B_EFR32FG25_acmp_pin_output.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP Pin Output" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP Pin Output" description="This project demonstrates GPIO output from the ACMP without using interrupts or having firmware otherwise drive a pin in response to input voltage changes by routing the comparator output directly to a pin. ">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
     <properties key="defaultName" value="BRD4400C_EFR32ZG28_acmp_pin_output"/>
@@ -20807,7 +20807,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_pin_output/SimplicityStudio/BRD4400C_EFR32ZG28_acmp_pin_output.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP Polled" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32MG21_acmp_polled"/>
@@ -20816,7 +20816,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4181A_EFR32MG21_acmp_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP Polled" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
     <properties key="defaultName" value="BRD4186C_EFR32MG24_acmp_polled"/>
@@ -20825,7 +20825,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4186C_EFR32MG24_acmp_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP Polled" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
     <properties key="defaultName" value="BRD4194A_EFR32MG27_acmp_polled"/>
@@ -20834,7 +20834,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4194A_EFR32MG27_acmp_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP Polled" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
     <properties key="defaultName" value="BRD4204D_EFR32ZG23_acmp_polled"/>
@@ -20843,7 +20843,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP Polled" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
     <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_polled"/>
@@ -20852,7 +20852,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4270B_EFR32FG25_acmp_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP Polled" description="This project demonstrates using the analog comparator (ACMP) peripheral to  compare an analog input to an internal reference. In this example, ACMP pos input is routed to a GPIO input pin and ACMP neg input is routed to the 1.25V internal reference. The ACMP output i...">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP Polled" description="This project demonstrates interrupt-driven use of the ACMP by comparing the voltage on an input pin when a button is pressed to the internal 1.25 V reference (VREF). ">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
     <properties key="defaultName" value="BRD4400C_EFR32ZG28_acmp_polled"/>
@@ -20861,7 +20861,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_polled/SimplicityStudio/BRD4400C_EFR32ZG28_acmp_polled.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP VMON" description="This project demonstrates the usage of the ACMP module in combination with the  VSENSE inputs to monitor AVDD. VSENSE has a 1/4 voltage divider while VREF uses  a configurable divider. The VREFDIV divider is configured such that AVDD  triggers an interrupt when its v...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 ACMP VMON" description="This project shows how the ACMP module and its VSENSE inputs can be used to monitor a supply voltage without CPU intervention. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32MG21_acmp_vmon"/>
@@ -20869,6 +20869,51 @@
     <properties key="template.category" value="ACMP"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4181A_EFR32MG21_acmp_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 ACMP VMON" description="This project shows how the ACMP module and its VSENSE inputs can be used to monitor a supply voltage without CPU intervention. ">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_acmp_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4186C_EFR32MG24_acmp_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 ACMP VMON" description="This project shows how the ACMP module and its VSENSE inputs can be used to monitor a supply voltage without CPU intervention. ">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_acmp_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4194A_EFR32MG27_acmp_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 ACMP VMON" description="This project shows how the ACMP module and its VSENSE inputs can be used to monitor a supply voltage without CPU intervention. ">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_acmp_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4204D_EFR32ZG23_acmp_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 ACMP VMON" description="This project shows how the ACMP module and its VSENSE inputs can be used to monitor a supply voltage without CPU intervention. ">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_acmp_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4270B_EFR32FG25_acmp_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 ACMP VMON" description="This project shows how the ACMP module and its VSENSE inputs can be used to monitor a supply voltage without CPU intervention. ">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_acmp_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="ACMP"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/acmp/acmp_vmon/SimplicityStudio/BRD4400C_EFR32ZG28_acmp_vmon.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 BURTC EM4 Buram" description="This project uses the BURTC (Backup Real Time Counter) to wake the device from EM4 mode and thus trigger a reset. This project also shows how to use the BURAM retention registers to have data persist between resets. The number of resets  triggered by the BURTC will p...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -21031,6 +21076,51 @@
     <properties key="template.category" value="EMU"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4182A_EFR32MG22_dcdc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 DCDC VMON" description="This project demonstrates the DCDC VREGVDD Threshold Comparator. The device will be switching between DCDC regulator on and DCDC bypass mode  depending on the input voltage to VREGVDD as below: - Switch DCDC to bypass mode if VREGVDD is below 2.2 V - Enable DCDC if V...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_dcdc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4186C_EFR32MG24_dcdc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 DCDC VMON" description="This project demonstrates the DCDC VREGVDD Threshold Comparator. The device will be switching between DCDC regulator on and DCDC bypass mode  depending on the input voltage to VREGVDD as below: - Switch DCDC to bypass mode if VREGVDD is below 2.2 V - Enable DCDC if V...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_dcdc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4194A_EFR32MG27_dcdc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 DCDC VMON" description="This project demonstrates the DCDC VREGVDD Threshold Comparator. The device will be switching between DCDC regulator on and DCDC bypass mode  depending on the input voltage to VREGVDD as below: - Switch DCDC to bypass mode if VREGVDD is below 2.2 V - Enable DCDC if V...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_dcdc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4204D_EFR32ZG23_dcdc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 DCDC VMON" description="This project demonstrates the DCDC VREGVDD Threshold Comparator. The device will be switching between DCDC regulator on and DCDC bypass mode  depending on the input voltage to VREGVDD as below: - Switch DCDC to bypass mode if VREGVDD is below 2.2 V - Enable DCDC if V...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_dcdc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4270B_EFR32FG25_dcdc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 DCDC VMON" description="This project demonstrates the DCDC VREGVDD Threshold Comparator. The device will be switching between DCDC regulator on and DCDC bypass mode  depending on the input voltage to VREGVDD as below: - Switch DCDC to bypass mode if VREGVDD is below 2.2 V - Enable DCDC if V...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_dcdc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="EMU"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/emu/dcdc_vmon/SimplicityStudio/BRD4400C_EFR32ZG28_dcdc_vmon.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4182A EFR32MG22 EM01 Voltage Scaling" description="This project demonstrates the use of EM0/EM1 voltage scaling on Series 2 EFR32 devices.  Note that this differs from the voltage scaling functionality on Series 1 devices where a single setting (VS2 or VS0) applies in all operating modes.  For Series 2 devices, separ...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
@@ -22067,7 +22157,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpcrc/gpcrc_software/SimplicityStudio/BRD4400C_EFR32ZG28_gpcrc_software.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32MG21_gpio_em4_wakeup"/>
@@ -22076,7 +22166,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4181A_EFR32MG21_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4182A EFR32MG22 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4182A EFR32MG22 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
     <properties key="defaultName" value="BRD4182A_EFR32MG22_gpio_em4_wakeup"/>
@@ -22085,7 +22175,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4182A_EFR32MG22_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4186C EFR32MG24 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
     <properties key="defaultName" value="BRD4186C_EFR32MG24_gpio_em4_wakeup"/>
@@ -22094,7 +22184,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4186C_EFR32MG24_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4194A EFR32MG27 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
     <properties key="defaultName" value="BRD4194A_EFR32MG27_gpio_em4_wakeup"/>
@@ -22103,7 +22193,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4194A_EFR32MG27_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
     <properties key="defaultName" value="BRD4204D_EFR32ZG23_gpio_em4_wakeup"/>
@@ -22112,7 +22202,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4204D_EFR32ZG23_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
     <properties key="defaultName" value="BRD4270B_EFR32FG25_gpio_em4_wakeup"/>
@@ -22121,7 +22211,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4270B_EFR32FG25_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 GPIO EM4 Wakeup" description="This project uses GPIO to wake the device from EM4 mode and thus trigger a reset. Under non-EM4 reset, the device will enter EM4. Pressing PB0 (on EFR32xG21)/ PB1 (on EFR32xG22, EFR32xG23, EFR32xG24, EFR32xG25, EFR32xG27, EFR32xG28) will wake the device from EM4 and ...">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 GPIO EM4 Wakeup" description="This project uses a GPIO pin configured as an input to wake from the EM4 energy mode, thus causing a reset. Pressing the specified button (PB0 for EFR32MG21 and PB1 for all other devices) on the mainboard wakes the system from EM4 and toggles the LED0 indefinitely. ">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
     <properties key="defaultName" value="BRD4400C_EFR32ZG28_gpio_em4_wakeup"/>
@@ -22130,7 +22220,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_em4_wakeup/SimplicityStudio/BRD4400C_EFR32ZG28_gpio_em4_wakeup.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4181A EFR32MG21 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
     <properties key="defaultName" value="BRD4181A_EFR32MG21_gpio_periph"/>
@@ -22139,7 +22229,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4181A_EFR32MG21_gpio_periph.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4182A EFR32MG22 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4182A EFR32MG22 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
     <properties key="defaultName" value="BRD4182A_EFR32MG22_gpio_periph"/>
@@ -22148,7 +22238,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4182A_EFR32MG22_gpio_periph.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4186C EFR32MG24 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
     <properties key="defaultName" value="BRD4186C_EFR32MG24_gpio_periph"/>
@@ -22157,7 +22247,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4186C_EFR32MG24_gpio_periph.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4194A EFR32MG27 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
     <properties key="defaultName" value="BRD4194A_EFR32MG27_gpio_periph"/>
@@ -22166,7 +22256,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4194A_EFR32MG27_gpio_periph.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
     <properties key="defaultName" value="BRD4204D_EFR32ZG23_gpio_periph"/>
@@ -22175,7 +22265,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4204D_EFR32ZG23_gpio_periph.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4270B EFR32FG25 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
     <properties key="defaultName" value="BRD4270B_EFR32FG25_gpio_periph"/>
@@ -22184,7 +22274,7 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/gpio/gpio_periph/SimplicityStudio/BRD4270B_EFR32FG25_gpio_periph.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 GPIO PERIPH" description="This project demonstrates how to configure a GPIO pin to drive the output of the LFRCO, and sets the slew rate and drive strength. ">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 GPIO PERIPH" description="This project shows how to drive a pin the output of an on-chip oscillator (the LFRCO, in this case) and how to set the default and alternate slew rates for the selected GPIO port. ">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
     <properties key="defaultName" value="BRD4400C_EFR32ZG28_gpio_periph"/>
@@ -23578,6 +23668,51 @@
     <properties key="template.category" value="IADC"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4182A_EFR32MG22_iadc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.     The IADC is enabled in continous single conversion mode with the internal 1.2 V   bandgap voltage as its reference voltage. This  project demonstrat...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4186C_EFR32MG24_iadc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.     The IADC is enabled in continous single conversion mode with the internal 1.2 V   bandgap voltage as its reference voltage. This  project demonstrat...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4194A_EFR32MG27_iadc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.     The IADC is enabled in continous single conversion mode with the internal 1.2 V   bandgap voltage as its reference voltage. This  project demonstrat...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4204D_EFR32ZG23_iadc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.     The IADC is enabled in continous single conversion mode with the internal 1.2 V   bandgap voltage as its reference voltage. This  project demonstrat...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4270B_EFR32FG25_iadc_vmon.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 IADC VMON" description=" This project demonstrates how to use the window comparator feature in the IADC   as a voltage monitor peripheral.     The IADC is enabled in continous single conversion mode with the internal 1.2 V   bandgap voltage as its reference voltage. This  project demonstrat...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_iadc_vmon"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="IADC"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/iadc/iadc_vmon/SimplicityStudio/BRD4400C_EFR32ZG28_iadc_vmon.slsproj"/>
   </descriptors>
   <descriptors label="Platform - BRD4181A EFR32MG21 LDMA 2D Copy" description="This example is based on the EFR32 Series 2 Reference Manual: Chapter: LDMA Section: Examples Subsection: Example #6 ">
     <properties key="core.boardCompatibility" value="brd4181a"/>
@@ -26252,67 +26387,382 @@
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
     <properties key="template.projectFilePaths" value="series2/vdac/vdac_timer_dma_waveform/SimplicityStudio/BRD4400C_EFR32ZG28_vdac_timer_dma_waveform.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4181a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
-    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4181A_EFR32MG21_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4181A_EFR32MG21_wdog_prs_clear.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4182a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
-    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4182A_EFR32MG22_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4182A_EFR32MG22_wdog_prs_clear.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4186c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
-    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4186C_EFR32MG24_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4186C_EFR32MG24_wdog_prs_clear.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4194a"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
-    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4194A_EFR32MG27_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4194A_EFR32MG27_wdog_prs_clear.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4204d"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
-    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4204D_EFR32ZG23_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4204D_EFR32ZG23_wdog_prs_clear.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4270b"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
-    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4270B_EFR32FG25_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4270B_EFR32FG25_wdog_prs_clear.slsproj"/>
   </descriptors>
-  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG PRS Clear" description="This project demonstates the PRS clear functionality of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 0.5 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sa...">
     <properties key="core.boardCompatibility" value="brd4400c"/>
     <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
-    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog_prs_clear"/>
     <properties key="quality" value="Evaluation"/>
     <properties key="template.category" value="WDOG"/>
     <properties key="template.initiallyOpenedResource" value="readme.txt"/>
-    <properties key="template.projectFilePaths" value="series2/wdog/wdog_led_toggle/SimplicityStudio/BRD4400C_EFR32ZG28_wdog.slsproj"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_clear/SimplicityStudio/BRD4400C_EFR32ZG28_wdog_prs_clear.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4181A_EFR32MG21_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4182A_EFR32MG22_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4186C_EFR32MG24_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4194A_EFR32MG27_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4204D_EFR32ZG23_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4270B_EFR32FG25_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG PRS Monitor" description="This project demonstrates the PRS monitoring function of the watchdog. The GPIO is configured as an input and expects to receive a periodic signal with a frequency &gt; 1 Hz. The GPIO is connected to a PRS producer, and the WDOG is connected to a PRS consumer of the sam...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog_prs_monitor"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_prs_monitor/SimplicityStudio/BRD4400C_EFR32ZG28_wdog_prs_monitor.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4181A_EFR32MG21_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4182A_EFR32MG22_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4186C_EFR32MG24_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4194A_EFR32MG27_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG Timeout Interrupt" description="This project demonstrates the functionality of the watchdog timer interrupt. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the watchdog has not timed out. While Push Button 0 is pressed...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog_timeout_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_interrupt/SimplicityStudio/BRD4400C_EFR32ZG28_wdog_timeout_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4181A_EFR32MG21_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4182A_EFR32MG22_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4186C_EFR32MG24_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4194A_EFR32MG27_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4204D_EFR32ZG23_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4270B_EFR32FG25_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG Timeout Reset" description="This project demonstrates the functionality of the watchdog timer. It uses LED0 and a Push-button to indicate the state of the system. LED0 will flash as long as Push Button 0 is not pressed and the system has not undergone a  watchdog reset. While Push Button 0 is p...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog_timeout_reset"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_timeout_reset/SimplicityStudio/BRD4400C_EFR32ZG28_wdog_timeout_reset.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4181A_EFR32MG21_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4182A_EFR32MG22_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4186C_EFR32MG24_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4194A_EFR32MG27_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG Warning Interrupt" description="This project demonstrates the warning interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the counter reaches 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared within 1024 ...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog_warning_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_warning_interrupt/SimplicityStudio/BRD4400C_EFR32ZG28_wdog_warning_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4181A EFR32MG21 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4181a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg21.*"/>
+    <properties key="defaultName" value="BRD4181A_EFR32MG21_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4181A_EFR32MG21_wdog_window_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4182A EFR32MG22 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4182a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg22.*"/>
+    <properties key="defaultName" value="BRD4182A_EFR32MG22_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4182A_EFR32MG22_wdog_window_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4186C EFR32MG24 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4186c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg24.*"/>
+    <properties key="defaultName" value="BRD4186C_EFR32MG24_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4186C_EFR32MG24_wdog_window_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4194A EFR32MG27 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4194a"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.mg27.*"/>
+    <properties key="defaultName" value="BRD4194A_EFR32MG27_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4194A_EFR32MG27_wdog_window_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4204D EFR32ZG23 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4204d"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg23.*"/>
+    <properties key="defaultName" value="BRD4204D_EFR32ZG23_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4204D_EFR32ZG23_wdog_window_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4270B EFR32FG25 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4270b"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.fg25.*"/>
+    <properties key="defaultName" value="BRD4270B_EFR32FG25_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4270B_EFR32FG25_wdog_window_interrupt.slsproj"/>
+  </descriptors>
+  <descriptors label="Platform - BRD4400C EFR32ZG28 WDOG Window Interrupt" description="This project demonstrates the window interrupt functionality of the watchdog timer. In this example, the watchdog triggers an interrupt when the watchdog is cleared within 50% of the timer period. The timer period is set to 2048 ms, so the watchdog must be cleared af...">
+    <properties key="core.boardCompatibility" value="brd4400c"/>
+    <properties key="core.partCompatibility" value="mcu.arm.efr32.zg.*"/>
+    <properties key="defaultName" value="BRD4400C_EFR32ZG28_wdog_window_interrupt"/>
+    <properties key="quality" value="Evaluation"/>
+    <properties key="template.category" value="WDOG"/>
+    <properties key="template.initiallyOpenedResource" value="readme.txt"/>
+    <properties key="template.projectFilePaths" value="series2/wdog/wdog_window_interrupt/SimplicityStudio/BRD4400C_EFR32ZG28_wdog_window_interrupt.slsproj"/>
   </descriptors>
 </model:MDescriptors>
