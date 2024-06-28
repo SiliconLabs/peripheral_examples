@@ -5,14 +5,15 @@
  * remaining in EM2.
  *
  * After initialization, the MCU goes into EM2 where the receive LDMA
- * channel buffers the specified number of bytes of incoming data.  The
- * LDMA channel done interrupt wakes the device from EM2.  The CPU starts
- * the transmit channel and re-enters EM2.  The LDMA services the EUSART
- * transmit FIFO until the specified number of bytes are sent.  The LDMA
- * channel done interrupt again wakes the system. and the process repeats.
+ * channel buffers the specified number of bytes of incoming data. The
+ * LDMA channel done interrupt wakes the device from EM2. The MCU starts
+ * the transmit channel and the LDMA channel done interrupt for TX is disabled
+ * prior to re-entering EM2. The LDMA services the EUSART transmit FIFO until
+ * the specified number of bytes are sent. EUSART TXC transmission
+ * complete interrupt finally wakes the system and the RX/TX process repeats.
  *******************************************************************************
  * # License
- * <b>Copyright 2021 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2024 Silicon Laboratories Inc. www.silabs.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -59,17 +60,17 @@
 #include "bsp.h"
 
 // Size of the buffer for received data
-#define BUFLEN  10
+#define BUFLEN           10
 
 // Receive data buffer
 uint8_t buffer[BUFLEN];
 
 // In low-frequency mode, the maximum EUSART baud rate is 9600
-#define BAUDRATE             9600
+#define BAUDRATE         9600
 
 // LDMA channels for receive and transmit servicing
-#define RX_LDMA_CHANNEL 0
-#define TX_LDMA_CHANNEL 1
+#define RX_LDMA_CHANNEL  0
+#define TX_LDMA_CHANNEL  1
 
 // LDMA descriptor and transfer configuration structures for TX channel
 LDMA_Descriptor_t ldmaTXDescriptor;
@@ -141,11 +142,31 @@ void initEUSART0(void)
   init.baudrate = BAUDRATE;
   init.advancedSettings = &advance_init;
   init.advancedSettings->dmaWakeUpOnRx = true;
-  init.advancedSettings->dmaWakeUpOnTx = true;
   init.advancedSettings->dmaHaltOnError = true;
+
+  // Set FIFO watermark lvl; wake when ready to transfer from RX FIFO to memory
+  advance_init.RxFifoWatermark = (EUSART_RxFifoWatermark_TypeDef)((BUFLEN - 1) << _EUSART_CFG1_RXFIW_SHIFT);
 
   // Configure and enable EUSART0 for low-frequency (EM2) operation
   EUSART_UartInitLf(EUSART0, &init);
+
+  // Clear and enable transmit complete interrupt
+  EUSART_IntClear(EUSART0, EUSART_IF_TXC);
+  EUSART_IntEnable(EUSART0, EUSART_IEN_TXC);
+
+  // Enable NVIC USART source
+  NVIC_ClearPendingIRQ(EUSART0_TX_IRQn);
+  NVIC_EnableIRQ(EUSART0_TX_IRQn);
+}
+
+/**************************************************************************//**
+ * @brief
+ *    The EUSART0 transmit interrupt
+ *****************************************************************************/
+void EUSART0_TX_IRQHandler(void)
+{
+  // Used to wake once transmit completes
+  EUSART_IntClear(EUSART0, EUSART_IF_TXC);
 }
 
 /**************************************************************************//**
@@ -265,7 +286,10 @@ int main(void)
     // start the LDMA transmit channel
     LDMA_StartTransfer(TX_LDMA_CHANNEL, &ldmaTXConfig, &ldmaTXDescriptor);
 
-    // Wait in EM2 while transmitting data
+    // Disable the channel interrupt; automatically enabled with previous API
+    LDMA->IEN_CLR = (1 << TX_LDMA_CHANNEL);
+
+    // Wait while EUSART transmission completes
     EMU_EnterEM2(true);
   }
 }
