@@ -132,9 +132,6 @@ int main(void)
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_WSTK_DEFAULT;
   EMU_DCDCInit(&dcdcInit);
 
-  // Power-down the radio board SPI flash
-  powerDownSpiFlash();
-
   /*
    * When developing or debugging code that enters EM2 or
    *  lower, it's a good idea to have an "escape hatch" type
@@ -157,6 +154,11 @@ int main(void)
     GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
     CMU_ClockEnable(cmuClock_GPIO, false);
   }
+
+  // Power-down the radio board SPI flash 
+  powerDownSpiFlash();
+
+  // Initialize BURTC
   initBURTC();
 
   // Power down all RAM blocks except block 0

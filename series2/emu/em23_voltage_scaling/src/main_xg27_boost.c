@@ -135,20 +135,6 @@ int main(void)
   EMU_DCDCBoostInit(&dcdcInit);
 
   /*
-   * The BRD4111A EFR32BG27 boost radio board has specific power configuration
-   * requirements in order to measure low energy mode current consumption
-   * accurately(refer to the readme for configuration details). This change in
-   * configuration, however, will effectively disconnect the power source to the
-   * MX25 flash. Therefore, there is no need to power down the MX25 SPI flash
-   * when the board is modified. This routine is only needed for an unmodified
-   * radio board.
-   */
-  if(MX25_POWER_DOWN) {
-    // Power-down the radio board SPI flash
-    powerDownSpiFlash();
-  }
-
-  /*
    * When developing or debugging code that enters EM2 or
    *  lower, it's a good idea to have an "escape hatch" type
    * mechanism, e.g. a way to pause the device so that a debugger can
@@ -168,8 +154,23 @@ int main(void)
   // Pin not asserted, so disable input
   else {
     GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
-    CMU_ClockEnable(cmuClock_GPIO, false);
   }
+
+  /*
+   * The BRD4111A EFR32BG27 boost radio board has specific power configuration
+   * requirements in order to measure low energy mode current consumption
+   * accurately(refer to the readme for configuration details). This change in
+   * configuration, however, will effectively disconnect the power source to the
+   * MX25 flash. Therefore, there is no need to power down the MX25 SPI flash
+   * when the board is modified. This routine is only needed for an unmodified
+   * radio board.
+   */
+  if(MX25_POWER_DOWN) {
+    // Power-down the radio board SPI flash
+    powerDownSpiFlash();
+  }
+
+  // Initialize BURTC
   initBURTC();
 
   /*

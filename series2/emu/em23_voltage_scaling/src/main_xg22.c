@@ -134,9 +134,6 @@ int main(void)
   // Enable DC-DC converter
   EMU_DCDCInit(&dcdcInit);
 
-  // Power-down the radio board SPI flash
-  powerDownSpiFlash();
-
   /*
    * When developing/debugging code on xG22 that enters EM2 or lower,
    * it's a good idea to have an "escape hatch" type mechanism, e.g. a
@@ -161,6 +158,11 @@ int main(void)
     GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
     CMU_ClockEnable(cmuClock_GPIO, false);
   }
+
+  // Power-down the radio board SPI flash 
+  powerDownSpiFlash();
+
+  // Initialize BURTC
   initBURTC();
 
   /*
