@@ -88,9 +88,6 @@ void initACMP(void)
    */
   ACMP_ChannelSet(ACMP0, acmpInputVREFDIV1V25, ACMP_INPUT_PORT_PIN);
 
-  // Enable and drive non-inverted comparator on specified pin
-  ACMP_GPIOSetup(ACMP0, LED0_PORT, LED0_PIN, true, false);
-
   // Wait for warm-up
   while (!(ACMP0->IF & ACMP_IF_ACMPRDY));
 }
@@ -114,12 +111,12 @@ int main(void)
     GPIO_PinOutClear(LED0_PORT, LED0_PIN);
 
     // Wait for input to go high
-    while (!(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK));
+    while (ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK);
 
     // Turn on LED
     GPIO_PinOutSet(LED0_PORT, LED0_PIN);
 
     // Wait for input to go low
-    while(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK);
+    while(!(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK));
   }
 }

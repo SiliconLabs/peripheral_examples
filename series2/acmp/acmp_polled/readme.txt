@@ -22,6 +22,12 @@ How To Test:
 3.  Press and hold button PB0; LED0 will turn on.
 4.  When button PB0 is released; LED0 will turn off.
 
+How To Test (EFR32xG27):
+1.  Open Simplicity Studio and update the kit's firmware from the Simplicity Launcher (if necessary).
+2.  Build the example project and download it to the target system.
+3.  LED0 is on by default. Press and hold button PB1; LED0 will turn off.
+4.  When button PB1 is released; LED0 will turn on.
+
 NOTE: Button PB0 provides an easy way to say the example in action, but
 mechanical bouncing may cause extra rising or falling edges on the ACMP
 input that cross the VREF threshold. Any of these can result in an

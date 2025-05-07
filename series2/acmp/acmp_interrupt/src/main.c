@@ -123,18 +123,18 @@ void initACMP(void)
  *****************************************************************************/
 void ACMP0_IRQHandler(void)
 {
-  if(ACMP0->IF & ACMP_IF_RISE)
-  {
-    // Clear rising input interrupt flag
-    ACMP_IntClear(ACMP0, ACMP_IF_RISE);
-
-    // Turn on GPIO
-    GPIO_PinOutSet(LED0_PORT, LED0_PIN);
-  }
   if(ACMP0->IF & ACMP_IF_FALL)
   {
     // Clear falling input interrupt flag
     ACMP_IntClear(ACMP0, ACMP_IF_FALL);
+
+    // Turn on GPIO
+    GPIO_PinOutSet(LED0_PORT, LED0_PIN);
+  }
+  if(ACMP0->IF & ACMP_IF_RISE)
+  {
+    // Clear rising input interrupt flag
+    ACMP_IntClear(ACMP0, ACMP_IF_RISE);
 
     // Turn off GPIO
     GPIO_PinOutClear(LED0_PORT, LED0_PIN);

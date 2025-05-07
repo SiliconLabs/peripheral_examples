@@ -73,11 +73,6 @@ void initACMP(void)
   // 1.25 V then the ACMP output is 1.
   ACMP_ChannelSet(ACMP0, acmpInputVREFDIV1V25, acmpInputPD2);
 
-  // To be able to probe the output we can send the ACMP output to a pin.
-  // The second argument to this function is the pin location which is
-  // device dependent.
-  ACMP_GPIOSetup(ACMP0, gpioPortD, 3, true, false);
-
   // Wait for warmup
   while (!(ACMP0->IF & ACMP_IF_ACMPRDY));
 }
@@ -100,13 +95,13 @@ int main(void)
     // Turn off LED
     GPIO_PinOutClear(gpioPortB, 1);
 
-    // Wait for signal to go high
-    while (!(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK));
+    // Wait for signal to go low
+    while (ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK);
 
     // Turn on LED
     GPIO_PinOutSet(gpioPortB, 1);
 
-    // Wait for signal to go low
-    while(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK);
+    // Wait for signal to go high
+    while(!(ACMP0->STATUS & _ACMP_STATUS_ACMPOUT_MASK));
   }
 }

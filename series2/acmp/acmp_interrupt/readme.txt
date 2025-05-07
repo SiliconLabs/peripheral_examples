@@ -33,7 +33,13 @@ How To Test (EFR32xG21):
 13. Connect an external supply to ACMP pos input GPIO (with voltage <= IOVDD 3.3V)
 14. Repeat steps 7 thru 12, but instead of using PB1, vary the external supply voltage above
     and below 1.25V
-    
+  
+How To Test (EFR32xG27):
+1.  Open Simplicity Studio and update the kit's firmware from the Simplicity Launcher (if necessary).
+2.  Build the example project and download it to the target system.
+3.  LED0 is on by default. Press and hold button PB1; LED0 will turn off.
+4.  When button PB1 is released; LED0 will turn on.
+  
 How To Test (all other devices):
 1.  Open Simplicity Studio and update the kit's firmware from the Simplicity Launcher (if necessary).
 2.  Build the example project and download it to the target system.
